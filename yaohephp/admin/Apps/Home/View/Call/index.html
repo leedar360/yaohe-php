@@ -1,0 +1,151 @@
+<include file="Public:top"/>
+<script>
+$(document).ready(function(){
+	$('.has-items').eq(4).children(".level-2").show();
+	$('.has-items').eq(4).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('.has-items').eq(4).children(".level-2").children('li').eq(4).addClass('selected');
+	
+	$("#all").click(function(){ 
+		if(($(this).attr('checked')))
+		{
+			$("input[name='id[]']").each(function(){
+				$(this).attr("checked",true);
+			});  
+		}
+		else
+		{
+			$("input[name='id[]']").each(function(){
+				$(this).attr("checked",false);
+			});  
+		}
+	});
+});
+function search()
+{
+	var url	=	'?c=Call&a=index&';
+	url+='title='+$('#title').val()+'&keywords='+$('#keywords').val();
+	window.location.replace(url);
+}
+//下线
+function del()
+{
+	var variable = $("input[name='id[]']:checked").serialize();
+	if(variable=='')
+	{
+		alert('请选择记录');
+		return false;
+	}
+	if(!confirm("确认删除选中记录"))return false;
+	$.ajax({
+		url: "?c=Call&a=delete",
+		type: "post",
+		data: variable,
+		success: function (result) {
+			//handle
+			alert(result.msg);
+			window.location.reload();
+		}
+	});
+}
+</script>
+<body class="modal-ready">
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+        	
+
+
+            <include file="Public:menu"/>
+            
+            
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+
+					
+                    <div class="pane">
+                    
+                    	<div class="toolbar">
+							<div class="form-search"><input type="search" id="title" placeholder="商家名称/商家编号" value="{$title}"></div>
+							<div class="form-search"><input type="search" id="keywords" placeholder="关键字" value="{$keywords}"></div>
+							<a class="btn" href="javascript:search()"><span class="icon"></span><span class="text">搜索</span></a>
+                        </div>
+						<table class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th class="checkbox"><input type="checkbox" id="all"></th>
+									<th>商家编号</th>
+									<th>商家名称</th>
+									<th>内容</th>
+									<th>图片</th>
+									<th>引用服务</th>
+									<th>最后更新时间</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+							<volist name="list" id="vo">
+								<tr class="dbclick">
+									<td class="checkbox"><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+									<td>{$vo.id}</td>
+									<td><a href='?c=Shop&a=view&id={$vo.id}'>{$vo.s_title}</a></td>
+									<td>{$vo.content}</td>
+									<td>
+									<?php
+									if(!empty($vo['img6']))
+									{
+										$img=$vo['img6'];
+									}
+									if(!empty($vo['img5']))
+									{
+										$img=$vo['img5'];
+									}
+									if(!empty($vo['img4']))
+									{
+										$img=$vo['img4'];
+									}
+									if(!empty($vo['img3']))
+									{
+										$img=$vo['img3'];
+									}
+									if(!empty($vo['img2']))
+									{
+										$img=$vo['img2'];
+									}
+									if(!empty($vo['img1']))
+									{
+										$img=$vo['img1'];
+									}
+									if(isset($img))
+									{
+									?>
+									<img src='__IMGURL__/imgs/<?php echo $img;?>' width="100" height="100" />
+									<?php
+									}
+									?>
+									</td>
+									<td>{$vo.title}</td>
+									<td>{$vo.addtime|date='Y-m-d H:i:s',###}</td>
+									<td><!--审核通过 上线--> <a href='?c=Call&a=view&id={$vo.id}'>查看</a></td>
+								</tr>
+							</volist>
+						   </tbody><tfoot></tfoot>
+						</table>
+						{$page}
+						<div class="toolbar">
+						<a class="btn" href="javascript:del()"><span class="icon"></span><span class="text">删除</span></a>
+						</div>
+                   </div>
+                    
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

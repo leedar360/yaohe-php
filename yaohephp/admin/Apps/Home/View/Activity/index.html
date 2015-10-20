@@ -1,0 +1,265 @@
+<include file="Public:top"/>
+<script type="text/javascript" src="__PUBLIC__/wdatepicker/WdatePicker.js"></script>
+<script>
+$(document).ready(function(){
+	$('.has-items').eq(4).children(".level-2").show();
+	$('.has-items').eq(4).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('.has-items').eq(4).children(".level-2").children('li').eq(3).addClass('selected');
+	//$('#ajax_list').load('?c=Activity&a=ajax_list?pageNum={$currentPage}');
+	$("#all").click(function(){ 
+		if(($(this).attr('checked')))
+		{
+			$("input[name='id[]']").each(function(){
+				$(this).attr("checked",true);
+			});  
+		}
+		else
+		{
+			$("input[name='id[]']").each(function(){
+				$(this).attr("checked",false);
+			});  
+		}
+	});
+	$('#province_id').change(function(){
+		$.ajax({
+                type: "post",
+                url: "?c=Activity&a=getcitylist",
+				data:{'province_id':$(this).val()},
+                cache: false,
+                datatype: "json",
+                success: function(msg) {
+					var str='<option value="0">市</option>';
+					var obj=eval(msg); 
+                    $.each(obj, function(i) {
+						str+='<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+                    });
+					$('#city_id').html(str);
+					$('#area_id').html('<option value="0">区</option>');
+					$('#district_id').html('<option value="0">商圈</option>');
+                }
+        });
+	})
+	$('#city_id').change(function(){
+		$.ajax({
+                type: "post",
+                url: "?c=Activity&a=getarealist",
+				data:{'city_id':$(this).val()},
+                cache: false,
+                datatype: "json",
+                success: function(msg) {
+					var str='<option value="0">区</option>';
+					var obj=eval(msg); 
+                    $.each(obj, function(i) {
+						str+='<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+                    });
+					$('#area_id').html(str);
+					$('#district_id').html('<option value="0">商圈</option>');
+                }
+        });
+	})
+	$('#area_id').change(function(){
+		$.ajax({
+                type: "post",
+                url: "?c=Activity&a=getdistrictlist",
+				data:{'area_id':$(this).val()},
+                cache: false,
+                datatype: "json",
+                success: function(msg) {
+					var str='<option value="0">商圈</option>';
+					var obj=eval(msg); 
+                    $.each(obj, function(i) {
+						str+='<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+                    });
+					$('#district_id').html(str);
+                }
+        });
+	});
+	<?php
+	if($province_id>0)
+	{
+		echo "$('#province_id').val(".$province_id.");\n";
+	}
+	if($city_id>0)
+	{
+		echo "$('#city_id').val(".$city_id.");\n";
+	}
+	if($area_id>0)
+	{
+		echo "$('#area_id').val(".$area_id.");\n";
+	}
+	if($district_id>0)
+	{
+		echo "$('#district_id').val(".$district_id.");\n";
+	}
+	if($one_id>0)
+	{
+		echo "$('#one_id').val(".$one_id.");\n";
+	}
+	if($status!='')
+	{
+		echo "$('#status').val(".$status.");\n";
+	}
+	?>
+});
+function search()
+{
+	var url	=	'?c=Activity&a=index&province_id='+$('#province_id').val()+'&city_id='+$('#city_id').val();
+	url+='&area_id='+$('#area_id').val()+'&district_id='+$('#district_id').val();
+	url+='&one_id='+$('#one_id').val()+'&status='+$('#status').val()+'&keywords='+$('#keywords').val();
+	window.location.replace(url);
+}
+function del()
+{
+	var variable = $("input[name='id[]']:checked").serialize();
+	if(variable=='')
+	{
+		alert('请选择记录');
+		return false;
+	}
+	if(!confirm("确认删除选中记录"))return false;
+	$.ajax({
+		url: "?c=Activity&a=delete",
+		type: "post",
+		data: variable,
+		success: function (result) {
+			//handle
+			alert(result.msg);
+			window.location.reload();
+			//$('#ajax_list').load('?c=Activity&a=ajax_list?pageNum={$currentPage}');
+		}
+	});
+}
+</script>
+<!--<div id="fullbg"></div>-->
+<body class="modal-ready">
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+        	
+
+
+            <include file="Public:menu"/>
+            
+            
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+
+					
+                    <div class="pane">
+                    
+                    	<div class="toolbar"><a class="btn" href="javascript:void(0)"><span class="icon icon-refresh"></span></a><a class="btn" href="?c=Activity&a=add"><span class="icon icon-run"></span><span class="text">新建</span></a><a class="btn" href="javascript:void(0)" onclick="del()"><span class="text">删除</span></a>
+                            <!--
+                            <div class="pagination"><span class="per-page">每页显示：&nbsp;</span>
+                            	<div class="select-con"><select class="dropdown-select" name="limit"><option value="10" selected="">10</option><option value="20">20</option><option value="50">50</option><option value="100">100</option></select>
+                                </div>
+                            </div>
+							-->
+                        </div>
+						<div class="toolbar">
+						<div class="select-con">
+								<select class="dropdown-select" name="province_id" id="province_id"><option value="0">省</option><volist name="province_list" id="vo"><option value="{$vo.id}">{$vo.title}</option></volist></select>
+							</div>
+							<div class="select-con">
+								<select class="dropdown-select" name="city_id" id="city_id"><option value="0">市</option>
+								<volist name="city_list" id="vo"><option value="{$vo.id}">{$vo.title}</option></volist>
+								</select>
+							</div>
+							<div class="select-con">
+								<select class="dropdown-select" name="area_id" id="area_id"><option value="0">区</option>
+								<volist name="area_list" id="vo"><option value="{$vo.id}">{$vo.title}</option></volist>
+								</select>
+							</div>
+							<div class="select-con">
+								<select class="dropdown-select" name="district_id" id="district_id"><option value="0">商圈</option>
+								<volist name="district_list" id="vo"><option value="{$vo.id}">{$vo.title}</option></volist>
+								</select>
+							</div>
+							<div class="select-con">
+								<select class="dropdown-select" name="one_id" id="one_id"><option value="0">分类</option>
+								<volist name="class_list" id="item">
+								<option value="{$item.id}">{$item.title}</option>
+								</volist>
+								</select>
+							</div>
+							<div class="select-con">
+								<select class="dropdown-select" name="status" id="status"><option value="">状态</option>
+								<option value="0">上线</option>
+								<option value="1">下线</option>
+								</select>
+							</div>
+							
+							<div class="form-search"><input type="search" id="keywords" placeholder="活动ID/活动标题" value="{$keywords}"></div>
+							
+							<a class="btn" href="javascript:search()"><span class="icon"></span><span class="text">搜索</span></a>
+						</div>
+						<?php
+						$statusarr[0]='待发布';
+						$statusarr[1]='上线';
+						$statusarr[2]='下线';
+						$statusarr[3]='已结束';
+						?>
+						<table class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th class="checkbox"><input type="checkbox" id="all"></th>
+								<th>ID</th>
+								<th>标题</th>
+								<th>所属商家</th>
+								<th>图片</th>
+								<th>状态</th>
+								<th>内容</th>
+								<th>日期</th>
+								<th>更新时间</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+						<volist name="list" id="vo">
+						<?php
+						$shop=M('Shop')->where(array('member_id'=>$vo['member_id']))->find();
+						?>
+						<tr>
+						<td class="checkbox"><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+						<td>{$vo.id}</td>
+						<td>{$vo.title}</td>
+						<td>{$shop.title}<br />{$shop.id}</td>
+						<td><img src='__IMGURL__/imgs/{$vo.img1}' width=100 height=100/></td>
+						<td>{$statusarr[$vo['status']]}</td>
+						<td>{$vo.content}</td>
+						<td>{$vo['start_date']}<br />{$vo['end_date']}</td>
+						<td>{:date('Y-m-d H:i',$vo['addtime'])}</td>
+						<td><a href='?c=Activity&a=edit&id={$vo.id}'>修改</a> 
+						<?php
+						if($vo['status']==0 || $vo['status']==2)
+						{
+						?>
+						<a href='?c=Activity&a=online&id={$vo.id}'>上线</a> 
+						<?php
+						}
+						if($vo['status']==1)
+						{
+						?>
+						<a href='?c=Activity&a=offline&id={$vo.id}'>下线</a>
+						<?php
+						}
+						?>  <a href='?c=Activity&a=copyadd&id={$vo.id}'>复制创建</a></td>
+						</tr>
+						</volist>
+					   </tbody><tfoot></tfoot>
+					</table>
+                   </div>
+					{$page}
+                    
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

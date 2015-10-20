@@ -1,0 +1,128 @@
+<include file="Public:top"/>
+<script>
+$(document).ready(function(){
+	$('.has-items').eq(7).children(".level-2").show();
+	$('.has-items').eq(7).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('.has-items').eq(7).children(".level-2").children('li').eq(1).addClass('selected');
+	
+	$("#all").click(function(){ 
+		if(($(this).attr('checked')))
+		{
+			$("input[name='id[]']").each(function(){
+				$(this).attr("checked",true);
+			});  
+		}
+		else
+		{
+			$("input[name='id[]']").each(function(){
+				$(this).attr("checked",false);
+			});  
+		}
+	});
+});
+//删除选中记录
+function delcheck()
+{
+	var variable = $("input[name='id[]']:checked").serialize();
+	if(variable=='')
+	{
+		alert('请选择记录');
+		return false;
+	}
+	if(!confirm("确认删除选中记录？"))return false;
+	$.ajax({
+		url: "?c=Report&a=delete",
+		type: "post",
+		data: variable,
+		success: function (result) {
+			//handle
+			alert(result.msg);
+			window.location.reload();
+		}
+	});
+}
+function del()
+{
+	if(!confirm("确认删除此评论？"))return false;
+}
+</script>
+<body class="modal-ready">
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+        	
+
+
+            <include file="Public:menu"/>
+            
+            
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+
+					
+                    <div class="pane">
+                    
+						<table class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th class="checkbox"><input type="checkbox" id="all"></th>
+									<th>编号</th>
+									<th>举报人</th>
+									<th>原因</th>
+									<th>补充说明</th>
+									<th>被举报商家</th>
+									<th>举报时间</th>
+									<th>终端型号</th>
+									<th>状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+							<?php
+							$statusarr[0]='未处理';
+							$statusarr[1]='已处理';
+
+							$reason[0]='色情';
+							$reason[1]='谣言';
+							$reason[2]='政治';
+							$reason[3]='网站钓鱼';
+							$reason[4]='诱导分享';
+
+							$zdxh[0]='Android';
+							$zdxh[1]='Iphone';
+							?>
+							<volist name="list" id="vo">
+								<tr class="dbclick">
+									<td class="checkbox"><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+									<td>{$vo.id}</td>
+									<td>{$vo.member_name}</td>
+									<td>{$reason[$vo['reason']]}</td>
+									<td>{$vo.content}</td>
+									<td>{$vo.shop_name}</td>
+									<td><?php echo $vo['addtime'];?></td>
+									<td>{$zdxh[$vo['terminal']]}</td>
+									<td>{$statusarr[$vo['status']]}</td>
+									<td><a href='?c=Report&a=delete&id={$vo.id}' onclick="return del()">删除</a></td>
+								</tr>
+							</volist>
+						   </tbody><tfoot></tfoot>
+						</table>
+						{$page}
+						<div class="toolbar">
+						<a class="btn" href="javascript:delcheck()"><span class="icon"></span><span class="text">删除</span></a>
+						</div>
+                   </div>
+                    
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

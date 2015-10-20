@@ -1,0 +1,69 @@
+<include file="Public:top"/>
+<script>
+$(document).ready(function(){
+	$('.has-items').eq(1).children(".level-2").show();
+	$('.has-items').eq(1).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('.has-items').eq(1).children(".level-2").children('li').eq(0).addClass('selected');
+});
+</script>
+
+<body class="modal-ready">
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+        	
+
+
+            <include file="Public:menu"/>
+            
+            
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+
+					
+                    <div class="pane">
+                    <ul class="page-tabs">
+					<li class=""><a href="?c=Shop&a=view&id={$shop_id}" data-permalink="">基本信息</a></li>
+					<li class="selected"><a href="?c=CouponAll&shop_id={$shop_id}" data-permalink="">所有优惠</a></li>
+					<li class=""><a href="?c=ShopComment&shop_id={$shop_id}" data-permalink="">评论</a></li>
+					<li class=""><a href="?c=ShopFans&shop_id={$shop_id}" data-permalink="">粉丝</a></li>
+					<li class=""><a href="?c=ShopLogs&shop_id={$shop_id}" data-permalink="">操作记录</a></li>
+					</ul>
+                    	<div class="toolbar">
+                        </div>
+						<table class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th>优惠券</th>
+									<th>会员卡</th>
+									<th>新品</th>
+									<th>活动</th>
+									<th>吆喝</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><a href='?c=Coupon&member_id={$shop_id}'>共{$coupon_num}张  {$coupon_draw_num}人领取</a></td>
+									<td><a href='?c=Card&member_id={$shop_id}'>共{$card_num}张  {$card_draw_num}人领取</a></td>
+									<td><a href='?c=NewProduct&member_id={$shop_id}'>共{$new_product_num}条信息</a></td>
+									<td><a href='?c=Activity&member_id={$shop_id}'>共{$activity_num}条信息</a></td>
+									<td><a href='?c=Call&member_id={$shop_id}'>共{$call_num}条信息</a></td>
+								</tr>
+						   </tbody><tfoot></tfoot>
+						</table>
+						
+                   </div>
+                    
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

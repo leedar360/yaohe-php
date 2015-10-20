@@ -1,0 +1,393 @@
+<include file="Public:top"/>
+<script type="text/javascript" src="__PUBLIC__/wdatepicker/WdatePicker.js"></script>
+<script>
+$(document).ready(function(){
+	$('.has-items').eq(2).children(".level-2").show();
+	$('.has-items').eq(2).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('.has-items').eq(2).children(".level-2").children('li').eq(0).addClass('selected');
+	$('#province_id').change(function(){
+		$.ajax({
+                type: "post",
+                url: "?c=Role&a=getcitylist",
+				data:{'province_id':$(this).val()},
+                cache: false,
+                datatype: "json",
+                success: function(msg) {
+					var str='<option value="0">市</option>';
+					var obj=eval(msg); 
+                    $.each(obj, function(i) {
+						str+='<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+                    });
+					$('#city_id').html(str);
+                }
+        });
+	})
+});
+function checkall()
+{
+	$("input:[type='checkbox']").attr('checked','true');
+	//$("[name='classname']").attr("checked",'true');//全选
+}
+function cancelall()
+{
+	$("input:[type='checkbox']").attr('checked',false);
+}
+function addcity()
+{
+	//var tocitylist		=	$('#tocitylist').val();
+	var cityid	=	parseInt($('#city_id').val());	
+	if(cityid<1)
+	{
+		alert('请选择城市');
+	}
+	else
+	{
+		var checkcity=	$("#city_id").find("option:selected").text();
+		var city_list=$('#tocitylist').val().split(',');
+		flag=true;
+		for (i = 0; i < city_list.length; i++)
+		{
+			if(city_list[i]==cityid)
+			{
+				flag=false;
+				break;
+			}
+		}
+		if(!flag)
+		{
+			alert(checkcity+"已经存在！");
+		}
+		else
+		{	
+			if(city_list=='')city_list=cityid;
+			else city_list=$('#tocitylist').val()+','+cityid;
+			
+			$('#tocitylist').val(city_list);
+			var cityhtml	=	'<span id="cityid_'+cityid+'">'+checkcity+"<input type='button' value='删除' onclick='deltocity("+cityid+")'></span>&nbsp;&nbsp;&nbsp;";
+			$('#vid_city').append(cityhtml);
+		}
+	}
+}
+function deltocity(cityid)
+{
+	var tocitylist	=	$.trim($('#tocitylist').val());
+	var city_list	=	tocitylist.split(',');
+	var tocityhtml	=	'';
+	var key=0;
+	for (i = 0; i < city_list.length; i++)
+	{
+		if(city_list[i]==cityid)
+		{
+			key=i;
+			continue;
+		}
+		if(tocityhtml=='')
+		{
+			tocityhtml	=	city_list[i];
+		}
+		else
+		{
+			tocityhtml	+=	','+city_list[i];
+		}
+	}
+	$('#tocitylist').val(tocityhtml);
+
+	$('#cityid_'+cityid).remove();
+}
+</script>
+
+<body class="modal-ready">
+
+
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+
+
+            <include file="Public:menu"/>
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+
+					
+                    <div class="pane">
+                    <ul class="page-tabs"><li class="selected"><a href="?c=Role&a=add" data-permalink="">添加角色</a></li></ul>
+                    	<form name="form1" method="post" action="?c=Role&a=insert" onSubmit="return insert()" enctype="multipart/form-data">
+                    	<table width="100%" class="table table-bordered table-hover">
+							<thead>
+
+								<tr>
+								  <th width="103">角色名称</th>
+								  <th colspan="4" align="left"><input name="title" type="text" id="title" size="40" /></th>
+								  </tr>
+								<tr>
+								  <th width="103">职能描述</th>
+								  <th colspan="4" align="left"><textarea name="content" id="content" cols="45" rows="5"></textarea>
+								  <input type="hidden" name="tocitylist" id="tocitylist" />
+								  </th>
+								  </tr>
+								<tr>
+								  <th width="103">选择城市</th>
+								  <th colspan="4" align="left"><select name="province_id" id="province_id">
+									<option value="0">省</option>
+									<volist name="province_list" id="vo">
+									<option value="{$vo.id}">{$vo.title}</option>
+									</volist>
+									</select>
+									<select name="city_id" id="city_id">
+									  <option value="0">市</option>
+									  </select><input type="button" value="添加城市" onClick="addcity()"></th>
+								  </tr>
+								<tr>
+								  <th width="103">管理城市</th>
+								  <th colspan="4" align="left" id="vid_city"></th>
+								  </tr>
+								<tr>
+								  <th width="103">管理权限</th>
+								  <th colspan="4" align="left"><input type="button" value="全选" onClick="checkall()"/><input type="button" value="取消全选" onClick="cancelall()"/></th>
+								  </tr>
+								<tr>
+								  <th width="103">&nbsp;</th>
+								  <th colspan="4" align="left">1.首页管理
+							        <input name="classname[]" type="checkbox" id="classname[]" value="homepage">
+								  <br />
+							      &nbsp;&nbsp;&nbsp;&nbsp;1.1首页分类管理
+                                    <input name="module[]" type="checkbox" id="module[]" value="HomeClass">
+                                  <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.1.1编辑
+<input name="method[HomeClass][]" type="checkbox" id="method[HomeClass][]" value="update">
+								  <br />
+                                  &nbsp;&nbsp;&nbsp;&nbsp;1.2轮换图管理
+                                  <input name="module[]" type="checkbox" id="module[]" value="Rotate">
+                                  <br />
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.2.1添加
+                                  <input name="method[Rotate][]" type="checkbox" id="method[Rotate][]" value="insert">
+1.2.2编辑
+<input name="method[Rotate][]" type="checkbox" id="method[Rotate][]" value="update">
+1.2.3上线
+<input name="method[Rotate][]" type="checkbox" id="method[Rotate][]" value="online">
+1.2.4下线
+<input name="method[Rotate][]" type="checkbox" id="method[Rotate][]" value="offline">
+								  <br />
+                                  2.商家管理
+                                  <input name="classname[]" type="checkbox" id="classname[]" value="shop"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;2.1商家管理
+								  <input name="module[]" type="checkbox" id="module[]" value="Shop"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1.1添加
+								  <input name="method[Shop][]" type="checkbox" id="method[Shop][]" value="insert">
+								  2.1.2编辑
+								  <input name="method[Shop][]" type="checkbox" id="method[Shop][]" value="update">
+								  2.1.3删除
+								  <input name="method[Shop][]" type="checkbox" id="method[Shop][]" value="delete">
+								2.1.4上线
+								<input name="method[Shop][]" type="checkbox" id="method[Shop][]" value="online">
+								2.1.5下线
+								<input name="method[Shop][]" type="checkbox" id="method[Shop][]" value="offline">
+								2.1.6审核通过
+								<input name="method[Shop][]" type="checkbox" id="method[Shop][]" value="aduit">
+								2.1.7驳回
+								<input name="method[Shop][]" type="checkbox" id="method[Shop][]" value="reject">
+								  <br />
+                                  3.权限管理
+                                  <input name="classname[]" type="checkbox" id="classname[]" value="authority">
+                                  <br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;3.1权限管理
+								  <input name="module[]" type="checkbox" id="module[]" value="Role"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.1添加
+								  <input name="method[Role][]" type="checkbox" id="method[Role][]" value="insert">
+								  3.1.2编辑
+								  <input name="method[Role][]" type="checkbox" id="method[Role][]" value="update">
+								  3.1.3删除
+								  <input name="method[Role][]" type="checkbox" id="method[Role][]" value="delete">
+								  <br />
+								  4.账号管理
+								  <input name="classname[]" type="checkbox" id="classname[]" value="account">
+								  <br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;4.1用户管理
+								  <input name="module[]" type="checkbox" id="module[]" value="User"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.1.1启用
+								  <input name="method[User][]" type="checkbox" id="method[User][]" value="enable">
+								  4.1.2禁用
+								  <input name="method[User][]" type="checkbox" id="method[User][]" value="disable">
+								  <br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;4.2商家管理
+								  <input name="module[]" type="checkbox" id="module[]" value="Shopuser"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.2.1修改密码
+								  <input name="method[Shopuser][]" type="checkbox" id="method[Shopuser][]" value="edit">
+								  4.2.2启用
+								  <input name="method[Shopuser][]" type="checkbox" id="method[Shopuser][]" value="enable">
+								  4.2.3禁用
+								  <input name="method[Shopuser][]" type="checkbox" id="method[Shopuser][]" value="disable"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;4.3管理员管理
+								  <input name="module[]" type="checkbox" id="module[]" value="AdminUser"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.3.1增加
+								  <input name="method[AdminUser][]" type="checkbox" id="method[AdminUser][]" value="insert">
+								  4.3.2编辑
+								  <input name="method[Adminuser][]" type="checkbox" id="method[AdminUser][]" value="update">
+								  4.3.3删除
+								  <input name="method[AdminUser][]" type="checkbox" id="method[AdminUser][]" value="delete">
+								  <br />
+								  5.优惠管理
+								  <input name="classname[]" type="checkbox" id="classname[]" value="coupon"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;5.1优惠券
+								  <input name="module[]" type="checkbox" id="module[]" value="Coupon"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.1.1增加
+								  <input name="method[Coupon][]" type="checkbox" id="method[Coupon][]" value="insert">
+								  5.1.2编辑
+								  <input name="method[Coupon][]" type="checkbox" id="method[Coupon][]" value="update">
+								  5.1.3删除
+								  <input name="method[Coupon][]" type="checkbox" id="method[Coupon][]" value="delete">
+								  5.1.4上线
+								  <input name="method[Coupon][]" type="checkbox" id="method[Coupon][]" value="online">
+								  5.1.5下线
+								  <input name="method[Coupon][]" type="checkbox" id="method[Coupon][]" value="offline"><br />
+								  
+								  &nbsp;&nbsp;&nbsp;&nbsp;5.2会员卡
+								  <input name="module[]" type="checkbox" id="module[]" value="Card"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.1增加
+								  <input name="method[Card][]" type="checkbox" id="method[Card][]" value="insert">
+								  5.2.2编辑
+								  <input name="method[Card][]" type="checkbox" id="method[Card][]" value="update">
+								  5.2.3删除
+								  <input name="method[Card][]" type="checkbox" id="method[Card][]" value="delete">
+								  5.2.4上线
+								  <input name="method[Card][]" type="checkbox" id="method[Card][]" value="online">
+								  5.2.5下线
+								  <input name="method[Card][]" type="checkbox" id="method[Card][]" value="offline"><br />
+								  
+								  &nbsp;&nbsp;&nbsp;&nbsp;5.3新品
+								  <input name="module[]" type="checkbox" id="module[]" value="NewProduct"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.1增加
+								  <input name="method[NewProduct][]" type="checkbox" id="method[NewProduct][]" value="insert">
+								  5.3.2编辑
+								  <input name="method[NewProduct][]" type="checkbox" id="method[NewProduct][]" value="update">
+								  5.3.3删除
+								  <input name="method[NewProduct][]" type="checkbox" id="method[NewProduct][]" value="delete">
+								  5.3.4上线
+								  <input name="method[NewProduct][]" type="checkbox" id="method[NewProduct][]" value="online">
+								  5.3.5下线
+								  <input name="method[NewProduct][]" type="checkbox" id="method[NewProduct][]" value="offline"><br />
+								  
+								  &nbsp;&nbsp;&nbsp;&nbsp;5.4活动
+								  <input name="module[]" type="checkbox" id="module[]" value="Activity"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.4.1增加
+								  <input name="method[Activity][]" type="checkbox" id="method[Activity][]" value="insert">
+								  5.4.2编辑
+								  <input name="method[Activity][]" type="checkbox" id="method[Activity][]" value="update">
+								  5.4.3删除
+								  <input name="method[Activity][]" type="checkbox" id="method[Activity][]" value="delete">
+								  5.4.4上线
+								  <input name="method[Activity][]" type="checkbox" id="method[Activity][]" value="online">
+								  5.4.5下线
+								  <input name="method[Activity][]" type="checkbox" id="method[Activity][]" value="offline"><br />
+
+								  &nbsp;&nbsp;&nbsp;&nbsp;5.5吆喝
+								  <input name="module[]" type="checkbox" id="module[]" value="Call"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5.1删除
+								  <input name="method[Call][]" type="checkbox" id="method[Call][]" value="delete">
+								  <br />
+								  6.系统设置
+								  <input name="classname[]" type="checkbox" id="classname[]" value="system"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;6.1城市管理
+								  <input name="module[]" type="checkbox" id="module[]" value="City"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.1.1新增
+								  <input name="method[City][]" type="checkbox" id="method[City][]" value="insert">
+								  6.1.2热门
+								  <input name="method[City][]" type="checkbox" id="method[City][]" value="hot">
+								  6.1.3开启
+								  <input name="method[City][]" type="checkbox" id="method[City][]" value="enable">
+								  6.1.4关闭
+								  <input name="method[City][]" type="checkbox" id="method[City][]" value="close"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;6.2商圈管理
+								  <input name="module[]" type="checkbox" id="module[]" value="District"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.2.1新增
+								  <input name="method[District][]" type="checkbox" id="method[District][]" value="insert">
+								  6.2.2编辑
+								  <input name="method[District][]" type="checkbox" id="method[District][]" value="update">
+								  6.2.3删除
+								  <input name="method[District][]" type="checkbox" id="method[District][]" value="delete"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;6.3绑定分类
+								  <input name="module[]" type="checkbox" id="module[]" value="BindingClass"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;6.4分类管理
+								  <input name="module[]" type="checkbox" id="module[]" value="Classify"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.4.1新增
+								  <input name="method[Classify][]" type="checkbox" id="method[Classify][]" value="insert">
+								  6.4.2编辑
+								  <input name="method[Classify][]" type="checkbox" id="method[Classify][]" value="update">
+								  6.4.3删除
+								  <input name="method[Classify][]" type="checkbox" id="method[Classify][]" value="delete"><br />
+								  7.评论管理
+								  <input name="classname[]" type="checkbox" id="classname[]" value="comment"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;7.1动态评论
+								  <input name="module[]" type="checkbox" id="module[]" value="DynamicComment"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.1查看
+								  <input name="method[DynamicComment][]" type="checkbox" id="method[DynamicComment][]" value="look">
+								  7.1.2删除
+								  <input name="method[DynamicComment][]" type="checkbox" id="method[DynamicComment][]" value="delete"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;7.2店铺点评
+								  <input name="module[]" type="checkbox" id="module[]" value="ShopComment"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.1查看
+								  <input name="method[ShopComment][]" type="checkbox" id="method[ShopComment][]" value="look">
+								  7.2.2删除
+								  <input name="method[ShopComment][]" type="checkbox" id="method[ShopComment][]" value="delete">
+
+								  <br />
+								  8.其它管理
+								  <input name="classname[]" type="checkbox" id="classname[]" value="other"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;8.1意见反馈
+								  <input name="module[]" type="checkbox" id="module[]" value="Opinion"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.1.1查看
+								  <input name="method[Opinion][]" type="checkbox" id="method[Opinion][]" value="look">
+								  8.1.2处理
+								  <input name="method[Opinion][]" type="checkbox" id="method[Opinion][]" value="handle">
+								  8.1.3撰写
+								  <input name="method[Opinion][]" type="checkbox" id="method[Opinion][]" value="compose"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;8.2举报管理
+								  <input name="module[]" type="checkbox" id="module[]" value="Report"><br />
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.2.1查看
+								  <input name="method[Report][]" type="checkbox" id="method[Report][]" value="look">
+								  8.2.2处理
+								  <input name="method[Report][]" type="checkbox" id="method[Report][]" value="handle">
+								  8.2.3撰写
+								  <input name="method[Report][]" type="checkbox" id="method[Report][]" value="compose">
+								</th>
+							  </tr>
+								<tr>
+								  <th width="103">&nbsp;</th>
+								  <th width="87" align="left"></th>
+								  <th colspan="3" align="left"></th>
+						      </tr>
+								<tr>
+								  <th width="103">&nbsp;</th>
+								  <th width="87" align="left"></th>
+								  <th width="125" align="left"></th>
+								  <th width="764" align="left">&nbsp;</th>
+								  <th width="8" align="left"></th>
+						      </tr>
+								<tr>
+								  <th width="103">&nbsp;</th>
+								  <th colspan="4" align="left"><input type="submit" name="button" id="button" value="提交"></th>
+								  </tr>
+							</thead>
+							<tbody>
+							
+						   </tbody><tfoot></tfoot>
+						</table>
+                  	  </form>
+
+                        
+                       
+                   </div>
+                    
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

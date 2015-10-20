@@ -1,0 +1,244 @@
+<include file="Public:top"/>
+<script type="text/javascript" src="__PUBLIC__/wdatepicker/WdatePicker.js"></script>
+<script>
+$(document).ready(function(){
+	$('.has-items').eq(4).children(".level-2").show();
+	$('.has-items').eq(4).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('.has-items').eq(4).children(".level-2").children('li').eq(2).addClass('selected');
+	$('#province_id').change(function(){
+		$.ajax({
+                type: "post",
+                url: "?c=NewProduct&a=getcitylist",
+				data:{'province_id':$(this).val()},
+                cache: false,
+                datatype: "json",
+                success: function(msg) {
+					var str='<option value="0">全部</option>';
+					var obj=eval(msg); 
+                    $.each(obj, function(i) {
+						str+='<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+                    });
+					$('#city_id').html(str);
+                }
+        });
+	})
+	$('#city_id').change(function(){
+		$.ajax({
+                type: "post",
+                url: "?c=NewProduct&a=getarealist",
+				data:{'city_id':$(this).val()},
+                cache: false,
+                datatype: "json",
+                success: function(msg) {
+					var str='<option value="0">全部</option>';
+					var obj=eval(msg); 
+                    $.each(obj, function(i) {
+						str+='<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+                    });
+					$('#area_id').html(str);
+                }
+        });
+	})
+	$('#area_id').change(function(){
+		$.ajax({
+                type: "post",
+                url: "?c=NewProduct&a=getdistrictlist",
+				data:{'area_id':$(this).val()},
+                cache: false,
+                datatype: "json",
+                success: function(msg) {
+					var str='<option value="0">全部</option>';
+					var obj=eval(msg); 
+                    $.each(obj, function(i) {
+						str+='<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+                    });
+					$('#district_id').html(str);
+                }
+        });
+	})
+});
+function insert()
+{
+	if($('#member_id').val()<1)
+	{
+		alert('请选择商家');
+		return false;
+	}
+	if($('#title').val()=='')
+	{
+		alert('请输入标题');
+		$('#title').focus();
+		return false;
+	}
+	if($('#price').val()=='')
+	{
+		alert('请输入价格');
+		$('#price').focus();
+		return false;
+	}
+	if($('#day').val()=='')
+	{
+		alert('请选择日期');
+		$('#day').focus();
+		return false;
+	}
+}
+function close_modal()
+{
+	$('#modal').hide();
+}
+function open_modal()
+{
+	$('#modal').show();  
+}
+function confirmcheck()
+{
+	var member_id=$('input[name="shop_member_id"]:checked').val();
+	if(member_id===undefined)
+	{
+		alert('请选择商家');
+	}
+	else
+	{
+		$('#member_id').val(member_id);
+		$('#shop_title').html($('input[name="shop_member_id"]:checked').attr('title'));
+		close_modal();
+		//alert($('input[name="member_id"]:checked').attr('title'));
+	}
+	//alert('确认选中');
+}
+function search()
+{
+	var url='?c=NewProduct&a=search_list&province_id='+$('#province_id').val()+'&city_id='+$('#city_id').val();
+	url+='&area_id='+$('#area_id').val()+'&district_id='+$('#district_id').val()+'&keywords='+$('#keywords').val();
+	$('#ajax_list').load(url);
+}
+</script>
+
+<!--弹出窗口-->
+<div class="modal" id="modal" style="width: 750px; height: auto; margin-left: -300px; margin-top: -200px; top: 208px; z-index: 1000; left: 683px;display:none"><div class="modal-header" style="cursor: move;"><h4>选择商家<a href="javascript:void(0)" onclick="close_modal()" class="close"><span class="icon-close icon-Large"></span></a></h4></div>
+<div class="modal-content" id="">
+<div class="item"><div class="controls">
+<div class="toolbar">
+	<div class="select-con"><select class="dropdown-select" name="province_id" id="province_id"><option value="0">省</option><volist name="province_list" id="vo"><option value="{$vo.id}">{$vo.title}</option></volist></select></div>
+	
+	<div class="select-con"><select class="dropdown-select" name="city_id" id="city_id"><option value="0">城</option></select></div>
+	
+	<div class="select-con"><select class="dropdown-select" name="area_id" id="area_id"><option value="0">区</option></select></div>
+	
+	<div class="select-con"><select class="dropdown-select" name="district_id" id="district_id"><option value="0">商圈</option></select></div>
+	<div class="form-search"><input type="search" id="keywords" placeholder="商家名称/商家编号" value="{$keywords}"></div>
+	<a class="btn" href="javascript:search()"><span class="icon"></span><span class="text">搜索</span></a>
+	<a class="btn" href="javascript:confirmcheck()"><span class="icon"></span><span class="text">确认</span></a>
+</div>
+<div id="ajax_list">
+<table class="table table-bordered table-hover">
+	<tbody>
+	<!--
+	<tr>
+	<td>
+	<input name="member_id" type="radio" id="member_id" value="1" />绍月公司
+	</td>
+	<td>
+	<input name="member_id" type="radio" id="member_id" value="1" />绍月公司
+	</td>
+	<td>
+	<input name="member_id" type="radio" id="member_id" value="1" />绍月公司
+	</td>
+	</tr>
+	-->
+   </tbody><tfoot></tfoot>
+</table>
+</div>
+</div></div>
+</div>
+</div>
+
+<body class="modal-ready">
+
+
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+
+
+            <include file="Public:menu"/>
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+
+					
+                    <div class="pane">
+                    <ul class="page-tabs"><li class="selected"><a href="?c=NewProduct&a=add" data-permalink="">添加新品</a></li></ul>
+                    	<form name="form1" method="post" action="?c=NewProduct&a=insert" onSubmit="return insert()" enctype="multipart/form-data">
+                    	<table width="100%" class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th width="127"><span style="color:#FF0000;">*</span>商家</th>
+									<th width="972" align="left"><span id="shop_title"></span><input type="hidden" id="member_id" name="member_id" value="0" /><input type="button" value="选择商家" onclick="open_modal()"/></th>
+								</tr>
+
+								<tr>
+								  <th width="127">标题</th>
+								  <th align="left"><input name="title" type="text" id="title" size="40" /></th>
+								  </tr>
+								<tr>
+								  <th width="127">图片1</th>
+								  <th align="left"><input type="file" id="img1" name="img1"/></th>
+								</tr>
+								<tr>
+								  <th width="127">图片2</th>
+								  <th align="left"><input type="file" id="img2" name="img2"/></th>
+								</tr>
+								<tr>
+								  <th width="127">图片3</th>
+								  <th align="left"><input type="file" id="img3" name="img3"/></th>
+								</tr>
+								<tr>
+								  <th width="127">图片4</th>
+								  <th align="left"><input type="file" id="img4" name="img4"/></th>
+								</tr>
+								<tr>
+								  <th width="127">图片5</th>
+								  <th align="left"><input type="file" id="img5" name="img5"/></th>
+								</tr>
+								<tr>
+								  <th width="127">图片6</th>
+								  <th align="left"><input type="file" id="img6" name="img6"/></th>
+								</tr>
+								  
+								<tr>
+								  <th width="127">价格：</th>
+								  <th align="left"><input type="text"  name="price" id="price"/>元</th>
+								  </tr>
+								<tr>
+								  <th width="127">日期</th>
+								  <th align="left"><input type="text1" style="width:150px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px" name="day" id="day" class="Wdate" onfocus="WdatePicker()" value="{:date("Y-m-d")}"/></th>
+								</tr>
+								<tr>
+								  <th width="127">&nbsp;</th>
+								  <th align="left"><input type="submit" name="button" id="button" value="提交"></th>
+								  </tr>
+							</thead>
+							<tbody>
+							
+						   </tbody><tfoot></tfoot>
+						</table>
+                  	  </form>
+
+                        
+                       
+                   </div>
+                    
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

@@ -1,0 +1,139 @@
+<include file="Public:top"/>
+<script>
+$(document).ready(function(){
+	$('.has-items').eq(4).children(".level-2").show();
+	$('.has-items').eq(4).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('.has-items').eq(4).children(".level-2").children('li').eq(4).addClass('selected');
+});
+</script>
+
+
+
+<body class="modal-ready">
+
+
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+
+
+            <include file="Public:menu"/>
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+
+					
+                    <div class="pane">
+                    <ul class="page-tabs"></ul>
+                    	<table width="100%" class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th width="127">商家</th>
+									<th width="972" align="left">{$shop_name}</th>
+								</tr>
+								<tr>
+								  <th width="127">内容</th>
+								  <th align="left">{$vo.content}</textarea></th>
+								  </tr>
+								<?php
+								if(!empty($vo['img1']))
+								{
+								?>
+								<tr>
+								  <th width="127">已传图片1</th>
+								  <th align="left"><img src='__IMGURL__/imgs/{$vo.img1}' width="200" height="200" ></th>
+								</tr>
+								<?php
+								}
+								?>
+								<?php
+								if(!empty($vo['img2']))
+								{
+								?>
+								<tr>
+								  <th width="127">已传图片2</th>
+								  <th align="left"><img src='__IMGURL__/imgs/{$vo.img2}' width="200" height="200" ></th>
+								</tr>
+								<?php
+								}
+								?>
+								<?php
+								if(!empty($vo['img3']))
+								{
+								?>
+								<tr>
+								  <th width="127">已传图片3</th>
+								  <th align="left"><img src='__IMGURL__/imgs/{$vo.img3}' width="200" height="200" ></th>
+								</tr>
+								<?php
+								}
+								?>
+								<?php
+								if(!empty($vo['img4']))
+								{
+								?>
+								<tr>
+								  <th width="127">已传图片4</th>
+								  <th align="left"><img src='__IMGURL__/imgs/{$vo.img4}' width="200" height="200" ></th>
+								</tr>
+								<?php
+								}
+								?>
+								<?php
+								if(!empty($vo['img5']))
+								{
+								?>
+								<tr>
+								  <th width="127">已传图片5</th>
+								  <th align="left"><img src='__IMGURL__/imgs/{$vo.img5}' width="200" height="200" ></th>
+								</tr>
+								<?php
+								}
+								?>
+								<?php
+								if(!empty($vo['img6']))
+								{
+								?>
+								<tr>
+								  <th width="127">已传图片6</th>
+								  <th align="left"><img src='__IMGURL__/imgs/{$vo.img6}' width="200" height="200" ></th>
+								</tr>
+								<?php
+								}
+								?>
+
+								<tr>
+								  <th width="127">引用</th>
+								  <th align="left">{$vo.title}</th>
+								</tr>
+
+								<tr>
+								  <th width="127">发布时间：</th>
+								  <th align="left">{$vo.addtime|date='Y-m-d H:i:s',###}</th>
+								  </tr>
+								<tr>
+								  <th width="127">&nbsp;</th>
+								  <th align="left">点赞：{$vo.zan_num} 收藏：{$vo.collection_num} 评论：{$vo.comment_num}</th>
+								  </tr>
+							</thead>
+							<tbody>
+							
+						   </tbody><tfoot></tfoot>
+						</table>
+
+                        
+                       
+                   </div>
+                    
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

@@ -1,0 +1,1698 @@
+[ 2015-10-18T04:03:48+08:00 ] 172.16.100.12 /resource/seminar/080511/Lecture02_2.ppt
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000468s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000574s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000673s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000169s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007984s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008082s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000186s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000269s ]
+
+[ 2015-10-18T04:15:34+08:00 ] 172.16.100.12 /resource/publication/Conference/CSW10.pdf
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000476s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000689s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000078s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000181s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007958s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008070s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000188s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000269s ]
+
+[ 2015-10-18T04:47:05+08:00 ] 172.16.100.12 /resource/publication/Journal/GWW09.pdf
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000478s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000169s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007864s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007962s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000182s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000263s ]
+
+[ 2015-10-18T07:35:30+08:00 ] 172.16.100.12 /?c=Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000473s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000588s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000688s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000090s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000190s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007721s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007819s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000183s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000265s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000623s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000712s ]
+
+[ 2015-10-18T08:25:39+08:00 ] 172.16.100.12 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000479s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000580s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000171s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008150s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008249s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000184s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000267s ]
+
+[ 2015-10-18T10:13:32+08:00 ] 172.16.100.12 /?c=Api&a=getUserBase&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000560s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000658s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001424s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 120 ) LIMIT 1   [ RunTime:0.000312s ]
+SQL: SHOW COLUMNS FROM `ht_personal` [ RunTime:0.000959s ]
+SQL: SELECT * FROM `ht_personal` WHERE ( `member_id` = 120 ) LIMIT 1   [ RunTime:0.000287s ]
+
+[ 2015-10-18T11:04:21+08:00 ] 172.16.100.12 /?c=Api&a=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000452s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000563s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000661s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001158s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13381127212' ) LIMIT 1   [ RunTime:0.000303s ]
+
+[ 2015-10-18T11:04:36+08:00 ] 172.16.100.12 /?c=Api&a=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000481s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000684s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001369s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13381127212' ) LIMIT 1   [ RunTime:0.000311s ]
+
+[ 2015-10-18T11:04:50+08:00 ] 172.16.100.12 /?c=Api&a=register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000471s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001280s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13381127212' ) LIMIT 1   [ RunTime:0.000238s ]
+
+[ 2015-10-18T11:07:11+08:00 ] 172.16.100.12 /?c=Api&a=register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000480s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001298s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13381127212' ) LIMIT 1   [ RunTime:0.000288s ]
+
+[ 2015-10-18T11:07:17+08:00 ] 172.16.100.12 /?c=Api&a=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000563s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000661s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001231s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13381127212' ) LIMIT 1   [ RunTime:0.000308s ]
+
+[ 2015-10-18T11:07:30+08:00 ] 172.16.100.12 /?c=Api&a=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000470s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000594s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000691s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001181s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13381127212' ) LIMIT 1   [ RunTime:0.000233s ]
+
+[ 2015-10-18T11:08:02+08:00 ] 172.16.100.12 /?c=Api&a=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000448s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000562s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000678s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001206s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13381127212' ) LIMIT 1   [ RunTime:0.000258s ]
+
+[ 2015-10-18T11:08:12+08:00 ] 172.16.100.12 /?c=Api&a=register_sms
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000572s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001204s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13381127212' ) LIMIT 1   [ RunTime:0.000240s ]
+SQL: UPDATE `ht_member` SET `code`='612348' WHERE ( `id` = 165 ) [ RunTime:0.000850s ]
+
+[ 2015-10-18T13:52:00+08:00 ] 172.16.100.12 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000466s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000171s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007970s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008077s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000194s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000277s ]
+
+[ 2015-10-18T14:37:54+08:00 ] 172.16.100.12 /resource/seminar/080511/Paper01.pdf
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000565s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000664s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000169s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007893s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007991s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000185s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000267s ]
+
+[ 2015-10-18T15:47:54+08:00 ] 172.16.100.12 /?c=Login&a=captcha
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000453s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000605s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000702s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000624s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000736s ]
+
+[ 2015-10-18T15:47:54+08:00 ] 172.16.100.12 /static/images/favicon.ico?v=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000471s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000675s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000071s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000179s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008011s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008112s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000284s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000460s ]
+
+[ 2015-10-18T15:48:25+08:00 ] 172.16.100.12 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000446s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000663s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000169s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007903s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000185s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000267s ]
+
+[ 2015-10-18T15:48:26+08:00 ] 172.16.100.12 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000441s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000558s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000655s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000071s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000170s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007793s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007890s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000176s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000257s ]
+
+[ 2015-10-18T15:49:22+08:00 ] 172.16.100.12 /?c=Api&a=register&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000483s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+
+[ 2015-10-18T15:49:22+08:00 ] 172.16.100.12 /?c=Api&a=register&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000599s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000698s ]
+
+[ 2015-10-18T15:50:27+08:00 ] 172.16.100.12 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000563s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000674s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000171s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007941s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008040s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000183s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000275s ]
+
+[ 2015-10-18T17:50:02+08:00 ] 172.16.100.12 /?c=Api&a=getUserBase&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000673s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001323s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 120 ) LIMIT 1   [ RunTime:0.000473s ]
+SQL: SHOW COLUMNS FROM `ht_personal` [ RunTime:0.000885s ]
+SQL: SELECT * FROM `ht_personal` WHERE ( `member_id` = 120 ) LIMIT 1   [ RunTime:0.000213s ]
+
+[ 2015-10-18T18:25:16+08:00 ] 172.16.100.12 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000466s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000675s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000071s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000170s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007916s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008019s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000185s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000266s ]
+
+[ 2015-10-18T18:25:21+08:00 ] 172.16.100.12 /?c=Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000482s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000090s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000190s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007746s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007844s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000183s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000264s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000622s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000710s ]
+
+[ 2015-10-18T18:25:22+08:00 ] 172.16.100.12 /?c=Login&a=captcha
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000671s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000693s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000816s ]
+
+[ 2015-10-18T18:27:10+08:00 ] 172.16.100.12 /?c=Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000472s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000678s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000080s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000191s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007929s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008027s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000179s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000272s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000634s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000721s ]
+
+[ 2015-10-18T18:40:55+08:00 ] 172.16.100.12 /?c=Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000225s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000269s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000315s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000037s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000084s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003776s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003822s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000087s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000125s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000316s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000356s ]
+
+[ 2015-10-18T18:52:36+08:00 ] 172.16.100.12 /?c=Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000482s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000683s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000080s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000179s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007822s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007920s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000192s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000274s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000618s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000704s ]
+
+[ 2015-10-18T19:41:35+08:00 ] 172.16.100.12 /?c=ShopUser
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000486s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000169s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007911s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008016s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000183s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000264s ]
+
+[ 2015-10-18T19:41:36+08:00 ] 172.16.100.12 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000587s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000683s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000070s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000169s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008033s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008132s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000183s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000264s ]
+
+[ 2015-10-18T19:41:39+08:00 ] 172.16.100.12 /?c=Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000671s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000080s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000180s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007797s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007896s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000185s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000267s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000630s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000719s ]
+
+[ 2015-10-18T19:41:39+08:00 ] 172.16.100.12 /?c=Login&a=captcha
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000464s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000604s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000715s ]
+
+[ 2015-10-18T19:41:48+08:00 ] 172.16.100.12 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000668s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000172s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007915s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008014s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000183s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000266s ]
+
+[ 2015-10-18T19:41:51+08:00 ] 172.16.100.12 /?c=Login&a=captcha
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000467s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000580s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000676s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000605s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000726s ]
+
+[ 2015-10-18T19:41:58+08:00 ] 172.16.100.12 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000467s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.001025s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000228s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000187s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000290s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023971s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024072s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000184s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000268s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000720s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000852s ]
+
+[ 2015-10-18T19:42:04+08:00 ] 172.16.100.12 /?c=User
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000578s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000683s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.001067s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000241s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001285s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ht_member` WHERE ( `type` = 0 ) LIMIT 1   [ RunTime:0.000522s ]
+SQL: select ht_member.*,ht_personal.nickname from ht_member left join ht_personal on ht_member.id=ht_personal.member_id where ht_member.type=0 order by ht_member.id desc limit 0,10 [ RunTime:0.001708s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000175s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000275s ]
+NOTIC: [8] Undefined variable: currentPage /data1/vhosts/yaohe/admin/Apps/Runtime/Cache/Home/91ca1bc0a49bd9f1265441ad98f4e7a9.php 第 69 行.
+NOTIC: [8] Undefined variable: id /data1/vhosts/yaohe/admin/Apps/Runtime/Cache/Home/91ca1bc0a49bd9f1265441ad98f4e7a9.php 第 316 行.
+NOTIC: [8] Undefined variable: login_user /data1/vhosts/yaohe/admin/Apps/Runtime/Cache/Home/91ca1bc0a49bd9f1265441ad98f4e7a9.php 第 317 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023306s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023403s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000184s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000267s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000721s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000837s ]
+
+[ 2015-10-18T19:42:17+08:00 ] 172.16.100.12 /?c=AdminUser
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000486s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000588s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.001178s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000238s ]
+SQL: SELECT * FROM `ht_role`  [ RunTime:0.000340s ]
+SQL: SHOW COLUMNS FROM `ht_province` [ RunTime:0.000721s ]
+SQL: SELECT * FROM `ht_province`  [ RunTime:0.000216s ]
+SQL: SHOW COLUMNS FROM `ht_admin_user` [ RunTime:0.001088s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ht_admin_user` LIMIT 1   [ RunTime:0.000525s ]
+SQL: SELECT * FROM `ht_admin_user` ORDER BY id desc LIMIT 0,10   [ RunTime:0.000548s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000197s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000300s ]
+NOTIC: [8] Undefined variable: city_list /data1/vhosts/yaohe/admin/Apps/Runtime/Cache/Home/7f85d27ef550a3c2bc4cb795777f7860.php 第 339 行.
+NOTIC: [8] Undefined index: login /data1/vhosts/yaohe/admin/Apps/Runtime/Cache/Home/7f85d27ef550a3c2bc4cb795777f7860.php 第 376 行.
+NOTIC: [8] Undefined index: login /data1/vhosts/yaohe/admin/Apps/Runtime/Cache/Home/7f85d27ef550a3c2bc4cb795777f7860.php 第 376 行.
+NOTIC: [8] Undefined index: login /data1/vhosts/yaohe/admin/Apps/Runtime/Cache/Home/7f85d27ef550a3c2bc4cb795777f7860.php 第 376 行.
+NOTIC: [8] Undefined index: login /data1/vhosts/yaohe/admin/Apps/Runtime/Cache/Home/7f85d27ef550a3c2bc4cb795777f7860.php 第 376 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028195s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028288s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000185s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000282s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000780s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000942s ]
+
+[ 2015-10-18T19:42:43+08:00 ] 172.16.100.12 /?c=User&a=disabled&id=165
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000453s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000663s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.001103s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000235s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001276s ]
+SQL: UPDATE `ht_member` SET `status`=1 WHERE ( `id` = 165 ) [ RunTime:0.000654s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000074s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000170s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007906s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000183s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000265s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000609s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000695s ]
+
+[ 2015-10-18T19:42:43+08:00 ] 172.16.100.12 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000588s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000687s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.001041s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000298s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000192s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000295s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024259s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024361s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000189s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000274s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000721s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000839s ]
+
+[ 2015-10-18T19:44:04+08:00 ] 172.16.100.12 /?c=Api&a=forgetpass
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000472s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001264s ]
+SQL: UPDATE `ht_member` SET `forgetcode`='461349' WHERE ( `login_user` = '13381127212' ) [ RunTime:0.001029s ]
+
+[ 2015-10-18T19:45:21+08:00 ] 172.16.100.12 /?c=Api&a=register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000470s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000578s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000677s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001355s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13381127212' ) LIMIT 1   [ RunTime:0.000359s ]
+
+[ 2015-10-18T19:45:40+08:00 ] 172.16.100.12 /?c=Api&a=register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000476s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000675s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001354s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13381127212' ) LIMIT 1   [ RunTime:0.000238s ]
+
+[ 2015-10-18T19:45:54+08:00 ] 172.16.100.12 /?c=Api&a=register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000471s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000675s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001378s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13381127212' ) LIMIT 1   [ RunTime:0.000249s ]
+
+[ 2015-10-18T19:46:08+08:00 ] 172.16.100.12 /?c=Api&a=register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000559s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000657s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001300s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13623322668' ) LIMIT 1   [ RunTime:0.000599s ]
+SQL: INSERT INTO `ht_member` (`login_user`,`login_pass`,`type`,`code`) VALUES ('13623322668','fcea920f7412b5da7be0cf42b8c93759',0,'') [ RunTime:0.000595s ]
+
+[ 2015-10-18T19:47:56+08:00 ] 172.16.100.12 /?c=Api&a=forgetpass
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000469s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000675s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001302s ]
+SQL: UPDATE `ht_member` SET `forgetcode`='879852' WHERE ( `login_user` = '13623322668' ) [ RunTime:0.001001s ]
+
+[ 2015-10-18T19:48:07+08:00 ] 172.16.100.12 /?c=Api&a=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000448s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000668s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001151s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13623322668' ) LIMIT 1   [ RunTime:0.000545s ]
+
+[ 2015-10-18T19:48:26+08:00 ] 172.16.100.12 /?c=Api&a=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000565s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000665s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001141s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13623322668' ) LIMIT 1   [ RunTime:0.000334s ]
+
+[ 2015-10-18T19:48:58+08:00 ] 172.16.100.12 /?c=Api&a=forgetpass
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000675s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001328s ]
+SQL: UPDATE `ht_member` SET `forgetcode`='663679' WHERE ( `login_user` = '13623322668' ) [ RunTime:0.001067s ]
+
+[ 2015-10-18T19:53:46+08:00 ] 172.16.100.12 /?c=Api&a=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001324s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13623322668' ) LIMIT 1   [ RunTime:0.000311s ]
+
+[ 2015-10-18T19:53:52+08:00 ] 172.16.100.12 /?c=Api&a=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000683s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001147s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13623322668' ) LIMIT 1   [ RunTime:0.000303s ]
+
+[ 2015-10-18T19:53:55+08:00 ] 172.16.100.12 /?c=Api&a=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000671s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001203s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13623322668' ) LIMIT 1   [ RunTime:0.000238s ]
+SQL: UPDATE `ht_member` SET `login_num`=3,`last_login_time`=1445169235 WHERE ( `id` = 170 ) [ RunTime:0.000616s ]
+
+[ 2015-10-18T19:57:00+08:00 ] 172.16.100.12 /?c=Api&a=getAreaList&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000457s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000675s ]
+SQL: SHOW COLUMNS FROM `ht_area` [ RunTime:0.000913s ]
+SQL: SELECT `id`,`title` FROM `ht_area` WHERE ( c_id=12 )  [ RunTime:0.000275s ]
+
+[ 2015-10-18T19:57:00+08:00 ] 172.16.100.12 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000467s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000674s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.000984s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000305s ]
+
+[ 2015-10-18T19:57:00+08:00 ] 172.16.100.12 /?c=Api&a=getHomeCallList&partent=ht&key=ht&city_id=12&member_id=&time=1445169421390
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000465s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000591s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000688s ]
+SQL: SHOW COLUMNS FROM `ht_shop_service` [ RunTime:0.001614s ]
+SQL: SELECT * FROM `ht_shop_service` WHERE ( `city_id` = 12 ) ORDER BY id desc LIMIT 0,20   [ RunTime:0.000334s ]
+SQL: SHOW COLUMNS FROM `ht_coupon` [ RunTime:0.001615s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 100 ) LIMIT 1   [ RunTime:0.000238s ]
+SQL: SHOW COLUMNS FROM `ht_shop` [ RunTime:0.002308s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000280s ]
+SQL: SHOW COLUMNS FROM `ht_shop_fans` [ RunTime:0.001009s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000261s ]
+SQL: SHOW COLUMNS FROM `ht_card` [ RunTime:0.001478s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 23 ) LIMIT 1   [ RunTime:0.000320s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000245s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000279s ]
+SQL: SHOW COLUMNS FROM `ht_call` [ RunTime:0.001389s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 109 ) LIMIT 1   [ RunTime:0.000305s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000295s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 106 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000203s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 108 ) LIMIT 1   [ RunTime:0.000246s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000299s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 106 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000239s ]
+SQL: SHOW COLUMNS FROM `ht_activity` [ RunTime:0.001501s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_activity` WHERE ( `id` = 47 ) LIMIT 1   [ RunTime:0.000293s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000242s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 106 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000259s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 107 ) LIMIT 1   [ RunTime:0.000200s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000279s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 106 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000196s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 97 ) LIMIT 1   [ RunTime:0.000246s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 55 ) LIMIT 1   [ RunTime:0.000299s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 80 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000218s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 96 ) LIMIT 1   [ RunTime:0.000273s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 55 ) LIMIT 1   [ RunTime:0.000238s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 80 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000271s ]
+SQL: SHOW COLUMNS FROM `ht_new_product` [ RunTime:0.001265s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 61 ) LIMIT 1   [ RunTime:0.000214s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000303s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000231s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 59 ) LIMIT 1   [ RunTime:0.000286s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 89 ) LIMIT 1   [ RunTime:0.000233s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 75 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000288s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 58 ) LIMIT 1   [ RunTime:0.000211s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 89 ) LIMIT 1   [ RunTime:0.000251s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 75 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000267s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 57 ) LIMIT 1   [ RunTime:0.000242s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 52 ) LIMIT 1   [ RunTime:0.000276s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 78 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000243s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 105 ) LIMIT 1   [ RunTime:0.000310s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 89 ) LIMIT 1   [ RunTime:0.000260s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 75 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000295s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 24 ) LIMIT 1   [ RunTime:0.000286s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000276s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000291s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 100 ) LIMIT 1   [ RunTime:0.000323s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000275s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000288s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 23 ) LIMIT 1   [ RunTime:0.000287s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000239s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000189s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 53 ) LIMIT 1   [ RunTime:0.000203s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000186s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000190s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 101 ) LIMIT 1   [ RunTime:0.000204s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000191s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000187s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 100 ) LIMIT 1   [ RunTime:0.000206s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000185s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000197s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 75 ) LIMIT 1   [ RunTime:0.000197s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000186s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000187s ]
+
+[ 2015-10-18T19:57:11+08:00 ] 172.16.100.12 /?c=Api&a=getTypeCallList&partent=ht&key=ht&city_id=12&one_id=null
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000570s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000667s ]
+SQL: SHOW COLUMNS FROM `ht_shop_service` [ RunTime:0.001707s ]
+SQL: SELECT * FROM `ht_shop_service` WHERE ( `city_id` = 12 ) AND ( `one_id` = 0 ) ORDER BY id desc LIMIT 0,20   [ RunTime:0.000372s ]
+
+[ 2015-10-18T19:57:12+08:00 ] 172.16.100.12 /?c=Api&a=getTypeCallList&partent=ht&key=ht&city_id=12&one_id=25
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000599s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000694s ]
+SQL: SHOW COLUMNS FROM `ht_shop_service` [ RunTime:0.001477s ]
+SQL: SELECT * FROM `ht_shop_service` WHERE ( `city_id` = 12 ) AND ( `one_id` = 25 ) ORDER BY id desc LIMIT 0,20   [ RunTime:0.000887s ]
+SQL: SHOW COLUMNS FROM `ht_activity` [ RunTime:0.001572s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_activity` WHERE ( `id` = 21 ) LIMIT 1   [ RunTime:0.000498s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_activity` WHERE ( `id` = 21 ) LIMIT 1  
+SQL: SHOW COLUMNS FROM `ht_shop` [ RunTime:0.002357s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 45 ) LIMIT 1   [ RunTime:0.000653s ]
+SQL: SHOW COLUMNS FROM `ht_new_product` [ RunTime:0.001427s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 27 ) LIMIT 1   [ RunTime:0.000429s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 27 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 45 ) LIMIT 1   [ RunTime:0.000309s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 26 ) LIMIT 1   [ RunTime:0.000442s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 26 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 45 ) LIMIT 1   [ RunTime:0.000322s ]
+SQL: SHOW COLUMNS FROM `ht_card` [ RunTime:0.001544s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000441s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 5 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 45 ) LIMIT 1   [ RunTime:0.000402s ]
+SQL: SHOW COLUMNS FROM `ht_coupon` [ RunTime:0.001730s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 58 ) LIMIT 1   [ RunTime:0.000449s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 58 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 45 ) LIMIT 1   [ RunTime:0.000332s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 56 ) LIMIT 1   [ RunTime:0.000359s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 56 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 45 ) LIMIT 1   [ RunTime:0.000315s ]
+
+[ 2015-10-18T19:57:12+08:00 ] 172.16.100.12 /?c=Api&a=getTypeCallList&partent=ht&key=ht&city_id=12&one_id=25
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000687s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000879s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001026s ]
+SQL: SHOW COLUMNS FROM `ht_shop_service` [ RunTime:0.001510s ]
+SQL: SELECT * FROM `ht_shop_service` WHERE ( `city_id` = 12 ) AND ( `one_id` = 25 ) ORDER BY id desc LIMIT 0,20   [ RunTime:0.000378s ]
+SQL: SHOW COLUMNS FROM `ht_activity` [ RunTime:0.001623s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_activity` WHERE ( `id` = 21 ) LIMIT 1   [ RunTime:0.000354s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_activity` WHERE ( `id` = 21 ) LIMIT 1  
+SQL: SHOW COLUMNS FROM `ht_shop` [ RunTime:0.002257s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 45 ) LIMIT 1   [ RunTime:0.000279s ]
+SQL: SHOW COLUMNS FROM `ht_new_product` [ RunTime:0.001375s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 27 ) LIMIT 1   [ RunTime:0.000366s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 27 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 45 ) LIMIT 1   [ RunTime:0.000204s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 26 ) LIMIT 1   [ RunTime:0.000443s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 26 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 45 ) LIMIT 1   [ RunTime:0.000294s ]
+SQL: SHOW COLUMNS FROM `ht_card` [ RunTime:0.001552s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000429s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 5 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 45 ) LIMIT 1   [ RunTime:0.000306s ]
+SQL: SHOW COLUMNS FROM `ht_coupon` [ RunTime:0.001701s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 58 ) LIMIT 1   [ RunTime:0.000338s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 58 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 45 ) LIMIT 1   [ RunTime:0.000251s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 56 ) LIMIT 1   [ RunTime:0.000393s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 56 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 45 ) LIMIT 1   [ RunTime:0.000206s ]
+
+[ 2015-10-18T19:57:13+08:00 ] 172.16.100.12 /?c=Api&a=getTypeCallList&partent=ht&key=ht&city_id=12&one_id=54
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000443s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000660s ]
+SQL: SHOW COLUMNS FROM `ht_shop_service` [ RunTime:0.001512s ]
+SQL: SELECT * FROM `ht_shop_service` WHERE ( `city_id` = 12 ) AND ( `one_id` = 54 ) ORDER BY id desc LIMIT 0,20   [ RunTime:0.000765s ]
+
+[ 2015-10-18T19:57:19+08:00 ] 172.16.100.12 /?c=Api&a=getHomeCallList&partent=ht&key=ht&city_id=12&member_id=&time=1445169440348
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000486s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000590s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000687s ]
+SQL: SHOW COLUMNS FROM `ht_shop_service` [ RunTime:0.001698s ]
+SQL: SELECT * FROM `ht_shop_service` WHERE ( `city_id` = 12 ) ORDER BY id desc LIMIT 0,20   [ RunTime:0.000402s ]
+SQL: SHOW COLUMNS FROM `ht_coupon` [ RunTime:0.001809s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 100 ) LIMIT 1   [ RunTime:0.000318s ]
+SQL: SHOW COLUMNS FROM `ht_shop` [ RunTime:0.002477s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000295s ]
+SQL: SHOW COLUMNS FROM `ht_shop_fans` [ RunTime:0.000962s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000293s ]
+SQL: SHOW COLUMNS FROM `ht_card` [ RunTime:0.001577s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 23 ) LIMIT 1   [ RunTime:0.000236s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000277s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000304s ]
+SQL: SHOW COLUMNS FROM `ht_call` [ RunTime:0.001512s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 109 ) LIMIT 1   [ RunTime:0.000302s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000274s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 106 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000202s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 108 ) LIMIT 1   [ RunTime:0.000287s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000294s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 106 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000239s ]
+SQL: SHOW COLUMNS FROM `ht_activity` [ RunTime:0.001528s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_activity` WHERE ( `id` = 47 ) LIMIT 1   [ RunTime:0.000286s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000246s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 106 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000275s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 107 ) LIMIT 1   [ RunTime:0.000212s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000188s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 106 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000191s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 97 ) LIMIT 1   [ RunTime:0.000237s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 55 ) LIMIT 1   [ RunTime:0.000202s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 80 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000280s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 96 ) LIMIT 1   [ RunTime:0.000294s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 55 ) LIMIT 1   [ RunTime:0.000275s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 80 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000279s ]
+SQL: SHOW COLUMNS FROM `ht_new_product` [ RunTime:0.001318s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 61 ) LIMIT 1   [ RunTime:0.000282s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000292s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000241s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 59 ) LIMIT 1   [ RunTime:0.000298s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 89 ) LIMIT 1   [ RunTime:0.000203s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 75 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000192s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 58 ) LIMIT 1   [ RunTime:0.000211s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 89 ) LIMIT 1   [ RunTime:0.000273s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 75 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000279s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 57 ) LIMIT 1   [ RunTime:0.000294s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 52 ) LIMIT 1   [ RunTime:0.000278s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 78 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000292s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 105 ) LIMIT 1   [ RunTime:0.000295s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 89 ) LIMIT 1   [ RunTime:0.000284s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 75 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000243s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 24 ) LIMIT 1   [ RunTime:0.000256s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000186s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000194s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 100 ) LIMIT 1   [ RunTime:0.000198s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000188s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000186s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 23 ) LIMIT 1   [ RunTime:0.000194s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000185s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000192s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 53 ) LIMIT 1   [ RunTime:0.000198s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000198s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000187s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 101 ) LIMIT 1   [ RunTime:0.000202s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000186s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000189s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 100 ) LIMIT 1   [ RunTime:0.000194s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000189s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000188s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 75 ) LIMIT 1   [ RunTime:0.000200s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000185s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 0 ) LIMIT 1   [ RunTime:0.000191s ]
+
+[ 2015-10-18T19:57:34+08:00 ] 172.16.100.12 /?c=Api&a=login&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000477s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000575s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000674s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001281s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '18618469379' ) LIMIT 1   [ RunTime:0.000536s ]
+SQL: UPDATE `ht_member` SET `login_num`=29,`last_login_time`=1445169454 WHERE ( `id` = 106 ) [ RunTime:0.000461s ]
+
+[ 2015-10-18T19:57:34+08:00 ] 172.16.100.12 /?c=Api&a=getShopBase&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000561s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000660s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001073s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 106 ) LIMIT 1   [ RunTime:0.000435s ]
+SQL: SHOW COLUMNS FROM `ht_shop` [ RunTime:0.002358s ]
+SQL: SELECT `id`,`title`,`star`,`one_id` FROM `ht_shop` WHERE ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_classify` [ RunTime:0.000949s ]
+SQL: SELECT * FROM `ht_classify` WHERE ( `id` = 23 ) LIMIT 1   [ RunTime:0.000234s ]
+
+[ 2015-10-18T19:57:36+08:00 ] 172.16.100.12 /?c=Api&a=shopFollow&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000465s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000563s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000671s ]
+SQL: SHOW COLUMNS FROM `ht_shop` [ RunTime:0.002701s ]
+SQL: SELECT * FROM `ht_shop` WHERE ( `id` = 62 ) LIMIT 1   [ RunTime:0.000367s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001182s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 106 ) LIMIT 1   [ RunTime:0.000255s ]
+
+[ 2015-10-18T19:57:36+08:00 ] 172.16.100.12 /?c=Api&a=getFollowShopList&partent=ht&key=ht&city_id=12&member_id=106
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000480s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000607s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000704s ]
+SQL: SHOW COLUMNS FROM `ht_shop_fans` [ RunTime:0.000945s ]
+SQL: SELECT `to_member_id` FROM `ht_shop_fans` WHERE ( `member_id` = 106 )  [ RunTime:0.000542s ]
+SQL: SHOW COLUMNS FROM `ht_shop_service` [ RunTime:0.001555s ]
+SQL: SELECT `id`,`member_id`,`service_id`,`title`,`type`,`collection_num`,`zan_num`,`comment_num`,`addtime`,`img1`,`img2`,`img3`,`img4`,`img5`,`img6` FROM `ht_shop_service` WHERE ( `member_id` IN ('48','68','98','49','55','62','65') ) ORDER BY id desc  [ RunTime:0.001365s ]
+SQL: SHOW COLUMNS FROM `ht_coupon` [ RunTime:0.001608s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 100 ) LIMIT 1   [ RunTime:0.000300s ]
+SQL: SHOW COLUMNS FROM `ht_shop` [ RunTime:0.002275s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000283s ]
+SQL: SHOW COLUMNS FROM `ht_card` [ RunTime:0.001554s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 23 ) LIMIT 1   [ RunTime:0.000265s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000284s ]
+SQL: SHOW COLUMNS FROM `ht_call` [ RunTime:0.001461s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 97 ) LIMIT 1   [ RunTime:0.000226s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 55 ) LIMIT 1   [ RunTime:0.000292s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 96 ) LIMIT 1   [ RunTime:0.000279s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 55 ) LIMIT 1   [ RunTime:0.000238s ]
+SQL: SHOW COLUMNS FROM `ht_new_product` [ RunTime:0.001436s ]
+SQL: SELECT `img1`,title as content FROM `ht_new_product` WHERE ( `id` = 61 ) LIMIT 1   [ RunTime:0.000293s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000248s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 24 ) LIMIT 1   [ RunTime:0.000311s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000198s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 100 ) LIMIT 1   [ RunTime:0.000291s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000274s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 79 ) LIMIT 1   [ RunTime:0.000260s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 68 ) LIMIT 1   [ RunTime:0.000276s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 78 ) LIMIT 1   [ RunTime:0.000202s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 68 ) LIMIT 1   [ RunTime:0.000280s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 23 ) LIMIT 1   [ RunTime:0.000307s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000297s ]
+SQL: SELECT `img1`,title as content FROM `ht_new_product` WHERE ( `id` = 53 ) LIMIT 1   [ RunTime:0.000290s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000286s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 101 ) LIMIT 1   [ RunTime:0.000292s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000281s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 100 ) LIMIT 1   [ RunTime:0.000309s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000294s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 75 ) LIMIT 1   [ RunTime:0.000290s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000219s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 74 ) LIMIT 1   [ RunTime:0.000213s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000189s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 99 ) LIMIT 1   [ RunTime:0.000207s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000190s ]
+SQL: SHOW COLUMNS FROM `ht_activity` [ RunTime:0.001483s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_activity` WHERE ( `id` = 40 ) LIMIT 1   [ RunTime:0.000305s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000238s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 99 ) LIMIT 1   [ RunTime:0.000276s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000240s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 98 ) LIMIT 1   [ RunTime:0.000196s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000189s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 72 ) LIMIT 1   [ RunTime:0.000199s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000195s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 71 ) LIMIT 1   [ RunTime:0.000198s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 48 ) LIMIT 1   [ RunTime:0.000196s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 70 ) LIMIT 1   [ RunTime:0.000331s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000188s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 69 ) LIMIT 1   [ RunTime:0.000227s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000235s ]
+SQL: SELECT `img1`,title as content FROM `ht_new_product` WHERE ( `id` = 49 ) LIMIT 1   [ RunTime:0.000217s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000236s ]
+SQL: SELECT `img1`,title as content FROM `ht_new_product` WHERE ( `id` = 45 ) LIMIT 1   [ RunTime:0.000235s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 68 ) LIMIT 1   [ RunTime:0.000226s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 95 ) LIMIT 1   [ RunTime:0.000248s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000233s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 22 ) LIMIT 1   [ RunTime:0.000201s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000234s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 21 ) LIMIT 1   [ RunTime:0.000211s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000197s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 95 ) LIMIT 1   [ RunTime:0.000215s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000200s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 94 ) LIMIT 1   [ RunTime:0.000406s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 98 ) LIMIT 1   [ RunTime:0.000523s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_activity` WHERE ( `id` = 35 ) LIMIT 1   [ RunTime:0.000213s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 98 ) LIMIT 1   [ RunTime:0.000194s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_activity` WHERE ( `id` = 35 ) LIMIT 1   [ RunTime:0.000198s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 98 ) LIMIT 1   [ RunTime:0.000189s ]
+SQL: SELECT `img1`,title as content FROM `ht_new_product` WHERE ( `id` = 47 ) LIMIT 1   [ RunTime:0.000190s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 98 ) LIMIT 1   [ RunTime:0.000190s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 92 ) LIMIT 1   [ RunTime:0.000386s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 98 ) LIMIT 1   [ RunTime:0.000199s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 62 ) LIMIT 1   [ RunTime:0.000200s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 55 ) LIMIT 1   [ RunTime:0.000191s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 91 ) LIMIT 1   [ RunTime:0.000349s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 98 ) LIMIT 1   [ RunTime:0.000195s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_activity` WHERE ( `id` = 34 ) LIMIT 1   [ RunTime:0.000201s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 98 ) LIMIT 1   [ RunTime:0.000187s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 60 ) LIMIT 1   [ RunTime:0.000205s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000186s ]
+SQL: SELECT `img1`,title as content FROM `ht_new_product` WHERE ( `id` = 46 ) LIMIT 1   [ RunTime:0.000188s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000186s ]
+SQL: SELECT `img1`,title as content FROM `ht_new_product` WHERE ( `id` = 45 ) LIMIT 1   [ RunTime:0.000187s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 68 ) LIMIT 1   [ RunTime:0.000185s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 54 ) LIMIT 1   [ RunTime:0.000199s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 68 ) LIMIT 1   [ RunTime:0.000188s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 82 ) LIMIT 1   [ RunTime:0.000197s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 68 ) LIMIT 1   [ RunTime:0.000186s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 53 ) LIMIT 1   [ RunTime:0.000201s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 68 ) LIMIT 1   [ RunTime:0.000185s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 76 ) LIMIT 1   [ RunTime:0.000195s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000187s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 75 ) LIMIT 1   [ RunTime:0.000198s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000186s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 26 ) LIMIT 1   [ RunTime:0.000350s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 65 ) LIMIT 1   [ RunTime:0.000450s ]
+SQL: SELECT `img1`,title as content FROM `ht_new_product` WHERE ( `id` = 35 ) LIMIT 1   [ RunTime:0.000196s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 65 ) LIMIT 1   [ RunTime:0.000190s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 12 ) LIMIT 1   [ RunTime:0.000200s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 65 ) LIMIT 1   [ RunTime:0.000187s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 68 ) LIMIT 1   [ RunTime:0.000357s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 65 ) LIMIT 1   [ RunTime:0.000197s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 48 ) LIMIT 1   [ RunTime:0.000197s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 48 ) LIMIT 1   [ RunTime:0.000190s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_activity` WHERE ( `id` = 25 ) LIMIT 1   [ RunTime:0.000203s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 48 ) LIMIT 1   [ RunTime:0.000188s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 11 ) LIMIT 1   [ RunTime:0.000208s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 48 ) LIMIT 1   [ RunTime:0.000188s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 66 ) LIMIT 1   [ RunTime:0.000199s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 48 ) LIMIT 1   [ RunTime:0.000185s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 47 ) LIMIT 1   [ RunTime:0.000197s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 48 ) LIMIT 1   [ RunTime:0.000187s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 25 ) LIMIT 1   [ RunTime:0.000197s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 48 ) LIMIT 1   [ RunTime:0.000266s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 24 ) LIMIT 1   [ RunTime:0.000285s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 48 ) LIMIT 1   [ RunTime:0.000277s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 23 ) LIMIT 1   [ RunTime:0.000287s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 48 ) LIMIT 1   [ RunTime:0.000292s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 60 ) LIMIT 1   [ RunTime:0.000289s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 48 ) LIMIT 1   [ RunTime:0.000293s ]
+
+[ 2015-10-18T19:57:39+08:00 ] 172.16.100.12 /?c=Api&a=getNearbyList&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000578s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000675s ]
+SQL: SHOW COLUMNS FROM `ht_shop` [ RunTime:0.002315s ]
+SQL: SELECT `id`,`lng`,`lat` FROM `ht_shop` WHERE ( `city_id` = 12 ) AND ( `status` = 1 )  [ RunTime:0.000275s ]
+NOTIC: [8] Undefined variable: keyid /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1478 行.
+NOTIC: [8] Undefined index:  /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1478 行.
+SQL: SELECT `id`,`member_id`,title as full_name,`star`,`fans_num`,`area_id`,`district_id` FROM `ht_shop` WHERE ( `id` = 63 ) LIMIT 1   [ RunTime:0.000325s ]
+NOTIC: [8] Undefined index: full_name /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1506 行.
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001184s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 62 ) LIMIT 1   [ RunTime:0.000586s ]
+SQL: SELECT `id`,`member_id`,title as full_name,`star`,`fans_num`,`area_id`,`district_id` FROM `ht_shop` WHERE ( `id` = 64 ) LIMIT 1   [ RunTime:0.000298s ]
+NOTIC: [8] Undefined index: full_name /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1506 行.
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 65 ) LIMIT 1   [ RunTime:0.000577s ]
+SQL: SELECT `id`,`member_id`,title as full_name,`star`,`fans_num`,`area_id`,`district_id` FROM `ht_shop` WHERE ( `id` = 65 ) LIMIT 1   [ RunTime:0.000264s ]
+NOTIC: [8] Undefined index: full_name /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1506 行.
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 74 ) LIMIT 1   [ RunTime:0.000446s ]
+SQL: SELECT `id`,`member_id`,title as full_name,`star`,`fans_num`,`area_id`,`district_id` FROM `ht_shop` WHERE ( `id` = 66 ) LIMIT 1   [ RunTime:0.000299s ]
+NOTIC: [8] Undefined index: full_name /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1506 行.
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 75 ) LIMIT 1   [ RunTime:0.000593s ]
+SQL: SELECT `id`,`member_id`,title as full_name,`star`,`fans_num`,`area_id`,`district_id` FROM `ht_shop` WHERE ( `id` = 67 ) LIMIT 1   [ RunTime:0.000304s ]
+NOTIC: [8] Undefined index: full_name /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1506 行.
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 76 ) LIMIT 1   [ RunTime:0.000594s ]
+SQL: SELECT `id`,`member_id`,title as full_name,`star`,`fans_num`,`area_id`,`district_id` FROM `ht_shop` WHERE ( `id` = 68 ) LIMIT 1   [ RunTime:0.000316s ]
+NOTIC: [8] Undefined index: full_name /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1506 行.
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 77 ) LIMIT 1   [ RunTime:0.000490s ]
+SQL: SELECT `id`,`member_id`,title as full_name,`star`,`fans_num`,`area_id`,`district_id` FROM `ht_shop` WHERE ( `id` = 69 ) LIMIT 1   [ RunTime:0.000295s ]
+NOTIC: [8] Undefined index: full_name /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1506 行.
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 78 ) LIMIT 1   [ RunTime:0.000529s ]
+SQL: SELECT `id`,`member_id`,title as full_name,`star`,`fans_num`,`area_id`,`district_id` FROM `ht_shop` WHERE ( `id` = 70 ) LIMIT 1   [ RunTime:0.000306s ]
+NOTIC: [8] Undefined index: full_name /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1506 行.
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 79 ) LIMIT 1   [ RunTime:0.000487s ]
+SQL: SELECT `id`,`member_id`,title as full_name,`star`,`fans_num`,`area_id`,`district_id` FROM `ht_shop` WHERE ( `id` = 72 ) LIMIT 1   [ RunTime:0.000292s ]
+NOTIC: [8] Undefined index: full_name /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1506 行.
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 81 ) LIMIT 1   [ RunTime:0.000504s ]
+SQL: SELECT `id`,`member_id`,title as full_name,`star`,`fans_num`,`area_id`,`district_id` FROM `ht_shop` WHERE ( `id` = 83 ) LIMIT 1   [ RunTime:0.000253s ]
+NOTIC: [8] Undefined index: full_name /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1506 行.
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 86 ) LIMIT 1   [ RunTime:0.000377s ]
+SQL: SELECT `id`,`member_id`,title as full_name,`star`,`fans_num`,`area_id`,`district_id` FROM `ht_shop` WHERE ( `id` = 81 ) LIMIT 1   [ RunTime:0.000226s ]
+NOTIC: [8] Undefined index: full_name /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1506 行.
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 98 ) LIMIT 1   [ RunTime:0.000382s ]
+SQL: SELECT `id`,`member_id`,title as full_name,`star`,`fans_num`,`area_id`,`district_id` FROM `ht_shop` WHERE ( `id` = 3 ) LIMIT 1   [ RunTime:0.000243s ]
+NOTIC: [8] Undefined index: full_name /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1506 行.
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 3 ) LIMIT 1   [ RunTime:0.000367s ]
+SQL: SELECT `id`,`member_id`,title as full_name,`star`,`fans_num`,`area_id`,`district_id` FROM `ht_shop` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000246s ]
+NOTIC: [8] Undefined index: full_name /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1506 行.
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000368s ]
+SQL: SELECT `id`,`member_id`,title as full_name,`star`,`fans_num`,`area_id`,`district_id` FROM `ht_shop` WHERE ( `id` = 6 ) LIMIT 1   [ RunTime:0.000240s ]
+NOTIC: [8] Undefined index: full_name /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1506 行.
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 6 ) LIMIT 1   [ RunTime:0.000371s ]
+SQL: SELECT `id`,`member_id`,title as full_name,`star`,`fans_num`,`area_id`,`district_id` FROM `ht_shop` WHERE ( `id` = 75 ) LIMIT 1   [ RunTime:0.000248s ]
+NOTIC: [8] Undefined index: full_name /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1506 行.
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 89 ) LIMIT 1   [ RunTime:0.000402s ]
+SQL: SELECT `id`,`member_id`,title as full_name,`star`,`fans_num`,`area_id`,`district_id` FROM `ht_shop` WHERE ( `id` = 74 ) LIMIT 1   [ RunTime:0.000243s ]
+NOTIC: [8] Undefined index: full_name /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1506 行.
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 88 ) LIMIT 1   [ RunTime:0.000393s ]
+SQL: SELECT `id`,`member_id`,title as full_name,`star`,`fans_num`,`area_id`,`district_id` FROM `ht_shop` WHERE ( `id` = 59 ) LIMIT 1   [ RunTime:0.000322s ]
+NOTIC: [8] Undefined index: full_name /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1506 行.
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 56 ) LIMIT 1   [ RunTime:0.000399s ]
+SQL: SELECT `id`,`member_id`,title as full_name,`star`,`fans_num`,`area_id`,`district_id` FROM `ht_shop` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000248s ]
+NOTIC: [8] Undefined index: full_name /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1506 行.
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 5 ) LIMIT 1   [ RunTime:0.000383s ]
+SQL: SELECT `id`,`member_id`,title as full_name,`star`,`fans_num`,`area_id`,`district_id` FROM `ht_shop` WHERE ( `id` = 54 ) LIMIT 1   [ RunTime:0.000246s ]
+NOTIC: [8] Undefined index: full_name /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1506 行.
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 48 ) LIMIT 1   [ RunTime:0.000403s ]
+
+[ 2015-10-18T19:57:43+08:00 ] 172.16.100.12 /?c=Api&a=getHomeCallList&partent=ht&key=ht&city_id=12&member_id=106&time=1445169464282
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000475s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000678s ]
+SQL: SHOW COLUMNS FROM `ht_shop_service` [ RunTime:0.001474s ]
+SQL: SELECT * FROM `ht_shop_service` WHERE ( `city_id` = 12 ) ORDER BY id desc LIMIT 0,20   [ RunTime:0.000390s ]
+SQL: SHOW COLUMNS FROM `ht_coupon` [ RunTime:0.001632s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 100 ) LIMIT 1   [ RunTime:0.000284s ]
+SQL: SHOW COLUMNS FROM `ht_shop` [ RunTime:0.002231s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000282s ]
+SQL: SHOW COLUMNS FROM `ht_shop_fans` [ RunTime:0.000895s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000211s ]
+SQL: SHOW COLUMNS FROM `ht_card` [ RunTime:0.001411s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 23 ) LIMIT 1   [ RunTime:0.000213s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000274s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000201s ]
+SQL: SHOW COLUMNS FROM `ht_call` [ RunTime:0.001417s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 109 ) LIMIT 1   [ RunTime:0.000326s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000203s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 106 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000191s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 108 ) LIMIT 1   [ RunTime:0.000194s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000236s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 106 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000208s ]
+SQL: SHOW COLUMNS FROM `ht_activity` [ RunTime:0.001482s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_activity` WHERE ( `id` = 47 ) LIMIT 1   [ RunTime:0.000292s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000260s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 106 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000230s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 107 ) LIMIT 1   [ RunTime:0.000275s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000237s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 106 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000303s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 97 ) LIMIT 1   [ RunTime:0.000194s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 55 ) LIMIT 1   [ RunTime:0.000289s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 80 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000195s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 96 ) LIMIT 1   [ RunTime:0.000241s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 55 ) LIMIT 1   [ RunTime:0.000295s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 80 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000281s ]
+SQL: SHOW COLUMNS FROM `ht_new_product` [ RunTime:0.001303s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 61 ) LIMIT 1   [ RunTime:0.000213s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000244s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000267s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 59 ) LIMIT 1   [ RunTime:0.000247s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 89 ) LIMIT 1   [ RunTime:0.000280s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 75 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000240s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 58 ) LIMIT 1   [ RunTime:0.000303s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 89 ) LIMIT 1   [ RunTime:0.000201s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 75 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000188s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 57 ) LIMIT 1   [ RunTime:0.000213s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 52 ) LIMIT 1   [ RunTime:0.000296s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 78 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000284s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 105 ) LIMIT 1   [ RunTime:0.000292s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 89 ) LIMIT 1   [ RunTime:0.000310s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 75 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000304s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 24 ) LIMIT 1   [ RunTime:0.000284s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000306s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000289s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 100 ) LIMIT 1   [ RunTime:0.000307s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000254s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000192s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 23 ) LIMIT 1   [ RunTime:0.000195s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000186s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000190s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 53 ) LIMIT 1   [ RunTime:0.000195s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000187s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000192s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 101 ) LIMIT 1   [ RunTime:0.000303s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000307s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000287s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 100 ) LIMIT 1   [ RunTime:0.000289s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000276s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000311s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 75 ) LIMIT 1   [ RunTime:0.000287s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000264s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 62 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000193s ]
+
+[ 2015-10-18T19:57:44+08:00 ] 172.16.100.12 /?c=Api&a=getShopBase&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000452s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000561s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000660s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001141s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `id` = 106 ) LIMIT 1   [ RunTime:0.000234s ]
+SQL: SHOW COLUMNS FROM `ht_shop` [ RunTime:0.002219s ]
+SQL: SELECT `id`,`title`,`star`,`one_id` FROM `ht_shop` WHERE ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000277s ]
+SQL: SHOW COLUMNS FROM `ht_classify` [ RunTime:0.000889s ]
+SQL: SELECT * FROM `ht_classify` WHERE ( `id` = 23 ) LIMIT 1   [ RunTime:0.000222s ]
+
+[ 2015-10-18T19:57:53+08:00 ] 172.16.100.12 /?c=Api&a=getcitylist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000450s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000591s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000688s ]
+SQL: SHOW COLUMNS FROM `ht_city` [ RunTime:0.001041s ]
+SQL: SELECT `id`,`title`,`letter`,`is_hot` FROM `ht_city` WHERE ( `status` = 0 ) AND ( `id` = 295 )  [ RunTime:0.000278s ]
+
+[ 2015-10-18T19:57:55+08:00 ] 172.16.100.12 /?c=Api&a=getTypeCallList&partent=ht&key=ht&city_id=12&one_id=27
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000449s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000563s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000659s ]
+SQL: SHOW COLUMNS FROM `ht_shop_service` [ RunTime:0.002229s ]
+SQL: SELECT * FROM `ht_shop_service` WHERE ( `city_id` = 12 ) AND ( `one_id` = 27 ) ORDER BY id desc LIMIT 0,20   [ RunTime:0.000503s ]
+NOTIC: [8] Undefined variable: service /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1329 行.
+SQL: SHOW COLUMNS FROM `ht_shop` [ RunTime:0.003032s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000232s ]
+NOTIC: [8] Undefined variable: service /data1/vhosts/yaohe/admin/Apps/Home/Controller/ApiController.class.php 第 1329 行.
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000225s ]
+SQL: SHOW COLUMNS FROM `ht_new_product` [ RunTime:0.001442s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 49 ) LIMIT 1   [ RunTime:0.000476s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 49 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000218s ]
+SQL: SHOW COLUMNS FROM `ht_coupon` [ RunTime:0.001781s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 95 ) LIMIT 1   [ RunTime:0.000298s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 95 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000229s ]
+SQL: SHOW COLUMNS FROM `ht_card` [ RunTime:0.001919s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 22 ) LIMIT 1   [ RunTime:0.000311s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 22 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000230s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 21 ) LIMIT 1   [ RunTime:0.000344s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 21 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000212s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 95 ) LIMIT 1   [ RunTime:0.000360s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 95 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000202s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000189s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 46 ) LIMIT 1   [ RunTime:0.000292s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 46 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 49 ) LIMIT 1   [ RunTime:0.000195s ]
+
+[ 2015-10-18T19:57:58+08:00 ] 172.16.100.12 /?c=Api&a=getAreaList&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000446s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000559s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000656s ]
+SQL: SHOW COLUMNS FROM `ht_area` [ RunTime:0.000921s ]
+SQL: SELECT `id`,`title` FROM `ht_area` WHERE ( c_id=295 )  [ RunTime:0.000206s ]
+
+[ 2015-10-18T19:57:58+08:00 ] 172.16.100.12 /?c=Api&a=getHomeCallList&partent=ht&key=ht&city_id=295&member_id=106&time=1445169478761
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000451s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `ht_shop_service` [ RunTime:0.001593s ]
+SQL: SELECT * FROM `ht_shop_service` WHERE ( `city_id` = 295 ) ORDER BY id desc LIMIT 0,20   [ RunTime:0.001092s ]
+SQL: SHOW COLUMNS FROM `ht_activity` [ RunTime:0.001664s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_activity` WHERE ( `id` = 46 ) LIMIT 1   [ RunTime:0.000590s ]
+SQL: SHOW COLUMNS FROM `ht_shop` [ RunTime:0.002390s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 128 ) LIMIT 1   [ RunTime:0.000762s ]
+SQL: SHOW COLUMNS FROM `ht_shop_fans` [ RunTime:0.000981s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 102 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000605s ]
+SQL: SHOW COLUMNS FROM `ht_call` [ RunTime:0.001422s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 79 ) LIMIT 1   [ RunTime:0.000229s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 68 ) LIMIT 1   [ RunTime:0.000276s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 77 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000531s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 78 ) LIMIT 1   [ RunTime:0.000214s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 68 ) LIMIT 1   [ RunTime:0.000275s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 77 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000259s ]
+SQL: SHOW COLUMNS FROM `ht_new_product` [ RunTime:0.001339s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 45 ) LIMIT 1   [ RunTime:0.000293s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 68 ) LIMIT 1   [ RunTime:0.000237s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 77 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000280s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 48 ) LIMIT 1   [ RunTime:0.000206s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 73 ) LIMIT 1   [ RunTime:0.000232s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 79 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000570s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 61 ) LIMIT 1   [ RunTime:0.000231s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 73 ) LIMIT 1   [ RunTime:0.000246s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 79 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000293s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 45 ) LIMIT 1   [ RunTime:0.000248s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 68 ) LIMIT 1   [ RunTime:0.000273s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 77 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000234s ]
+SQL: SHOW COLUMNS FROM `ht_coupon` [ RunTime:0.001643s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 86 ) LIMIT 1   [ RunTime:0.000306s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 73 ) LIMIT 1   [ RunTime:0.000269s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 79 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000239s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_activity` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000288s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 73 ) LIMIT 1   [ RunTime:0.000242s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 79 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000276s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 86 ) LIMIT 1   [ RunTime:0.000247s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 73 ) LIMIT 1   [ RunTime:0.000187s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 79 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000196s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 87 ) LIMIT 1   [ RunTime:0.000192s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 73 ) LIMIT 1   [ RunTime:0.000200s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 79 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000190s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_activity` WHERE ( `id` = 33 ) LIMIT 1   [ RunTime:0.000203s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 73 ) LIMIT 1   [ RunTime:0.000185s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 79 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000214s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 58 ) LIMIT 1   [ RunTime:0.000212s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 73 ) LIMIT 1   [ RunTime:0.000222s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 79 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000223s ]
+SQL: SHOW COLUMNS FROM `ht_card` [ RunTime:0.001925s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 19 ) LIMIT 1   [ RunTime:0.000231s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 73 ) LIMIT 1   [ RunTime:0.000193s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 79 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000231s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 57 ) LIMIT 1   [ RunTime:0.000232s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 73 ) LIMIT 1   [ RunTime:0.000266s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 79 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000235s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 56 ) LIMIT 1   [ RunTime:0.000259s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 73 ) LIMIT 1   [ RunTime:0.000275s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 79 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000208s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_call` WHERE ( `id` = 55 ) LIMIT 1   [ RunTime:0.000228s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 73 ) LIMIT 1   [ RunTime:0.000213s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 79 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000217s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 44 ) LIMIT 1   [ RunTime:0.000228s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 73 ) LIMIT 1   [ RunTime:0.000196s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 79 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000246s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 18 ) LIMIT 1   [ RunTime:0.001468s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 73 ) LIMIT 1   [ RunTime:0.000193s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 79 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000193s ]
+SQL: SELECT `img1`,`img2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_card` WHERE ( `id` = 17 ) LIMIT 1   [ RunTime:0.000197s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 73 ) LIMIT 1   [ RunTime:0.000225s ]
+SQL: SELECT * FROM `ht_shop_fans` WHERE ( `shop_id` = 79 ) AND ( `member_id` = 106 ) LIMIT 1   [ RunTime:0.000221s ]
+
+[ 2015-10-18T19:57:58+08:00 ] 172.16.100.12 /?c=Api&a=getTypeCallList&partent=ht&key=ht&city_id=295&one_id=26
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000588s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `ht_shop_service` [ RunTime:0.001514s ]
+SQL: SELECT * FROM `ht_shop_service` WHERE ( `city_id` = 295 ) AND ( `one_id` = 26 ) ORDER BY id desc LIMIT 0,20   [ RunTime:0.000771s ]
+
+[ 2015-10-18T19:57:59+08:00 ] 172.16.100.12 /?c=Api&a=getTypeCallList&partent=ht&key=ht&city_id=295&one_id=25
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000587s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000684s ]
+SQL: SHOW COLUMNS FROM `ht_shop_service` [ RunTime:0.001628s ]
+SQL: SELECT * FROM `ht_shop_service` WHERE ( `city_id` = 295 ) AND ( `one_id` = 25 ) ORDER BY id desc LIMIT 0,20   [ RunTime:0.000870s ]
+
+[ 2015-10-18T19:57:59+08:00 ] 172.16.100.12 /?c=Api&a=getTypeCallList&partent=ht&key=ht&city_id=295&one_id=54
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000453s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000671s ]
+SQL: SHOW COLUMNS FROM `ht_shop_service` [ RunTime:0.001836s ]
+SQL: SELECT * FROM `ht_shop_service` WHERE ( `city_id` = 295 ) AND ( `one_id` = 54 ) ORDER BY id desc LIMIT 0,20   [ RunTime:0.000841s ]
+SQL: SHOW COLUMNS FROM `ht_new_product` [ RunTime:0.001341s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 42 ) LIMIT 1   [ RunTime:0.000411s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 42 ) LIMIT 1  
+SQL: SHOW COLUMNS FROM `ht_shop` [ RunTime:0.002298s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 66 ) LIMIT 1   [ RunTime:0.000658s ]
+SQL: SHOW COLUMNS FROM `ht_coupon` [ RunTime:0.001594s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 81 ) LIMIT 1   [ RunTime:0.000403s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 81 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 66 ) LIMIT 1   [ RunTime:0.000218s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 80 ) LIMIT 1   [ RunTime:0.000407s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 80 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 66 ) LIMIT 1   [ RunTime:0.000217s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 79 ) LIMIT 1   [ RunTime:0.000297s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 79 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 66 ) LIMIT 1   [ RunTime:0.000289s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 78 ) LIMIT 1   [ RunTime:0.000343s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_coupon` WHERE ( `id` = 78 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 66 ) LIMIT 1   [ RunTime:0.000278s ]
+SQL: SHOW COLUMNS FROM `ht_activity` [ RunTime:0.001456s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_activity` WHERE ( `id` = 31 ) LIMIT 1   [ RunTime:0.000333s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,`content` FROM `ht_activity` WHERE ( `id` = 31 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 66 ) LIMIT 1   [ RunTime:0.000200s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 66 ) LIMIT 1   [ RunTime:0.000202s ]
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 66 ) LIMIT 1   [ RunTime:0.000255s ]
+SQL: SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 41 ) LIMIT 1   [ RunTime:0.000410s ]
+ERR: 1054:Unknown column 'im2' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`im2`,`img3`,`img4`,`img5`,`img6`,title as content FROM `ht_new_product` WHERE ( `id` = 41 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star`,`fans_num` FROM `ht_shop` WHERE ( `member_id` = 66 ) LIMIT 1   [ RunTime:0.000277s ]
+
+[ 2015-10-18T20:00:55+08:00 ] 172.16.100.12 /?c=Api&a=register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000476s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000580s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000677s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001325s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13333333333' ) LIMIT 1   [ RunTime:0.000548s ]
+SQL: INSERT INTO `ht_member` (`login_user`,`login_pass`,`type`,`code`) VALUES ('13333333333','fcea920f7412b5da7be0cf42b8c93759',0,'') [ RunTime:0.000813s ]
+
+[ 2015-10-18T20:01:18+08:00 ] 172.16.100.12 /?c=Api&a=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000485s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000578s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000676s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001911s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13333333333' ) LIMIT 1   [ RunTime:0.000612s ]
+
+[ 2015-10-18T20:02:12+08:00 ] 172.16.100.12 /?c=Api&a=forgetpass
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000555s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000653s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001290s ]
+SQL: UPDATE `ht_member` SET `forgetcode`='661081' WHERE ( `login_user` = '13333333333' ) [ RunTime:0.000987s ]
+
+[ 2015-10-18T20:02:18+08:00 ] 172.16.100.12 /?c=Api&a=forgetpass
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001172s ]
+SQL: UPDATE `ht_member` SET `forgetcode`='358138' WHERE ( `login_user` = '13333333333' ) [ RunTime:0.000930s ]
+
+[ 2015-10-18T20:03:46+08:00 ] 172.16.100.12 /?c=Api&a=register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000566s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000664s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001335s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13333333331' ) LIMIT 1   [ RunTime:0.000533s ]
+SQL: INSERT INTO `ht_member` (`login_user`,`login_pass`,`type`,`code`) VALUES ('13333333331','fcea920f7412b5da7be0cf42b8c93759',0,'') [ RunTime:0.000421s ]
+
+[ 2015-10-18T20:05:11+08:00 ] 172.16.100.12 /?c=Api&a=register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000277s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000324s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001239s ]
+SQL: SELECT * FROM `ht_member` WHERE ( `login_user` = '13333333331' ) LIMIT 1   [ RunTime:0.000512s ]
+
+[ 2015-10-18T20:07:15+08:00 ] 172.16.100.12 /?c=Api&a=forgetpass
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001311s ]
+SQL: UPDATE `ht_member` SET `forgetcode`='171833' WHERE ( `login_user` = '13333333331' ) [ RunTime:0.001160s ]
+
+[ 2015-10-18T20:07:47+08:00 ] 172.16.100.12 /?c=Api&a=forgetpass
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000475s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000577s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000677s ]
+SQL: SHOW COLUMNS FROM `ht_member` [ RunTime:0.001346s ]
+SQL: UPDATE `ht_member` SET `forgetcode`='699263' WHERE ( `login_user` = '13333333334' ) [ RunTime:0.000939s ]
+
+[ 2015-10-18T22:00:10+08:00 ] 172.16.100.12 /resource/seminar/100520/Dawei%20Jiang.pptx
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000663s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000180s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008028s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008126s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000201s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000285s ]
+
+[ 2015-10-18T22:11:06+08:00 ] 172.16.100.12 /resource/seminar/080307/Web20.pdf
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000477s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000604s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000704s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000071s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000170s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008493s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008594s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000184s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000266s ]
+

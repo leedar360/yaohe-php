@@ -1,0 +1,139 @@
+<include file="Public:top"/>
+<script>
+$(document).ready(function(){
+	$('.has-items').eq(2).children(".level-2").show();
+	$('.has-items').eq(2).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('.has-items').eq(2).children(".level-2").children('li').eq(0).addClass('selected');
+	$('#ajax_list').load('?c=Role&a=ajax_list&pageNum={$currentPage}');
+});
+function close_modal()
+{
+	$('#modal').hide();
+}
+function open_modal()
+{
+	$('#modal').show();  
+}
+function insert()
+{
+	if($('#p_id').val()==0)
+	{
+		alert('请选择省份');
+	}
+	else if($('#title').val()=='')
+	{
+		alert('请输入名称');
+		$('#title').focus();
+	}
+	else
+	{
+		$.post("?c=Role&a=insert", { title: $('#title').val(),p_id:$('#p_id').val() },
+			function(data){
+				//alert(data.msg);
+				$('#ajax_list').load('?c=Role&a=ajax_list&pageNum={$currentPage}');
+				$('#ajax_txt').html(data.msg);
+				$('#title').val('');
+			}
+		);
+	}
+}
+function update()
+{
+	if($('#edit_p_id').val()==0)
+	{
+		alert('请选择省份');
+	}
+	else if($('#edit_title').val()=='')
+	{
+		alert('请输入名称');
+		$('#edit_title').focus();
+	}
+	else
+	{
+		$.post("?c=Role&a=update", { id:$('#edit_id').val(),title: $('#edit_title').val(),p_id:$('#edit_p_id').val() },
+			function(data){
+				//alert(data.msg);
+				$('#ajax_list').load('?c=Role&a=ajax_list&pageNum={$currentPage}');
+				$('#edit_ajax_txt').html(data.msg);
+				$('#title').val('');
+			}
+		);
+	}
+}
+function del()
+{
+	var variable = $("input[name='id[]']:checked").serialize();
+	if(variable=='')
+	{
+		alert('请选择记录');
+		return false;
+	}
+	if(!confirm("确认删除选中记录"))return false;
+	$.ajax({
+		url: "?c=Role&a=delete",
+		type: "post",
+		data: variable,
+		success: function (result) {
+			//handle
+			alert(result.msg);
+			$('#ajax_list').load('?c=Role&a=ajax_list&pageNum={$currentPage}');
+		}
+	});
+}
+function close_edit_modal()
+{
+	$('#edit_modal').hide();
+}
+function open_edit_modal()
+{
+	$('#edit_modal').show();  
+}
+function _delete()
+{
+	if(!confirm("确认删除此记录？"))return false;
+}
+</script>
+
+<body class="modal-ready">
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+        	
+
+
+            <include file="Public:menu"/>
+            
+            
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+
+					
+                    <div class="pane">
+                    
+                    	<div class="toolbar"><a class="btn" href="javascript:void(0)"><span class="icon icon-refresh"></span></a><a class="btn" href="?c=Role&a=add"><span class="icon icon-run"></span><span class="text">新建</span></a><a class="btn" href="javascript:void(0)" onclick="del()"><span class="text">删除</span></a>
+                            <!--
+                            <div class="pagination"><span class="per-page">每页显示：&nbsp;</span>
+                            	<div class="select-con"><select class="dropdown-select" name="limit"><option value="10" selected="">10</option><option value="20">20</option><option value="50">50</option><option value="100">100</option></select>
+                                </div>
+                            </div>
+							-->
+                        </div>
+						<div id="ajax_list">
+						</div>
+						{$page}
+                        
+                   </div>
+                    
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

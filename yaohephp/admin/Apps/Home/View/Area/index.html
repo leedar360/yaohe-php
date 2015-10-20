@@ -1,0 +1,190 @@
+<include file="Public:top"/>
+<script>
+$(document).ready(function(){
+	$('.has-items').eq(5).children(".level-2").show();
+	$('.has-items').eq(5).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('.has-items').eq(5).children(".level-2").children('li').eq(6).addClass('selected');
+	$('#ajax_list').load('?c=Area&a=ajax_list&pageNum={$currentPage}');
+	$('#p_id').change(function(){
+		$.ajax({
+                type: "post",
+                url: "?c=Area&a=getcitylist",
+				data:{'province_id':$(this).val()},
+                cache: false,
+                datatype: "json",
+                success: function(msg) {
+					var str='<option value="0">请选择</option>';
+					var obj=eval(msg); 
+                    $.each(obj, function(i) {
+						str+='<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+                    });
+					$('#c_id').html(str);
+                }
+        });
+	})
+	$('#edit_p_id').change(function(){
+		$.ajax({
+                type: "post",
+                url: "?c=Area&a=getcitylist",
+				data:{'province_id':$(this).val()},
+                cache: false,
+                datatype: "json",
+                success: function(msg) {
+					var str='<option value="0">请选择</option>';
+					var obj=eval(msg); 
+                    $.each(obj, function(i) {
+						str+='<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+                    });
+					$('#edit_c_id').html(str);
+                }
+        });
+	})
+});
+function close_modal()
+{
+	$('#modal').hide();
+}
+function open_modal()
+{
+	$('#modal').show();  
+}
+function insert()
+{
+	if($('#p_id').val()==0)
+	{
+		alert('请选择省份');
+	}
+	else if($('#c_id').val()==0)
+	{
+		alert('请选择城市');
+	}
+	else if($('#title').val()=='')
+	{
+		alert('请输入名称');
+		$('#title').focus();
+	}
+	else
+	{
+		$.post("?c=Area&a=insert", { title: $('#title').val(),p_id:$('#p_id').val(),c_id:$('#c_id').val() },
+			function(data){
+				//alert(data.msg);
+				$('#ajax_list').load('?c=Area&a=ajax_list&pageNum={$currentPage}');
+				$('#ajax_txt').html(data.msg);
+				$('#title').val('');
+			}
+		);
+	}
+}
+function update()
+{
+	if($('#edit_p_id').val()==0)
+	{
+		alert('请选择省份');
+	}
+	else if($('#edit_c_id').val()==0)
+	{
+		alert('请选择城市');
+	}
+	else if($('#edit_title').val()=='')
+	{
+		alert('请输入名称');
+		$('#edit_title').focus();
+	}
+	else
+	{
+		$.post("?c=Area&a=update", { id:$('#edit_id').val(),title: $('#edit_title').val(),p_id:$('#edit_p_id').val(),c_id:$('#edit_c_id').val() },
+			function(data){
+				//alert(data.msg);
+				$('#ajax_list').load('?c=Area&a=ajax_list&pageNum={$currentPage}');
+				$('#edit_ajax_txt').html(data.msg);
+				$('#title').val('');
+			}
+		);
+	}
+}
+function del()
+{
+	var variable = $("input[name='id[]']:checked").serialize();
+	if(variable=='')
+	{
+		alert('请选择记录');
+		return false;
+	}
+	if(!confirm("确认删除选中记录"))return false;
+	$.ajax({
+		url: "?c=Area&a=delete",
+		type: "post",
+		data: variable,
+		success: function (result) {
+			//handle
+			alert(result.msg);
+			$('#ajax_list').load('?c=Area&a=ajax_list&pageNum={$currentPage}');
+		}
+	});
+}
+function close_edit_modal()
+{
+	$('#edit_modal').hide();
+}
+function open_edit_modal()
+{
+	$('#edit_modal').show();  
+}
+</script>
+<!--<div id="fullbg"></div>-->
+<!--弹出窗口-->
+<div class="modal" id="modal" style="width: 600px; height: auto; margin-left: -300px; margin-top: -200px; top: 208px; z-index: 1000; left: 683px;display:none"><div class="modal-header" style="cursor: move;"><h4>创建区域<a href="javascript:void(0)" onclick="close_modal()" class="close"><span class="icon-close icon-Large"></span></a></h4></div><div class="modal-content" id=""><form class="form form-horizontal"><fieldset><legend>创建区域</legend><div class="item"><div class="control-label">省份</div><div class="controls"><select name="p_id" id="p_id"><option value="0">请选择</option><volist name="province_list" id="vo"><option value="{$vo.id}">{$vo.title}</option></volist></select></div><div class="control-label">省份</div><div class="controls"><select name="c_id" id="c_id"><option value="0">请选择</option></select></div></div><div class="item"><div class="control-label">名称</div><div class="controls"><input type="text" name="title" id="title" autofocus><span id="ajax_txt"></span></div></div>
+
+<div class="form-actions"><input class="btn btn-primary" type="button" onclick="insert()" value="提交"><input class="btn btn-cancel" type="button" value="取消" onclick="close_modal()"></div></fieldset></form></div><div class="modal-footer"></div></div>
+<!--弹出窗口-->
+
+
+<!--弹出窗口-->
+<div class="modal" id="edit_modal" style="width: 600px; height: auto; margin-left: -300px; margin-top: -200px; top: 208px; z-index: 1000; left: 683px;display:none"><div class="modal-header" style="cursor: move;"><h4>编辑区域<a href="javascript:void(0)" onclick="close_edit_modal()" class="close"><span class="icon-close icon-Large"></span></a></h4></div><div class="modal-content" id=""><form class="form form-horizontal"><fieldset><legend>编辑区域</legend><div class="item"><div class="control-label">省份</div><div class="controls"><select name="edit_p_id" id="edit_p_id"><option value="0">请选择</option><volist name="province_list" id="vo"><option value="{$vo.id}">{$vo.title}</option></volist></select></div><div class="control-label">省份</div><div class="controls"><select name="edit_c_id" id="edit_c_id"><option value="0">请选择</option></select></div><div class="control-label">名称</div><div class="controls"><input type="text" name="edit_title" id="edit_title" autofocus><input type="hidden" name="edit_id" id="edit_id" value="0" /><span id="edit_ajax_txt"></span></div></div>
+
+<div class="form-actions"><input class="btn btn-primary" type="button" onclick="update()" value="提交"><input class="btn btn-cancel" type="button" value="取消" onclick="close_edit_modal()"></div></fieldset></form></div><div class="modal-footer"></div></div>
+<!--弹出窗口-->
+<body class="modal-ready">
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+        	
+
+
+            <include file="Public:menu"/>
+            
+            
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+
+					
+                    <div class="pane">
+                    
+                    	<div class="toolbar"><a class="btn" href="javascript:void(0)"><span class="icon icon-refresh"></span></a><a class="btn" href="javascript:void(0)" onclick="open_modal()"><span class="icon icon-run"></span><span class="text">新建</span></a><a class="btn" href="javascript:void(0)" onclick="del()"><span class="text">删除</span></a>
+                            <!--
+                            <div class="pagination"><span class="per-page">每页显示：&nbsp;</span>
+                            	<div class="select-con"><select class="dropdown-select" name="limit"><option value="10" selected="">10</option><option value="20">20</option><option value="50">50</option><option value="100">100</option></select>
+                                </div>
+                            </div>
+							-->
+                        </div>
+						<div id="ajax_list">
+						</div>
+						{$page}
+                        
+                       <include file="Public:prompt"/>
+                   </div>
+                    
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

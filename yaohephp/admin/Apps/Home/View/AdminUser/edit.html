@@ -1,0 +1,114 @@
+<include file="Public:top"/>
+<script>
+$(document).ready(function(){
+	$('.has-items').eq(3).children(".level-2").show();
+	$('.has-items').eq(3).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('.has-items').eq(3).children(".level-2").children('li').eq(2).addClass('selected');
+	$('#role_id').val({$vo.role_id});
+});
+function update()
+{
+	if($.trim($('#login_user').val())=='')
+	{
+		alert('请输入账号!');
+		$('#login_user').val('');
+		$('#login_user').focus();
+		return false;
+	}
+	if($.trim($('#login_pass').val())!=$.trim($('#login_pass_1').val()))
+	{
+		alert('两次密码不一致!');
+		$('#login_pass_1').focus();
+		return false;
+	}
+	if($.trim($('#name').val())=='')
+	{
+		alert('请输入姓名!');
+		$('#name').val('');
+		$('#name').focus();
+		return false;
+	}
+}
+</script>
+
+<body class="modal-ready">
+
+
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+
+
+            <include file="Public:menu"/>
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+
+					
+                    <div class="pane">
+                    <ul class="page-tabs"><li class="selected"><a href="?c=AdminUser&a=edit?id={$vo.id}" data-permalink="">编辑管理员</a></li></ul>
+                    	<form name="form1" method="post" action="?c=AdminUser&a=update" onSubmit="return update()" enctype="multipart/form-data">
+                    	<table width="100%" class="table table-bordered table-hover">
+							<thead>
+
+								<tr>
+								  <th width="103"><span style="color:#FF0000;">*</span>账号<input type="hidden" name="id" value="{$vo.id}" /></th>
+								  <th colspan="4" align="left"><input name="login_user" type="text" id="login_user" size="40" value="{$vo.login_user}" /></th>
+								  </tr>
+								<tr>
+								  <th width="103"><span style="color:#FF0000;">*</span>密码</th>
+								  <th colspan="4" align="left"><input name="login_pass" type="password" id="login_pass" size="40" />不填写则不修改密码</th>
+								  </tr>
+								<tr>
+								  <th width="103"><span style="color:#FF0000;">*</span>确认密码</th>
+								  <th colspan="4" align="left"><input name="login_pass_1" type="password" id="login_pass_1" size="40" /></th>
+								  </tr>
+								<tr>
+								  <th width="103">权限组</th>
+									<th colspan="4" align="left">
+									<select name="role_id" id="role_id">
+									<volist name="role_list" id="item">
+									<option value="{$item.id}">{$item.title}</option>
+									</volist>
+									</select>
+									</th>
+								  </tr>
+								<tr>
+								  <th width="103"><span style="color:#FF0000;">*</span>姓名</th>
+								  <th colspan="4" align="left"><input name="name" type="text" id="name" size="40" value="{$vo.name}" /></th>
+								  </tr>
+								<tr>
+								  <th width="103">电话</th>
+								  <th colspan="4" align="left"><input name="tel" type="text" id="tel" size="40" value="{$vo.tel}"/></th>
+								  </tr>
+								<tr>
+								  <th width="103">备注</th>
+								  <th colspan="4" align="left"><textarea name="remark" id="remark" cols="45" rows="5">{$vo.remark}</textarea></th>
+								  </tr>
+								<tr>
+								  <th width="103">&nbsp;</th>
+								  <th colspan="4" align="left"><input type="submit" name="button" id="button" value="提交"></th>
+								  </tr>
+							</thead>
+							<tbody>
+							
+						   </tbody><tfoot></tfoot>
+						</table>
+                  	  </form>
+
+                        
+                       
+                   </div>
+                    
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

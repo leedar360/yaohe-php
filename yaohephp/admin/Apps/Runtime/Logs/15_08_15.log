@@ -1,0 +1,3099 @@
+[ 2015-08-15T00:01:10+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000040s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000472s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001123s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000288s ]
+
+[ 2015-08-15T00:04:37+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000577s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000677s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001174s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000233s ]
+
+[ 2015-08-15T00:06:33+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001130s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000265s ]
+
+[ 2015-08-15T00:09:10+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000483s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001131s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000229s ]
+
+[ 2015-08-15T00:14:33+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000476s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001168s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000275s ]
+
+[ 2015-08-15T00:16:21+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000575s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000674s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001105s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000231s ]
+
+[ 2015-08-15T00:18:45+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000466s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000588s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001183s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000235s ]
+
+[ 2015-08-15T00:20:42+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000457s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000581s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001134s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000272s ]
+
+[ 2015-08-15T00:34:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000476s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000687s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001106s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000297s ]
+
+[ 2015-08-15T00:41:08+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000452s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000669s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001147s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000296s ]
+
+[ 2015-08-15T00:42:32+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000571s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001138s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000229s ]
+
+[ 2015-08-15T00:45:10+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000464s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000688s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001137s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000307s ]
+
+[ 2015-08-15T01:02:49+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000482s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000577s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000676s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.000932s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000294s ]
+
+[ 2015-08-15T01:06:24+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000477s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000587s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001262s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000320s ]
+
+[ 2015-08-15T01:15:37+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000475s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000610s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000713s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001130s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000303s ]
+
+[ 2015-08-15T01:22:00+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000470s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001144s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000230s ]
+
+[ 2015-08-15T01:23:12+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000666s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001196s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000237s ]
+
+[ 2015-08-15T01:24:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000574s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000673s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001189s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000248s ]
+
+[ 2015-08-15T01:36:24+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000669s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001241s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000249s ]
+
+[ 2015-08-15T01:47:08+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000453s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000571s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000668s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001201s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000281s ]
+
+[ 2015-08-15T01:49:34+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000676s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001178s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000233s ]
+
+[ 2015-08-15T01:53:26+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000457s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001149s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T02:06:31+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001243s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000248s ]
+
+[ 2015-08-15T02:44:37+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000469s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000578s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000678s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001219s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000320s ]
+
+[ 2015-08-15T02:48:49+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000565s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000665s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001185s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000236s ]
+
+[ 2015-08-15T02:57:10+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000464s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000683s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001124s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000231s ]
+
+[ 2015-08-15T03:01:31+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000457s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000566s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001254s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000309s ]
+
+[ 2015-08-15T03:06:37+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001174s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000319s ]
+
+[ 2015-08-15T03:08:21+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000570s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000671s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001165s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000325s ]
+
+[ 2015-08-15T03:12:30+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000684s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001230s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000306s ]
+
+[ 2015-08-15T03:18:23+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000668s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001227s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000316s ]
+
+[ 2015-08-15T03:29:12+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000457s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000669s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001094s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000278s ]
+
+[ 2015-08-15T03:30:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000488s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000591s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000690s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001168s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000266s ]
+
+[ 2015-08-15T03:40:53+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000574s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000674s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001163s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000237s ]
+
+[ 2015-08-15T03:53:45+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000473s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001149s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000240s ]
+
+[ 2015-08-15T04:05:46+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000581s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001170s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000303s ]
+
+[ 2015-08-15T04:09:30+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000481s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000580s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001179s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000308s ]
+
+[ 2015-08-15T04:12:29+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001137s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000245s ]
+
+[ 2015-08-15T04:18:30+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000464s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000670s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001747s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000291s ]
+
+[ 2015-08-15T04:18:30+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000469s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000590s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000689s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.000952s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000246s ]
+
+[ 2015-08-15T04:20:50+08:00 ] 172.16.100.11 /?c=Api&a=getClassifyList&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000562s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000671s ]
+SQL: SHOW COLUMNS FROM `ht_classify` [ RunTime:0.001195s ]
+SQL: SELECT `id`,`title` FROM `ht_classify` WHERE ( parentid=0 and is_hidden=0 ) ORDER BY order_num asc,id asc  [ RunTime:0.000229s ]
+
+[ 2015-08-15T04:22:43+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000678s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001182s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000314s ]
+
+[ 2015-08-15T04:26:08+08:00 ] 172.16.100.11 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000574s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000169s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008194s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008294s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000201s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000292s ]
+
+[ 2015-08-15T04:26:50+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000464s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000566s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000666s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001207s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T04:28:26+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000477s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000683s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001150s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000314s ]
+
+[ 2015-08-15T04:32:38+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000690s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001140s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000337s ]
+
+[ 2015-08-15T04:34:39+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000479s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000580s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001172s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000242s ]
+
+[ 2015-08-15T04:36:30+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000477s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000684s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001196s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000294s ]
+
+[ 2015-08-15T04:38:34+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000566s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000666s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001160s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000274s ]
+
+[ 2015-08-15T04:46:34+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000496s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000581s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001149s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000302s ]
+
+[ 2015-08-15T04:47:41+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000470s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000580s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001174s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000318s ]
+
+[ 2015-08-15T04:48:43+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000588s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000701s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001154s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000312s ]
+
+[ 2015-08-15T04:52:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000464s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000665s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001227s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000237s ]
+
+[ 2015-08-15T04:54:32+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000574s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000672s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001272s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T05:12:34+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000590s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000689s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001228s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000239s ]
+
+[ 2015-08-15T05:17:22+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000672s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001191s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000246s ]
+
+[ 2015-08-15T05:34:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000667s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001161s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000337s ]
+
+[ 2015-08-15T05:36:08+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000672s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001178s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000287s ]
+
+[ 2015-08-15T05:37:49+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000465s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000672s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001137s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000230s ]
+
+[ 2015-08-15T05:42:21+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000561s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000660s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001210s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000273s ]
+
+[ 2015-08-15T05:44:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000472s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000575s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000675s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001204s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000237s ]
+
+[ 2015-08-15T05:46:34+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000470s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000592s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000691s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001167s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000305s ]
+
+[ 2015-08-15T05:47:41+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000479s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000580s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001149s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000229s ]
+
+[ 2015-08-15T05:48:45+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000471s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000598s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000698s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001154s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000352s ]
+
+[ 2015-08-15T05:50:18+08:00 ] 172.16.100.11 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000465s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000688s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000073s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000171s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007879s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007998s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000184s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000267s ]
+
+[ 2015-08-15T06:06:31+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000475s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000592s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000691s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001180s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T06:12:31+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001152s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000311s ]
+
+[ 2015-08-15T06:18:37+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000457s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000571s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000670s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001208s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000247s ]
+
+[ 2015-08-15T06:20:00+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000673s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001149s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000287s ]
+
+[ 2015-08-15T06:22:20+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000482s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000580s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001627s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000354s ]
+
+[ 2015-08-15T06:27:37+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001206s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000250s ]
+
+[ 2015-08-15T06:42:34+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000571s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000670s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001166s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000233s ]
+
+[ 2015-08-15T06:47:38+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000565s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000664s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001181s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T06:48:40+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000457s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000571s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000671s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001150s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000280s ]
+
+[ 2015-08-15T06:49:43+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000673s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001169s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000234s ]
+
+[ 2015-08-15T06:59:16+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000577s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000689s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001164s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000240s ]
+
+[ 2015-08-15T07:00:30+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000575s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000674s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001191s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000306s ]
+
+[ 2015-08-15T07:03:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000570s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000670s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001470s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000245s ]
+
+[ 2015-08-15T07:22:37+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000485s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000590s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000690s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001172s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T07:25:38+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000574s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000673s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001188s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000257s ]
+
+[ 2015-08-15T07:30:32+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000581s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001732s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000263s ]
+
+[ 2015-08-15T07:35:40+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000668s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001245s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000296s ]
+
+[ 2015-08-15T07:42:33+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000467s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001161s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000230s ]
+
+[ 2015-08-15T07:51:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000674s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001203s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000313s ]
+
+[ 2015-08-15T07:53:51+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000666s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001211s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000245s ]
+
+[ 2015-08-15T07:54:52+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000572s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000670s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001177s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000329s ]
+
+[ 2015-08-15T07:59:23+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000566s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000666s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001146s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000231s ]
+
+[ 2015-08-15T08:00:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000467s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001167s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000284s ]
+
+[ 2015-08-15T08:06:22+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000687s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001171s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000233s ]
+
+[ 2015-08-15T08:09:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000471s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000591s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000690s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001216s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000238s ]
+
+[ 2015-08-15T08:14:41+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000473s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000581s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001157s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000231s ]
+
+[ 2015-08-15T08:22:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000477s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000590s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000688s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001201s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000239s ]
+
+[ 2015-08-15T08:30:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000566s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000666s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001238s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000323s ]
+
+[ 2015-08-15T08:35:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000469s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001176s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T08:39:37+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000472s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000683s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001212s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000240s ]
+
+[ 2015-08-15T08:44:41+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000457s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000574s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000683s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001206s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000307s ]
+
+[ 2015-08-15T08:47:13+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000477s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001189s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000272s ]
+
+[ 2015-08-15T08:48:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001154s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000230s ]
+
+[ 2015-08-15T08:51:33+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000473s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000677s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001180s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T08:54:34+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000592s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000692s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001228s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000239s ]
+
+[ 2015-08-15T09:03:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000477s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000578s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000677s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001154s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000231s ]
+
+[ 2015-08-15T09:11:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000804s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000928s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001163s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000286s ]
+
+[ 2015-08-15T09:12:53+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000452s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000581s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001144s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T09:23:34+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000473s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000688s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001210s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000310s ]
+
+[ 2015-08-15T09:24:52+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000225s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000292s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000338s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001241s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000220s ]
+
+[ 2015-08-15T09:29:57+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000575s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000676s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001150s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000234s ]
+
+[ 2015-08-15T09:33:31+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000669s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001235s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000281s ]
+
+[ 2015-08-15T09:36:34+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000631s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000778s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001160s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000235s ]
+
+[ 2015-08-15T09:41:10+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000468s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000689s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001126s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000301s ]
+
+[ 2015-08-15T09:42:54+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001290s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000286s ]
+
+[ 2015-08-15T09:44:42+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000452s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000668s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001244s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000258s ]
+
+[ 2015-08-15T09:48:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000684s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001199s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000320s ]
+
+[ 2015-08-15T10:00:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000565s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000664s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001242s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000239s ]
+
+[ 2015-08-15T10:13:06+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000472s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000590s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000690s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.000952s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000229s ]
+
+[ 2015-08-15T10:16:38+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000470s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000587s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000684s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001445s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000234s ]
+
+[ 2015-08-15T10:20:06+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000469s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000684s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001141s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000241s ]
+
+[ 2015-08-15T10:24:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000565s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000664s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001212s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000306s ]
+
+[ 2015-08-15T10:28:25+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000452s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000596s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000696s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001131s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000300s ]
+
+[ 2015-08-15T10:30:33+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000683s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000844s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001007s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001143s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000329s ]
+
+[ 2015-08-15T10:31:41+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000452s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000666s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001203s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000339s ]
+
+[ 2015-08-15T10:36:37+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001135s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000320s ]
+
+[ 2015-08-15T10:39:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000485s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001199s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000343s ]
+
+[ 2015-08-15T10:42:07+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000571s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000670s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001139s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T10:43:30+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000677s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001250s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000305s ]
+
+[ 2015-08-15T10:46:31+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000565s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000664s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001204s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000262s ]
+
+[ 2015-08-15T10:53:42+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001184s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000248s ]
+
+[ 2015-08-15T10:59:37+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001128s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000230s ]
+
+[ 2015-08-15T11:00:53+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000479s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001181s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000229s ]
+
+[ 2015-08-15T11:02:48+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000467s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000592s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000690s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001149s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T11:12:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000465s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000572s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000691s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001197s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000311s ]
+
+[ 2015-08-15T11:15:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000485s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000587s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001137s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000233s ]
+
+[ 2015-08-15T11:25:28+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000478s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001192s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000346s ]
+
+[ 2015-08-15T11:29:41+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000674s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001121s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000229s ]
+
+[ 2015-08-15T11:32:43+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000465s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000593s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000692s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001187s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000296s ]
+
+[ 2015-08-15T11:34:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000481s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001172s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000231s ]
+
+[ 2015-08-15T11:36:53+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000620s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000720s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001144s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000231s ]
+
+[ 2015-08-15T11:39:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000476s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000592s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000693s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001133s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T11:42:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000697s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001144s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000230s ]
+
+[ 2015-08-15T11:48:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000478s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000594s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000693s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001122s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000302s ]
+
+[ 2015-08-15T11:51:50+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000566s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000667s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001177s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000251s ]
+
+[ 2015-08-15T11:56:40+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000575s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000675s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001150s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000233s ]
+
+[ 2015-08-15T12:00:40+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000467s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000593s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000690s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001236s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000315s ]
+
+[ 2015-08-15T12:04:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000591s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000690s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001144s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000242s ]
+
+[ 2015-08-15T12:07:43+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000575s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000675s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001244s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000250s ]
+
+[ 2015-08-15T12:11:40+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000663s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001186s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000305s ]
+
+[ 2015-08-15T12:24:37+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000595s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000693s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001182s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000234s ]
+
+[ 2015-08-15T12:27:40+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000453s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000566s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000664s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001212s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T12:34:33+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000592s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000691s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001196s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000231s ]
+
+[ 2015-08-15T12:38:11+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000475s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000581s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001329s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000270s ]
+
+[ 2015-08-15T12:39:13+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001250s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000264s ]
+
+[ 2015-08-15T12:42:42+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001246s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000241s ]
+
+[ 2015-08-15T12:48:56+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000035s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000752s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000669s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000779s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001131s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000235s ]
+
+[ 2015-08-15T12:53:47+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000563s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000663s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001233s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000283s ]
+
+[ 2015-08-15T12:57:41+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000683s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001317s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000309s ]
+
+[ 2015-08-15T13:04:39+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000672s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001142s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000283s ]
+
+[ 2015-08-15T13:14:06+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000693s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000871s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001027s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001121s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000231s ]
+
+[ 2015-08-15T13:16:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000689s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001173s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000242s ]
+
+[ 2015-08-15T13:18:38+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000453s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000673s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001113s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000233s ]
+
+[ 2015-08-15T13:20:38+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000571s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000670s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001214s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000241s ]
+
+[ 2015-08-15T13:23:56+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000466s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000668s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001161s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000280s ]
+
+[ 2015-08-15T13:26:18+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000468s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000688s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001121s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000328s ]
+
+[ 2015-08-15T13:27:33+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000475s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000591s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000691s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001191s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000314s ]
+
+[ 2015-08-15T13:30:38+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000464s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000587s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001646s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T13:37:57+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000571s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000672s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001162s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000233s ]
+
+[ 2015-08-15T13:40:39+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000481s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000683s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001472s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000244s ]
+
+[ 2015-08-15T13:44:39+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000575s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000694s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001185s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000231s ]
+
+[ 2015-08-15T13:48:42+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000591s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000691s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001191s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T13:54:37+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000464s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000572s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000672s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001181s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T13:56:40+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000686s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000909s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001044s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001196s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000323s ]
+
+[ 2015-08-15T13:59:37+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000471s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000575s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000674s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001160s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000321s ]
+
+[ 2015-08-15T14:00:56+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001132s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000230s ]
+
+[ 2015-08-15T14:07:41+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001150s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000224s ]
+
+[ 2015-08-15T14:15:07+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000466s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000607s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000706s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001144s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000308s ]
+
+[ 2015-08-15T14:20:48+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000669s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001172s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000237s ]
+
+[ 2015-08-15T14:22:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000674s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001174s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000245s ]
+
+[ 2015-08-15T14:23:41+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000669s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001215s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000234s ]
+
+[ 2015-08-15T14:24:57+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001162s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000345s ]
+
+[ 2015-08-15T14:30:37+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000470s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000572s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000672s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001153s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000284s ]
+
+[ 2015-08-15T14:32:40+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000678s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001143s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000231s ]
+
+[ 2015-08-15T14:36:08+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000479s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001110s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000229s ]
+
+[ 2015-08-15T14:41:34+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000465s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000683s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001144s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000314s ]
+
+[ 2015-08-15T14:42:39+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000481s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000581s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001196s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000316s ]
+
+[ 2015-08-15T14:46:09+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000675s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000863s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001017s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001176s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000398s ]
+
+[ 2015-08-15T14:52:40+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000464s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000684s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001196s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000327s ]
+
+[ 2015-08-15T15:00:56+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000453s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000678s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001164s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000266s ]
+
+[ 2015-08-15T15:08:40+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000572s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000671s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001136s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000264s ]
+
+[ 2015-08-15T15:12:33+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000476s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000578s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000678s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001154s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000299s ]
+
+[ 2015-08-15T15:18:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000481s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000578s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000677s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001218s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000327s ]
+
+[ 2015-08-15T15:29:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000042s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000479s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001260s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000240s ]
+
+[ 2015-08-15T15:30:57+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000473s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001218s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000239s ]
+
+[ 2015-08-15T15:32:20+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001184s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000360s ]
+
+[ 2015-08-15T15:33:34+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000566s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000665s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001171s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000260s ]
+
+[ 2015-08-15T15:44:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000571s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000672s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001209s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000234s ]
+
+[ 2015-08-15T15:55:48+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000472s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000592s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000691s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001152s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000233s ]
+
+[ 2015-08-15T15:58:41+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001222s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000239s ]
+
+[ 2015-08-15T16:00:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000692s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001162s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T16:04:30+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000473s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000578s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000677s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001197s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T16:12:55+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000480s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000590s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000688s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001125s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000233s ]
+
+[ 2015-08-15T16:16:31+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000669s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001160s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000233s ]
+
+[ 2015-08-15T16:19:05+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000480s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000590s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000687s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001123s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000241s ]
+
+[ 2015-08-15T16:20:07+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000513s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000590s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000689s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001142s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000325s ]
+
+[ 2015-08-15T16:21:26+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000473s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001116s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000233s ]
+
+[ 2015-08-15T16:24:57+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000466s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000592s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000691s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001123s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000230s ]
+
+[ 2015-08-15T16:39:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000471s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000574s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000673s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001168s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000230s ]
+
+[ 2015-08-15T16:41:37+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000482s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000604s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000703s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001256s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000266s ]
+
+[ 2015-08-15T16:49:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000464s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000671s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001271s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000311s ]
+
+[ 2015-08-15T16:59:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000570s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001195s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000241s ]
+
+[ 2015-08-15T17:00:57+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000468s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000595s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000692s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001196s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000247s ]
+
+[ 2015-08-15T17:04:28+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000675s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001126s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000306s ]
+
+[ 2015-08-15T17:06:56+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000472s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000678s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001120s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000311s ]
+
+[ 2015-08-15T17:09:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000472s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000592s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000690s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001162s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000304s ]
+
+[ 2015-08-15T17:12:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000471s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000677s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001155s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000307s ]
+
+[ 2015-08-15T17:17:33+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000472s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000678s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001236s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000237s ]
+
+[ 2015-08-15T17:18:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000465s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001204s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000314s ]
+
+[ 2015-08-15T17:19:39+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000465s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001154s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000231s ]
+
+[ 2015-08-15T17:22:44+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000466s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000591s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000691s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001186s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000292s ]
+
+[ 2015-08-15T17:26:52+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000483s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000580s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001133s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000269s ]
+
+[ 2015-08-15T17:41:11+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001136s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000233s ]
+
+[ 2015-08-15T17:42:37+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000453s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000677s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001167s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000234s ]
+
+[ 2015-08-15T17:49:04+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000572s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000669s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001147s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000355s ]
+
+[ 2015-08-15T17:53:04+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000476s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000590s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000688s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001107s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000277s ]
+
+[ 2015-08-15T17:54:29+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000581s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001134s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000234s ]
+
+[ 2015-08-15T17:57:41+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000479s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000678s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001143s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000272s ]
+
+[ 2015-08-15T17:59:34+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000572s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000668s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001179s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000305s ]
+
+[ 2015-08-15T18:01:32+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000472s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000684s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001146s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000311s ]
+
+[ 2015-08-15T18:12:06+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000469s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001242s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000236s ]
+
+[ 2015-08-15T18:12:06+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000672s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.000987s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000261s ]
+
+[ 2015-08-15T18:18:39+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000452s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000670s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001190s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000296s ]
+
+[ 2015-08-15T18:21:56+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000570s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000670s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001155s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T18:26:48+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000695s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001212s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000294s ]
+
+[ 2015-08-15T18:27:48+08:00 ] 172.16.100.11 /?c=Api&a=getAreaList&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000566s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000664s ]
+SQL: SHOW COLUMNS FROM `ht_area` [ RunTime:0.001208s ]
+SQL: SELECT `id`,`title` FROM `ht_area` WHERE ( c_id=12 )  [ RunTime:0.000237s ]
+
+[ 2015-08-15T18:27:48+08:00 ] 172.16.100.11 /?c=Api&a=getClassifyList&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000571s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000677s ]
+SQL: SHOW COLUMNS FROM `ht_classify` [ RunTime:0.000994s ]
+SQL: SELECT `id`,`title` FROM `ht_classify` WHERE ( parentid=0 and is_hidden=0 ) ORDER BY order_num asc,id asc  [ RunTime:0.000256s ]
+
+[ 2015-08-15T18:27:48+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000452s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000566s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000666s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.000987s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000302s ]
+
+[ 2015-08-15T18:27:49+08:00 ] 172.16.100.11 /?c=Api&a=getHomeRotateList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000475s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+SQL: SHOW COLUMNS FROM `ht_rotate` [ RunTime:0.001974s ]
+SQL: SELECT `id`,`type`,`content_id`,`link_url`,`title`,`img` FROM `ht_rotate` WHERE ( `city_id` = 12 ) AND ( `status` = 1 ) ORDER BY order_num asc,id desc  [ RunTime:0.000254s ]
+
+[ 2015-08-15T18:28:21+08:00 ] 172.16.100.11 /?c=Api&a=getTypeCallList&partent=ht&key=ht&city_id=12&one_id=
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000453s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000659s ]
+SQL: SHOW COLUMNS FROM `ht_shop_service` [ RunTime:0.002261s ]
+SQL: SELECT * FROM `ht_shop_service` WHERE ( `city_id` = 12 ) AND ( `one_id` = 0 ) ORDER BY id desc LIMIT 0,20   [ RunTime:0.000775s ]
+SQL: SHOW COLUMNS FROM `ht_new_product` [ RunTime:0.001349s ]
+SQL: SELECT `img1`,`content` FROM `ht_new_product` WHERE ( `id` = 32 ) LIMIT 1   [ RunTime:0.000467s ]
+ERR: 1054:Unknown column 'content' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`content` FROM `ht_new_product` WHERE ( `id` = 32 ) LIMIT 1  
+SQL: SHOW COLUMNS FROM `ht_shop` [ RunTime:0.002324s ]
+SQL: SELECT `id`,`title`,`star` FROM `ht_shop` WHERE ( `member_id` = 40 ) LIMIT 1   [ RunTime:0.000283s ]
+SQL: SELECT `img1`,`content` FROM `ht_new_product` WHERE ( `id` = 31 ) LIMIT 1   [ RunTime:0.000310s ]
+ERR: 1054:Unknown column 'content' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`content` FROM `ht_new_product` WHERE ( `id` = 31 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star` FROM `ht_shop` WHERE ( `member_id` = 40 ) LIMIT 1   [ RunTime:0.000241s ]
+SQL: SELECT `img1`,`content` FROM `ht_new_product` WHERE ( `id` = 30 ) LIMIT 1   [ RunTime:0.000293s ]
+ERR: 1054:Unknown column 'content' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`content` FROM `ht_new_product` WHERE ( `id` = 30 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star` FROM `ht_shop` WHERE ( `member_id` = 40 ) LIMIT 1   [ RunTime:0.000205s ]
+SQL: SELECT `img1`,`content` FROM `ht_new_product` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000278s ]
+ERR: 1054:Unknown column 'content' in 'field list'
+ [ SQL语句 ] : SELECT `img1`,`content` FROM `ht_new_product` WHERE ( `id` = 29 ) LIMIT 1  
+SQL: SELECT `id`,`title`,`star` FROM `ht_shop` WHERE ( `member_id` = 40 ) LIMIT 1   [ RunTime:0.000194s ]
+SQL: SHOW COLUMNS FROM `ht_activity` [ RunTime:0.001500s ]
+SQL: SELECT `img1`,`content` FROM `ht_activity` WHERE ( `id` = 23 ) LIMIT 1   [ RunTime:0.000286s ]
+SQL: SELECT `id`,`title`,`star` FROM `ht_shop` WHERE ( `member_id` = 40 ) LIMIT 1   [ RunTime:0.000262s ]
+SQL: SHOW COLUMNS FROM `ht_card` [ RunTime:0.001456s ]
+SQL: SELECT `img1`,`content` FROM `ht_card` WHERE ( `id` = 7 ) LIMIT 1   [ RunTime:0.000306s ]
+SQL: SELECT `id`,`title`,`star` FROM `ht_shop` WHERE ( `member_id` = 40 ) LIMIT 1   [ RunTime:0.000192s ]
+SQL: SELECT `img1`,`content` FROM `ht_card` WHERE ( `id` = 6 ) LIMIT 1   [ RunTime:0.000242s ]
+SQL: SELECT `id`,`title`,`star` FROM `ht_shop` WHERE ( `member_id` = 40 ) LIMIT 1   [ RunTime:0.000186s ]
+SQL: SELECT `id`,`title`,`star` FROM `ht_shop` WHERE ( `member_id` = 40 ) LIMIT 1   [ RunTime:0.000224s ]
+SQL: SELECT `id`,`title`,`star` FROM `ht_shop` WHERE ( `member_id` = 40 ) LIMIT 1   [ RunTime:0.000267s ]
+
+[ 2015-08-15T18:28:21+08:00 ] 172.16.100.11 /?c=Api&a=getTypeCallList&partent=ht&key=ht&city_id=12&one_id=27
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000593s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000688s ]
+SQL: SHOW COLUMNS FROM `ht_shop_service` [ RunTime:0.001162s ]
+SQL: SELECT * FROM `ht_shop_service` WHERE ( `city_id` = 12 ) AND ( `one_id` = 27 ) ORDER BY id desc LIMIT 0,20   [ RunTime:0.000254s ]
+
+[ 2015-08-15T18:29:11+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001199s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000237s ]
+
+[ 2015-08-15T18:31:23+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000480s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000683s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001114s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000320s ]
+
+[ 2015-08-15T18:42:58+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000466s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001131s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000242s ]
+
+[ 2015-08-15T18:45:40+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000466s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000593s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000692s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001209s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000250s ]
+
+[ 2015-08-15T18:54:03+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000572s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001139s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000231s ]
+
+[ 2015-08-15T18:57:03+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001190s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000288s ]
+
+[ 2015-08-15T19:00:58+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000560s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000659s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001189s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000237s ]
+
+[ 2015-08-15T19:02:55+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000671s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001209s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000247s ]
+
+[ 2015-08-15T19:12:02+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000471s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001161s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000276s ]
+
+[ 2015-08-15T19:16:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000588s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001240s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000228s ]
+
+[ 2015-08-15T19:18:34+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000473s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000563s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000663s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001210s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000308s ]
+
+[ 2015-08-15T19:22:34+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000467s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000674s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001256s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000238s ]
+
+[ 2015-08-15T19:24:38+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000687s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001183s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000362s ]
+
+[ 2015-08-15T19:27:02+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000481s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000580s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001145s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000234s ]
+
+[ 2015-08-15T19:32:51+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000467s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001126s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000266s ]
+
+[ 2015-08-15T19:33:59+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000493s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000591s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000690s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001149s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T19:35:44+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000475s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000580s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001148s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000231s ]
+
+[ 2015-08-15T19:43:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000575s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000692s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001125s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000305s ]
+
+[ 2015-08-15T19:44:40+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000467s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000688s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001226s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000294s ]
+
+[ 2015-08-15T19:45:54+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000477s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000684s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001175s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000304s ]
+
+[ 2015-08-15T20:07:00+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000706s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001167s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T20:10:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000563s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000674s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001170s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000230s ]
+
+[ 2015-08-15T20:12:59+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000483s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000574s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000675s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001177s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000336s ]
+
+[ 2015-08-15T20:14:54+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000565s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000664s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001172s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000319s ]
+
+[ 2015-08-15T20:18:33+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000687s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001093s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000298s ]
+
+[ 2015-08-15T20:23:57+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000464s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001133s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000230s ]
+
+[ 2015-08-15T20:29:17+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000469s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000683s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001552s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000256s ]
+
+[ 2015-08-15T20:46:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000042s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000480s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000581s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001120s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T20:49:01+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000465s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000689s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001129s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000232s ]
+
+[ 2015-08-15T21:04:41+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000467s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000588s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000688s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001172s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000306s ]
+
+[ 2015-08-15T21:08:41+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000572s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000671s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001173s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000309s ]
+
+[ 2015-08-15T21:12:38+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000465s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000594s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000694s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001126s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000252s ]
+
+[ 2015-08-15T21:16:42+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000588s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000688s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001160s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000233s ]
+
+[ 2015-08-15T21:17:58+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001111s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000241s ]
+
+[ 2015-08-15T21:18:58+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000494s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000588s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000687s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001081s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000242s ]
+
+[ 2015-08-15T21:24:36+08:00 ] 172.16.100.11 /index.php?app=search&cate_id=119
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000667s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000071s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000170s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007996s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008094s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000194s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000276s ]
+
+[ 2015-08-15T21:24:59+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000475s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000688s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001207s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000317s ]
+
+[ 2015-08-15T21:28:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000570s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001160s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000323s ]
+
+[ 2015-08-15T21:32:45+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000670s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001152s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000312s ]
+
+[ 2015-08-15T21:40:43+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000577s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000674s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001739s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000255s ]
+
+[ 2015-08-15T21:40:44+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000678s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.000997s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000306s ]
+
+[ 2015-08-15T21:47:42+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000457s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000667s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001183s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000317s ]
+
+[ 2015-08-15T21:48:47+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000684s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001227s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000248s ]
+
+[ 2015-08-15T21:49:53+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000453s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000563s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000673s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001157s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000300s ]
+
+[ 2015-08-15T21:52:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000563s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000662s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001192s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000289s ]
+
+[ 2015-08-15T21:58:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000476s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000590s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000690s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001184s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000313s ]
+
+[ 2015-08-15T22:00:39+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000565s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001117s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000242s ]
+
+[ 2015-08-15T22:04:37+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000684s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001142s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000233s ]
+
+[ 2015-08-15T22:06:40+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000451s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000571s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000671s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001141s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000245s ]
+
+[ 2015-08-15T22:13:24+08:00 ] 172.16.100.11 /?c=Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000572s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000689s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000080s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000180s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007809s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007907s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000183s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000265s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000646s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000733s ]
+
+[ 2015-08-15T22:14:09+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000574s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000673s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001137s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000284s ]
+
+[ 2015-08-15T22:15:28+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000590s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000689s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001189s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000233s ]
+
+[ 2015-08-15T22:16:34+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000480s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000683s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001122s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000233s ]
+
+[ 2015-08-15T22:19:00+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000467s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001191s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000239s ]
+
+[ 2015-08-15T22:32:44+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001094s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000236s ]
+
+[ 2015-08-15T22:40:56+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000468s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000597s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000695s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001211s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000313s ]
+
+[ 2015-08-15T22:42:37+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000473s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000581s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001139s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000230s ]
+
+[ 2015-08-15T22:47:14+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001226s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000341s ]
+
+[ 2015-08-15T22:48:43+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000448s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001430s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000245s ]
+
+[ 2015-08-15T22:59:35+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000572s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000669s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001124s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000310s ]
+
+[ 2015-08-15T23:02:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000572s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000690s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001189s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000284s ]
+
+[ 2015-08-15T23:14:39+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000596s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000696s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001197s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000237s ]
+
+[ 2015-08-15T23:18:38+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000467s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000683s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001349s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000286s ]
+
+[ 2015-08-15T23:24:36+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000481s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000587s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001159s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000234s ]
+
+[ 2015-08-15T23:36:42+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000464s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000591s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000690s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001115s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000230s ]
+
+[ 2015-08-15T23:46:02+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000570s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000670s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001199s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000300s ]
+
+[ 2015-08-15T23:48:44+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000480s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000581s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001098s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000306s ]
+
+[ 2015-08-15T23:51:43+08:00 ] 172.16.100.11 /?c=Api&a=getHomeTypeList&partent=ht&key=ht&city_id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000457s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000565s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000666s ]
+SQL: SHOW COLUMNS FROM `ht_home_class` [ RunTime:0.001173s ]
+SQL: SELECT * FROM `ht_home_class` WHERE ( `city_id` = 12 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id desc  [ RunTime:0.000263s ]
+

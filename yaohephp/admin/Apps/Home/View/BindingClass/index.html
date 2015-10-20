@@ -1,0 +1,116 @@
+<include file="Public:top"/>
+<script>
+$(document).ready(function(){
+	$('.has-items').eq(5).children(".level-2").show();
+	$('.has-items').eq(5).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('.has-items').eq(5).children(".level-2").children('li').eq(4).addClass('selected');
+	$('#ajax_list').load('?c=BindingClass&a=ajax_list&city_id={$city_id}&pageNum={$currentPage}');
+	$('#province_id').change(function(){
+		$.ajax({
+                type: "post",
+                url: "?c=BindingClass&a=getcitylist",
+				data:{'province_id':$(this).val()},
+                cache: false,
+                datatype: "json",
+                success: function(msg) {
+					var str='<option value="0">请选择</option>';
+					var obj=eval(msg); 
+                    $.each(obj, function(i) {
+						str+='<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+                    });
+					$('#city_id').html(str);
+                }
+        });
+	});
+	$('#city_id').change(function(){
+		$('#ajax_list').load('?c=BindingClass&a=ajax_list&city_id='+$(this).val()+'&pageNum={$currentPage}');
+	});
+	<?php
+	if($province_id>0)
+	{
+		echo "$('#province_id').val(".$province_id.");\n";
+	}
+	if($city_id>0)
+	{
+		echo "$('#city_id').val(".$city_id.");\n";
+	}
+	?>
+});
+
+function save()
+{
+	var arrs = new Array();
+	//var variable = $("input[name='id[]']:checked").serialize();
+	$("input[name='id[]']:checked").each(function(i){ 
+		arrs[i]=$(this).val(); 
+	});
+	if($('#city_id').val()==0)
+	{
+		alert('请选择城市');
+	}
+	else if(arrs.length==0)
+	{
+		alert('请选择记录');
+	}
+	else
+	{
+		$.ajax({
+			url: "?c=BindingClass&a=save",
+			type: "post",
+			data: {city_id:$('#city_id').val(),ids:arrs},
+			success: function (result) {
+				//handle
+				alert(result.msg);
+				$('#ajax_list').load('?c=BindingClass&a=ajax_list&city_id='+$('#city_id').val());
+			}
+		});
+	}
+}
+</script>
+<!--<div id="fullbg"></div>-->
+<body class="modal-ready">
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+        	
+
+
+            <include file="Public:menu"/>
+            
+            
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+
+					
+                    <div class="pane">
+                    
+                    	<div class="toolbar"><a class="btn" href="javascript:void(0)"><span class="icon icon-refresh"></span></a>省份：<div class="select-con"><select class="dropdown-select" name="province_id" id="province_id"><option value="0">请选择</option><volist name="province_list" id="vo"><option value="{$vo.id}">{$vo.title}</option></volist></select></div>城市：<div class="select-con"><select class="dropdown-select" name="city_id" id="city_id"><option value="0">请选择</option>
+						<volist name="city_list" id="item"><option value="{$item.id}">{$item.title}</option></volist>
+						</select></div><input id="all" type="checkbox" value="checkbox">选择全部
+                            <!--
+                            <div class="pagination"><span class="per-page">每页显示：&nbsp;</span>
+                            	<div class="select-con"><select class="dropdown-select" name="limit"><option value="10" selected="">10</option><option value="20">20</option><option value="50">50</option><option value="100">100</option></select>
+                                </div>
+                            </div>
+							-->
+                        </div>
+						<div id="ajax_list">
+						</div>
+						
+                    
+                       
+                   </div>
+                    
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

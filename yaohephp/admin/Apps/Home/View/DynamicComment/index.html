@@ -1,0 +1,160 @@
+<include file="Public:top"/>
+<script>
+$(document).ready(function(){
+	$('.has-items').eq(6).children(".level-2").show();
+	$('.has-items').eq(6).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('.has-items').eq(6).children(".level-2").children('li').eq(0).addClass('selected');
+	
+	$("#all").click(function(){ 
+		if(($(this).attr('checked')))
+		{
+			$("input[name='id[]']").each(function(){
+				$(this).attr("checked",true);
+			});  
+		}
+		else
+		{
+			$("input[name='id[]']").each(function(){
+				$(this).attr("checked",false);
+			});  
+		}
+	});
+	<?php
+	if($type!='' && $type<4)
+	{
+		echo "$('#type').val(".$type.");\n";
+	}
+	if($h_type!='' && $h_type<4)
+	{
+		echo "$('#h_type').val(".$h_type.");\n";
+	}
+	?>
+});
+function search()
+{
+	var url	=	'?c=DynamicComment&a=index&mid='+$('#mid').val()+'&source_title='+$('#source_title').val();
+	url+='&type='+$('#type').val()+'&h_type='+$('#h_type').val();
+	url+='&keywords='+$('#keywords').val();
+	window.location.replace(url);
+}
+//删除选中记录
+function delcheck()
+{
+	var variable = $("input[name='id[]']:checked").serialize();
+	if(variable=='')
+	{
+		alert('请选择记录');
+		return false;
+	}
+	if(!confirm("确认删除选中记录？"))return false;
+	$.ajax({
+		url: "?c=DynamicComment&a=delete",
+		type: "post",
+		data: variable,
+		success: function (result) {
+			//handle
+			alert(result.msg);
+			window.location.reload();
+		}
+	});
+}
+function del()
+{
+	if(!confirm("确认删除此评论？"))return false;
+}
+</script>
+<body class="modal-ready">
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+        	
+
+
+            <include file="Public:menu"/>
+            
+            
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+
+					
+                    <div class="pane">
+                    
+                    	<div class="toolbar">
+							<div class="form-search"><input type="search" id="mid" placeholder="ID/店名" value="{$mid}"></div>
+							<div class="form-search"><input type="search" id="source_title" placeholder="信息源" value="{$source_title}"></div>
+
+							<div class="select-con">
+								<select class="dropdown-select" name="type" id="type"><option value="">信息类型</option>
+								<option value="0">优惠券</option>
+								<option value="1">会员卡</option>
+								<option value="2">活动</option>
+								<option value="3">新品</option>
+								</select>
+							</div>
+
+							<div class="select-con">
+								<select class="dropdown-select" name="h_type" id="h_type"><option value="">类型</option>
+								<option value="0">评论</option>
+								<option value="1">回复</option>
+								</select>
+							</div>
+							<div class="form-search"><input type="search" id="keywords" placeholder="关键字" value="{$keywords}"></div>
+							<a class="btn" href="javascript:search()"><span class="icon"></span><span class="text">搜索</span></a>
+                        </div>
+						<table class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th class="checkbox"><input type="checkbox" id="all"></th>
+									<th>编号</th>
+									<th>发布者</th>
+									<th>评论内容</th>
+									<th>信息类型</th>
+									<th>类型</th>
+									<th>信息源</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+							<?php
+							$typearr[0]='优惠券';
+							$typearr[1]='会员卡';
+							$typearr[2]='活动';
+							$typearr[3]='新品';
+							$typearr[4]='纯吆喝';
+
+							$htypearr[0]='评论';
+							$htypearr[1]='回复';
+							?>
+							<volist name="list" id="vo">
+								<tr class="dbclick">
+									<td class="checkbox"><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+									<td>{$vo.id}</td>
+									<td>{$vo.member_id}</td>
+									<td>{$vo.content}</td>
+									<td>{$typearr[$vo['type']]}</td>
+									<td>{$htypearr[$vo['h_type']]}</td>
+									<td>{$vo['title']}</td>
+									<td><a href='?c=DynamicComment&a=delete&id={$vo.id}' onclick="return del()">删除</a></td>
+								</tr>
+							</volist>
+						   </tbody><tfoot></tfoot>
+						</table>
+						{$page}
+						<div class="toolbar">
+						<a class="btn" href="javascript:delcheck()"><span class="icon"></span><span class="text">删除</span></a>
+						</div>
+                   </div>
+                    
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

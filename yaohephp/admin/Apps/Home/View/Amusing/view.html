@@ -1,0 +1,281 @@
+<include file="Public:top"/>
+<script>
+$(document).ready(function(){
+	$('.has-items').eq(8).children(".level-2").show();
+	$('.has-items').eq(8).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('.has-items').eq(8).children(".level-2").children('li').eq(0).addClass('selected');
+});
+</script>
+<body class="modal-ready">
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+
+
+            <include file="Public:menu"/>
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+
+					
+                    <div class="pane">
+                    <ul class="page-tabs">
+					<li class="selected"><a href="?c=Amusing&a=view?id={$row.id}" data-permalink="">中奖名单</a></li>
+					</ul>
+					<!--
+                    	<table width="100%" class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th width="127">商家名称</th>
+									<th width="972" align="left">{$vo.title}</th>
+								</tr>
+								<tr>
+								  <th width="127">所属分类</th>
+								  <th align="left">{$class_arr[$vo['one_id']]}&nbsp;&nbsp;{$class_arr[$vo['industry_class_id']]}</th>
+								  </tr>
+								<tr>
+								  <th width="127">所属城市</th>
+								  <th align="left">{$province_arr[$vo['province_id']]}&nbsp;&nbsp;
+									{$city_arr[$vo['city_id']]}</th>
+								  </tr>
+								<tr>
+								  <th width="127"><span style="color:#FF0000;">*</span>所属商圈</th>
+								  <th align="left">
+								  {$district_arr[$vo['district_id']]}	
+								  </th>
+								  </tr>
+								<tr>
+								  <th width="127">营业时间</th>
+								  <th align="left">{$vo.business_time}</th>
+								  </tr>
+								<tr>
+								  <th width="127">预约电话</th>
+								  <th align="left">{$vo.subscribe_tel}</th>
+								  </tr>
+								<tr>
+								  <th width="127">详细地址</th>
+								  <th align="left">{$vo.address}</th>
+								  </tr>
+								<tr>
+								  <th width="127">地图标点</th>
+								  <th align="left">坐标<span id="long_lat_txt">（{$vo.lng}，{$vo.lat}）</span></th>
+								  </tr>
+								<tr>
+								  <th width="127">签约状态</th>
+								  <th align="left">
+									<?php if($vo['is_sign']==0)echo '未签约';?>
+									<?php if($vo['is_sign']==1)echo '已签约';?></th>
+								  </tr>
+								<tr>
+								  <th width="127">等级</th>
+								  <th align="left"><?php if($vo['level']=='A')echo 'A';?>
+									<?php if($vo['level']=='B')echo 'B';?>
+									<?php if($vo['level']=='C')echo 'C';?>
+								  </th>
+								  </tr>
+								<tr>
+								  <th width="127">人均消费</th>
+								  <th align="left">{$vo.per_person}</th>
+								  </tr>
+								<tr>
+								  <th width="127">搜索关键词</th>
+								  <th align="left">{$$keywords_list[0]['title']}
+									-
+									  {$keywords_list[1]['title']}
+									  -
+									  {$keywords_list[2]['title']}
+									  -
+									  {$keywords_list[3]['title']}
+									  -
+									  {$keywords_list[4]['title']}</th>
+								  </tr>
+								<tr>
+								  <th width="127">商家介绍</th>
+								  <th align="left">{:htmlspecialchars_decode($vo['content'])}</th>
+								  </tr>
+                    			<form name="form1" id="form1" method="post" action="?c=Shop&a=online">
+								<tr>
+								  <th width="127">驳回内容</th>
+								  <th align="left">								  
+								  <textarea name="content" id="content" cols="45" rows="5">{$vo.auditcontent}</textarea>								  
+								  </th>
+								  </tr>
+								<tr>
+								  <th width="127">&nbsp;</th>
+								  <th align="left">
+								  <input type="hidden" name="id" value="{$vo.id}" />
+								  <?php
+								  if($vo['status']==0)
+								  {
+								  ?>
+								  <input type="submit" name="button" id="button" value="审核通过">
+								  <input type="button" name="button" id="audit" value="驳回">
+								  <?php
+								  }
+								  ?>
+								  </th>
+								  </tr>
+                  				</form>
+								<?php
+								$contract_status[0]='待审核';
+								$contract_status[1]='审核通过';
+								$contract_status[2]='驳回';
+								?>
+								<tr>
+								  <th width="127"><b>合同信息</b>&nbsp;({$contract_status[$vo['is_contract']]})</th>
+								  <th align="left">&nbsp;</th>
+								  </tr>
+								<tr>
+								  <th width="127">商家全称</th>
+								  <th align="left">{$vo.full_name}</th>
+								  </tr>
+								<tr>
+								  <th width="127">公司法人</th>
+								  <th align="left">{$vo.legal_person}</th>
+								  </tr>
+								<tr>
+								  <th width="127">公司固话</th>
+								  <th align="left">{$vo.tel}</th>
+								  </tr>
+								<tr>
+								  <th width="127">公司邮箱</th>
+								  <th align="left">{$vo.email}</th>
+								  </tr>
+								<tr>
+								  <th width="127">合同照片</th>
+								  <th align="left">
+								  <?php
+								  if(!empty($vo['contract_photo']))
+								  {
+								  ?>
+								  <img src='__IMGURL__/imgs/{$vo['contract_photo']}' width='100' height='100' />
+								  <?php
+								  }
+								  ?>
+								  </th>
+								  </tr>
+								<tr>
+								  <th width="127">法人身份证</th>
+								  <th align="left">
+								  <?php
+								  if(!empty($vo['legal_person_card']))
+								  {
+								  ?>
+								  <img src='__IMGURL__/imgs/{$vo['legal_person_card']}' width='100' height='100' />
+								  <?php
+								  }
+								  ?>
+								  </th>
+								  </tr>
+								<tr>
+								  <th width="127">卫生许可证</th>
+								  <th align="left">
+								  <?php
+								  if(!empty($vo['hygienic_license']))
+								  {
+								  ?>
+								  <img src='__IMGURL__/imgs/{$vo['hygienic_license']}' width='100' height='100' />
+								  <?php
+								  }
+								  ?>
+								  </th>
+								  </tr>
+								<tr>
+								  <th width="127">营业执照</th>
+								  <th align="left">
+								  <?php
+								  if(!empty($vo['business_licence']))
+								  {
+								  ?>
+								  <img src='__IMGURL__/imgs/{$vo['business_licence']}' width='100' height='100' />
+								  <?php
+								  }
+								  ?>
+								  </th>
+								  </tr>
+								<tr>
+								  <th width="127">其它证件</th>
+								  <th align="left">
+								  <?php
+								  if(!empty($vo['other_documents']))
+								  {
+								  ?>
+								  <img src='__IMGURL__/imgs/{$vo['other_documents']}' width='100' height='100' />
+								  <?php
+								  }
+								  ?>
+								  </th>
+								  </tr>
+                    			<form name="form2" id="form2" method="post" action="?c=Shop&a=contractstatus">
+								<tr>
+								  <th width="127">驳回内容</th>
+								  <th align="left">								  
+								  <textarea name="contract_content" id="contract_content" cols="45" rows="5">{$vo.contract_content}</textarea>								  
+								  </th>
+								  </tr>
+								<tr>
+								  <th width="127">&nbsp;</th>
+								  <th align="left">
+								  <input type="hidden" name="id" value="{$vo.id}" />
+								  <?php
+								  if($vo['is_contract']==0)
+								  {
+								  ?>
+								  <input type="submit" name="button" id="button2" value="审核通过">
+								  <input type="button" name="button" id="audit2" value="驳回">
+								  <?php
+								  }
+								  ?>
+								  </th>
+								  </tr>
+                  				</form>
+							</thead>
+							<tbody>
+							
+						   </tbody><tfoot></tfoot>
+						</table>
+						-->
+                        <table class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th>中奖ID</th>
+									<th>中奖用户</th>
+									<th>奖品</th>
+									<th>券码</th>
+									<th>中奖时间</th>
+									<th>状态</th>
+								</tr>
+							</thead>
+							<tbody>
+							<?php
+							$statusarr[0]='未领取';
+							$statusarr[1]='已领取';
+							?>
+							<volist name="list" id="vo">
+								<tr class="dbclick">
+									<td>{$vo.id}</td>
+									<td>{$vo.username}</td>
+									<td>{$vo.ptitle}</td>
+									<td>{$vo.card_number}</td>
+									<td>{$vo.addtime|date='Y-m-d H:i:s',###}</td>
+									<td>{$statusarr[$vo['status']]}</td>
+								</tr>
+							</volist>
+						   </tbody><tfoot></tfoot>
+						</table>
+						{$page}
+                       
+                   </div>
+                    
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

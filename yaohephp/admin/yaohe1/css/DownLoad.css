@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0 auto;}
+body{
+	text-align:center;}
+#content{
+	width:100%;
+	height:auto;
+	/*background:url(../imgs/bg.png);*/
+	/*background-size:100%;*/
+	position:absolute;}
+#main{
+	height:80px;
+	width:1000px;
+	/*background:#609;*/
+	position:absolute;
+	left:10%;
+	top:35%;
+	}
+ul.download{
+	list-style:none;
+	margin-left:-40px;}
+ul.download li{
+	float:left;
+	margin-left:3%;}
+ul.download li a{
+	text-decoration:none;}
+ul.download li img{
+	width:180px;
+	height:60px;
+	border:0px;}

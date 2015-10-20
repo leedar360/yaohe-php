@@ -1,0 +1,18 @@
+<table class="table table-bordered table-hover">
+	<thead>
+		<tr>
+			<th>行政区</th>
+			<th>商圈</th>
+			<th>操作</th>
+		</tr>
+	</thead>
+	<tbody>
+	<volist name="list" id="vo">
+		<tr>
+			<td>{$vo.title}</td>
+			<td>{$vo.district}</td>
+			<td><a href="javascript:open_modal({$vo.id})">新增</a></td>
+		</tr>
+	</volist>
+   </tbody><tfoot></tfoot>
+</table>

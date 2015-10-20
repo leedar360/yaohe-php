@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>吆喝第一期后台</title>
+<link rel="icon" href="https://console.qingcloud.com/static/images/favicon.ico?v=1" type="image/x-icon">
+<link href="./__PUBLIC__/console.1431962384.css" rel="stylesheet" type="text/css">
+<script src="./__PUBLIC__/jquery-1.7.2.min.js"></script>
+<script>
+
+$(document).ready(function(){ 
+   //alert("Hello World");
+	$('.has-items').click(function(){
+		//alert($(this).children(".level-2").children("li .item").attr("class"))
+		if($(this).children(".level-2").is(":hidden")==true)
+		{
+			$(".has-items").each(function(index){
+				$(this).children(".level-2").hide();
+				$(this).removeClass("selected");
+			})
+			$(this).children(".level-2").show();
+			$(this).addClass("selected");
+		}
+		else
+		{
+			$(".has-items").each(function(index){
+				//$(this).children(".level-2").hide();
+				//$(this).removeClass("selected");
+			})
+			$(this).children(".level-2").hide();
+			$(this).removeClass("selected");
+		}
+	/*$('.has-items').eq(0).children(".level-2").show();
+	$('.has-items').eq(0).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('li .item').eq(1).addClass('selected');*/
+	});
+	$('li .item').click(function(){
+		$("li .item").removeClass("selected");
+		$(this).addClass("selected");
+		//alert($(this).parent().parent().children('.level-2').show());
+	})
+   /*$('.has-items').eq(0).children(".level-2").show();
+   $('.has-items').eq(0).addClass("selected");
+   $('li .item').removeClass("selected");
+   $('li .item').eq(1).addClass('selected');*/
+	$('.nav-item').mousemove(function(){
+		//alert('nav');
+		$('.dropdown-menu').hide();
+		$(this).children('.dropdown-menu').show();
+	});
+	$('.nav-item').mouseout(function(){
+		$('.dropdown-menu').hide();
+	});
+}); 
+</script>
+<style type="text/css">
+.mask {    
+            position: absolute; top: 0px; filter: alpha(opacity=60); background-color: #777;  
+            z-index: 1002; left: 0px;  
+            opacity:0.5; -moz-opacity:0.5;  
+        }
+</style>
+</head>

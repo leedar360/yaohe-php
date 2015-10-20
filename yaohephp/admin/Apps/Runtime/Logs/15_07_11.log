@@ -1,0 +1,216 @@
+[ 2015-07-11T15:16:50+08:00 ] 172.16.100.11 /?c=Api&a=getClassifyList&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000484s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000580s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_district` [ RunTime:0.001005s ]
+SQL: SELECT `id`,`title` FROM `ht_district` WHERE ( is_hidden=0 ) ORDER BY order_num asc,id asc  [ RunTime:0.000346s ]
+ERR: 1054:Unknown column 'is_hidden' in 'where clause'
+ [ SQL语句 ] : SELECT `id`,`title` FROM `ht_district` WHERE ( is_hidden=0 ) ORDER BY order_num asc,id asc 
+
+[ 2015-07-11T18:00:23+08:00 ] 172.16.100.11 /?c=Api&a=getClassifyList&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000469s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+SQL: SHOW COLUMNS FROM `ht_district` [ RunTime:0.001007s ]
+SQL: SELECT `id`,`title` FROM `ht_district` WHERE ( is_hidden=0 ) ORDER BY order_num asc,id asc  [ RunTime:0.000329s ]
+ERR: 1054:Unknown column 'is_hidden' in 'where clause'
+ [ SQL语句 ] : SELECT `id`,`title` FROM `ht_district` WHERE ( is_hidden=0 ) ORDER BY order_num asc,id asc 
+
+[ 2015-07-11T18:05:10+08:00 ] 172.16.100.11 /?c=Api&a=getClassifyList&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000587s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000688s ]
+SQL: SHOW COLUMNS FROM `ht_district` [ RunTime:0.001009s ]
+SQL: SELECT `id`,`title` FROM `ht_district` WHERE ( is_hidden=0 ) ORDER BY order_num asc,id asc  [ RunTime:0.000359s ]
+ERR: 1054:Unknown column 'is_hidden' in 'where clause'
+ [ SQL语句 ] : SELECT `id`,`title` FROM `ht_district` WHERE ( is_hidden=0 ) ORDER BY order_num asc,id asc 
+
+[ 2015-07-11T18:05:29+08:00 ] 172.16.100.11 /?c=Api&a=getcitylist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: SHOW COLUMNS FROM `ht_city` [ RunTime:0.001602s ]
+SQL: SELECT `id`,`title`,`letter`,`is_hot` FROM `ht_city` WHERE ( `status` = 0 )  [ RunTime:0.000584s ]
+
+[ 2015-07-11T18:10:01+08:00 ] 172.16.100.11 /?c=Api&a=getClassifyList&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000483s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `ht_district` [ RunTime:0.001021s ]
+SQL: SELECT `id`,`title` FROM `ht_district` WHERE ( is_hidden=0 ) ORDER BY order_num asc,id asc  [ RunTime:0.000321s ]
+ERR: 1054:Unknown column 'is_hidden' in 'where clause'
+ [ SQL语句 ] : SELECT `id`,`title` FROM `ht_district` WHERE ( is_hidden=0 ) ORDER BY order_num asc,id asc 
+
+[ 2015-07-11T18:26:55+08:00 ] 172.16.100.11 /?c=Api&a=getClassifyList&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000575s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000676s ]
+SQL: SHOW COLUMNS FROM `ht_district` [ RunTime:0.001025s ]
+SQL: SELECT `id`,`title` FROM `ht_district` WHERE ( is_hidden=0 ) ORDER BY order_num asc,id asc  [ RunTime:0.000319s ]
+ERR: 1054:Unknown column 'is_hidden' in 'where clause'
+ [ SQL语句 ] : SELECT `id`,`title` FROM `ht_district` WHERE ( is_hidden=0 ) ORDER BY order_num asc,id asc 
+
+[ 2015-07-11T18:28:25+08:00 ] 172.16.100.11 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000457s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000574s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000070s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000169s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007996s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008097s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000194s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000296s ]
+
+[ 2015-07-11T18:32:36+08:00 ] 172.16.100.11 /?c=Api&a=getClassifyList&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000577s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000678s ]
+SQL: SHOW COLUMNS FROM `ht_district` [ RunTime:0.001011s ]
+SQL: SELECT `id`,`title` FROM `ht_district` WHERE ( is_hidden=0 ) ORDER BY order_num asc,id asc  [ RunTime:0.000318s ]
+ERR: 1054:Unknown column 'is_hidden' in 'where clause'
+ [ SQL语句 ] : SELECT `id`,`title` FROM `ht_district` WHERE ( is_hidden=0 ) ORDER BY order_num asc,id asc 
+
+[ 2015-07-11T18:36:19+08:00 ] 172.16.100.11 /?c=Api&a=getcitylist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000468s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000673s ]
+SQL: SHOW COLUMNS FROM `ht_city` [ RunTime:0.001491s ]
+SQL: SELECT `id`,`title`,`letter`,`is_hot` FROM `ht_city` WHERE ( `status` = 0 )  [ RunTime:0.000490s ]
+
+[ 2015-07-11T18:42:59+08:00 ] 172.16.100.11 /?c=Api&a=getClassifyList&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000469s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000687s ]
+SQL: SHOW COLUMNS FROM `ht_district` [ RunTime:0.000982s ]
+SQL: SELECT `id`,`title` FROM `ht_district` WHERE ( is_hidden=0 ) ORDER BY order_num asc,id asc  [ RunTime:0.000322s ]
+ERR: 1054:Unknown column 'is_hidden' in 'where clause'
+ [ SQL语句 ] : SELECT `id`,`title` FROM `ht_district` WHERE ( is_hidden=0 ) ORDER BY order_num asc,id asc 
+
+[ 2015-07-11T18:51:21+08:00 ] 172.16.100.11 /?c=Api&a=getClassifyList&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000457s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000561s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000680s ]
+SQL: SHOW COLUMNS FROM `ht_district` [ RunTime:0.001008s ]
+SQL: SELECT `id`,`title` FROM `ht_district` WHERE ( is_hidden=0 ) ORDER BY order_num asc,id asc  [ RunTime:0.000329s ]
+ERR: 1054:Unknown column 'is_hidden' in 'where clause'
+ [ SQL语句 ] : SELECT `id`,`title` FROM `ht_district` WHERE ( is_hidden=0 ) ORDER BY order_num asc,id asc 
+
+[ 2015-07-11T19:00:38+08:00 ] 172.16.100.11 /?c=Api&a=getClassifyList&partent=ht&key=ht
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000476s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000581s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000684s ]
+SQL: SHOW COLUMNS FROM `ht_district` [ RunTime:0.001024s ]
+SQL: SELECT `id`,`title` FROM `ht_district` WHERE ( is_hidden=0 ) ORDER BY order_num asc,id asc  [ RunTime:0.000394s ]
+ERR: 1054:Unknown column 'is_hidden' in 'where clause'
+ [ SQL语句 ] : SELECT `id`,`title` FROM `ht_district` WHERE ( is_hidden=0 ) ORDER BY order_num asc,id asc 
+
+[ 2015-07-11T20:09:38+08:00 ] 172.16.100.11 /index.php?act=view&app=article&article_id=24
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000669s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000169s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007919s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008017s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000182s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000264s ]
+
+[ 2015-07-11T21:17:32+08:00 ] 172.16.100.11 /?c=Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000457s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000666s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000079s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000180s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007813s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007911s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000184s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000266s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000644s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000733s ]
+
+[ 2015-07-11T23:11:27+08:00 ] 172.16.100.11 /index.php?app=search&cate_id=112
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000476s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000081s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000181s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007953s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008050s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000204s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000286s ]
+
+[ 2015-07-11T23:16:07+08:00 ] 172.16.100.11 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000471s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000588s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000687s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000071s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000170s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008148s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008257s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000185s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000268s ]
+

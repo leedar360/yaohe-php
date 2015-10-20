@@ -1,0 +1,316 @@
+<include file="Public:top"/>
+<script>
+$(document).ready(function(){
+	$('.has-items').eq(0).children(".level-2").show();
+	$('.has-items').eq(0).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('.has-items').eq(0).children(".level-2").children('li').eq(1).addClass('selected');
+	
+	$("#all").click(function(){ 
+		if(($(this).attr('checked')))
+		{
+			$("input[name='id[]']").each(function(){
+				$(this).attr("checked",true);
+			});  
+		}
+		else
+		{
+			$("input[name='id[]']").each(function(){
+				$(this).attr("checked",false);
+			});  
+		}
+	});
+	$('#province_id').change(function(){
+		$.ajax({
+                type: "post",
+                url: "?c=Rotate&a=getcitylist",
+				data:{'province_id':$(this).val()},
+                cache: false,
+                datatype: "json",
+                success: function(msg) {
+					var str='<option value="0">市</option>';
+					var obj=eval(msg); 
+                    $.each(obj, function(i) {
+						str+='<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+                    });
+					$('#city_id').html(str);
+					$('#area_id').html('<option value="0">区</option>');
+					$('#district_id').html('<option value="0">商圈</option>');
+                }
+        });
+	})
+	$('#city_id').change(function(){
+		$.ajax({
+                type: "post",
+                url: "?c=Rotate&a=getarealist",
+				data:{'city_id':$(this).val()},
+                cache: false,
+                datatype: "json",
+                success: function(msg) {
+					var str='<option value="0">区</option>';
+					var obj=eval(msg); 
+                    $.each(obj, function(i) {
+						str+='<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+                    });
+					$('#area_id').html(str);
+					$('#district_id').html('<option value="0">商圈</option>');
+                }
+        });
+	})
+	$('#area_id').change(function(){
+		$.ajax({
+                type: "post",
+                url: "?c=Rotate&a=getdistrictlist",
+				data:{'area_id':$(this).val()},
+                cache: false,
+                datatype: "json",
+                success: function(msg) {
+					var str='<option value="0">商圈</option>';
+					var obj=eval(msg); 
+                    $.each(obj, function(i) {
+						str+='<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+                    });
+					$('#district_id').html(str);
+                }
+        });
+	})
+	<?php
+	if($province_id>0)
+	{
+		echo "$('#province_id').val(".$province_id.");\n";
+	}
+	if($city_id>0)
+	{
+		echo "$('#city_id').val(".$city_id.");\n";
+	}
+	if($area_id>0)
+	{
+		echo "$('#area_id').val(".$area_id.");\n";
+	}
+	if($district_id>0)
+	{
+		echo "$('#district_id').val(".$district_id.");\n";
+	}
+	if($one_id>0)
+	{
+		echo "$('#one_id').val(".$one_id.");\n";
+	}
+	if($is_sign!='')
+	{
+		echo "$('#is_sign').val(".$is_sign.");\n";
+	}
+	if($level!='')
+	{
+		echo "$('#level').val('".$level."');\n";
+	}
+	if($status!='')
+	{
+		echo "$('#status').val(".$status.");\n";
+	}
+	if($order_num!='')
+	{
+		echo "$('#order_num').val(".$order_num.");\n";
+	}
+	?>
+});
+function search()
+{
+	var url	=	'?c=Rotate&a=index&province_id='+$('#province_id').val()+'&city_id='+$('#city_id').val();
+	url+='&area_id='+$('#area_id').val()+'&district_id='+$('#district_id').val();
+	url+='&one_id='+$('#one_id').val();
+	url+='&status='+$('#status').val()+'&keywords='+$('#keywords').val();
+	window.location.replace(url);
+}
+//上线
+function online()
+{
+	var variable = $("input[name='id[]']:checked").serialize();
+	if(variable=='')
+	{
+		alert('请选择记录');
+		return false;
+	}
+	if(!confirm("确认删除选中记录"))return false;
+	$.ajax({
+		url: "?c=Rotate&a=online",
+		type: "post",
+		data: variable,
+		success: function (result) {
+			//handle
+			alert(result.msg);
+			window.location.reload();
+		}
+	});
+}
+//下线
+function offline()
+{
+	var variable = $("input[name='id[]']:checked").serialize();
+	if(variable=='')
+	{
+		alert('请选择记录');
+		return false;
+	}
+	if(!confirm("确认删除选中记录"))return false;
+	$.ajax({
+		url: "?c=Rotate&a=offline",
+		type: "post",
+		data: variable,
+		success: function (result) {
+			//handle
+			alert(result.msg);
+			window.location.reload();
+		}
+	});
+}
+</script>
+<body class="modal-ready">
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+        	
+
+
+            <include file="Public:menu"/>
+            
+            
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+
+					
+                    <div class="pane">
+                    
+                    	<div class="toolbar"><a class="btn" href="?c=Rotate&a=add"><span class="icon icon-run"></span><span class="text">新建</span></a>
+							<div class="select-con">
+								<select class="dropdown-select" name="province_id" id="province_id"><option value="0">省</option><volist name="province_list" id="vo"><option value="{$vo.id}">{$vo.title}</option></volist></select>
+							</div>
+							<div class="select-con">
+								<select class="dropdown-select" name="city_id" id="city_id"><option value="0">市</option>
+								<volist name="city_list" id="vo"><option value="{$vo.id}">{$vo.title}</option></volist>
+								</select>
+							</div>
+							<div class="select-con">
+								<select class="dropdown-select" name="area_id" id="area_id"><option value="0">区</option>
+								<volist name="area_list" id="vo"><option value="{$vo.id}">{$vo.title}</option></volist>
+								</select>
+							</div>
+							<div class="select-con">
+								<select class="dropdown-select" name="district_id" id="district_id"><option value="0">商圈</option>
+								<volist name="district_list" id="vo"><option value="{$vo.id}">{$vo.title}</option></volist>
+								</select>
+							</div>
+							<div class="select-con">
+								<select class="dropdown-select" name="one_id" id="one_id"><option value="0">分类</option>
+								<volist name="class_list" id="item">
+								<option value="{$item.id}">{$item.title}</option>
+								</volist>
+								</select>
+							</div>
+							<div class="select-con">
+								<select class="dropdown-select" name="status" id="status"><option value="">类型</option><option value="0">商家</option><option value="1">优惠券</option><option value="2">会员卡</option><option value="3">活动</option><option value="4">新品</option><option value="5">网址</option></select>
+							</div>
+							<div class="select-con">
+								<select class="dropdown-select" name="status" id="status"><option value="">状态</option><option value="0">已上线</option><option value="1">已下线</option></select>
+							</div>
+							<div class="form-search"><input type="search" id="keywords" placeholder="关键字" value="{$keywords}"></div>
+							<a class="btn" href="javascript:search()"><span class="icon"></span><span class="text">搜索</span></a>
+                        </div>
+						<form id="form">
+						<table class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th>排序</th>
+									<th>名称</th>
+									<th>图片</th>
+									<th>类型</th>
+									<th>城市</th>
+									<th>分类</th>
+									<th>状态</th>
+									<th>最后更新</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+							<?php
+							$statusarr[0]='待发布';
+							$statusarr[1]='上线';
+							$statusarr[2]='下线';
+
+							$typearr[0]='商家';
+							$typearr[1]='优惠券';
+							$typearr[2]='会员卡';
+							$typearr[3]='活动';
+							$typearr[4]='新品';
+							$typearr[5]='网址';
+							?>
+							<volist name="list" id="vo">
+								<tr class="dbclick">
+									<td><input type="text" name="order_num[]" id="order_num[]" style="width:50px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px" value="{$vo.order_num}">
+									<input type="hidden" name="id[]" value="{$vo.id}" />
+									</td>
+									<td>{$vo.title}</td>
+									<td><img src='__IMGURL__/imgs/{$vo.img}' width=100 height=100></td>
+									<td>{$typearr[$vo['type']]}</td>
+									<td>{$vo.city_id}</td>
+									<td>{$vo.one_id}</td>
+									<td>{$statusarr[$vo['status']]}</td>
+									<td>{$vo.up_admin_username}<br /><?php echo date("Y-m-d H:i:s",$vo['last_update_time']);?></td>
+									<td>
+										<?php
+										if($vo['status']==0 || $vo['status']==2)
+										{
+										?>
+										<a href='?c=Rotate&a=online&id={$vo.id}'>上线</a> 
+										<a href='?c=Rotate&a=edit&id={$vo.id}'>编辑</a> 
+										<?php
+										}
+										if($vo['status']==1)
+										{
+										?>
+										<a href='?c=Rotate&a=offline&id={$vo.id}'>下线</a>
+										<?php
+										}
+										?>
+									</td>
+								</tr>
+							</volist>
+						   </tbody><tfoot></tfoot>
+						</table>
+						</form>
+						{$page}
+						<div class="toolbar">
+						<a class="btn" href="javascript:uporder()"><span class="icon"></span><span class="text">更新排序</span></a>
+						</div>
+                   </div>
+                    <script>
+					function uporder()
+					{
+						//var order_num = $("input[name='order_num[]']").serialize();
+						//var id	=	$("input[name='id[]']").serialize();
+						//alert(order_num);
+						$.ajax({
+								type: "post",
+								url: "?c=Rotate&a=uporder",
+								data:$('form').serialize(),
+								cache: false,
+								datatype: "json",
+								success: function(msg) {
+									alert('更新成功');
+									window.location.reload();
+								}
+						});
+						//var order_num = $("input[name='order_num[]']:checked").serialize();
+					}
+					</script>
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

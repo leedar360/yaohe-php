@@ -1,0 +1,162 @@
+<include file="Public:top"/>
+<script type="text/javascript" src="__PUBLIC__/wdatepicker/WdatePicker.js"></script>
+<script>
+$(document).ready(function(){
+	$('.has-items').eq(8).children(".level-2").show();
+	$('.has-items').eq(8).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('.has-items').eq(8).children(".level-2").children('li').eq(0).addClass('selected');
+	
+	$("#all").click(function(){ 
+		if(($(this).attr('checked')))
+		{
+			$("input[name='id[]']").each(function(){
+				$(this).attr("checked",true);
+			});  
+		}
+		else
+		{
+			$("input[name='id[]']").each(function(){
+				$(this).attr("checked",false);
+			});  
+		}
+	});
+	<?php
+	if($status!="")
+	{
+		echo "$('#status').val(".$status.");\n";
+	}
+	?>
+});
+function search()
+{
+	var url	=	'?c=Amusing&a=index&start_date='+$('#start_date').val()+'&end_date='+$('#end_date').val();
+	url+='&status='+$('#status').val()+'&keywords='+$('#keywords').val();
+	window.location.replace(url);
+}
+//上线
+function online()
+{
+	var variable = $("input[name='id[]']:checked").serialize();
+	if(variable=='')
+	{
+		alert('请选择记录');
+		return false;
+	}
+	if(!confirm("确认上线选中记录？"))return false;
+	$.ajax({
+		url: "?c=Shop&a=online",
+		type: "post",
+		data: variable,
+		success: function (result) {
+			//handle
+			alert(result.msg);
+			window.location.reload();
+		}
+	});
+}
+//下线
+function offline()
+{
+	var variable = $("input[name='id[]']:checked").serialize();
+	if(variable=='')
+	{
+		alert('请选择记录');
+		return false;
+	}
+	if(!confirm("确认下线选中记录？"))return false;
+	$.ajax({
+		url: "?c=Shop&a=offline",
+		type: "post",
+		data: variable,
+		success: function (result) {
+			//handle
+			alert(result.msg);
+			window.location.reload();
+		}
+	});
+}
+function del()
+{
+	if(!confirm("确认删除此奖品？"))return false;
+}
+</script>
+<body class="modal-ready">
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+        	
+
+
+            <include file="Public:menu"/>
+            
+            
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+
+					
+                    <div class="pane">
+                    
+                    	<div class="toolbar">
+							
+							<div class="form-search">活动时间：
+							<input type="text1" style="width:150px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px" name="start_date" id="start_date" class="Wdate" onfocus="WdatePicker()" value="{$start_date}"/>至<input type="text1" style="width:150px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px" name="start_date" id="end_date" class="Wdate" onfocus="WdatePicker()" value="{$end_date}"/></div>
+							<div class="select-con">
+								<select class="dropdown-select" name="status" id="status"><option value="">状态</option><option value="0">上线</option><option value="1">下线</option></select>
+							</div>
+							<div class="form-search"><input type="search" id="keywords" placeholder="活动名称/活动序号" value="{$keywords}"></div>
+							<a class="btn" href="javascript:search()"><span class="icon"></span><span class="text">搜索</span></a>
+                        </div>
+						<table class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th class="checkbox"><input type="checkbox" id="all"></th>
+									<th>活动序号</th>
+									<th>活动名称</th>
+									<th>奖品数量</th>
+									<th>中奖人数</th>
+									<th>活动时间</th>
+									<th>状态</th>
+									<th>最后更新时间</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+							<?php
+							$statusarr[0]='上线';
+							$statusarr[1]='下线';
+							?>
+							<volist name="list" id="vo">
+								<tr class="dbclick">
+									<td class="checkbox"><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+									<td>{$vo.id}</td>
+									<td><a href='?c=Amusing&a=view&id={$vo.id}'>{$vo.title}</a></td>
+									<td>{$vo.prize_num}</td>
+									<td>{$vo.num}</td>
+									<td>{$vo.start_date}至{$vo.end_date}</td>
+									<td>{$statusarr[$vo['status']]}</td>
+									<td>{$vo.addtime|date='Y-m-d H:i:s',###}</td>
+									<td><!--审核通过 上线--> <a href='?c=Amusing&a=edit&id={$vo.id}'>编辑</a> <a href='?c=Amusing&a=delete&id={$vo.id}' onclick="return del()">删除</a></td>
+								</tr>
+							</volist>
+						   </tbody><tfoot></tfoot>
+						</table>
+						{$page}
+						<div class="toolbar">
+						<a class="btn" href="javascript:online()"><span class="icon"></span><span class="text">上线</span></a>
+						<a class="btn" href="javascript:offline()"><span class="icon"></span><span class="text">下线</span></a>
+						</div>
+                   </div>
+                    
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

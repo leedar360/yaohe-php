@@ -1,0 +1,42 @@
+
+<table class="table table-bordered table-hover">
+	<tbody>
+	<volist name="arrlist" id="vo">
+		<tr>
+			<td><input type="checkbox" name="id[]" value="{$vo.id}" <?php if(in_array($vo['id'],$class_id_arr))echo 'checked';?>>{$vo.title}</td>
+		</tr>
+		<tr>
+			<td>
+		<?php
+		foreach($vo['list'] as $item)
+		{
+			echo '<input type="checkbox" name="id[]" value="'.$item['id'].'" ';
+			if(in_array($item['id'],$class_id_arr))echo 'checked';
+			echo '>'.$item['title'].'&nbsp;&nbsp;';
+		}
+		?>
+		</td>
+		</tr>
+	</volist>
+   </tbody><tfoot></tfoot>
+</table>
+<input type="button" name="button" id="button" value="保 存" onclick="save()"/>
+
+<script>
+$(document).ready(function(){
+	$("#all").click(function(){ 
+		if(($(this).attr('checked')))
+		{
+			$("input[name='id[]']").each(function(){
+				$(this).attr("checked",true);
+			});  
+		}
+		else
+		{
+			$("input[name='id[]']").each(function(){
+				$(this).attr("checked",false);
+			});  
+		}
+	});
+});
+</script>

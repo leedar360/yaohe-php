@@ -1,0 +1,126 @@
+<include file="Public:top"/>
+<script type="text/javascript" src="__PUBLIC__/wdatepicker/WdatePicker.js"></script>
+<script>
+$(document).ready(function(){
+	$('.has-items').eq(8).children(".level-2").show();
+	$('.has-items').eq(8).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('.has-items').eq(8).children(".level-2").children('li').eq(1).addClass('selected');
+});
+function insert()
+{
+	if($.trim($('#title').val())=='')
+	{
+		alert('请输入活动名称');
+		$('#title').val('');
+		$('#title').focus();
+		return false;
+	}
+	if($.trim($('#type').val())=='')
+	{
+		alert('请输入活动类型');
+		$('#type').val('');
+		$('#type').focus();
+		return false;
+	}
+	if($.trim($('#describe').val())=='')
+	{
+		alert('请输入活动描述');
+		$('#describe').val('');
+		$('#describe').focus();
+		return false;
+	}
+	if($.trim($('#rule').val())=='')
+	{
+		alert('请输入活动规则');
+		$('#rule').val('');
+		$('#rule').focus();
+		return false;
+	}
+}
+</script>
+<body class="modal-ready">
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+
+
+            <include file="Public:menu"/>
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+
+					
+                    <div class="pane">
+                    <ul class="page-tabs"><li class="selected"><a href="?c=Amusing&a=add" data-permalink="">新增好玩活动</a></li></ul>
+                    	<form name="form1" method="post" action="/index.php?c=Amusing&a=update" onSubmit="return insert()">
+						<input type="hidden" name="id" value="{$row.id}" />
+                    	<table width="100%" class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th width="127"><span style="color:#FF0000;">*</span>活动名称</th>
+									<th width="972" align="left"><input name="title" type="text" id="title" size="40" value="{$row.title}"/></th>
+								</tr>
+								<tr>
+									<th width="127"><span style="color:#FF0000;">*</span>活动类型</th>
+									<th width="972" align="left"><input name="type" type="text" id="type" size="40" value="{$row.type}" /></th>
+								</tr>
+								<tr>
+								  <th width="127"><span style="color:#FF0000;">*</span>活动描述</th>
+								  <th align="left"><textarea name="describe" id="describe" cols="25" rows="10">{$row.describe}</textarea></th>
+								  </tr>
+								<tr>
+								  <th width="127"><span style="color:#FF0000;">*</span>活动规则</th>
+								  <th align="left"><textarea name="rule" id="rule" cols="25" rows="10">{$row.rule}</textarea></th>
+								  </tr>
+								<tr>
+								  <th width="127">活动时间</th>
+								  <th align="left"><input type="text1" style="width:150px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px" name="start_date" id="start_date" class="Wdate" onfocus="WdatePicker()" value="{$row.start_date}"/>至<input type="text1" style="width:150px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px" name="end_date" id="end_date" class="Wdate" onfocus="WdatePicker()" value="{$row.end_date}"/></th>
+								</tr>
+								<tr>
+									<th width="127">奖品清单</th>
+									<th width="972" align="left"></th>
+								</tr>
+								<?php
+								foreach($list as $key=>$item)
+								{
+								?>
+								<tr>
+								  <th width="127">奖品{$key+1}：</th>
+								  <th align="left">
+									<input type="hidden" name="prize_id[]" value="{$item.id}" />
+									<input name="prize_title[]" type="text" id="prize_title[]" size="10" style="width:100px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px" placeholder="奖品名称" value="{$item.title}"/>
+									
+									  <input name="prize_num[]" type="text" id="prize_num[]" size="10" style="width:100px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px" placeholder="中奖数量" value="{$item.num}"/>
+									  
+									  <input name="prize_rate[]" type="text" id="prize_rate[]" size="10" style="width:100px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px" placeholder="中奖千分比" value="{$item.rate}"/>‰</th>
+								  </tr>
+								<?php
+								}
+								?>
+								<tr>
+								  <th width="127">&nbsp;</th>
+								  <th align="left"><input type="submit" name="button" id="button" value="保 存"></th>
+								  </tr>
+							</thead>
+							<tbody>
+							
+						   </tbody><tfoot></tfoot>
+						</table>
+                  	  </form>
+
+                        
+                       
+                   </div>
+                    
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

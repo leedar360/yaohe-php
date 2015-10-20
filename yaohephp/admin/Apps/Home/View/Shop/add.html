@@ -1,0 +1,384 @@
+<include file="Public:top"/>
+<link rel="stylesheet" href="__PUBLIC__/kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="__PUBLIC__/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="__PUBLIC__/kindeditor/lang/zh_CN.js"></script>
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=5f4ba5ea591df8f97c6cf70820e576e8"></script>
+<script type="text/javascript">
+		var marker = new Array();
+		var windowsArr = new Array(); 
+		var map = new AMap.Map("mapContainer", {
+			resizeEnable: true
+		});
+		function getmap() {
+			var address=$('#address').val();
+		    var MGeocoder;
+			if(address=='')
+			{
+				alert('请输入详细地址');
+			}
+			else
+			{
+				//加载地理编码插件
+				AMap.service(["AMap.Geocoder"], function() {        
+					MGeocoder = new AMap.Geocoder({ 
+						radius:1000 //范围，默认：500
+					});
+					//返回地理编码结果  
+					//地理编码
+					MGeocoder.getLocation(address, function(status, result){
+						//alert(result.info);
+						if(status === 'complete' && result.info === 'OK'){
+							geocoder_CallBack(result);
+						}else{
+							alert('地址不存在');
+						}
+					});
+				});
+			}
+		}  
+		function addmarker(i, d) {
+		    var lngX = d.location.getLng();
+		    var latY = d.location.getLat();
+		    var markerOption = {
+		        map:map,                 
+		        icon:"http://webapi.amap.com/images/"+(i+1)+".png",  
+		        position:new AMap.LngLat(lngX, latY)
+		    };            
+		    var mar = new AMap.Marker(markerOption);  
+		    marker.push(new AMap.LngLat(lngX, latY));
+		
+		    var infoWindow = new AMap.InfoWindow({  
+		        content:d.formattedAddress, 
+		        autoMove:true, 
+		        size:new AMap.Size(150,0),  
+		        offset:{x:0,y:-30}
+		    });  
+		    windowsArr.push(infoWindow);  
+		    
+		    var aa = function(e){infoWindow.open(map,mar.getPosition());};  
+		    AMap.event.addListener(mar,"mouseover",aa);  
+		}
+		//地理编码返回结果展示   
+		function geocoder_CallBack(data){
+		    var resultStr="";
+		    //地理编码结果数组
+		    var geocode = new Array();
+		    geocode = data.geocodes;  
+			var $lng='';
+			var $lat='';
+		    for (var i = 0; i < geocode.length; i++) {
+				$lng=geocode[i].location.getLng();
+				$lat=geocode[i].location.getLat();
+		    }  
+			$('#lng').val($lng);
+			$('#lat').val($lat)
+			$('#long_lat_txt').html($lng+','+$lat);
+		}  
+	</script> 
+<script>
+$(document).ready(function(){
+	$('.has-items').eq(1).children(".level-2").show();
+	$('.has-items').eq(1).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('.has-items').eq(1).children(".level-2").children('li').eq(1).addClass('selected');
+	$('#province_id').change(function(){
+		$.ajax({
+                type: "post",
+                url: "?c=Shop&a=getcitylist",
+				data:{'province_id':$(this).val()},
+                cache: false,
+                datatype: "json",
+                success: function(msg) {
+					var str='<option value="0">请选择</option>';
+					var obj=eval(msg); 
+                    $.each(obj, function(i) {
+						str+='<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+                    });
+					$('#city_id').html(str);
+                }
+        });
+	})
+	$('#city_id').change(function(){
+		$.ajax({
+                type: "post",
+                url: "?c=Shop&a=getarealist",
+				data:{'city_id':$(this).val()},
+                cache: false,
+                datatype: "json",
+                success: function(msg) {
+					var str='<option value="0">请选择</option>';
+					var obj=eval(msg); 
+                    $.each(obj, function(i) {
+						str+='<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+                    });
+					$('#area_id').html(str);
+                }
+        });
+	})
+	$('#area_id').change(function(){
+		$.ajax({
+                type: "post",
+                url: "?c=Shop&a=getdistrictlist",
+				data:{'area_id':$(this).val()},
+                cache: false,
+                datatype: "json",
+                success: function(msg) {
+					var str='<option value="0">请选择</option>';
+					var obj=eval(msg); 
+                    $.each(obj, function(i) {
+						str+='<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+                    });
+					$('#district_id').html(str);
+                }
+        });
+	})
+	$('#one_id').change(function(){
+		$.ajax({
+                type: "post",
+                url: "?c=Shop&a=getsonclasslist",
+				data:{'parentid':$(this).val()},
+                cache: false,
+                datatype: "json",
+                success: function(msg) {
+					var str='<option value="0">请选择</option>';
+					var obj=eval(msg); 
+                    $.each(obj, function(i) {
+						str+='<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+                    });
+					$('#industry_class_id').html(str);
+                }
+        });
+	})
+});
+KindEditor.ready(function(K) {
+	K.create('textarea[name="content"]', {
+		allowFileManager : true
+	});
+});
+function ajax_mobile()
+{
+	var sMobile = $('#mobile').val(); 
+    if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(sMobile))){ 
+        alert("不是完整的11位手机号或者正确的手机号前七位"); 
+		//$('#mobile').focus(); 
+        return false; 
+    }
+	$.ajax({
+			type: "post",
+			url: "?c=Shop&a=checkmobile",
+			data:{'mobile':sMobile},
+			cache: false,
+			datatype: "json",
+			success: function(msg) {
+				//var str='<option value="0">请选择</option>';
+				var obj=eval(msg); 
+				if(obj.falg==0)alert(obj.msg);
+				/*$.each(obj, function(i) {
+					str+='<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+				});
+				$('#industry_class_id').html(str);*/
+			}
+	});
+}
+function insert()
+{
+	var sMobile = $('#mobile').val(); 
+    if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(sMobile))){ 
+        alert("不是完整的11位手机号或者正确的手机号前七位"); 
+		$('#mobile').focus(); 
+        return false; 
+    } 
+	if($.trim($('#title').val())=='')
+	{
+		alert('请输入店铺名称');
+		$('#title').val('');
+		$('#title').focus();
+		return false;
+	}
+	if($('#city_id').val()==0)
+	{
+		alert('请选择城市');
+		return false;
+	}
+	if($('#industry_class_id').val()==0)
+	{
+		alert('请选择分类');
+		return false;
+	}
+	/*if($('#district_id').val()==0)
+	{
+		alert('请选择商圈');
+		return false;
+	}*/
+	if($.trim($('#business_time').val())=='')
+	{
+		alert('请输入营业时间');
+		$('#business_time').val('');
+		$('#business_time').focus();
+		return false;
+	}
+	if($.trim($('#subscribe_tel').val())=='')
+	{
+		alert('请输入预约电话');
+		$('#subscribe_tel').val('');
+		$('#subscribe_tel').focus();
+		return false;
+	}
+	if($.trim($('#address').val())=='')
+	{
+		alert('请输入详细地址');
+		$('#address').val('');
+		$('#address').focus();
+		return false;
+	}
+	if($('#lng').val()=='0')
+	{
+		alert('请点击获取坐标');
+		return false;
+	}
+}
+</script>
+<body class="modal-ready">
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+
+
+            <include file="Public:menu"/>
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+
+					
+                    <div class="pane">
+                    <ul class="page-tabs"><li class="selected"><a href="?c=Shop&a=add" data-permalink="">基本信息</a></li><!--<li class=""><a href="?c=Shop&a=contract" data-permalink="">商家合同</a></li>--></ul>
+                    	<form name="form1" method="post" action="?c=Shop&a=insert" onSubmit="return insert()" enctype="multipart/form-data">
+                    	<table width="100%" class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th width="127"><span style="color:#FF0000;">*</span>手机</th>
+									<th width="972" align="left"><input name="mobile" type="text" id="mobile" size="40" onblur="ajax_mobile()"/></th>
+								</tr>
+								<tr>
+									<th width="127"><span style="color:#FF0000;">*</span>店铺名称</th>
+									<th width="972" align="left"><input name="title" type="text" id="title" size="40" /></th>
+								</tr>
+								<tr>
+								  <th width="127"><span style="color:#FF0000;">*</span>所属城市</th>
+								  <th align="left"><select name="province_id" id="province_id">
+									<option value="0">请选择</option>
+									<volist name="province_list" id="vo">
+									<option value="{$vo.id}">{$vo.title}</option>
+									</volist>
+									</select>
+									<select name="city_id" id="city_id">
+									  <option value="0">请选择</option>
+									  </select></th>
+								  </tr>
+								<tr>
+								  <th width="127"><span style="color:#FF0000;">*</span>所属分类</th>
+								  <th align="left"><select name="one_id" id="one_id">
+									<option value="0">请选择</option>
+									<volist name="class_list" id="vo">
+									<option value="{$vo.id}">{$vo.title}</option>
+									</volist>
+									</select>
+									<select name="industry_class_id" id="industry_class_id">
+									  <option value="0">请选择</option>
+									</select></th>
+								  </tr>
+								<tr>
+								  <th width="127"><span style="color:#FF0000;">*</span>所属商圈</th>
+								  <th align="left">
+									<select name="area_id" id="area_id">
+									<option value="0">请选择</option>
+									</select>
+									<select name="district_id" id="district_id">
+									<option value="0">请选择</option>
+									</select></th>
+								  </tr>
+								<tr>
+								  <th width="127"><span style="color:#FF0000;">*</span>营业时间</th>
+								  <th align="left"><input name="business_time" type="text" id="business_time" size="40" /></th>
+								  </tr>
+								<tr>
+								  <th width="127"><span style="color:#FF0000;">*</span>预约电话</th>
+								  <th align="left"><input name="subscribe_tel" type="text" id="subscribe_tel" size="40" /></th>
+								  </tr>
+								<tr>
+								  <th width="127"><span style="color:#FF0000;">*</span>详细地址</th>
+								  <th align="left"><input name="address" type="text" id="address" size="40" /></th>
+								  </tr>
+								<tr>
+								  <th width="127">地图标点</th>
+								  <th align="left">坐标<span id="long_lat_txt">（0，0）</span>
+									<input type="hidden" name="lng" id="lng" value="0" />
+									<input type="hidden" name="lat" id="lat" value="0" />
+									<input type="button" name="button2" id="button2" value="获取坐标" onclick="getmap()">
+									<!--<input type="button" name="button2" id="button2" value="地图标点" onclick="setlatlng($('#long').val(),$('#lat').val())">--></th>
+								  </tr>
+								<tr>
+								  <th width="127"><span style="color:#FF0000;">*</span>签约状态</th>
+								  <th align="left"><select name="is_sign" id="is_sign">
+									<option value="0">未签约</option>
+									<option value="1">已签约</option>
+								  </select></th>
+								  </tr>
+								<tr>
+								  <th width="127">图片</th>
+								  <th align="left"><input type="file" id="img" name="img"/></th>
+								</tr>
+								<tr>
+								  <th width="127">等级</th>
+								  <th align="left"><select name="level" id="level">
+									<option value="A">A</option>
+									<option value="B">B</option>
+									<option value="C">C</option>
+								  </select></th>
+								  </tr>
+								<tr>
+								  <th width="127">人均消费</th>
+								  <th align="left"><input name="per_person" type="text" id="per_person" size="40" /></th>
+								  </tr>
+								<tr>
+								  <th width="127">搜索关键词</th>
+								  <th align="left"><input name="keywords[]" type="text" id="keywords1" size="10" style="width:100px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px"/>
+									-
+									  <input name="keywords[]" type="text" id="keywords2" size="10" style="width:100px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px"/>
+									  -
+									  <input name="keywords[]" type="text" id="keywords3" size="10" style="width:100px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px"/>
+									  -
+									  <input name="keywords[]" type="text" id="keywords4" size="10" style="width:100px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px"/>
+									  -
+									  <input name="keywords[]" type="text" id="keywords5" size="10" style="width:100px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px"/></th>
+								  </tr>
+								<tr>
+								  <th width="127">商家介绍</th>
+								  <th align="left"><textarea name="content" id="content" cols="45" rows="20"></textarea></th>
+								  </tr>
+								<tr>
+								  <th width="127">&nbsp;</th>
+								  <th align="left"><input type="submit" name="button" id="button" value="提交审核"></th>
+								  </tr>
+							</thead>
+							<tbody>
+							
+						   </tbody><tfoot></tfoot>
+						</table>
+                  	  </form>
+
+                        
+                       
+                   </div>
+                    
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

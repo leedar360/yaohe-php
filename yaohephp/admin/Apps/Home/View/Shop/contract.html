@@ -1,0 +1,175 @@
+<include file="Public:top"/>
+<script>
+$(document).ready(function(){
+	$('.has-items').eq(1).children(".level-2").show();
+	$('.has-items').eq(1).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('.has-items').eq(1).children(".level-2").children('li').eq(0).addClass('selected');
+});
+function contract()
+{
+	if($.trim($('#full_name').val())=='')
+	{
+		alert('请输入商家全称');
+		$('#full_name').val('');
+		$('#full_name').focus();
+		return false;
+	}
+	if($.trim($('#legal_person').val())=='')
+	{
+		alert('请输入公司法人');
+		$('#legal_person').val('');
+		$('#legal_person').focus();
+		return false;
+	}
+	if($.trim($('#tel').val())=='')
+	{
+		alert('请输入公司固话');
+		$('#tel').val('');
+		$('#tel').focus();
+		return false;
+	}
+	if($.trim($('#email').val())=='')
+	{
+		alert('请输入公司邮箱');
+		$('#email').val('');
+		$('#email').focus();
+		return false;
+	}
+}
+</script>
+<body class="modal-ready">
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+
+
+            <include file="Public:menu"/>
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+
+					
+                    <div class="pane">
+                    <ul class="page-tabs"><li class=""><a href="?c=Shop&a=edit&id={$vo.id}" data-permalink="">基本信息</a></li><li class="selected"><a href="?c=Shop&a=contract&id={$vo.id}" data-permalink="">商家合同</a></li></ul>
+                    	<form name="form1" method="post" action="?c=Shop&a=savecontract" enctype="multipart/form-data" onSubmit="return contract()">
+                    	<table width="100%" class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th width="127"><span style="color:#FF0000;">*</span>商家全称<input type="hidden" name="id" value="{$vo.id}" /></th>
+									<th width="972" align="left"><input name="full_name" type="text" id="full_name" size="40" value="{$vo.full_name}"/></th>
+								</tr>
+								<tr>
+								  <th width="127"><span style="color:#FF0000;">*</span>公司法人</th>
+								  <th align="left"><input name="legal_person" type="text" id="legal_person" size="40" value="{$vo.legal_person}"/></th>
+								  </tr>
+								<tr>
+								  <th width="127"><span style="color:#FF0000;">*</span>公司固话</th>
+								  <th align="left"><input name="tel" type="text" id="tel" size="40" value="{$vo.tel}"/></th>
+								  </tr>
+								<tr>
+								  <th width="127"><span style="color:#FF0000;">*</span>公司邮箱</th>
+								  <th align="left"><input name="email" type="text" id="email" size="40" value="{$vo.email}"/></th>
+								</tr>
+								<?php
+								if(!empty($vo['contract_photo']))
+								{
+								?>
+								<tr>
+								  <th width="127">已传合同照片</th>
+								  <th align="left"><img src='__IMGURL__/imgs/{$vo.contract_photo}' width="200" height="200" ></th>
+								</tr>
+								<?php
+								}
+								?>
+								<tr>
+								  <th width="127"><span style="color:#FF0000;">*</span>合同照片</th>
+								  <th align="left"><input type="file" id="contract_photo" name="contract_photo"/></th>
+								</tr>
+								<?php
+								if(!empty($vo['legal_person_card']))
+								{
+								?>
+								<tr>
+								  <th width="127">已传法人身份证</th>
+								  <th align="left"><img src='__IMGURL__/imgs/{$vo.legal_person_card}' width="200" height="200" ></th>
+								</tr>
+								<?php
+								}
+								?>
+								<tr>
+								  <th width="127">法人身份证</th>
+								  <th align="left"><input type="file" id="legal_person_card" name="legal_person_card"/></th>
+								</tr>
+								<?php
+								if(!empty($vo['hygienic_license']))
+								{
+								?>
+								<tr>
+								  <th width="127">已传卫生许可证</th>
+								  <th align="left"><img src='__IMGURL__/imgs/{$vo.hygienic_license}' width="200" height="200" ></th>
+								</tr>
+								<?php
+								}
+								?>
+								<tr>
+								  <th width="127">卫生许可证</th>
+								  <th align="left"><input type="file" id="hygienic_license" name="hygienic_license"/></th>
+								</tr>
+								<?php
+								if(!empty($vo['business_licence']))
+								{
+								?>
+								<tr>
+								  <th width="127">已传营业执照</th>
+								  <th align="left"><img src='__IMGURL__/imgs/{$vo.business_licence}' width="200" height="200" ></th>
+								</tr>
+								<?php
+								}
+								?>
+								<tr>
+								  <th width="127">营业执照</th>
+								  <th align="left"><input type="file" id="business_licence" name="business_licence"/></th>
+								</tr>
+								<?php
+								if(!empty($vo['other_documents']))
+								{
+								?>
+								<tr>
+								  <th width="127">已传其它证件</th>
+								  <th align="left"><img src='__IMGURL__/imgs/{$vo.other_documents}' width="200" height="200" ></th>
+								</tr>
+								<?php
+								}
+								?>
+								<tr>
+								  <th width="127">其它证件</th>
+								  <th align="left"><input type="file" id="other_documents" name="other_documents"/></th>
+								</tr>
+
+								<tr>
+								  <th width="127">&nbsp;</th>
+								  <th align="left"><input type="submit" name="button" id="button" value="提交审核"></th>
+								  </tr>
+							</thead>
+							<tbody>
+							
+						   </tbody><tfoot></tfoot>
+						</table>
+                  	  </form>
+
+                        
+                       
+                   </div>
+                    
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

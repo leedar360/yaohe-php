@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" name="width=content-width,initial-scale=1.0,minimum-scale=1.0,
+maxinum-scale=1.0">
+<meta http-equiv="Content-Type" content="textml;charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-capable" content="yes">
+  
+<title>test下载</title>
+<link href="css/download.css" type="text/css" rel="stylesheet">
+<script type="text/javascript">
+function download()
+{
+	var is_weixin = (function(){return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1})();
+	var appUrl = '';
+	if(is_weixin){
+		appUrl = 'http://218.75.177.15/dd.myapp.com/16891/18999A868D6943D5BF8F08CA0E6F27C6.apk?mkey=561b588f9a32019f&f=1225&fsname=com.collcloud.yaohe_1.0.29_29.apk&asr=02f1&p=.apk';
+	}else{
+		appUrl = 'http://210.51.161.83/YaoHe.apk';
+	}
+
+	window.location.href =appUrl;
+}
+
+</script>
+</head>
+
+<body>
+   <div id="content">
+      <div id="main">
+         <ul class="download">
+            <!---->
+            <li class="rightimg"><a href="javascript:download();"><img src="imgs/android.png" /></a></li>
+			<li class="leftimg"><img src="imgs/iphone.png"/></li>
+         </ul>
+      </div>
+   </div>
+</body>
+</html>

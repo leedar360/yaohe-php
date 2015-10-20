@@ -1,0 +1,57 @@
+<table class="table table-bordered table-hover">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>城市</th>
+			<th>显示名称</th>
+			<th>分类名称</th>
+			<th>是否显示</th>
+			<th>排序</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php
+	$is_hidden[0]='显示';
+	$is_hidden[1]='不显示';
+	?>
+	<volist name="list" id="vo">
+		<tr d_id="{$vo.id}" d_show_title="{$vo.show_title}" d_title="{$vo.title}" d_is_hidden="{$vo.is_hidden}" d_order_num="{$vo.order_num}" d_city_title="<?=$cityarr[$vo['city_id']]?>" class="dbclick">
+			<td>{$vo.id}</td>
+			<td>{$cityarr[$vo['city_id']]}</td>
+			<td>{$vo.show_title}</td>
+			<td>{$vo.title}</td>
+			<td>{$is_hidden[$vo['is_hidden']]}</td>
+			<td>{$vo.order_num}</td>
+		</tr>
+	</volist>
+   </tbody><tfoot></tfoot>
+</table>
+<script>
+$(document).ready(function(){
+	$(".dbclick").dblclick(function() {
+		//alert($(this).attr('d_id')+'_'+$(this).attr('d_title'));
+		/*$('#edit_id').val($(this).attr('d_id'));
+		$('#edit_title').val($(this).attr('d_title'));
+		$('#edit_p_id').val($(this).attr('d_p_id'));*/
+		$('#edit_show_title').val($(this).attr('d_show_title'));
+		$('#edit_id').val($(this).attr('d_id'));
+		$('#edit_is_hidden').val($(this).attr('d_is_hidden'));
+		$('#edit_order_num').val($(this).attr('d_order_num'));
+		$('#edit_modal').show();
+	});
+	$("#all").click(function(){ 
+		if(($(this).attr('checked')))
+		{
+			$("input[name='id[]']").each(function(){
+				$(this).attr("checked",true);
+			});  
+		}
+		else
+		{
+			$("input[name='id[]']").each(function(){
+				$(this).attr("checked",false);
+			});  
+		}
+	});
+});
+</script>

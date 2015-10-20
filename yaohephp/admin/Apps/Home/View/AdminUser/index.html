@@ -1,0 +1,199 @@
+<include file="Public:top"/>
+<script>
+$(document).ready(function(){
+	$('.has-items').eq(3).children(".level-2").show();
+	$('.has-items').eq(3).addClass("selected");
+	$('li .item').removeClass("selected");
+	$('.has-items').eq(3).children(".level-2").children('li').eq(2).addClass('selected');
+	$('#province_id').change(function(){
+		$.ajax({
+                type: "post",
+                url: "?c=AdminUser&a=getcitylist",
+				data:{'province_id':$(this).val()},
+                cache: false,
+                datatype: "json",
+                success: function(msg) {
+					var str='<option value="0">市</option>';
+					var obj=eval(msg); 
+                    $.each(obj, function(i) {
+						str+='<option value="'+obj[i].id+'">'+obj[i].title+'</option>';
+                    });
+					$('#city_id').html(str);
+					$('#area_id').html('<option value="0">区</option>');
+					$('#district_id').html('<option value="0">商圈</option>');
+                }
+        });
+	})
+	<?php
+	if($role_id>0)
+	{
+		echo "$('#role_id').val(".$role_id.");\n";
+	}
+	if($province_id>0)
+	{
+		echo "$('#province_id').val(".$province_id.");\n";
+	}
+	if($city_id>0)
+	{
+		echo "$('#city_id').val(".$city_id.");\n";
+	}
+	?>
+	//$('#ajax_list').load('?c=AdminUser&a=ajax_list?pageNum={$currentPage}');
+});
+function del(login_user)
+{
+	if(!confirm("确认删除"+login_user+"？"))return false;
+}
+function search()
+{
+	var url='?c=AdminUser&province_id='+$('#province_id').val()+'&city_id='+$('#city_id').val();
+	url+='&role_id='+$('#role_id').val()+'&login_user='+$('#login_user').val()+'&name='+$('#name').val();
+	window.location.href=url;
+}
+function delall()
+{
+	var variable = $("input[name='id[]']:checked").serialize();
+	if(variable=='')
+	{
+		alert('请选择记录');
+		return false;
+	}
+	if(!confirm("确认删除选中记录"))return false;
+	$.ajax({
+		url: "?c=AdminUser&a=delete",
+		type: "post",
+		data: variable,
+		success: function (result) {
+			//handle
+			alert(result.msg);
+			window.location.reload();
+			//$('#ajax_list').load('?c=AdminUser&a=ajax_list?pageNum={$currentPage}');
+		}
+	});
+}
+</script>
+
+<body class="modal-ready">
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+        	
+
+
+            <include file="Public:menu"/>
+            
+            
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+
+					
+                    <div class="pane">
+                    
+                    	<div class="toolbar">
+						<div class="form-search"><input type="search" id="login_user" placeholder="账号" value="{$login_user}"></div>
+						<div class="select-con">
+							<select class="dropdown-select" name="role_id" id="role_id"><option value="">用户组</option>
+							<volist name="role_list" id="item">
+							<option value="{$item.id}">{$item.title}</option>
+							</volist>
+							</select>
+						</div>
+						<div class="select-con">
+							<select class="dropdown-select" name="province_id" id="province_id">
+							<option value="0">省</option>
+							<volist name="province_list" id="item">
+							<option value="{$item.id}">{$item.title}</option>
+							</volist>
+							</select>
+						</div>
+						<div class="select-con">
+							<select class="dropdown-select" name="city_id" id="city_id">
+							<option value="0">市</option>
+							<volist name="city_list" id="item">
+							<option value="{$item.id}">{$item.title}</option>
+							</volist>
+							</select>
+						</div>
+						<div class="form-search"><input type="search" id="name" placeholder="姓名" value="{$name}"></div>
+						<a class="btn" href="javascript:search()"><span class="text">搜索</span></a>
+						<a class="btn" href="?c=AdminUser&a=add"><span class="icon icon-run"></span><span class="text">新建</span></a><a class="btn" href="javascript:void(0)" onclick="delall()"><span class="text">删除</span></a>
+                            <!--
+                            <div class="pagination"><span class="per-page">每页显示：&nbsp;</span>
+                            	<div class="select-con"><select class="dropdown-select" name="limit"><option value="10" selected="">10</option><option value="20">20</option><option value="50">50</option><option value="100">100</option></select>
+                                </div>
+                            </div>
+							-->
+                        </div>
+						<div id="ajax_list">
+							<table class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th class="checkbox"><input type="checkbox" id="all"></th>
+										<th>账号</th>
+										<th>用户组</th>
+										<th>姓名</th>
+										<th>上次登录</th>
+										<th>登录次数</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+								<volist name="list" id="vo">
+									<tr d_id="{$vo.id}" class="dbclick">
+										<td class="checkbox"><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+										<td>{$vo.login_user}</td>
+										<td><?=$rolearr[$vo['role_id']]?></td>
+										<td>{$vo.name}</td>
+										<td><?php if($vo['last_login_time']>0){echo date('Y-m-d H:i:s',$vo['last_login_time']);}else{echo '尚未登陆';}?></td>
+										<td>{$vo.login_num}</td>
+										<td>
+										<a href='?c=AdminUser&a=edit&id={$vo.id}'>编辑</a> 
+										<!--<a href='?c=AdminUser&a='>禁止</a> -->
+										<a href='?c=AdminUser&a=delete&id={$vo.id}' onclick="return del('{$vo.login}')">删除</a>
+										</td>
+									</tr>
+								</volist>
+							   </tbody><tfoot></tfoot>
+							</table>
+							<script>
+							$(document).ready(function(){
+								$(".dbclick").dblclick(function() {
+									//alert($(this).attr('d_id')+'_'+$(this).attr('d_title'));
+									$('#edit_id').val($(this).attr('d_id'));
+									$('#edit_title').val($(this).attr('d_title'));
+									$('#edit_p_id').val($(this).attr('d_p_id'));
+									$('#edit_modal').show();
+								});
+								$("#all").click(function(){ 
+									if(($(this).attr('checked')))
+									{
+										$("input[name='id[]']").each(function(){
+											$(this).attr("checked",true);
+										});  
+									}
+									else
+									{
+										$("input[name='id[]']").each(function(){
+											$(this).attr("checked",false);
+										});  
+									}
+								});
+							});
+							</script>
+						</div>
+						{$page}
+                        
+                   </div>
+                    
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

@@ -1,0 +1,124 @@
+<include file="Public:top"/>
+
+<!--<div id="fullbg"></div>-->
+<!--弹出窗口-->
+<div class="modal" style="width: 600px; height: auto; margin-left: -300px; margin-top: -200px; top: 208px; z-index: 1000; left: 683px;display:none"><div class="modal-header" style="cursor: move;"><h4>创建私有网络<a href="javascript:void(0)" onclick="close_modal()" class="close"><span class="icon-close icon-Large"></span></a></h4></div><div class="modal-content" id=""><form class="form form-horizontal"><fieldset><legend>创建私有网络</legend><div class="item"><div class="control-label">名称</div><div class="controls"><input type="text" name="vxnet_name" autofocus></div></div><div class="item"><div class="control-label">数量</div><div class="controls"><input class="medium" type="text" name="count" value="1"></div></div><div class="item vxnet_type" style="display:none"><div class="control-label">管理方式</div><div class="controls"><div><input type="radio" id="vxnet_type_1" name="vxnet_type" value="1" checked=""><label class="inline" for="vxnet_type_1">受管</label><span class="help">受管私有网络可以使用青云 QingCloud 路由器来配置和管理其网络。</span></div><div><input type="radio" id="vxnet_type_0" name="vxnet_type" value="0"><label class="inline" for="vxnet_type_0">自管</label><span class="help">自管私有网络需要您自行配置和管理其网络。</span></div></div></div><div class="item"><div class="control-label"></div><div class="controls"><a class="advanced-options" href="#">显示高级选项...</a></div></div><div class="form-actions"><input class="btn btn-primary" type="submit" value="提交"><input class="btn btn-cancel" type="button" value="取消" onclick="close_modal()"></div></fieldset></form></div><div class="modal-footer"></div></div>
+<!--弹出窗口-->
+<body class="modal-ready">
+<div id="mask" class="mask"></div>
+	<div class="container">
+    	<div class="viewport" id="console">
+        	
+
+
+            <include file="Public:menu"/>
+            
+            
+            
+            
+            <div class="content" style="">
+            	<div class="wrapper page">
+                	<div class="topbar">
+                    	<div class="breadcrumbs">欢迎
+                        </div>
+                    </div>
+                    <div class="page-intro instances"><p class="lead">欢迎进入</p>
+                    </div>
+
+					<!--
+                    <div class="pane">
+                    <!--
+                    	<div class="toolbar"><a class="btn" href="javascript:void(0)"><span class="icon icon-refresh"></span></a><a class="btn" href="javascript:void(0)" onclick="open_modal()"><span class="icon icon-run"></span><span class="text">新建</span></a><a class="btn btn-forbidden" href="javascript:void(0)"><span class="icon icon-start"></span><span class="text">启动</span></a><a class="btn btn-forbidden" href="javascript:void(0)"><span class="icon icon-stop"></span><span class="text">关机</span></a>
+                        	<div class="dropdown btn-disabled"><input class="dropdown-toggle" type="text">
+                            	<div class="dropdown-text">更多操作</div>
+                                <div class="dropdown-content">
+                                	<a class="btn btn-forbidden" href=""><span class="icon icon-restart"></span><span class="text">重启</span></a>
+                                    <a class="btn btn-forbidden" href="javascript:void(0)"><span class="icon icon-volumes"></span><span class="text">加载硬盘</span></a>
+                                    <a class="btn btn-forbidden" href="javascript:void(0)"><span class="icon icon-keypairs"></span><span class="text">加载SSH密钥</span></a>
+                                    <a class="btn btn-forbidden" href="javascript:void(0)"><span class="icon icon-security_groups"></span><span class="text">加载防火墙规则</span></a>
+                                    <a class="btn btn-forbidden" href="javascript:void(0)"><span class="icon icon-vxnet"></span><span class="text">加入网络</span></a>
+                                    <a class="btn btn-forbidden" href="javascript:void(0)"><span class="icon icon-resize"></span><span class="text">更改配置</span></a>
+                                    <a class="btn btn-forbidden" href="javascript:void(0)"><span class="icon icon-snapshot"></span><span class="text">创建备份</span></a>
+                                    <a class="btn btn-forbidden" href="javascript:void(0)"><span class="icon icon-alarms"></span><span class="text">绑定告警策略</span></a>
+                                    <a class="btn btn-forbidden" href="javascript:void(0)"><span class="icon icon-reset"></span><span class="text">重置系统</span></a>
+                                    <a class="btn btn-danger btn-forbidden" href="javascript:void(0)"><span class="icon icon-terminate"></span><span class="text">删除</span></a>
+                                </div>
+                            </div>
+                            <div class="form-search"><input type="search" placeholder=" "></div>
+                            <div class="pagination"><span class="per-page">每页显示：&nbsp;</span>
+                            	<div class="select-con"><select class="dropdown-select" name="limit"><option value="10" selected="">10</option><option value="20">20</option><option value="50">50</option><option value="100">100</option></select>
+                                </div>
+                            </div>
+                        </div>
+					--><!--
+                        <table class="table table-bordered table-hover">
+                        	<thead>
+                            	<tr>
+                                	<th class="checkbox"><input type="checkbox"></th>
+                                    <th>ID</th>
+                                    <th>名称</th>
+                                    <th>状态<div class="dropdown">
+                                    	<input class="dropdown-toggle" type="text">
+                                        	<div class="dropdown-text"></div>
+                                            <div class="dropdown-content">
+                                            	<a href="" data-filter="status" data-status="pending,running,stopped,suspended">全部</a>
+                                                <a href="javascript:void(0)" data-filter="status" data-status="pending">等待中</a>
+                                                <a href="javascript:void(0)" data-filter="status" data-status="running">运行中</a>
+                                                <a href="javascript:void(0)" data-filter="status" data-status="stopped">已关机</a>
+                                                <a href="javascript:void(0)" data-filter="status" data-status="suspended">已暂停</a>
+                                                <a href="javascript:void(0)" data-filter="status" data-status="terminated">已删除</a>
+                                                <a href="javascript:void(0)" data-filter="status" data-status="ceased">已销毁</a>
+                                                </div></div></th>
+                                    <th>映像 ID</th>
+                                    <th>网络</th>
+                                    <th>公网IP</th>
+                                    <th>类型</th>
+                                    <th>告警状态</th>
+                                    <th>备份于</th>
+                                    <th>创建于</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            	<tr id="i-7yummwd3">
+                                	<td class="checkbox"><input type="checkbox"></td>
+                                    <td><a class="id" href="https://console.qingcloud.com/pek1/instances/i-7yummwd3/" data-permalink="">i-7yummwd3</a><a class="btn-connect icon-instance" href="javascript:void(0)" data-tooltip="" title="" data-original-title="Web 终端"></a></td>
+                                    <td class="name">cw_apps</td>
+                                    <td class="running"><span class="icon-status icon-running"></span>&nbsp; 运行中</td>
+                                    <td><a class="id" href="https://console.qingcloud.com/pek1/images/precisex64a/" data-permalink="">precisex64a</a></td><td><span class="id">(基础网络) / 10.50.81.31</span><br></td>
+                                    <td><a class="id" href="https://console.qingcloud.com/pek1/eips/eip-wl1wdggk/" data-permalink="">117.121.25.43</a></td>
+                                    <td>2核1G</td>
+                                    <td><span class="none">无监控</span></td>
+                                    <td class="time"><a class="btn-create-snapshot icon icon-snapshot" href="javascript:void(0)" data-tooltip="" title="" data-original-title="创建备份"></a></td>
+                                    <td class="time">1年前</td>
+                                </tr>
+                                <tr id="i-dtmvt9nr">
+                                	<td class="checkbox"><input type="checkbox"></td>
+                                    <td><a class="id" href="https://console.qingcloud.com/pek1/instances/i-dtmvt9nr/" data-permalink="">i-dtmvt9nr</a><a class="btn-connect icon-instance" href="javascript:void(0)" data-tooltip="" title="" data-original-title="Web 终端"></a></td>
+                                    <td class="name">cw_os</td>
+                                    <td class="running"><span class="icon-status icon-running"></span>&nbsp; 运行中</td>
+                                    <td><a class="id" href="https://console.qingcloud.com/pek1/images/precisex64a/" data-permalink="">precisex64a</a></td><td><span class="id">(基础网络) / 10.50.65.17</span><br></td>
+                                    <td><a class="id" href="https://console.qingcloud.com/pek1/eips/eip-wzjydc8i/" data-permalink="">117.121.10.58</a></td><td>1核512MB</td>
+                                    <td><span class="none">无监控</span></td>
+                                    <td class="time"><a class="btn-create-snapshot icon icon-snapshot" href="javascript:void(0)" data-tooltip="" title="" data-original-title="创建备份"></a></td>
+                                    <td class="time">1年前</td>
+                               </tr>
+                           </tbody><tfoot></tfoot>
+                        </table>
+                       <p class="none" style="display: none;">结果为空</p>
+                       <p class="tips">* 提示：可通过在各个资源上点击
+                       		<span class="alert-info">“右键”</span>来进行常用操作，以及
+                            <span class="alert-info">“双击”</span>来修改基本属性。
+                       </p>
+                       <div style="display: none;"><p class="loading">正在加载...</p></div>
+                   </div>
+                    -->
+               </div>
+           </div>
+           <div class="notify" style=""></div>
+           <div class="loading-overlay" style="display: none"></div>
+           <div class="account-lock" style="display:none"></div>
+		   
+       </div>
+   </div>
+   
+  <include file="Public:footer"/>

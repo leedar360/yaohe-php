@@ -1,0 +1,395 @@
+[ 2015-06-12T15:54:39+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000080s ]
+INFO: [ app_init ] --END-- [ RunTime:0.071839s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.076888s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.077369s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000184s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000528s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.589093s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.589500s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.047502s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.048165s ]
+
+[ 2015-06-12T15:54:39+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000096s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001844s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002872s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.014718s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000199s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000513s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.573374s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.573899s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.047637s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.048202s ]
+
+[ 2015-06-12T15:54:41+08:00 ] 127.0.0.1 /Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000059s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001215s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001975s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002271s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000210s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000514s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.038332s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038687s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001535s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001797s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.019160s ]
+INFO: [ app_end ] --END-- [ RunTime:0.019501s ]
+
+[ 2015-06-12T15:54:42+08:00 ] 127.0.0.1 /Login/captcha
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000099s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001852s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002802s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003286s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002428s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002898s ]
+
+[ 2015-06-12T15:54:51+08:00 ] 127.0.0.1 /Login/auth
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000093s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001873s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005036s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005531s ]
+SQL: SHOW COLUMNS FROM `ht_admin_user` [ RunTime:0.505762s ]
+SQL: SELECT * FROM `ht_admin_user` WHERE ( `login_user` = 'admin' ) LIMIT 1   [ RunTime:0.114354s ]
+SQL: UPDATE `ht_admin_user` SET `last_login_time`=1434095691,`login_num`=4 WHERE ( `id` = 1 ) [ RunTime:0.417131s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000194s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000500s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022577s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022919s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001451s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001843s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002069s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002349s ]
+
+[ 2015-06-12T15:54:53+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000096s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001861s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002491s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002996s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.101359s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.050888s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000583s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000921s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.203236s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.203750s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001830s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002266s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002695s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003063s ]
+
+[ 2015-06-12T16:16:03+08:00 ] 127.0.0.1 /Shop
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000116s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003010s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005177s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005595s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.016151s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001567s ]
+SQL: SHOW COLUMNS FROM `ht_province` [ RunTime:0.108133s ]
+SQL: SELECT * FROM `ht_province`  [ RunTime:0.065524s ]
+SQL: SHOW COLUMNS FROM `ht_classify` [ RunTime:0.068719s ]
+SQL: SELECT * FROM `ht_classify` WHERE ( `parentid` = 0 ) AND ( `is_hidden` = 0 )  [ RunTime:0.062822s ]
+SQL: SHOW COLUMNS FROM `ht_shop` [ RunTime:0.141934s ]
+NOTIC: [8] Undefined variable: asc E:\domain\yaohe\admin\Apps\Home\Controller\ShopController.class.php 第 88 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `ht_shop` LIMIT 1   [ RunTime:0.025999s ]
+SQL: SELECT * FROM `ht_shop` ORDER BY id asc LIMIT 0,10   [ RunTime:0.002320s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000856s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001290s ]
+NOTIC: [8] Undefined variable: city_list E:\domain\yaohe\admin\Apps\Runtime\Cache\Home\29ce11bc702d157c41074e6ea195d339.php 第 387 行.
+NOTIC: [8] Undefined variable: area_list E:\domain\yaohe\admin\Apps\Runtime\Cache\Home\29ce11bc702d157c41074e6ea195d339.php 第 392 行.
+NOTIC: [8] Undefined variable: district_list E:\domain\yaohe\admin\Apps\Runtime\Cache\Home\29ce11bc702d157c41074e6ea195d339.php 第 397 行.
+NOTIC: [8] Undefined variable: cityarr E:\domain\yaohe\admin\Apps\Runtime\Cache\Home\29ce11bc702d157c41074e6ea195d339.php 第 444 行.
+NOTIC: [8] Undefined variable: cityarr E:\domain\yaohe\admin\Apps\Runtime\Cache\Home\29ce11bc702d157c41074e6ea195d339.php 第 444 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.138464s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.138918s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001952s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002340s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002229s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002637s ]
+
+[ 2015-06-12T16:19:44+08:00 ] 127.0.0.1 /Role
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000103s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002209s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002885s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003468s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.018450s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001351s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.014207s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ht_role` LIMIT 1   [ RunTime:0.018518s ]
+SQL: SELECT * FROM `ht_role` ORDER BY id desc LIMIT 0,10   [ RunTime:0.001214s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000837s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001310s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.045920s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046321s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002006s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002356s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002571s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002965s ]
+
+[ 2015-06-12T16:19:45+08:00 ] 127.0.0.1 /index.php/Home/Role/ajax_list?pageNum=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000114s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002052s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002863s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003263s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.010022s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001050s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.010247s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ht_role` LIMIT 1   [ RunTime:0.000822s ]
+SQL: SELECT * FROM `ht_role` ORDER BY id desc LIMIT 0,10   [ RunTime:0.001458s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000250s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000507s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.044355s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.044714s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001522s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001797s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001879s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002111s ]
+
+[ 2015-06-12T16:19:47+08:00 ] 127.0.0.1 /index.php/Home/Role/edit?id=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000065s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001490s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002751s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003260s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.013295s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001440s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.014339s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.022665s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000778s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001088s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.215125s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.215614s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001413s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001680s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001984s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002259s ]
+
+[ 2015-06-12T19:52:55+08:00 ] 127.0.0.1 /Shop/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000060s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001170s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002199s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002530s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.029077s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001311s ]
+SQL: SHOW COLUMNS FROM `ht_province` [ RunTime:0.013236s ]
+SQL: SELECT * FROM `ht_province`  [ RunTime:0.000999s ]
+SQL: SHOW COLUMNS FROM `ht_classify` [ RunTime:0.013566s ]
+SQL: SELECT * FROM `ht_classify` WHERE ( `parentid` = 0 ) AND ( `is_hidden` = 0 ) ORDER BY order_num asc,id asc  [ RunTime:0.001236s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000670s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001060s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.114944s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.115354s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001653s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001904s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002027s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002287s ]
+
+[ 2015-06-12T19:53:00+08:00 ] 127.0.0.1 /index.php/Home/Shop/getcitylist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000066s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001271s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001725s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001999s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.030653s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000946s ]
+SQL: SHOW COLUMNS FROM `ht_city` [ RunTime:0.011258s ]
+SQL: SELECT * FROM `ht_city` WHERE ( `p_id` = 1 )  [ RunTime:0.022336s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001880s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002147s ]
+
+[ 2015-06-12T19:53:04+08:00 ] 127.0.0.1 /index.php/Home/Shop/getcitylist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000066s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001759s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001719s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001980s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.010508s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001753s ]
+SQL: SHOW COLUMNS FROM `ht_city` [ RunTime:0.010230s ]
+SQL: SELECT * FROM `ht_city` WHERE ( `p_id` = 2 )  [ RunTime:0.001539s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002051s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002292s ]
+
+[ 2015-06-12T19:53:05+08:00 ] 127.0.0.1 /index.php/Home/Shop/getcitylist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000066s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001310s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002611s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002901s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.013130s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001061s ]
+SQL: SHOW COLUMNS FROM `ht_city` [ RunTime:0.009633s ]
+SQL: SELECT * FROM `ht_city` WHERE ( `p_id` = 4 )  [ RunTime:0.001379s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003117s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003415s ]
+
+[ 2015-06-12T19:53:07+08:00 ] 127.0.0.1 /index.php/Home/Shop/getcitylist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000066s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001211s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001808s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002180s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.014067s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001879s ]
+SQL: SHOW COLUMNS FROM `ht_city` [ RunTime:0.012673s ]
+SQL: SELECT * FROM `ht_city` WHERE ( `p_id` = 6 )  [ RunTime:0.001310s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002471s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002748s ]
+
+[ 2015-06-12T19:53:09+08:00 ] 127.0.0.1 /index.php/Home/Shop/getcitylist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000067s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001244s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002571s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.011929s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.018666s ]
+SQL: SHOW COLUMNS FROM `ht_city` [ RunTime:0.010663s ]
+SQL: SELECT * FROM `ht_city` WHERE ( `p_id` = 8 )  [ RunTime:0.001220s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002030s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002263s ]
+
+[ 2015-06-12T19:53:12+08:00 ] 127.0.0.1 /index.php/Home/Shop/getcitylist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000096s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002040s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002702s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003601s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.009616s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.002871s ]
+SQL: SHOW COLUMNS FROM `ht_city` [ RunTime:0.014050s ]
+SQL: SELECT * FROM `ht_city` WHERE ( `p_id` = 7 )  [ RunTime:0.001432s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004362s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004780s ]
+
+[ 2015-06-12T19:53:14+08:00 ] 127.0.0.1 /index.php/Home/Shop/getcitylist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000061s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001251s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001684s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.008704s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000924s ]
+SQL: SHOW COLUMNS FROM `ht_city` [ RunTime:0.008893s ]
+SQL: SELECT * FROM `ht_city` WHERE ( `p_id` = 11 )  [ RunTime:0.001117s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003516s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003785s ]
+
+[ 2015-06-12T19:53:17+08:00 ] 127.0.0.1 /index.php/Home/Shop/getcitylist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000060s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001114s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001630s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001895s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.010043s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001157s ]
+SQL: SHOW COLUMNS FROM `ht_city` [ RunTime:0.010950s ]
+SQL: SELECT * FROM `ht_city` WHERE ( `p_id` = 13 )  [ RunTime:0.001780s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001940s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002177s ]
+
+[ 2015-06-12T19:53:19+08:00 ] 127.0.0.1 /index.php/Home/Shop/getcitylist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000100s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001813s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002528s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003108s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.012951s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001003s ]
+SQL: SHOW COLUMNS FROM `ht_city` [ RunTime:0.008853s ]
+SQL: SELECT * FROM `ht_city` WHERE ( `p_id` = 17 )  [ RunTime:0.001368s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002942s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003343s ]
+
+[ 2015-06-12T19:53:22+08:00 ] 127.0.0.1 /index.php/Home/Shop/getcitylist
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000164s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002309s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001769s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002043s ]
+SQL: SHOW COLUMNS FROM `ht_role` [ RunTime:0.016659s ]
+SQL: SELECT * FROM `ht_role` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001103s ]
+SQL: SHOW COLUMNS FROM `ht_city` [ RunTime:0.012880s ]
+SQL: SELECT * FROM `ht_city` WHERE ( `p_id` = 18 )  [ RunTime:0.001210s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002055s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002317s ]
+
