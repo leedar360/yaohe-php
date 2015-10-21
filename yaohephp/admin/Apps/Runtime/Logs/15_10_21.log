@@ -1,0 +1,25 @@
+[ 2015-10-21T20:44:29+08:00 ] ::1 /admin/?c=Api&a=getCall&partent=ht&key=ht&id=107
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000038s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001441s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001152s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001247s ]
+SQL: SHOW COLUMNS FROM `ht_shop_service` [ RunTime:0.004627s ]
+SQL: SELECT * FROM `ht_shop_service` WHERE ( `id` = 0 ) LIMIT 1   [ RunTime:0.001273s ]
+
+[ 2015-10-21T21:15:51+08:00 ] ::1 /admin/?c=Api&a=getCall&partent=ht&key=ht&id=107
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000504s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000876s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000965s ]
+SQL: SHOW COLUMNS FROM `ht_shop_service` [ RunTime:0.005470s ]
+SQL: SELECT * FROM `ht_shop_service` WHERE ( `id` = 107 ) LIMIT 1   [ RunTime:0.001692s ]
+SQL: SHOW COLUMNS FROM `ht_shop` [ RunTime:0.006548s ]
+SQL: SELECT * FROM `ht_shop` WHERE ( `member_id` = 66 ) LIMIT 1   [ RunTime:0.001815s ]
+SQL: SHOW COLUMNS FROM `ht_call` [ RunTime:0.014897s ]
+SQL: SELECT `id`,`content`,`img1`,`img2`,`img3`,`img4`,`img5`,`img6` FROM `ht_call` WHERE ( `id` = 51 ) LIMIT 1   [ RunTime:0.003097s ]
+NOTIC: [8] Undefined index: title D:\EvanPHPProject\YaoheMain\yaohe-php\yaohephp\admin\Apps\Home\Controller\ApiController.class.php 第 1186 行.
+
