@@ -1,0 +1,20 @@
+[ 2015-10-21T22:40:44+08:00 ] ::1 /admin/?c=Api&a=getCall&partent=ht&key=ht&id=107
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001285s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002729s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002904s ]
+SQL: SHOW COLUMNS FROM `ht_shop_service` [ RunTime:0.007317s ]
+SQL: SELECT * FROM `ht_shop_service` WHERE ( `id` = 0 ) LIMIT 1   [ RunTime:0.001402s ]
+
+[ 2015-10-21T22:40:47+08:00 ] ::1 /admin/?c=Api&a=getCall&partent=ht&key=ht&id=107
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000489s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000813s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000913s ]
+SQL: SHOW COLUMNS FROM `ht_shop_service` [ RunTime:0.004472s ]
+SQL: SELECT * FROM `ht_shop_service` WHERE ( `id` = 0 ) LIMIT 1   [ RunTime:0.001124s ]
+
