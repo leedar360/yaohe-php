@@ -3,7 +3,7 @@
 * author	袁绍月
 * date		2015/6/1
 * 活动
-*/
+*/ 
 namespace Home\Controller;
 use Think\Controller;
 class ActivityController extends CommonController {
