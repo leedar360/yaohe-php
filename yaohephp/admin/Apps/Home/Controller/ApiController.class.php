@@ -38,7 +38,7 @@ class ApiController extends Controller {
 	{
 		$hotcity=	array();//热门城市
 		$citylist=	array();//排列城市
-		$list	=	M('City')->field('id,title,letter,is_hot')->where(array('status'=>0,'id'=>295))->select();
+		$list	=	M('City')->field('id,title,letter,is_hot')->where(array('status'=>0))->select();
 		foreach($list as $item)
 		{
 			if($item['is_hot']>0)
@@ -817,9 +817,19 @@ class ApiController extends Controller {
 	*/
 	public function cancelFollow()
 	{
-		$id			=	intval(I('post.id'));//店铺ID
-		$member_id	=	intval(I('post.member_id'));//会员ID
-		$row	=	$this->getShop($member_id);
+		$id			=	intval(I('get.id'));//店铺ID
+		$member_id	=	intval(I('get.member_id'));//会员ID
+		//TODO 
+		/*
+		 * 1.use the memeber id to query the shop, if the shop id is no exist, and the member id is only 
+		 * the member, not the shop owner, so here  will show the message "您未关注过"
+		 * 
+		 * 2. set the member_id= 4000000(member not exist),id=3(shop is exist), will show the message the 商家不存在
+		 * 
+		 * 3. set the member_id=40(exist), id=200000000000000(shop not exist),show the message "您未关注过"
+		 * @var unknown 
+		 */
+		$row	=	$this->getShopById($id);
 		if(!$row)
 		{
 			$this->json_error('商家不存在');
@@ -1019,11 +1029,11 @@ class ApiController extends Controller {
 	*/
 	public function giveCard()
 	{
-		$id	=	intval(I('post.id'));//会员卡ID
-		$member_id=intval(I('post.member_id'));//会员ID
+		$id	=	intval(I('get.id'));//会员卡ID 
+		$member_id=intval(I('get.member_id'));//会员ID
 		
 		$card=	M('Card')->field('id,valid_start,valid_end,draw_num,num')->where(array('id'=>$id))->find();
-		if(!$coupon)
+		if(!$card)
 		{
 			$this->json_error('会员卡不存在');
 		}
@@ -1032,7 +1042,7 @@ class ApiController extends Controller {
 			$this->json_error('会员卡已发放完毕');
 		}
 		$now_date	=	date("Y-m-d");//现在日期
-		if($coupon['valid_start']>$now_date || $coupon['valid_end']<$now_date)
+		if($card['valid_start']>$now_date || $card['valid_end']<$now_date)
 		{
 			$this->json_error('会员卡领取时间未到或者已经过期');
 		}
@@ -1126,7 +1136,7 @@ class ApiController extends Controller {
 	public function getCall()
 	{
 		//,zan_num,comment_num,collection_num
-		$id	=	intval(I('get.id'));
+		$id	=	intval(I('post.id'));
 		/*$row=	M('ShopService')->field('id,member_id,service_id,title,zan_num,comment_num,collection_num,addtime,type')->where(array('id'=>$id))->find();*/
 		$row=	M('ShopService')->where(array('id'=>$id))->find();
 		if(!$row)
@@ -1848,7 +1858,7 @@ class ApiController extends Controller {
 		{
 			$classify_arr[$item['id']]=$item['title'];
 		}
-		$where['member_id']=	intval(I('post.member_id'));
+		$where['member_id']=	intval(I('get.member_id'));
 		$list	=	M('ShopFans')->field('to_member_id')->where($where)->select();
 		if(!$list)
 		{
@@ -1883,7 +1893,7 @@ class ApiController extends Controller {
 	*/
 	public function myCollection()
 	{
-		$member_id=	intval(I('post.member_id'));
+		$member_id=	intval(I('get.member_id'));
 		$list = M()->table('ht_shop_service s, ht_shop_service_collection n')->where('s.id = n.shop_service_id and n.member_id='.$member_id)->field('n.id,s.service_id,s.member_id,s.type,n.addtime')->order('n.id desc' )->select();
 		//echo M()->getlastsql();
 		if(!$list)
@@ -3008,6 +3018,15 @@ class ApiController extends Controller {
 			$this->json_error('商家不存在');
 		}
 		return $row;
+	}
+	
+	private function getShopById($shop_id)
+	{
+		$row = M('Shop')->where(array('id'=>$shop_id))->find() ;
+		if(!$row)
+		{
+			$this->json_error("商家不存在") ;
+		}
 	}
 
 	private function json_ok($data)
