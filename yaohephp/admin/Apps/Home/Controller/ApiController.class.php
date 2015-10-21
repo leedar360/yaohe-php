@@ -1201,7 +1201,7 @@ class ApiController extends Controller {
 		$this->json_ok($row);
 	}
 	/**
-	* 功能：获取首页吆喝列表
+	* 功能：获取首页吆喝列表a
 	*/
 	public function getHomeCallList()
 	{
