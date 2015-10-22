@@ -35,15 +35,15 @@ class DynamicCommentController extends CommonController {
 		}
 		if($mid!='')
 		{
-			$map['_string'].=" AND (shop_id like '%".$mid."%' or shop_title like '%".$mid."%')";
+			$map['_string'].=" shop_id like '%".$mid."%' or shop_title like '%".$mid."%'";
 		}
 		if(!empty($source_title))
 		{
-			$map['_string'].=" AND (title like '%".$source_title."%')";
+			$map['_string'].=" title like '%".$source_title."%'";
 		}
 		if(!empty($keywords))
 		{
-			$map['_string'].=" AND (content like '%".$keywords."%')";
+			$map['_string'].=" content like '%".$keywords."%'";
 		}
 
 
