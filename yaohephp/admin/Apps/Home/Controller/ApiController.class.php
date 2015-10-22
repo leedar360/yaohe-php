@@ -3027,6 +3027,7 @@ class ApiController extends Controller {
 		{
 			$this->json_error("商家不存在") ;
 		}
+		return $row ;
 	}
 
 	private function json_ok($data)
