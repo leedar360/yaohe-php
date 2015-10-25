@@ -2673,6 +2673,7 @@ class ApiController extends Controller {
 			$this->json_error('请输入关键字');
 		}
 		$map['_string']=' title like "%'.$keywords.'%"';
+		$map['status']	=	1 ;
 		$shoplist	=	M('Shop')->field('id,member_id,title')->where($map)->order('id asc')->select();
 		$arr		=	array();
 		foreach($shoplist as $item)
