@@ -193,7 +193,7 @@ class RotateController extends CommonController {
 	public function insert()
 	{
 		$model = D('Rotate');
-		if($model->create()) 
+		if($model->create())
 		{
 			$model->__set('up_admin_id',$_SESSION['ht_admin']['id']);
 			$model->__set('up_admin_username',$_SESSION['ht_admin']['username']);
@@ -208,18 +208,18 @@ class RotateController extends CommonController {
             if ($rotate_id !== false) 
 			{
 				$return['msg']='数据保存成功！';
-				$this->success($return['msg'],'add');
+				$this->success($return['msg'],'?c=Rotate');
             }
 			else
 			{
 				$return['msg']='数据写入错误！';
-				$this->error($return['msg'],'add');
+				$this->error($return['msg'],'?c=Rotate&a=add');
             }
 		}
 		else
 		{
 			$return['msg']=$model->getError();
-			$this->error($return['msg'],__URL__.'/add');
+			$this->error($return['msg'],__URL__.'?c=Rotate&a=add');
         }
 	}
 	public function edit($id)
@@ -341,6 +341,7 @@ class RotateController extends CommonController {
 		header("Content-type: application/json");
 		$id		=	I('post.id');//内容ID
 		$type	=	I('post.type');//类别
+		$serviceType	=	4;
 		switch($type)
 		{
 			case 0://商家
@@ -348,15 +349,19 @@ class RotateController extends CommonController {
 			break;
 			case 1://优惠券
 				$model=M('Coupon');
+				$serviceType	=	0;
 			break;
 			case 2://会员卡
 				$model=M('Card');
+				$serviceType	=	1;
 			break;
 			case 3://活动
 				$model=M('Activity');
+				$serviceType	=	2;
 			break;
 			case 4://新品
 				$model=M('NewProduct');
+				$serviceType	=	3;
 			break;
 			default:
 				$return['flag']=0;
@@ -372,8 +377,20 @@ class RotateController extends CommonController {
 			echo json_encode($return);
 			exit;
 		}
+		//get the service from table shop service
+		$serviceMap['type']	=	$serviceType ;
+		$serviceMap['service_id']	=	$id	;
+		$serviceRow	=	M('ShopService')->where($serviceMap)->find() ;
+		if(!$serviceRow)
+		{
+			$return['flag']	=	0;
+			$return['msg']	=	'信息不存在'	;
+			echo json_encode($return) ;
+			exit ;
+		}
 		$return['flag']	=	1;
 		$return['msg']	=	$row['title'];
+		$return['service_id']	=	$serviceRow['id'] ;
 		echo json_encode($return);
 		exit;
 	}
