@@ -664,7 +664,7 @@ class ApiController extends Controller {
 		$city_id	=	I('get.city_id');//城市ID
 		$map['city_id']	=	$city_id;
 		$map['status']	=	1;
-		$list	=	M('Rotate')->field('id,type,content_id,link_url,title,img')->where($map)->order('order_num asc,id desc')->select();
+		$list	=	M('Rotate')->field('id,type,content_id,link_url,title,img,service_id')->where($map)->order('order_num asc,id desc')->select();
 		if(!$list)$list=array();
 		$this->json_ok($list);
 	}
@@ -2541,6 +2541,7 @@ class ApiController extends Controller {
 		$member_id=	intval(I('post.member_id'));
 		$page	=	intval(I('post.page'));
 		if($page<1)$page=1;
+		$count	=	M('ShopService')->where(array('member_id'=>$member_id))->order('id desc')->count('*');
 		$list	=	M('ShopService')->where(array('member_id'=>$member_id))->order('id desc')->limit(($page-1)*20,20)->select();
 		if(!$list)$list=array();
 		$arr	=	array();
@@ -2596,7 +2597,7 @@ class ApiController extends Controller {
 			//$list[$key]['addtime']=date("Y-m-d H:i:s",$item['addtime']);
 		}
 		if(count($arr)<1)$arr=array(array('id'=>''));
-		$this->json_ok($arr);
+		$this->json_ok_page($arr, $page, $count);
 	}
 	/**
 	* 功能：获取个人基本信息
@@ -3038,6 +3039,16 @@ class ApiController extends Controller {
 		echo json_encode($arr);
 		exit;
 	}
+	private function json_ok_page($data, $page, $totalNumber){
+		$arr['status']['code']=0;
+		$arr['status']['message']='a';
+		$arr['page']=$page ;
+		$arr['totalNumber'] = $totalNumber ;
+		$arr['data']=$data;
+		echo json_encode($arr);
+		exit;
+	}
+
 	private function json_error($message)
 	{
 		$arr['status']['code']=1;
