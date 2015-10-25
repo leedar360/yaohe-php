@@ -166,6 +166,7 @@ function search()
 					{
 						$('#id_status').val('1');
 						$('#search_id_txt').html(obj.msg);
+						$('#service_id').val(obj.service_id);
 					}
 					/*var str='<option value="0">请选择</option>';
 					var obj=eval(msg); 
@@ -265,6 +266,11 @@ function search()
 									<span id="search_id_txt"></span>
 									</th>
 								  </tr>
+								<tr>
+									<th width="127">吆喝 ID</th>
+									<th align="left"><input name="service_id" type="text" id="service_id" size="40" disabled="true"/>
+									</th>
+								</tr>
 								<tr id="link_url_html" style="display:none">
 								  <th width="127"><span style="color:#FF0000;">*</span>网址</th>
 								  <th align="left"><input name="link_url" type="text" id="link_url" size="40" /></th>

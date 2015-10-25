@@ -26,11 +26,15 @@ class ShopCommentController extends CommonController {
 		}
 		if($mid!='')
 		{
-			$map['_string'].=" AND (shop_id like '%".$mid."%' or title like '%".$mid."%')";
+			$map['_string'].=" shop_id like '%".$mid."%' or title like '%".$mid."%'";
 		}
 		if(!empty($keywords))
 		{
-			$map['_string'].=" AND (content like '%".$keywords."%')";
+			$map['_string'].=" content like '%".$keywords."%'";
+		}
+		if(!empty($title))
+		{
+			$map['_string'].=" title like '%".$title."%'";
 		}
 
 
@@ -41,7 +45,7 @@ class ShopCommentController extends CommonController {
 			import("Think/Page");//导入分页类
 			$p = new \Think\Page($count, C('PAGE_NUM'));
 			//分页查询数据，增加关联模型，Add By 4wei.cn
-			$voList = $model->where($map)->order("id desc")->limit($p->firstRow.','.$p->listRows)->select();
+			$voList = $model->join('left join ht_shop s on ht_shop_comment.shop_id=s.id')->join('left join ht_member m on ht_shop_comment.member_id=m.id')->where($map)->order("ht_shop_comment.id desc")->limit($p->firstRow.','.$p->listRows)->select();
 			//echo $model->getlastsql();
 			//分页跳转的时候保证查询条件
 			foreach ( $map as $key => $val ) {

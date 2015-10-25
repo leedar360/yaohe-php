@@ -721,8 +721,8 @@ class ApiController extends Controller {
 	*/
 	public function getShopInfo()
 	{
-		$id	=	intval(I('post.id'));
-		$member_id	=	intval(I('post.member_id'));//会员ID
+		$id	=	intval(I('get.id'));
+		$member_id	=	intval(I('get.member_id'));//会员ID
 		$row=	M('Shop')->field('id,title as full_name,fans_num,star,content,address,subscribe_tel,business_time')->where(array('id'=>$id))->find();
 		//echo M('Shop')->getlastsql();
 		if(!$row)

@@ -89,6 +89,7 @@ function enabled()
 								<thead>
 									<tr>
 										<th class="checkbox"><input type="checkbox" id="all"></th>
+										<th>账号ID</th>
 										<th>账号</th>
 										<th>昵称</th>
 										<th>状态</th>
@@ -105,6 +106,7 @@ function enabled()
 								<volist name="list" id="vo">
 									<tr d_id="{$vo.id}" class="dbclick">
 										<td class="checkbox"><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+										<td>{$vo.id}</td>
 										<td>{$vo.login_user}</td>
 										<td>{$vo.nickname}</td>
 										<td><?php echo $statusarr[$vo['status']];?></td>

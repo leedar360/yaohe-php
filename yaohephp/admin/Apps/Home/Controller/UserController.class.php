@@ -47,6 +47,10 @@ class UserController extends CommonController {
 		}
 		$this->assign('list',$list);
 		$this->assign('page',$page);
+		if($id > 0){
+			$this->assign('id', $id) ;
+		}
+		$this->assign('login_user',$login_user) ;
 		$this->display();
 	}
 	function disabled()
