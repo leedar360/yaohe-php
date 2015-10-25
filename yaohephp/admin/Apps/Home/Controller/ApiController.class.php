@@ -1306,16 +1306,16 @@ class ApiController extends Controller {
 			switch($item['type'])
 			{
 				case 1://会员卡
-					$service	=	M('Card')->field('img1,im2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
+					$service	=	M('Card')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
 				break;
 				case 2://活动
-					$service	=	M('Activity')->field('img1,im2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
+					$service	=	M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
 				break;
 				case 3://新品
-					$service	=	M('NewProduct')->field('img1,im2,img3,img4,img5,img6,title as content')->where(array('id'=>$item['service_id']))->find();
+					$service	=	M('NewProduct')->field('img1,img2,img3,img4,img5,img6,title as content')->where(array('id'=>$item['service_id']))->find();
 				break;
 				case 0://优惠券
-					$service	=	M('Coupon')->field('img1,im2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
+					$service	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
 				break;
 			}
 			if(!empty($item['img6']))$item['img']	=	$item['img6'];
@@ -2661,8 +2661,8 @@ class ApiController extends Controller {
 	*/
 	public function getSearchShopCallList()
 	{
-		$keywords	=	I('post.keywords');
-		$city_id	=	I('post.city_id');
+		$keywords	=	I('get.keywords');
+		$city_id	=	I('get.city_id');
 		$map['city_id']=$city_id;
 		if($city_id<1)
 		{
@@ -2965,7 +2965,7 @@ class ApiController extends Controller {
 			$row=M('Member')->where(array('id'=>$item['member_id']))->find();
 			$item['face']=$row['face'];
 			//获取会员昵称
-			$person=M('Person')->where(array('member_id'=>$item['member_id']))->find();
+			$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
 			if(!$person)$person['nickname']='吆喝'.$item['member_id'];
 			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'nickname'=>$person['nickname'],'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']));
 		}
@@ -3011,7 +3011,7 @@ class ApiController extends Controller {
 	/**
 	* 功能：获取商家
 	*/
-	private function getShop($member_id=0)
+	private function getShop($member_id)
 	{
 		$row	=	M('Shop')->where(array('member_id'=>$member_id))->find();
 		if(!$row)
