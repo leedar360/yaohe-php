@@ -1175,21 +1175,22 @@ class ApiController extends Controller {
 		$row['zan_num']				=	$record['zan_num'];
 		$row['comment_num']			=	$record['comment_num'];
 		$row['collection_num']		=	$record['collection_num'];*/
-		if(!empty($row['img6']))$row['s_img']=$row['img6'];
-		if(!empty($row['img5']))$row['s_img']=$row['img5'];
-		if(!empty($row['img4']))$row['s_img']=$row['img4'];
-		if(!empty($row['img3']))$row['s_img']=$row['img3'];
-		if(!empty($row['img2']))$row['s_img']=$row['img2'];
-		if(!empty($row['img1']))$row['s_img']=$row['img1'];
+
+		if(!empty($record['img6']))$row['s_img']=$record['img6'];
+		if(!empty($record['img5']))$row['s_img']=$record['img5'];
+		if(!empty($record['img4']))$row['s_img']=$record['img4'];
+		if(!empty($record['img3']))$row['s_img']=$record['img3'];
+		if(!empty($record['img2']))$row['s_img']=$record['img2'];
+		if(!empty($record['img1']))$row['s_img']=$record['img1'];
 
 		if(!isset($row['s_img']))
 		{
-			if(!empty($record['img6']))$row['s_img']=$record['img6'];
-			if(!empty($record['img5']))$row['s_img']=$record['img5'];
-			if(!empty($record['img4']))$row['s_img']=$record['img4'];
-			if(!empty($record['img3']))$row['s_img']=$record['img3'];
-			if(!empty($record['img2']))$row['s_img']=$record['img2'];
-			if(!empty($record['img1']))$row['s_img']=$record['img1'];
+			if(!empty($row['img6']))$row['s_img']=$row['img6'];
+			if(!empty($row['img5']))$row['s_img']=$row['img5'];
+			if(!empty($row['img4']))$row['s_img']=$row['img4'];
+			if(!empty($row['img3']))$row['s_img']=$row['img3'];
+			if(!empty($row['img2']))$row['s_img']=$row['img2'];
+			if(!empty($row['img1']))$row['s_img']=$row['img1'];
 		}
 		if(!isset($row['s_img']))$row['s_img']='';
 		$row['s_title']				=	$row['title'];
