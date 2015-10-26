@@ -664,7 +664,7 @@ class ApiController extends Controller {
 		$city_id	=	I('get.city_id');//城市ID
 		$map['city_id']	=	$city_id;
 		$map['status']	=	1;
-		$list	=	M('Rotate')->field('id,type,content_id,link_url,title,img')->where($map)->order('order_num asc,id desc')->select();
+		$list	=	M('Rotate')->field('id,type,content_id,link_url,title,img,service_id')->where($map)->order('order_num asc,id desc')->select();
 		if(!$list)$list=array();
 		$this->json_ok($list);
 	}
@@ -1175,21 +1175,22 @@ class ApiController extends Controller {
 		$row['zan_num']				=	$record['zan_num'];
 		$row['comment_num']			=	$record['comment_num'];
 		$row['collection_num']		=	$record['collection_num'];*/
-		if(!empty($row['img6']))$row['s_img']=$row['img6'];
-		if(!empty($row['img5']))$row['s_img']=$row['img5'];
-		if(!empty($row['img4']))$row['s_img']=$row['img4'];
-		if(!empty($row['img3']))$row['s_img']=$row['img3'];
-		if(!empty($row['img2']))$row['s_img']=$row['img2'];
-		if(!empty($row['img1']))$row['s_img']=$row['img1'];
+
+		if(!empty($record['img6']))$row['s_img']=$record['img6'];
+		if(!empty($record['img5']))$row['s_img']=$record['img5'];
+		if(!empty($record['img4']))$row['s_img']=$record['img4'];
+		if(!empty($record['img3']))$row['s_img']=$record['img3'];
+		if(!empty($record['img2']))$row['s_img']=$record['img2'];
+		if(!empty($record['img1']))$row['s_img']=$record['img1'];
 
 		if(!isset($row['s_img']))
 		{
-			if(!empty($record['img6']))$row['s_img']=$record['img6'];
-			if(!empty($record['img5']))$row['s_img']=$record['img5'];
-			if(!empty($record['img4']))$row['s_img']=$record['img4'];
-			if(!empty($record['img3']))$row['s_img']=$record['img3'];
-			if(!empty($record['img2']))$row['s_img']=$record['img2'];
-			if(!empty($record['img1']))$row['s_img']=$record['img1'];
+			if(!empty($row['img6']))$row['s_img']=$row['img6'];
+			if(!empty($row['img5']))$row['s_img']=$row['img5'];
+			if(!empty($row['img4']))$row['s_img']=$row['img4'];
+			if(!empty($row['img3']))$row['s_img']=$row['img3'];
+			if(!empty($row['img2']))$row['s_img']=$row['img2'];
+			if(!empty($row['img1']))$row['s_img']=$row['img1'];
 		}
 		if(!isset($row['s_img']))$row['s_img']='';
 		$row['s_title']				=	$row['title'];
@@ -1247,20 +1248,21 @@ class ApiController extends Controller {
 				break;
 			}
 			//$item['content']	=	$service['content'];
-			if(!empty($item['img6']))$item['img']	=	$item['img6'];
-			if(!empty($item['img5']))$item['img']	=	$item['img5'];
-			if(!empty($item['img4']))$item['img']	=	$item['img4'];
-			if(!empty($item['img3']))$item['img']	=	$item['img3'];
-			if(!empty($item['img2']))$item['img']	=	$item['img2'];
-			if(!empty($item['img1']))$item['img']	=	$item['img1'];
+			if(!empty($service['img6']))$item['img']=	$service['img6'];
+			if(!empty($service['img5']))$item['img']=	$service['img5'];
+			if(!empty($service['img4']))$item['img']=	$service['img4'];
+			if(!empty($service['img3']))$item['img']=	$service['img3'];
+			if(!empty($service['img2']))$item['img']=	$service['img2'];
+			if(!empty($service['img1']))$item['img']=	$service['img1'];
+
 			if(!isset($item['img']))
 			{
-				if(!empty($service['img6']))$item['img']=	$service['img6'];
-				if(!empty($service['img5']))$item['img']=	$service['img5'];
-				if(!empty($service['img4']))$item['img']=	$service['img4'];
-				if(!empty($service['img3']))$item['img']=	$service['img3'];
-				if(!empty($service['img2']))$item['img']=	$service['img2'];
-				if(!empty($service['img1']))$item['img']=	$service['img1'];
+				if(!empty($item['img6']))$item['img']	=	$item['img6'];
+				if(!empty($item['img5']))$item['img']	=	$item['img5'];
+				if(!empty($item['img4']))$item['img']	=	$item['img4'];
+				if(!empty($item['img3']))$item['img']	=	$item['img3'];
+				if(!empty($item['img2']))$item['img']	=	$item['img2'];
+				if(!empty($item['img1']))$item['img']	=	$item['img1'];
 			}
 			if(!isset($item['img']))$item['img']='';
 			if(empty($item['content']))$item['content']=$service['content'];
@@ -1306,32 +1308,33 @@ class ApiController extends Controller {
 			switch($item['type'])
 			{
 				case 1://会员卡
-					$service	=	M('Card')->field('img1,im2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
+					$service	=	M('Card')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
 				break;
 				case 2://活动
-					$service	=	M('Activity')->field('img1,im2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
+					$service	=	M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
 				break;
 				case 3://新品
-					$service	=	M('NewProduct')->field('img1,im2,img3,img4,img5,img6,title as content')->where(array('id'=>$item['service_id']))->find();
+					$service	=	M('NewProduct')->field('img1,img2,img3,img4,img5,img6,title as content')->where(array('id'=>$item['service_id']))->find();
 				break;
 				case 0://优惠券
-					$service	=	M('Coupon')->field('img1,im2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
+					$service	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
 				break;
 			}
-			if(!empty($item['img6']))$item['img']	=	$item['img6'];
-			if(!empty($item['img5']))$item['img']	=	$item['img5'];
-			if(!empty($item['img4']))$item['img']	=	$item['img4'];
-			if(!empty($item['img3']))$item['img']	=	$item['img3'];
-			if(!empty($item['img2']))$item['img']	=	$item['img2'];
-			if(!empty($item['img1']))$item['img']	=	$item['img1'];
+			if(!empty($service['img6']))$item['img']=	$service['img6'];
+			if(!empty($service['img5']))$item['img']=	$service['img5'];
+			if(!empty($service['img4']))$item['img']=	$service['img4'];
+			if(!empty($service['img3']))$item['img']=	$service['img3'];
+			if(!empty($service['img2']))$item['img']=	$service['img2'];
+			if(!empty($service['img1']))$item['img']=	$service['img1'];
+
 			if(!isset($item['img']))
 			{
-				if(!empty($service['img6']))$item['img']=	$service['img6'];
-				if(!empty($service['img5']))$item['img']=	$service['img5'];
-				if(!empty($service['img4']))$item['img']=	$service['img4'];
-				if(!empty($service['img3']))$item['img']=	$service['img3'];
-				if(!empty($service['img2']))$item['img']=	$service['img2'];
-				if(!empty($service['img1']))$item['img']=	$service['img1'];
+				if(!empty($item['img6']))$item['img']	=	$item['img6'];
+				if(!empty($item['img5']))$item['img']	=	$item['img5'];
+				if(!empty($item['img4']))$item['img']	=	$item['img4'];
+				if(!empty($item['img3']))$item['img']	=	$item['img3'];
+				if(!empty($item['img2']))$item['img']	=	$item['img2'];
+				if(!empty($item['img1']))$item['img']	=	$item['img1'];
 			}
 			if(!isset($item['img']))$item['img']='';
 			$item['img1']=$item['img'];
@@ -1397,21 +1400,21 @@ class ApiController extends Controller {
 			}
 			if(empty($item['content']))$item['content']=	$row['content'];
 			//$item['img1']	=	$row['img1'];
-			
-			if(!empty($item['img6']))$item['img']	=	$item['img6'];
-			if(!empty($item['img5']))$item['img']	=	$item['img5'];
-			if(!empty($item['img4']))$item['img']	=	$item['img4'];
-			if(!empty($item['img3']))$item['img']	=	$item['img3'];
-			if(!empty($item['img2']))$item['img']	=	$item['img2'];
-			if(!empty($item['img1']))$item['img']	=	$item['img1'];
+
+			if(!empty($item['img6']))$item['img']	=	$row['img6'];
+			if(!empty($item['img5']))$item['img']	=	$row['img5'];
+			if(!empty($item['img4']))$item['img']	=	$row['img4'];
+			if(!empty($item['img3']))$item['img']	=	$row['img3'];
+			if(!empty($item['img2']))$item['img']	=	$row['img2'];
+			if(!empty($item['img1']))$item['img']	=	$row['img1'];
 			if(!isset($item['img']))
 			{
-				if(!empty($service['img6']))$item['img']=	$service['img6'];
-				if(!empty($service['img5']))$item['img']=	$service['img5'];
-				if(!empty($service['img4']))$item['img']=	$service['img4'];
-				if(!empty($service['img3']))$item['img']=	$service['img3'];
-				if(!empty($service['img2']))$item['img']=	$service['img2'];
-				if(!empty($service['img1']))$item['img']=	$service['img1'];
+				if(!empty($service['img6']))$item['img']=	$item['img6'];
+				if(!empty($service['img5']))$item['img']=	$item['img5'];
+				if(!empty($service['img4']))$item['img']=	$item['img4'];
+				if(!empty($service['img3']))$item['img']=	$item['img3'];
+				if(!empty($service['img2']))$item['img']=	$item['img2'];
+				if(!empty($service['img1']))$item['img']=	$item['img1'];
 			}
 			if(!isset($item['img']))$item['img']='';
 			$item['img1']=$item['img'];
@@ -2541,6 +2544,7 @@ class ApiController extends Controller {
 		$member_id=	intval(I('post.member_id'));
 		$page	=	intval(I('post.page'));
 		if($page<1)$page=1;
+		$count	=	M('ShopService')->where(array('member_id'=>$member_id))->order('id desc')->count('*');
 		$list	=	M('ShopService')->where(array('member_id'=>$member_id))->order('id desc')->limit(($page-1)*20,20)->select();
 		if(!$list)$list=array();
 		$arr	=	array();
@@ -2596,7 +2600,7 @@ class ApiController extends Controller {
 			//$list[$key]['addtime']=date("Y-m-d H:i:s",$item['addtime']);
 		}
 		if(count($arr)<1)$arr=array(array('id'=>''));
-		$this->json_ok($arr);
+		$this->json_ok_page($arr, $page, $count);
 	}
 	/**
 	* 功能：获取个人基本信息
@@ -2660,8 +2664,8 @@ class ApiController extends Controller {
 	*/
 	public function getSearchShopCallList()
 	{
-		$keywords	=	I('post.keywords');
-		$city_id	=	I('post.city_id');
+		$keywords	=	I('get.keywords');
+		$city_id	=	I('get.city_id');
 		$map['city_id']=$city_id;
 		if($city_id<1)
 		{
@@ -2672,6 +2676,7 @@ class ApiController extends Controller {
 			$this->json_error('请输入关键字');
 		}
 		$map['_string']=' title like "%'.$keywords.'%"';
+		$map['status']	=	1 ;
 		$shoplist	=	M('Shop')->field('id,member_id,title')->where($map)->order('id asc')->select();
 		$arr		=	array();
 		foreach($shoplist as $item)
@@ -2711,20 +2716,22 @@ class ApiController extends Controller {
 				break;
 			}
 			//$item['content']	=	$service['content'];
-			if(!empty($item['img6']))$item['img']	=	$item['img6'];
-			if(!empty($item['img5']))$item['img']	=	$item['img5'];
-			if(!empty($item['img4']))$item['img']	=	$item['img4'];
-			if(!empty($item['img3']))$item['img']	=	$item['img3'];
-			if(!empty($item['img2']))$item['img']	=	$item['img2'];
-			if(!empty($item['img1']))$item['img']	=	$item['img1'];
+
+			if(!empty($service['img6']))$item['img']=	$service['img6'];
+			if(!empty($service['img5']))$item['img']=	$service['img5'];
+			if(!empty($service['img4']))$item['img']=	$service['img4'];
+			if(!empty($service['img3']))$item['img']=	$service['img3'];
+			if(!empty($service['img2']))$item['img']=	$service['img2'];
+			if(!empty($service['img1']))$item['img']=	$service['img1'];
+
 			if(!isset($item['img']))
 			{
-				if(!empty($service['img6']))$item['img']=	$service['img6'];
-				if(!empty($service['img5']))$item['img']=	$service['img5'];
-				if(!empty($service['img4']))$item['img']=	$service['img4'];
-				if(!empty($service['img3']))$item['img']=	$service['img3'];
-				if(!empty($service['img2']))$item['img']=	$service['img2'];
-				if(!empty($service['img1']))$item['img']=	$service['img1'];
+				if(!empty($item['img6']))$item['img']	=	$item['img6'];
+				if(!empty($item['img5']))$item['img']	=	$item['img5'];
+				if(!empty($item['img4']))$item['img']	=	$item['img4'];
+				if(!empty($item['img3']))$item['img']	=	$item['img3'];
+				if(!empty($item['img2']))$item['img']	=	$item['img2'];
+				if(!empty($item['img1']))$item['img']	=	$item['img1'];
 			}
 			if(!isset($item['img']))$item['img']='';
 			if(empty($item['content']))$item['content']=$service['content'];
@@ -2964,9 +2971,13 @@ class ApiController extends Controller {
 			$row=M('Member')->where(array('id'=>$item['member_id']))->find();
 			$item['face']=$row['face'];
 			//获取会员昵称
-			$person=M('Person')->where(array('member_id'=>$item['member_id']))->find();
+			$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
 			if(!$person)$person['nickname']='吆喝'.$item['member_id'];
 			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'nickname'=>$person['nickname'],'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']));
+
+			//更新is_read为1
+			$data['is_read'] 	=	1 ;
+			M('ShopServiceComment')->where(array('id'=>$item['id']))->save($data);
 		}
 		if(count($arr)<1)
 		{
@@ -3010,7 +3021,7 @@ class ApiController extends Controller {
 	/**
 	* 功能：获取商家
 	*/
-	private function getShop($member_id=0)
+	private function getShop($member_id)
 	{
 		$row	=	M('Shop')->where(array('member_id'=>$member_id))->find();
 		if(!$row)
@@ -3038,6 +3049,16 @@ class ApiController extends Controller {
 		echo json_encode($arr);
 		exit;
 	}
+	private function json_ok_page($data, $page, $totalNumber){
+		$arr['status']['code']=0;
+		$arr['status']['message']='a';
+		$arr['page']=$page ;
+		$arr['totalNumber'] = $totalNumber ;
+		$arr['data']=$data;
+		echo json_encode($arr);
+		exit;
+	}
+
 	private function json_error($message)
 	{
 		$arr['status']['code']=1;
