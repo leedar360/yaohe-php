@@ -2957,7 +2957,7 @@ class ApiController extends Controller {
 	*/
 	public function getMyCallCommentList()
 	{
-		$member_id	=	intval(I('post.member_id'));
+		$member_id	=	intval(I('get.member_id'));
 		$map['_string']='member_id="'.$member_id.'" or to_member_id="'.$member_id.'"';
 		$list	=M('ShopServiceComment')->where($map)->order('id desc')->select();
 		if(!$list)
