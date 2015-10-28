@@ -1681,20 +1681,20 @@ class ApiController extends Controller {
 	*/
 	public function getCallCommentList()
 	{
-		$shop_service_id	=	intval(I('post.call_id'));
+		$shop_service_id	=	intval(I('get.call_id'));
 		$list	=	M('ShopServiceComment')->field('id,member_id,content,is_anonymous,addtime')->where(array('shop_service_id'=>$shop_service_id))->order('id desc')->select();
 		//echo M('ShopServiceComment')->getlastsql();
 		if(!$list)$this->json_ok(array(array('id'=>'')));
 		$arr	=	array();
 		foreach($list as $item)
 		{
-			$member=M('Member')->field('id,face')->where(array('id'=>$item['member_id']))->find();
+			$member=M('Member')->field('id,face,type')->where(array('id'=>$item['member_id']))->find();
 			if(!$member)continue;
 			$item['face']=$member['face'];
 			$item['addtime']=date("Y-m-d H:i");
 			if($member['type']==0)
 			{
-				$person=M('Person')->where(array('member_id'=>$member['id']))->find();
+				$person=M('Personal')->where(array('member_id'=>$member['id']))->find();
 				if(!$person)
 				{
 					$item['nickname']='吆喝'.$member['id'];
