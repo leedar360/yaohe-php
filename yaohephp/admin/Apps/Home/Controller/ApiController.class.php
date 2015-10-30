@@ -1872,7 +1872,9 @@ class ApiController extends Controller {
 		{
 			$member_id[]=$item['to_member_id'];
 		}
-		$map['status']		=	1;
+
+		//TODO  由于前期推广，所以先把状态控制先取消
+		//$map['status']		=	1;
 		$map['member_id']	=	array('in',implode(',',$member_id));
 		$calllist			=	M('Shop')->field('id,member_id,one_id,industry_class_id,title,one_id')->where($map)->order('id desc')->select();
 		$arr	=	array();
@@ -2443,7 +2445,7 @@ class ApiController extends Controller {
 		$member_id=	intval(I('post.member_id'));
 		$page	=	intval(I('post.page'));
 		if($page<1)$page=1;
-
+		$count	=	M()->table('ht_member m, ht_shop_fans f')->where('m.id = f.to_member_id and f.to_member_id='.$member_id)->field('f.member_id')->count('*');
 		$list = M()->table('ht_member m, ht_shop_fans f')->where('m.id = f.to_member_id and f.to_member_id='.$member_id)->field('f.member_id')->order('f.id desc' )->select();
 		//echo M()->getlastsql();
 		if(!$list)$list=array();
@@ -2464,7 +2466,7 @@ class ApiController extends Controller {
 			$arr[]=$item;
 		}
 		if(count($arr)<1)$arr=array(array('id'=>''));
-		$this->json_ok($arr);
+		$this->json_ok_page($arr, $page, $count);
 	}
 	/**
 	* 功能：判断是否中奖
