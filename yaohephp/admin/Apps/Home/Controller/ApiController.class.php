@@ -1989,7 +1989,7 @@ class ApiController extends Controller {
 	{
 		$member_id=	intval(I('post.member_id'));
 		$id	=	intval(I('post.id'));
-		$row	=	M('ShopServiceCollection')->where(array('id'=>$id))->find();
+		$row	=	M('ShopServiceCollection')->where(array('shop_service_id'=>$id,'member_id'=>$member_id))->find();
 		if(!$row)
 		{
 			$this->json_error('收藏不存在');
@@ -1999,7 +1999,7 @@ class ApiController extends Controller {
 			$this->json_error('收藏不是您的');
 		}
 		M('ShopService')->where(array('id'=>$row['shop_service_id']))->setDec('collection_num');
-		M('ShopServiceCollection')->where(array('id'=>$id))->delete();
+		M('ShopServiceCollection')->where(array('id'=>$row['id']))->delete();
 		$this->json_ok(true);
 	}
 	/**
