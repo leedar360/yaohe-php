@@ -1295,10 +1295,19 @@ class ApiController extends Controller {
 		if($page<1)$page=1;
 		$city_id=	intval(I('get.city_id'));
 		$one_id	=	intval(I('get.one_id'));
+
+		$classMap['id'] = $one_id ;
+		$typeList	=	M('Classify')->where($classMap)->find();
+		if($typeList['parentid'] == 0){
+			$map['one_id']	=	$one_id;
+		}else{
+			$map['industry_class_id']	=	$one_id;
+		}
+
 		$map['city_id']	=	$city_id;
-		$map['one_id']	=	$one_id;
+
 		//$field	=	'id,member_id,content,img1,type,fans_num,zan_num,comment_num';
-		$field	=	'id,member_id,title,type,addtime,zan_num,comment_num,collection_num,img1,img2,img3,img4,img5,img6';
+		//$field	=	'id,member_id,title,type,addtime,zan_num,comment_num,collection_num,img1,img2,img3,img4,img5,img6';
 		$list	=	M('ShopService')->where($map)->order('id desc')->limit(($page-1)*20,20)->select();
 		//$list	=	M('Call')->field($field)->where($map)->order('id desc')->select();
 		if(!$list)$list=array();
@@ -1989,6 +1998,7 @@ class ApiController extends Controller {
 		{
 			$this->json_error('收藏不是您的');
 		}
+		M('ShopService')->where(array('id'=>$row['shop_service_id']))->setDec('collection_num');
 		M('ShopServiceCollection')->where(array('id'=>$id))->delete();
 		$this->json_ok(true);
 	}
