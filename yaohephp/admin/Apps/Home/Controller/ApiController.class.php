@@ -1899,7 +1899,7 @@ class ApiController extends Controller {
 	public function myCollection()
 	{
 		$member_id=	intval(I('get.member_id'));
-		$list = M()->table('ht_shop_service s, ht_shop_service_collection n')->where('s.id = n.shop_service_id and n.member_id='.$member_id)->field('n.id,s.service_id,s.member_id,s.type,n.addtime')->order('n.id desc' )->select();
+		$list = M()->table('ht_shop_service s, ht_shop_service_collection n')->where('s.id = n.shop_service_id and n.member_id='.$member_id)->field('s.id,s.service_id,s.member_id,s.type,n.addtime')->order('n.id desc' )->select();
 		//echo M()->getlastsql();
 		if(!$list)
 		{
