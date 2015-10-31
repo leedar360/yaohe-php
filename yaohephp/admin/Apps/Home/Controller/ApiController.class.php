@@ -2667,7 +2667,7 @@ class ApiController extends Controller {
 	public function getSearchShopCallList()
 	{
 		$keywords	=	I('get.keywords');
-		$city_id	=	I('get.city_id');
+		$city_id	=	I('post.city_id');
 		$map['city_id']=$city_id;
 		if($city_id<1)
 		{
