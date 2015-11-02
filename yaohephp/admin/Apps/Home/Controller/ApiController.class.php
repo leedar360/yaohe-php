@@ -1902,6 +1902,25 @@ class ApiController extends Controller {
 		}
 		$this->json_ok($arr);
 	}
+
+	/**
+	 * 判断会员是否已经关注店铺
+	 */
+	public function isFollowed(){
+		$member_id=	intval(I('get.member_id'));
+		$id =	intval(I('get.id')) ;
+
+		$map['shop_id']	=	$id;
+		$map['member_id']=	$member_id;
+		$fans	=	M('ShopFans')->where($map)->find();
+
+		if($fans)
+		{
+			$this->json_error('您已经关注过了');
+		}else{
+			$this->json_ok(true);
+		}
+	}
 	/**
 	* 功能：我的收藏
 	*/
