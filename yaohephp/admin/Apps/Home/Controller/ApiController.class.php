@@ -1996,6 +1996,9 @@ class ApiController extends Controller {
 			$shop	=	$this->getShop($item['member_id']);
 			$item['shop_name']=$shop['title'];
 			$item['addtime']=date("Y-m-d H:i:s",$item['addtime']);
+			if(empty( $item['title'])){
+				$item['title'] = $row['title'] ;
+			}
 			$arr[]	=	$item;
 		}
 		if(count($arr)<1)$arr=array(array('id'=>''));
