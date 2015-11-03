@@ -766,6 +766,7 @@ class ApiController extends Controller {
 		//$map['_string']=" type<4";
 		$calllist=	M('ShopService')->where(array('member_id'=>$member_id))->order('id desc')->limit(0,3)->select();
 		if(!$calllist)$calllist=array();
+		$new_calllist[] = '';
 		foreach($calllist as $key=>$item)
 		{
 			switch($item['type'])
@@ -812,7 +813,7 @@ class ApiController extends Controller {
 		$arr['call']=$new_calllist;
 		$this->json_ok($arr);
 	}
-	/**
+	/**F
 	* 功能：取有关注
 	*/
 	public function cancelFollow()
@@ -1920,9 +1921,9 @@ class ApiController extends Controller {
 
 		if($fans)
 		{
-			$this->json_error('您已经关注过了');
-		}else{
 			$this->json_ok(true);
+		}else{
+			$this->json_error('已经关注过了');
 		}
 	}
 	/**
