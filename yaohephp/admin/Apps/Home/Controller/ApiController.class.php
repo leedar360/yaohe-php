@@ -23,8 +23,8 @@ class ApiController extends Controller {
 		}
 	}
 	/**
-	* 功能：获取城市列表
-	*/
+	 * 功能：获取城市列表
+	 */
 	public function getallcity()
 	{
 		$list	=	M('City')->field('id,title')->where(array('status'=>0))->select();
@@ -32,8 +32,8 @@ class ApiController extends Controller {
 		$this->json_ok($list);
 	}
 	/**
-	* 功能：获取开通的城市及热门城市
-	*/
+	 * 功能：获取开通的城市及热门城市
+	 */
 	public function getcitylist()
 	{
 		$hotcity=	array();//热门城市
@@ -52,8 +52,8 @@ class ApiController extends Controller {
 		$this->json_ok($data);
 	}
 	/**
-	* 功能：注册发送短消息
-	*/
+	 * 功能：注册发送短消息
+	 */
 	public function register_sms()
 	{
 		$login_user	=	I('post.login_user');
@@ -98,8 +98,8 @@ class ApiController extends Controller {
 		$this->json_error($res['msg']);
 	}
 	/**
-	* 功能：注册
-	*/
+	 * 功能：注册
+	 */
 	public function register()
 	{
 		$data['login_user']	=	I('post.login_user');
@@ -152,8 +152,8 @@ class ApiController extends Controller {
 		$this->json_ok($data);
 	}
 	/**
-	* 功能：商家注册
-	*/
+	 * 功能：商家注册
+	 */
 	public function shopreg()
 	{
 		$map['login_user']	=	I('post.login_user');
@@ -175,8 +175,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：登陆
-	*/
+	 * 功能：登陆
+	 */
 	public function login()
 	{
 		$map['login_user']	=	I('post.login_user');
@@ -206,8 +206,8 @@ class ApiController extends Controller {
 		$this->json_ok($row);
 	}
 	/**
-	* 功能：获取区域
-	*/
+	 * 功能：获取区域
+	 */
 	public function getAreaList()
 	{
 		$city_id=	intval(I('post.city_id'));//城市ID
@@ -215,8 +215,8 @@ class ApiController extends Controller {
 		$this->json_ok($list);
 	}
 	/**
-	* 功能：获取商圈
-	*/
+	 * 功能：获取商圈
+	 */
 	public function getDistrictList()
 	{
 		$area_id=	intval(I('post.area_id'));//区域ID
@@ -224,8 +224,8 @@ class ApiController extends Controller {
 		$this->json_ok($list);
 	}
 	/**
-	* 功能：获取分类
-	*/
+	 * 功能：获取分类
+	 */
 	public function getClassifyList()
 	{
 		$parentid=	intval(I('post.parent_id'));
@@ -240,8 +240,8 @@ class ApiController extends Controller {
 		$this->json_ok($list);
 	}
 	/**
-	* 功能：商家资料填写
-	*/
+	 * 功能：商家资料填写
+	 */
 	public function shopbase()
 	{
 		$filelist	=	$this->uploads();
@@ -306,8 +306,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：写入吆喝
-	*/
+	 * 功能：写入吆喝
+	 */
 	public function addcall()
 	{
 		/*$member_id			=	intval(I('post.member_id'));//商家ID
@@ -342,7 +342,7 @@ class ApiController extends Controller {
 				//$data['one_id']				=	$activity['one_id'];
 				//$data['industry_class_id']	=	//$activity['industry_class_id'];
 				//$type	=	2;
-			break;
+				break;
 			case 3://新品
 				$product	=	M('NewProduct')->where(array('id'=>$c_id))->find();
 				if(!$product)
@@ -353,7 +353,7 @@ class ApiController extends Controller {
 				//$data['one_id']				=	$product['one_id'];
 				//$data['industry_class_id']	=	//$product['industry_class_id'];
 				//$type	=	3;
-			break;
+				break;
 			case 1://卡
 				$card	=	M('Card')->where(array('id'=>$c_id))->find();
 				if(!$card)
@@ -364,7 +364,7 @@ class ApiController extends Controller {
 				//$data['one_id']				=	$card['one_id'];
 				//$data['industry_class_id']	=	$card['industry_class_id'];
 				//$type	=	1;
-			break;
+				break;
 			case 0://券
 				$coupon	=	M('Coupon')->where(array('id'=>$c_id))->find();
 				if(!$coupon)
@@ -375,14 +375,14 @@ class ApiController extends Controller {
 				//$data['one_id']				=	$coupon['one_id'];
 				//$data['industry_class_id']	=	$coupon['industry_class_id'];
 				//$type	=	0;
-			break;
+				break;
 			default:
 				//$type	=	4;
 		}
 		$shop=	$this->getShop($member_id);
 		//写入纯吆喝
 		if($type==4)
-		{		
+		{
 			//$data['province_id']=	$province['id'];
 			//$data['city_id']	=	$city_id;
 			$data['member_id']	=	$member_id;
@@ -428,8 +428,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：发布优惠券
-	*/
+	 * 功能：发布优惠券
+	 */
 	public function addcoupon()
 	{
 		//$data['content']	=	serialize($_REQUEST);
@@ -487,8 +487,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：发布卡
-	*/
+	 * 功能：发布卡
+	 */
 	public function addcard()
 	{
 		$member_id			=	intval(I('post.member_id'));//商家ID
@@ -540,8 +540,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：发布活动
-	*/
+	 * 功能：发布活动
+	 */
 	public function addactivity()
 	{
 		$member_id			=	intval(I('post.member_id'));//商家ID
@@ -595,8 +595,8 @@ class ApiController extends Controller {
 	}
 
 	/**
-	* 功能：发布新品
-	*/
+	 * 功能：发布新品
+	 */
 	public function addproduct()
 	{
 		$member_id			=	intval(I('post.member_id'));//商家ID
@@ -644,8 +644,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：获取首页分类
-	*/
+	 * 功能：获取首页分类
+	 */
 	public function getHomeTypeList()
 	{
 		$city_id	=	I('get.city_id');//城市ID
@@ -657,8 +657,8 @@ class ApiController extends Controller {
 		$this->json_ok($list);
 	}
 	/**
-	* 功能：获取首页轮换图
-	*/
+	 * 功能：获取首页轮换图
+	 */
 	public function getHomeRotateList()
 	{
 		$city_id	=	I('get.city_id');//城市ID
@@ -669,8 +669,8 @@ class ApiController extends Controller {
 		$this->json_ok($list);
 	}
 	/**
-	* 功能：获取某商家单项服务
-	*/
+	 * 功能：获取某商家单项服务
+	 */
 	public function getShopServiceList()
 	{
 		$page	=	I('post.page');
@@ -687,13 +687,13 @@ class ApiController extends Controller {
 		{
 			case 1://会员卡
 				$list	=	M('Card')->where($map)->order('id desc')->limit(($page-1)*20,20)->select();
-			break;
+				break;
 			case 2://活动
 				$list	=	M('Activity')->where($map)->order('id desc')->limit(($page-1)*20,20)->select();
-			break;
+				break;
 			case 3://新品
 				$list	=	M('NewProduct')->where($map)->order('id desc')->limit(($page-1)*20,20)->select();
-			break;
+				break;
 			default://优惠券
 				$list	=	M('Coupon')->where($map)->order('id desc')->limit(($page-1)*20,20)->select();
 		}
@@ -717,8 +717,8 @@ class ApiController extends Controller {
 		$this->json_ok($arr);
 	}
 	/**
-	* 功能：获取商家详情页
-	*/
+	 * 功能：获取商家详情页
+	 */
 	public function getShopInfo()
 	{
 		$id	=	intval(I('get.id'));
@@ -760,7 +760,7 @@ class ApiController extends Controller {
 		$row['cardnum']			=	$cardnum;
 		$row['activitynum']		=	$activitynum;
 		$row['newproductnum']	=	$newproductnum;
-		
+
 		$map	=	array();
 		$map['member_id']=$member_id;
 		//$map['_string']=" type<4";
@@ -772,19 +772,19 @@ class ApiController extends Controller {
 			{
 				case 1://会员卡
 					$service	=	M('Card')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 				case 2://活动
 					$service	=	M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 				case 3://新品
 					$service	=	M('NewProduct')->field('img1,img2,img3,img4,img5,img6,title as content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 				case 0://优惠券
 					$service	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 				case 4://吆喝
 					$service	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 			}
 			if(empty($item['content']))$item['content']=$service['content'];
 			if(!empty($item['img6']))$item['img']	=	$item['img6'];
@@ -813,8 +813,8 @@ class ApiController extends Controller {
 		$this->json_ok($arr);
 	}
 	/**
-	* 功能：取有关注
-	*/
+	 * 功能：取有关注
+	 */
 	public function cancelFollow()
 	{
 		$id			=	intval(I('get.id'));//店铺ID
@@ -851,8 +851,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：店铺加关注
-	*/
+	 * 功能：店铺加关注
+	 */
 	public function shopFollow()
 	{
 		$id			=	intval(I('post.id'));//店铺ID
@@ -896,8 +896,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：获取优惠券
-	*/
+	 * 功能：获取优惠券
+	 */
 	public function getCoupon()
 	{
 		$member_id	=	intval(I('post.member_id'));//会员ID
@@ -935,13 +935,13 @@ class ApiController extends Controller {
 		$this->json_ok($row);
 	}
 	/**
-	* 功能：领取优惠券
-	*/
+	 * 功能：领取优惠券
+	 */
 	public function giveCoupon()
 	{
 		$id	=	intval(I('post.id'));//优惠券ID
 		$member_id=intval(I('post.member_id'));//会员ID
-		
+
 		$coupon=	M('Coupon')->field('id,type,valid_start,valid_end,draw_num,num')->where(array('id'=>$id))->find();
 		if(!$coupon)
 		{
@@ -984,8 +984,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：获取会员卡
-	*/
+	 * 功能：获取会员卡
+	 */
 	public function getCard()
 	{
 		$member_id=intval(I('post.member_id'));//会员ID
@@ -1025,13 +1025,13 @@ class ApiController extends Controller {
 		$this->json_ok($row);
 	}
 	/**
-	* 功能：领取会员卡
-	*/
+	 * 功能：领取会员卡
+	 */
 	public function giveCard()
 	{
 		$id	=	intval(I('get.id'));//会员卡ID 
 		$member_id=intval(I('get.member_id'));//会员ID
-		
+
 		$card=	M('Card')->field('id,valid_start,valid_end,draw_num,num')->where(array('id'=>$id))->find();
 		if(!$card)
 		{
@@ -1073,8 +1073,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：获取活动
-	*/
+	 * 功能：获取活动
+	 */
 	public function getActivity()
 	{
 		$id	=	intval(I('post.id'));//活动ID
@@ -1102,8 +1102,8 @@ class ApiController extends Controller {
 		$this->json_ok($row);
 	}
 	/**
-	* 功能：获取新品
-	*/
+	 * 功能：获取新品
+	 */
 	public function getNewProduct()
 	{
 		$id	=	intval(I('post.id'));//新品ID
@@ -1131,8 +1131,8 @@ class ApiController extends Controller {
 		$this->json_ok($row);
 	}
 	/**
-	* 功能：获取吆喝详情
-	*/
+	 * 功能：获取吆喝详情
+	 */
 	public function getCall()
 	{
 		//,zan_num,comment_num,collection_num
@@ -1153,17 +1153,17 @@ class ApiController extends Controller {
 			case 4://纯吆喝
 				$record	=	M('Call')->field('id,content,img1,img2,img3,img4,img5,img6')->where(array('id'=>$row['service_id']))->find();
 				//echo M('Call')->getlastsql();
-			break;
+				break;
 			case 3://新品
 				$record	=	M('NewProduct')->field('id,title,price,day,img1,img2,img3,img4,img5,img6,title')->where(array('id'=>$row['service_id']))->find();
-			break;
+				break;
 			case 2://活动
 				$record	=	M('Activity')->field('id,title,content,img1,img2,img3,img4,img5,img6,title')->where(array('id'=>$row['service_id']))->find();
-			break;
+				break;
 			case 1://会员卡
 				$record	=	M('Card')->field('id,title,content,img1,img2,img3,img4,img5,img6,title')->where(array('id'=>$row['service_id']))->find();
 				//$coupon	=	M('Coupon')->field('id')->where(array('id'=>$row['c_id']))->find();
-			break;
+				break;
 			default://优惠券
 				$record	=	M('Coupon')->field('id,title,content,img1,img2,img3,img4,img5,img6,title')->where(array('id'=>$row['service_id']))->find();
 		}
@@ -1212,8 +1212,8 @@ class ApiController extends Controller {
 		$this->json_ok($row);
 	}
 	/**
-	* 功能：获取首页吆喝列表
-	*/
+	 * 功能：获取首页吆喝列表
+	 */
 	public function getHomeCallList()
 	{
 		$page	=	intval(I('get.page'));
@@ -1233,19 +1233,19 @@ class ApiController extends Controller {
 			{
 				case 1://会员卡
 					$service	=	M('Card')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 				case 2://活动
 					$service	=	M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 				case 3://新品
 					$service	=	M('NewProduct')->field('img1,img2,img3,img4,img5,img6,title as content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 				case 0://优惠券
 					$service	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 				case 4://纯吆喝
 					$service	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 			}
 			//$item['content']	=	$service['content'];
 			if(!empty($service['img6']))$item['img']=	$service['img6'];
@@ -1287,18 +1287,27 @@ class ApiController extends Controller {
 		$this->json_ok($arr);
 	}
 	/**
-	* 功能：获取某个分类下的吆喝
-	*/
+	 * 功能：获取某个分类下的吆喝
+	 */
 	public function getTypeCallList()
 	{
 		$page	=	intval(I('get.page'));
 		if($page<1)$page=1;
 		$city_id=	intval(I('get.city_id'));
 		$one_id	=	intval(I('get.one_id'));
+
+		$classMap['id'] = $one_id ;
+		$typeList	=	M('Classify')->where($classMap)->find();
+		if($typeList['parentid'] == 0){
+			$map['one_id']	=	$one_id;
+		}else{
+			$map['industry_class_id']	=	$one_id;
+		}
+
 		$map['city_id']	=	$city_id;
-		$map['one_id']	=	$one_id;
+
 		//$field	=	'id,member_id,content,img1,type,fans_num,zan_num,comment_num';
-		$field	=	'id,member_id,title,type,addtime,zan_num,comment_num,collection_num,img1,img2,img3,img4,img5,img6';
+		//$field	=	'id,member_id,title,type,addtime,zan_num,comment_num,collection_num,img1,img2,img3,img4,img5,img6';
 		$list	=	M('ShopService')->where($map)->order('id desc')->limit(($page-1)*20,20)->select();
 		//$list	=	M('Call')->field($field)->where($map)->order('id desc')->select();
 		if(!$list)$list=array();
@@ -1309,16 +1318,16 @@ class ApiController extends Controller {
 			{
 				case 1://会员卡
 					$service	=	M('Card')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 				case 2://活动
 					$service	=	M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 				case 3://新品
 					$service	=	M('NewProduct')->field('img1,img2,img3,img4,img5,img6,title as content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 				case 0://优惠券
 					$service	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 			}
 			if(!empty($service['img6']))$item['img']=	$service['img6'];
 			if(!empty($service['img5']))$item['img']=	$service['img5'];
@@ -1351,8 +1360,8 @@ class ApiController extends Controller {
 		$this->json_ok($arr);
 	}
 	/**
-	* 功能：获取关注商家的吆喝列表
-	*/
+	 * 功能：获取关注商家的吆喝列表
+	 */
 	public function getFollowShopList()
 	{
 		//$city_id	=	intval(I('get.city_id'));//城市
@@ -1380,19 +1389,19 @@ class ApiController extends Controller {
 			switch($item['type'])
 			{
 				case 1://会员卡
-				$row	=	M('Card')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
+					$row	=	M('Card')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
 					break;
 				case 2://活动
-				$row	=	M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
+					$row	=	M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
 					break;
 				case 3://新品
-				$row	=	M('NewProduct')->field('img1,title as content')->where(array('id'=>$item['service_id']))->find();
+					$row	=	M('NewProduct')->field('img1,title as content')->where(array('id'=>$item['service_id']))->find();
 					break;
 				case 0://优惠券
-				$row	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
+					$row	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
 					break;
 				case 4://吆喝
-				$row	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
+					$row	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
 					break;
 				default:
 					$row['content']	=	'';
@@ -1436,8 +1445,8 @@ class ApiController extends Controller {
 		$this->json_ok($arr);
 	}
 	/**
-	* 功能：获取附近商家
-	*/
+	 * 功能：获取附近商家
+	 */
 	public function getNearbyList()
 	{
 		$page	=	intval(I('post.page'));//当前页数
@@ -1445,6 +1454,7 @@ class ApiController extends Controller {
 		$long	=	I('post.long');//经度
 		$lat	=	I('post.lat');//纬度
 		$city_id=	intval(I('post.city_id'));//城市ID
+		$city_id=298;
 		$one_id	=	intval(I('post.one_id'));//第一级分类
 		$industry_class_id=intval(I('post.industry_class_id'));//第二级分类
 		$district_id=intval(I('post.district_id'));//商圈ID
@@ -1458,16 +1468,16 @@ class ApiController extends Controller {
 		{
 			case 500://500米
 				$rice=0.05;
-			break;
+				break;
 			case 1000://1000米
 				$rice=0.1;
-			break;
+				break;
 			case 3000://3000米
 				$rice=0.3;
-			break;
+				break;
 			case 5000://5000米
 				$rice=0.5;
-			break;
+				break;
 			default:
 				$rice=0;
 		}
@@ -1488,7 +1498,7 @@ class ApiController extends Controller {
 			$shoplist[]=$range;
 			//$keyid	=	$item['id'];
 		}
-		$base_num = $shoplist[$keyid];
+		//$base_num = $shoplist[$keyid];
 		/*foreach($shoplist as $shop_id=>$range)
 		{
 		}*/
@@ -1504,7 +1514,7 @@ class ApiController extends Controller {
 					$new_shoplist[]	=	array('shop_id'=>$val['id'],'range'=>$item);
 					unset($shoprange[$key]);
 					break;
-				}				
+				}
 			}
 		}
 		//var_dump($new_shoplist);exit;
@@ -1516,7 +1526,7 @@ class ApiController extends Controller {
 		{
 			$field	=	'id,member_id,title as full_name,star,fans_num,area_id,district_id';
 			$shop	=	M('Shop')->field($field)->where(array('id'=>$item['shop_id']))->find();
-			$item['full_name']=strip_tags(htmlspecialchars_decode($item['full_name']));
+			//$item['full_name']=strip_tags(htmlspecialchars_decode($item['full_name']));
 			$member	=	M('Member')->where(array('id'=>$shop['member_id']))->find();
 			$shop['face']=$member['face'];
 			//echo M('Shop')->getlastsql().'<br>';
@@ -1528,8 +1538,8 @@ class ApiController extends Controller {
 		$this->json_ok($arr);
 	}
 	/**
-	* 功能：获取店铺的点评列表
-	*/
+	 * 功能：获取店铺的点评列表
+	 */
 	public function getShopCommentList()
 	{
 		$where['shop_id']	=	intval(I('post.shop_id'));
@@ -1558,8 +1568,8 @@ class ApiController extends Controller {
 		$this->json_ok($arr);
 	}
 	/**
-	* 功能：店铺点评
-	*/
+	 * 功能：店铺点评
+	 */
 	public function shopComment()
 	{
 		$data['member_id']	=	intval(I('post.member_id'));
@@ -1622,8 +1632,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：店铺点赞
-	*/
+	 * 功能：店铺点赞
+	 */
 	public function shopPraise()
 	{
 		$data['member_id']	=	intval(I('post.member_id'));
@@ -1641,8 +1651,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：吆喝收藏
-	*/
+	 * 功能：吆喝收藏
+	 */
 	public function callCollection()
 	{
 		$row	=	M('ShopServiceCollection')->where(array('shop_service_id'=>intval(I('post.call_id'))))->find();
@@ -1658,8 +1668,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：删除吆喝收藏
-	*/
+	 * 功能：删除吆喝收藏
+	 */
 	public function delCallCollection()
 	{
 		$id	=	I('post.id');//收藏ID
@@ -1677,24 +1687,24 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：获取吆喝点评列表
-	*/
+	 * 功能：获取吆喝点评列表
+	 */
 	public function getCallCommentList()
 	{
-		$shop_service_id	=	intval(I('post.call_id'));
+		$shop_service_id	=	intval(I('get.call_id'));
 		$list	=	M('ShopServiceComment')->field('id,member_id,content,is_anonymous,addtime')->where(array('shop_service_id'=>$shop_service_id))->order('id desc')->select();
 		//echo M('ShopServiceComment')->getlastsql();
 		if(!$list)$this->json_ok(array(array('id'=>'')));
 		$arr	=	array();
 		foreach($list as $item)
 		{
-			$member=M('Member')->field('id,face')->where(array('id'=>$item['member_id']))->find();
+			$member=M('Member')->field('id,face,type')->where(array('id'=>$item['member_id']))->find();
 			if(!$member)continue;
 			$item['face']=$member['face'];
 			$item['addtime']=date("Y-m-d H:i");
 			if($member['type']==0)
 			{
-				$person=M('Person')->where(array('member_id'=>$member['id']))->find();
+				$person=M('Personal')->where(array('member_id'=>$member['id']))->find();
 				if(!$person)
 				{
 					$item['nickname']='吆喝'.$member['id'];
@@ -1714,8 +1724,8 @@ class ApiController extends Controller {
 		$this->json_ok($arr);
 	}
 	/**
-	* 功能：吆喝点评
-	*/
+	 * 功能：吆喝点评
+	 */
 	public function callComment()
 	{
 		$data['member_id']	=	intval(I('post.member_id'));
@@ -1811,8 +1821,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：吆喝点赞
-	*/
+	 * 功能：吆喝点赞
+	 */
 	public function callPraise()
 	{
 		$data['member_id']		=	intval(I('post.member_id'));
@@ -1829,8 +1839,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：上传会员头像
-	*/
+	 * 功能：上传会员头像
+	 */
 	public function uploadFace()
 	{
 		$where['id']=	intval(I('post.member_id'));
@@ -1851,8 +1861,8 @@ class ApiController extends Controller {
 		$this->json_ok(array('face'=>$data['face']));
 	}
 	/**
-	* 功能：我的关注
-	*/
+	 * 功能：我的关注
+	 */
 	public function myFollowList()
 	{
 		$classify_arr	=	array();
@@ -1861,8 +1871,12 @@ class ApiController extends Controller {
 		{
 			$classify_arr[$item['id']]=$item['title'];
 		}
+		$member_id_get	=	intval(I('get.member_id')) ;
+		$city_id	=	intval(I('get.city_id')) ;
 		$where['member_id']=	intval(I('get.member_id'));
-		$list	=	M('ShopFans')->field('to_member_id')->where($where)->select();
+		$list	=	 M()->table('ht_shop_fans sf, ht_shop sp ')->where('sf.shop_id = sp.id and sf.member_id='.$member_id_get.' and sp.city_id='.$city_id)->field('sf.to_member_id')->select();
+		//$list = M()->table('ht_shop_service s, ht_shop_service_collection n')->where('s.id = n.shop_service_id and n.member_id='.$member_id)->field('n.id,s.service_id,s.member_id,s.type,n.addtime')->order('n.id desc' )->select();
+
 		if(!$list)
 		{
 			$arr	=	array(array('id'=>''));
@@ -1872,7 +1886,9 @@ class ApiController extends Controller {
 		{
 			$member_id[]=$item['to_member_id'];
 		}
-		$map['status']		=	1;
+
+		//TODO  由于前期推广，所以先把状态控制先取消
+		//$map['status']		=	1;
 		$map['member_id']	=	array('in',implode(',',$member_id));
 		$calllist			=	M('Shop')->field('id,member_id,one_id,industry_class_id,title,one_id')->where($map)->order('id desc')->select();
 		$arr	=	array();
@@ -1891,13 +1907,32 @@ class ApiController extends Controller {
 		}
 		$this->json_ok($arr);
 	}
+
 	/**
-	* 功能：我的收藏
-	*/
+	 * 判断会员是否已经关注店铺
+	 */
+	public function isFollowed(){
+		$member_id=	intval(I('get.member_id'));
+		$id =	intval(I('get.id')) ;
+
+		$map['shop_id']	=	$id;
+		$map['member_id']=	$member_id;
+		$fans	=	M('ShopFans')->where($map)->find();
+
+		if($fans)
+		{
+			$this->json_error('您已经关注过了');
+		}else{
+			$this->json_ok(true);
+		}
+	}
+	/**
+	 * 功能：我的收藏
+	 */
 	public function myCollection()
 	{
 		$member_id=	intval(I('get.member_id'));
-		$list = M()->table('ht_shop_service s, ht_shop_service_collection n')->where('s.id = n.shop_service_id and n.member_id='.$member_id)->field('n.id,s.service_id,s.member_id,s.type,n.addtime')->order('n.id desc' )->select();
+		$list = M()->table('ht_shop_service s, ht_shop_service_collection n')->where('s.id = n.shop_service_id and n.member_id='.$member_id)->field('s.id,s.service_id,s.member_id,s.type,n.addtime')->order('n.id desc' )->select();
 		//echo M()->getlastsql();
 		if(!$list)
 		{
@@ -1966,19 +2001,22 @@ class ApiController extends Controller {
 			$shop	=	$this->getShop($item['member_id']);
 			$item['shop_name']=$shop['title'];
 			$item['addtime']=date("Y-m-d H:i:s",$item['addtime']);
+			if(empty( $item['title'])){
+				$item['title'] = $row['title'] ;
+			}
 			$arr[]	=	$item;
 		}
 		if(count($arr)<1)$arr=array(array('id'=>''));
 		$this->json_ok($arr);
 	}
 	/**
-	* 功能：删除我的收藏
-	*/
+	 * 功能：删除我的收藏
+	 */
 	public function delMyCollection()
 	{
 		$member_id=	intval(I('post.member_id'));
 		$id	=	intval(I('post.id'));
-		$row	=	M('ShopServiceCollection')->where(array('id'=>$id))->find();
+		$row	=	M('ShopServiceCollection')->where(array('shop_service_id'=>$id,'member_id'=>$member_id))->find();
 		if(!$row)
 		{
 			$this->json_error('收藏不存在');
@@ -1987,12 +2025,13 @@ class ApiController extends Controller {
 		{
 			$this->json_error('收藏不是您的');
 		}
-		M('ShopServiceCollection')->where(array('id'=>$id))->delete();
+		M('ShopService')->where(array('id'=>$row['shop_service_id']))->setDec('collection_num');
+		M('ShopServiceCollection')->where(array('id'=>$row['id']))->delete();
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：获取我的优惠(即优惠券多少张，会员卡多少张)
-	*/
+	 * 功能：获取我的优惠(即优惠券多少张，会员卡多少张)
+	 */
 	public function myDiscount()
 	{
 		$member_id	=	intval(I('post.member_id'));
@@ -2004,8 +2043,8 @@ class ApiController extends Controller {
 		$this->json_ok($row);
 	}
 	/**
-	* 功能：获取可使用优惠券
-	*/
+	 * 功能：获取可使用优惠券
+	 */
 	public function plyCoupon()
 	{
 		$date	=	date("Y-m-d");
@@ -2023,8 +2062,8 @@ class ApiController extends Controller {
 		$this->json_ok($list);
 	}
 	/**
-	* 功能：获取不可使用优惠券
-	*/
+	 * 功能：获取不可使用优惠券
+	 */
 	public function plyNoCoupon()
 	{
 		$date	=	date("Y-m-d");
@@ -2041,8 +2080,8 @@ class ApiController extends Controller {
 		$this->json_ok($list);
 	}
 	/**
-	* 功能：获取优惠券使用详情
-	*/
+	 * 功能：获取优惠券使用详情
+	 */
 	public function plyCouponDetail()
 	{
 		$coupon_id	=	intval(I('get.coupon_id'));//优惠券ID
@@ -2050,7 +2089,7 @@ class ApiController extends Controller {
 		$coupon	=	M('Coupon')->field('id,title,content,img1,valid_start,valid_end,member_id')->where(array('id'=>$coupon_id))->find();
 		$member_coupon	=	M('MemberCoupon')->field('id,card_number')->where(array('id'=>$member_coupon_id))->find();
 		$coupon['card_number']	=	$member_counon['card_number'];
-		
+
 		$shop=$this->getShop($coupon['member_id']);
 		$coupon['shop_id']=$shop['id'];
 		$coupon['shopname']=$shop['title'];
@@ -2063,8 +2102,8 @@ class ApiController extends Controller {
 		$this->json_ok(array('coupon'=>$coupon,'list'=>$list));
 	}
 	/**
-	* 功能：会员使用优惠券
-	*/
+	 * 功能：会员使用优惠券
+	 */
 	public function memberPlyCoupon()
 	{
 		$member_id	=	intval(I('post.member_id'));
@@ -2088,8 +2127,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：获取我的会员卡
-	*/
+	 * 功能：获取我的会员卡
+	 */
 	public function getMyMemberCardList()
 	{
 		$member_id	=	intval(I('post.member_id'));
@@ -2098,8 +2137,8 @@ class ApiController extends Controller {
 		$this->json_ok($list);
 	}
 	/**
-	* 功能：获取我的会员卡使用详情
-	*/
+	 * 功能：获取我的会员卡使用详情
+	 */
 	public function getMyMemberCardDetail()
 	{
 		$card_id	=	intval(I('get.card_id'));//会员卡ID
@@ -2116,8 +2155,8 @@ class ApiController extends Controller {
 		$this->json_ok(array('card'=>$card,'list'=>$list));
 	}
 	/**
-	* 功能：会员使用会员卡
-	*/
+	 * 功能：会员使用会员卡
+	 */
 	public function memberPlyCard()
 	{
 		$member_id	=	intval(I('post.member_id'));
@@ -2141,8 +2180,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：意见反馈
-	*/
+	 * 功能：意见反馈
+	 */
 	public function addOpinion()
 	{
 		$data['member_id']	=	intval(I('post.member_id'));
@@ -2167,8 +2206,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：举报
-	*/
+	 * 功能：举报
+	 */
 	public function addReport()
 	{
 		$data['member_id']	=	intval(I('post.member_id'));
@@ -2190,8 +2229,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：修改密码
-	*/
+	 * 功能：修改密码
+	 */
 	public function upPass()
 	{
 		$member_id	=	intval(I('post.member_id'));//会员ID
@@ -2215,17 +2254,17 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：忘记密码
-	*/
+	 * 功能：忘记密码
+	 */
 	public function forgetpass()
 	{
 		$login_user	=	I('post.login_user');
 		$code		=	getRandomNum(6);
 		//if($row)
 		//{
-			$map['login_user']	=	$login_user;
-			$data['forgetcode']	=	$code;
-			M('Member')->where($map)->save($data);
+		$map['login_user']	=	$login_user;
+		$data['forgetcode']	=	$code;
+		M('Member')->where($map)->save($data);
 		//}
 		$_account = 'cf_zcsd';
 		$_password = '69wZ74';
@@ -2245,8 +2284,8 @@ class ApiController extends Controller {
 		$this->json_error($res['msg']);
 	}
 	/**
-	* 功能：验证码是否通过
-	*/
+	 * 功能：验证码是否通过
+	 */
 	public function validatecode()
 	{
 		$login_user	=	I('post.login_user');
@@ -2264,8 +2303,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：重置密码
-	*/
+	 * 功能：重置密码
+	 */
 	public function resetpass()
 	{
 		$login_user	=	I('post.login_user');
@@ -2289,8 +2328,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：获取我发布的吆喝列表
-	*/
+	 * 功能：获取我发布的吆喝列表
+	 */
 	public function getMyCallList()
 	{
 		$member_id=	intval(I('post.member_id'));
@@ -2300,23 +2339,23 @@ class ApiController extends Controller {
 		if(!$list)$list=array();
 		foreach($list as $item)
 		{switch($item['type'])
-			{
-				case 1://会员卡
-					$service	=	M('Card')->field('content')->where(array('id'=>$item['service_id']))->find();
+		{
+			case 1://会员卡
+				$service	=	M('Card')->field('content')->where(array('id'=>$item['service_id']))->find();
 				break;
-				case 2://活动
-					$service	=	M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
+			case 2://活动
+				$service	=	M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
 				break;
-				case 3://新品
-					$service	=	M('NewProduct')->field('img1,img2,img3,img4,img5,img6,title as content')->where(array('id'=>$item['service_id']))->find();
+			case 3://新品
+				$service	=	M('NewProduct')->field('img1,img2,img3,img4,img5,img6,title as content')->where(array('id'=>$item['service_id']))->find();
 				break;
-				case 0://优惠券
-					$service	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
+			case 0://优惠券
+				$service	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
 				break;
-				case 4://纯吆喝
-					$service	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
+			case 4://纯吆喝
+				$service	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
 				break;
-			}
+		}
 			if(empty($item['content']))$item['content']=$service['content'];
 			if(!empty($item['img6']))$item['img']	=	$item['img6'];
 			if(!empty($item['img5']))$item['img']	=	$item['img5'];
@@ -2338,8 +2377,8 @@ class ApiController extends Controller {
 		$this->json_ok($list);
 	}
 	/**
-	* 功能：获取我发布的优惠券
-	*/
+	 * 功能：获取我发布的优惠券
+	 */
 	public function getMyCouponList()
 	{
 		$member_id=	intval(I('post.member_id'));
@@ -2350,8 +2389,8 @@ class ApiController extends Controller {
 		$this->json_ok($list);
 	}
 	/**
-	* 功能：获取我发布的会员卡
-	*/
+	 * 功能：获取我发布的会员卡
+	 */
 	public function getMyCardList()
 	{
 		$member_id=	intval(I('post.member_id'));
@@ -2362,8 +2401,8 @@ class ApiController extends Controller {
 		$this->json_ok($list);
 	}
 	/**
-	* 功能：获取我发布的新品列表
-	*/
+	 * 功能：获取我发布的新品列表
+	 */
 	public function getMyNewProductList()
 	{
 		$member_id=	intval(I('post.member_id'));
@@ -2374,8 +2413,8 @@ class ApiController extends Controller {
 		$this->json_ok($list);
 	}
 	/**
-	* 功能：获取我发布的活动列表
-	*/
+	 * 功能：获取我发布的活动列表
+	 */
 	public function getMyActivityList()
 	{
 		$member_id=	intval(I('post.member_id'));
@@ -2386,8 +2425,8 @@ class ApiController extends Controller {
 		$this->json_ok($list);
 	}
 	/**
-	* 功能：修改用户昵称
-	*/
+	 * 功能：修改用户昵称
+	 */
 	public function upNickname()
 	{
 		$member_id	=	intval(I('post.member_id'));//会员ID
@@ -2411,8 +2450,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：修改性别
-	*/
+	 * 功能：修改性别
+	 */
 	public function upSex()
 	{
 		$member_id	=	intval(I('post.member_id'));//会员ID
@@ -2436,14 +2475,14 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：获取我的粉丝列表
-	*/
+	 * 功能：获取我的粉丝列表
+	 */
 	public function getMyFansList()
 	{
 		$member_id=	intval(I('post.member_id'));
 		$page	=	intval(I('post.page'));
 		if($page<1)$page=1;
-
+		$count	=	M()->table('ht_member m, ht_shop_fans f')->where('m.id = f.to_member_id and f.to_member_id='.$member_id)->field('f.member_id')->count('*');
 		$list = M()->table('ht_member m, ht_shop_fans f')->where('m.id = f.to_member_id and f.to_member_id='.$member_id)->field('f.member_id')->order('f.id desc' )->select();
 		//echo M()->getlastsql();
 		if(!$list)$list=array();
@@ -2464,11 +2503,11 @@ class ApiController extends Controller {
 			$arr[]=$item;
 		}
 		if(count($arr)<1)$arr=array(array('id'=>''));
-		$this->json_ok($arr);
+		$this->json_ok_page($arr, $page, $count);
 	}
 	/**
-	* 功能：判断是否中奖
-	*/
+	 * 功能：判断是否中奖
+	 */
 	public function getWinnig()
 	{
 		$member_id=	intval(I('post.member_id'));
@@ -2525,8 +2564,8 @@ class ApiController extends Controller {
 		$this->json_ok($prizerow);
 	}
 	/**
-	* 功能：获取用户中奖列表
-	*/
+	 * 功能：获取用户中奖列表
+	 */
 	public function getWinGoodsList()
 	{
 		$member_id=	intval(I('post.member_id'));
@@ -2537,8 +2576,8 @@ class ApiController extends Controller {
 		$this->json_ok($list);
 	}
 	/**
-	* 功能：获取我的服务列表
-	*/
+	 * 功能：获取我的服务列表
+	 */
 	public function getMyServiceList()
 	{
 		$member_id=	intval(I('post.member_id'));
@@ -2554,19 +2593,19 @@ class ApiController extends Controller {
 			{
 				case 1://会员卡
 					$service	=	M('Card')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 				case 2://活动
 					$service	=	M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 				case 3://新品
 					$service	=	M('NewProduct')->field('img1,img2,img3,img4,img5,img6,title as content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 				case 0://优惠券
 					$service	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 				case 4://纯吆喝
 					$service	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 			}
 			if(empty($item['content']))$item['content']=$service['content'];
 			if(!empty($item['img6']))$item['img']	=	$item['img6'];
@@ -2603,8 +2642,8 @@ class ApiController extends Controller {
 		$this->json_ok_page($arr, $page, $count);
 	}
 	/**
-	* 功能：获取个人基本信息
-	*/
+	 * 功能：获取个人基本信息
+	 */
 	public function getUserBase()
 	{
 		$member_id	=	intval(I('post.member_id'));
@@ -2630,8 +2669,8 @@ class ApiController extends Controller {
 		$this->json_ok($arr);
 	}
 	/**
-	* 功能：获取商家基本信息
-	*/
+	 * 功能：获取商家基本信息
+	 */
 	public function getShopBase()
 	{
 		$member_id	=	intval(I('post.member_id'));
@@ -2660,12 +2699,12 @@ class ApiController extends Controller {
 		$this->json_ok($arr);
 	}
 	/**
-	* 功能：搜索商家及相关吆喝
-	*/
+	 * 功能：搜索商家及相关吆喝
+	 */
 	public function getSearchShopCallList()
 	{
 		$keywords	=	I('get.keywords');
-		$city_id	=	I('get.city_id');
+		$city_id	=	I('post.city_id');
 		$map['city_id']=$city_id;
 		if($city_id<1)
 		{
@@ -2701,19 +2740,19 @@ class ApiController extends Controller {
 			{
 				case 1://会员卡
 					$service	=	M('Card')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 				case 2://活动
 					$service	=	M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 				case 3://新品
 					$service	=	M('NewProduct')->field('img1,img2,img3,img4,img5,img6,title as content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 				case 0://优惠券
 					$service	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 				case 4://纯吆喝
 					$service	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
+					break;
 			}
 			//$item['content']	=	$service['content'];
 
@@ -2744,8 +2783,8 @@ class ApiController extends Controller {
 		$this->json_ok($data);
 	}
 	/**
-	* 功能：删除吆喝
-	*/
+	 * 功能：删除吆喝
+	 */
 	public function delCall()
 	{
 		$id			=	intval(I('post.id'));
@@ -2763,8 +2802,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：删除优惠券
-	*/
+	 * 功能：删除优惠券
+	 */
 	public function delCoupon()
 	{
 		$id	=	intval(I('post.id'));
@@ -2782,8 +2821,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：删除会员卡
-	*/
+	 * 功能：删除会员卡
+	 */
 	public function delCard()
 	{
 		$id	=	intval(I('post.id'));
@@ -2801,8 +2840,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：删除新品
-	*/
+	 * 功能：删除新品
+	 */
 	public function delNewProduct()
 	{
 		$id	=	intval(I('post.id'));
@@ -2820,8 +2859,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：删除活动
-	*/
+	 * 功能：删除活动
+	 */
 	public function delActivity()
 	{
 		$id	=	intval(I('post.id'));
@@ -2839,8 +2878,8 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：我的消息总记录数 
-	*/
+	 * 功能：我的消息总记录数
+	 */
 	public function mySms()
 	{
 		$member_id	=	intval(I('post.member_id'));
@@ -2862,8 +2901,8 @@ class ApiController extends Controller {
 		$this->json_ok($data);
 	}
 	/**
-	* 功能：我的点赞列表
-	*/
+	 * 功能：我的点赞列表
+	 */
 	public function getMyZanList()
 	{
 		$member_id	=	intval(I('post.member_id'));
@@ -2884,19 +2923,19 @@ class ApiController extends Controller {
 			{
 				case 1://会员卡
 					$service	=	M('Card')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$row['service_id']))->find();
-				break;
+					break;
 				case 2://活动
 					$service	=	M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$row['service_id']))->find();
-				break;
+					break;
 				case 3://新品
 					$service	=	M('NewProduct')->field('img1,img2,img3,img4,img5,img6,title as content')->where(array('id'=>$row['service_id']))->find();
-				break;
+					break;
 				case 0://优惠券
 					$service	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$row['service_id']))->find();
-				break;
+					break;
 				case 4://纯吆喝
 					$service	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$row['service_id']))->find();
-				break;
+					break;
 			}
 			//$item['content']	=	$service['content'];
 			if(!empty($item['img6']))$item['img']	=	$item['img6'];
@@ -2924,8 +2963,8 @@ class ApiController extends Controller {
 		$this->json_ok($arr);
 	}
 	/**
-	* 功能：获取我的店铺评论
-	*/
+	 * 功能：获取我的店铺评论
+	 */
 	public function getMyShopCommentList()
 	{
 		$member_id	=	intval(I('post.member_id'));
@@ -2953,8 +2992,8 @@ class ApiController extends Controller {
 		$this->json_ok($arr);
 	}
 	/**
-	* 功能：获取我的吆喝评论
-	*/
+	 * 功能：获取我的吆喝评论
+	 */
 	public function getMyCallCommentList()
 	{
 		$member_id	=	intval(I('get.member_id'));
@@ -2986,8 +3025,8 @@ class ApiController extends Controller {
 		$this->json_ok($arr);
 	}
 	/**
-	* 功能：获取中奖码券
-	*/
+	 * 功能：获取中奖码券
+	 */
 	private function getWinCardNumber()
 	{
 		$card_number	=	getRandomNum(12);
@@ -2997,8 +3036,8 @@ class ApiController extends Controller {
 		return $card_number;
 	}
 	/**
-	* 功能：新增优惠券卡号时获取
-	*/
+	 * 功能：新增优惠券卡号时获取
+	 */
 	private function getCouponCardNumber()
 	{
 		$data['card_number']=	getRandomNum(12);//领取卡号
@@ -3008,8 +3047,8 @@ class ApiController extends Controller {
 		return $data['card_number'];
 	}
 	/**
-	* 功能：新增会员卡号时获取
-	*/
+	 * 功能：新增会员卡号时获取
+	 */
 	private function getMemberCardNumber()
 	{
 		$data['card_number']=	getRandomNum(9);//领取卡号
@@ -3019,8 +3058,8 @@ class ApiController extends Controller {
 		return $data['card_number'];
 	}
 	/**
-	* 功能：获取商家
-	*/
+	 * 功能：获取商家
+	 */
 	private function getShop($member_id)
 	{
 		$row	=	M('Shop')->where(array('member_id'=>$member_id))->find();
@@ -3030,7 +3069,7 @@ class ApiController extends Controller {
 		}
 		return $row;
 	}
-	
+
 	private function getShopById($shop_id)
 	{
 		$row = M('Shop')->where(array('id'=>$shop_id))->find() ;
@@ -3067,8 +3106,8 @@ class ApiController extends Controller {
 		exit;
 	}
 	/**
-	* 功能：上传附件
-	*/
+	 * 功能：上传附件
+	 */
 	private function uploads()
 	{
 		$config['maxSize']	=	C('MAXSIZE') ;// 设置附件上传大小
