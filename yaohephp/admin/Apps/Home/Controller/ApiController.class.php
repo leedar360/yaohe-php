@@ -1870,8 +1870,12 @@ class ApiController extends Controller {
 		{
 			$classify_arr[$item['id']]=$item['title'];
 		}
+		$member_id_get	=	intval(I('get.member_id')) ;
+		$city_id	=	intval(I('get.city_id')) ;
 		$where['member_id']=	intval(I('get.member_id'));
-		$list	=	M('ShopFans')->field('to_member_id')->where($where)->select();
+		$list	=	 M()->table('ht_shop_fans sf, ht_shop sp ')->where('sf.shop_id = sp.id and sf.member_id='.$member_id_get.' and sp.city_id='.$city_id)->field('sf.to_member_id')->select();
+		//$list = M()->table('ht_shop_service s, ht_shop_service_collection n')->where('s.id = n.shop_service_id and n.member_id='.$member_id)->field('n.id,s.service_id,s.member_id,s.type,n.addtime')->order('n.id desc' )->select();
+
 		if(!$list)
 		{
 			$arr	=	array(array('id'=>''));
