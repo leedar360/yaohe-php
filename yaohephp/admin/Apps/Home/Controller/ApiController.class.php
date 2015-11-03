@@ -813,7 +813,7 @@ class ApiController extends Controller {
 		$arr['call']=$new_calllist;
 		$this->json_ok($arr);
 	}
-	/**F
+	/**
 	* 功能：取有关注
 	*/
 	public function cancelFollow()
@@ -1921,9 +1921,9 @@ class ApiController extends Controller {
 
 		if($fans)
 		{
-			$this->json_ok(true);
+			$this->json_error('您已经关注过了');
 		}else{
-			$this->json_error('已经关注过了');
+			$this->json_ok(true);
 		}
 	}
 	/**
