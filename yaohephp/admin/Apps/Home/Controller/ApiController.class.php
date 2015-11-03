@@ -766,7 +766,7 @@ class ApiController extends Controller {
 		//$map['_string']=" type<4";
 		$calllist=	M('ShopService')->where(array('member_id'=>$member_id))->order('id desc')->limit(0,3)->select();
 		if(!$calllist)$calllist=array();
-		$new_calllist[] = '';
+		//$new_calllist[] = '';
 		foreach($calllist as $key=>$item)
 		{
 			switch($item['type'])
