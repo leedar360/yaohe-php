@@ -1365,7 +1365,7 @@ class ApiController extends Controller {
 	*/
 	public function getFollowShopList()
 	{
-		//$city_id	=	intval(I('get.city_id'));//城市
+		$city_id	=	intval(I('get.city_id'));//城市
 		$member_id	=	intval(I('get.member_id'));//会员ID
 		$list		=	M('ShopFans')->field('to_member_id')->where(array('member_id'=>$member_id))->select();
 		if(!$list)
@@ -1378,6 +1378,7 @@ class ApiController extends Controller {
 			$shop_id_arr[]	=	$item['to_member_id'];
 		}
 		$map['member_id']=	array('in',implode(',',$shop_id_arr));
+		$map['city_id']	=	$city_id ;
 		$field	=	'id,member_id,service_id,title,type,collection_num,zan_num,comment_num,addtime,img1,img2,img3,img4,img5,img6';
 		//$list	=	M('Call')->field($field)->where($map)->order('id desc')->select();
 		$list	=	M('ShopService')->field($field)->where($map)->order('id desc')->select();
