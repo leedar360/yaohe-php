@@ -1485,7 +1485,7 @@ class ApiController extends Controller {
 		}
 		if($rice>0)
 		{
-			$squares = returnSquarePoint($lng, $lat,$rice);
+			$squares = returnSquarePoint($long, $lat,$rice);
 			$map['_string']	=	"lat<>0 and lat>{$squares['right-bottom']['lat']} and lat<{$squares['left-top']['lat']} and lng>{$squares['left-top']['lng']} and lng<{$squares['right-bottom']['lng']}";
 		}
 		$list	=	M('Shop')->field('id,lng,lat')->where($map)->select();
