@@ -1862,6 +1862,9 @@ class ApiController extends Controller {
 	}
 	/**
 	* 功能：我的关注
+	 *
+	 * 2015-11-04 修改
+	 * 我的关注里显示所有的关注，不限制城市
 	*/
 	public function myFollowList()
 	{
@@ -1872,9 +1875,58 @@ class ApiController extends Controller {
 			$classify_arr[$item['id']]=$item['title'];
 		}
 		$member_id_get	=	intval(I('get.member_id')) ;
+		//$city_id	=	intval(I('get.city_id')) ;
+		$where['member_id']=	intval(I('get.member_id'));
+		$list	=	 M()->table('ht_shop_fans sf, ht_shop sp ')->where('sf.shop_id = sp.id and sf.member_id='.$member_id_get)->field('sf.to_member_id')->order('sf.follow_time')->select();
+		//$list = M()->table('ht_shop_service s, ht_shop_service_collection n')->where('s.id = n.shop_service_id and n.member_id='.$member_id)->field('n.id,s.service_id,s.member_id,s.type,n.addtime')->order('n.id desc' )->select();
+
+		if(!$list)
+		{
+			$arr	=	array(array('id'=>''));
+			$this->json_ok($arr);
+		}
+		foreach($list as $item)
+		{
+			$member_id[]=$item['to_member_id'];
+		}
+
+		//TODO  由于前期推广，所以先把状态控制先取消
+		//$map['status']		=	1;
+		$map['member_id']	=	array('in',implode(',',$member_id));
+		$calllist			=	M('Shop')->field('id,member_id,one_id,industry_class_id,title,one_id')->where($map)->order('id desc')->select();
+		$arr	=	array();
+		foreach($calllist as $key=>$item)
+		{
+			$row	=	M('Member')->where(array('id'=>$item['member_id']))->find();
+			$item['class_title']=$classify_arr[$item['one_id']];
+			$item['face']=$row['face'];
+			$item['username']=$row['login_user'];
+			$arr[]	=	$item;
+			//$calllist[$key]['face']=$row['face'];
+		}
+		if(count($arr)<1)
+		{
+			$arr=array(array('id'=>''));
+		}
+		$this->json_ok($arr);
+	}
+
+	/**
+	 * 功能：导航栏里的关注商家
+	 * 这里需要城市
+	 */
+	public function followList()
+	{
+		$classify_arr	=	array();
+		$classify_list	=	M('Classify')->select();
+		foreach($classify_list as $item)
+		{
+			$classify_arr[$item['id']]=$item['title'];
+		}
+		$member_id_get	=	intval(I('get.member_id')) ;
 		$city_id	=	intval(I('get.city_id')) ;
 		$where['member_id']=	intval(I('get.member_id'));
-		$list	=	 M()->table('ht_shop_fans sf, ht_shop sp ')->where('sf.shop_id = sp.id and sf.member_id='.$member_id_get.' and sp.city_id='.$city_id)->field('sf.to_member_id')->select();
+		$list	=	 M()->table('ht_shop_fans sf, ht_shop sp ')->where('sf.shop_id = sp.id and sf.member_id='.$member_id_get.' and sp.city_id='.$city_id)->field('sf.to_member_id')->order('sf.follow_time')->select();
 		//$list = M()->table('ht_shop_service s, ht_shop_service_collection n')->where('s.id = n.shop_service_id and n.member_id='.$member_id)->field('n.id,s.service_id,s.member_id,s.type,n.addtime')->order('n.id desc' )->select();
 
 		if(!$list)
