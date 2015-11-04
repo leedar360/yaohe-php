@@ -813,7 +813,7 @@ class ApiController extends Controller {
 		$arr['call']=$new_calllist;
 		$this->json_ok($arr);
 	}
-	/**F
+	/**
 	* 功能：取有关注
 	*/
 	public function cancelFollow()
@@ -1452,8 +1452,9 @@ class ApiController extends Controller {
 	{
 		$page	=	intval(I('post.page'));//当前页数
 		if($page<1)$page=1;
-		$long	=	I('post.long');//经度
-		$lat	=	I('post.lat');//纬度
+		$long	=	I('get._long');//经度
+		$lat	=	I('get.lat');//纬度
+
 		$city_id=	intval(I('post.city_id'));//城市ID
 		$one_id	=	intval(I('post.one_id'));//第一级分类
 		$industry_class_id=intval(I('post.industry_class_id'));//第二级分类
@@ -1493,12 +1494,12 @@ class ApiController extends Controller {
 		//var_dump($list);exit;
 		foreach($list as $key=>$item)
 		{
-			$range	=	getDistance($long,$lat,$item['lng'],$item['lat']);
+			$range	=	getDistance($long,$lat,$item['lng'],$item['lat']);//得到具体的距离
 			$shoprange[]=array('id'=>$item['id'],'range'=>$range);
 			$shoplist[]=$range;
 			//$keyid	=	$item['id'];
 		}
-		$base_num = $shoplist[$keyid];
+//		$base_num = $shoplist[$keyid];
 		/*foreach($shoplist as $shop_id=>$range)
 		{
 		}*/
@@ -1526,7 +1527,7 @@ class ApiController extends Controller {
 		{
 			$field	=	'id,member_id,title as full_name,star,fans_num,area_id,district_id';
 			$shop	=	M('Shop')->field($field)->where(array('id'=>$item['shop_id']))->find();
-			$item['full_name']=strip_tags(htmlspecialchars_decode($item['full_name']));
+//			$item['full_name']=strip_tags(htmlspecialchars_decode($item['full_name']));
 			$member	=	M('Member')->where(array('id'=>$shop['member_id']))->find();
 			$shop['face']=$member['face'];
 			//echo M('Shop')->getlastsql().'<br>';
@@ -1862,6 +1863,9 @@ class ApiController extends Controller {
 	}
 	/**
 	* 功能：我的关注
+	 *
+	 * 2015-11-04 修改
+	 * 我的关注里显示所有的关注，不限制城市
 	*/
 	public function myFollowList()
 	{
@@ -1872,9 +1876,58 @@ class ApiController extends Controller {
 			$classify_arr[$item['id']]=$item['title'];
 		}
 		$member_id_get	=	intval(I('get.member_id')) ;
+		//$city_id	=	intval(I('get.city_id')) ;
+		$where['member_id']=	intval(I('get.member_id'));
+		$list	=	 M()->table('ht_shop_fans sf, ht_shop sp ')->where('sf.shop_id = sp.id and sf.member_id='.$member_id_get)->field('sf.to_member_id')->order('sf.follow_time')->select();
+		//$list = M()->table('ht_shop_service s, ht_shop_service_collection n')->where('s.id = n.shop_service_id and n.member_id='.$member_id)->field('n.id,s.service_id,s.member_id,s.type,n.addtime')->order('n.id desc' )->select();
+
+		if(!$list)
+		{
+			$arr	=	array(array('id'=>''));
+			$this->json_ok($arr);
+		}
+		foreach($list as $item)
+		{
+			$member_id[]=$item['to_member_id'];
+		}
+
+		//TODO  由于前期推广，所以先把状态控制先取消
+		//$map['status']		=	1;
+		$map['member_id']	=	array('in',implode(',',$member_id));
+		$calllist			=	M('Shop')->field('id,member_id,one_id,industry_class_id,title,one_id')->where($map)->order('id desc')->select();
+		$arr	=	array();
+		foreach($calllist as $key=>$item)
+		{
+			$row	=	M('Member')->where(array('id'=>$item['member_id']))->find();
+			$item['class_title']=$classify_arr[$item['one_id']];
+			$item['face']=$row['face'];
+			$item['username']=$row['login_user'];
+			$arr[]	=	$item;
+			//$calllist[$key]['face']=$row['face'];
+		}
+		if(count($arr)<1)
+		{
+			$arr=array(array('id'=>''));
+		}
+		$this->json_ok($arr);
+	}
+
+	/**
+	 * 功能：导航栏里的关注商家
+	 * 这里需要城市
+	 */
+	public function followList()
+	{
+		$classify_arr	=	array();
+		$classify_list	=	M('Classify')->select();
+		foreach($classify_list as $item)
+		{
+			$classify_arr[$item['id']]=$item['title'];
+		}
+		$member_id_get	=	intval(I('get.member_id')) ;
 		$city_id	=	intval(I('get.city_id')) ;
 		$where['member_id']=	intval(I('get.member_id'));
-		$list	=	 M()->table('ht_shop_fans sf, ht_shop sp ')->where('sf.shop_id = sp.id and sf.member_id='.$member_id_get.' and sp.city_id='.$city_id)->field('sf.to_member_id')->select();
+		$list	=	 M()->table('ht_shop_fans sf, ht_shop sp ')->where('sf.shop_id = sp.id and sf.member_id='.$member_id_get.' and sp.city_id='.$city_id)->field('sf.to_member_id')->order('sf.follow_time')->select();
 		//$list = M()->table('ht_shop_service s, ht_shop_service_collection n')->where('s.id = n.shop_service_id and n.member_id='.$member_id)->field('n.id,s.service_id,s.member_id,s.type,n.addtime')->order('n.id desc' )->select();
 
 		if(!$list)
@@ -1921,9 +1974,9 @@ class ApiController extends Controller {
 
 		if($fans)
 		{
-			$this->json_ok(true);
+			$this->json_error('您已经关注过了');
 		}else{
-			$this->json_error('已经关注过了');
+			$this->json_ok(true);
 		}
 	}
 	/**
