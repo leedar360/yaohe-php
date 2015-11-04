@@ -1452,8 +1452,9 @@ class ApiController extends Controller {
 	{
 		$page	=	intval(I('post.page'));//当前页数
 		if($page<1)$page=1;
-		$long	=	I('post.long');//经度
-		$lat	=	I('post.lat');//纬度
+		$long	=	I('get._long');//经度
+		$lat	=	I('get.lat');//纬度
+
 		$city_id=	intval(I('post.city_id'));//城市ID
 		$one_id	=	intval(I('post.one_id'));//第一级分类
 		$industry_class_id=intval(I('post.industry_class_id'));//第二级分类
@@ -1493,12 +1494,12 @@ class ApiController extends Controller {
 		//var_dump($list);exit;
 		foreach($list as $key=>$item)
 		{
-			$range	=	getDistance($long,$lat,$item['lng'],$item['lat']);
+			$range	=	getDistance($long,$lat,$item['lng'],$item['lat']);//得到具体的距离
 			$shoprange[]=array('id'=>$item['id'],'range'=>$range);
 			$shoplist[]=$range;
 			//$keyid	=	$item['id'];
 		}
-		$base_num = $shoplist[$keyid];
+//		$base_num = $shoplist[$keyid];
 		/*foreach($shoplist as $shop_id=>$range)
 		{
 		}*/
@@ -1526,7 +1527,7 @@ class ApiController extends Controller {
 		{
 			$field	=	'id,member_id,title as full_name,star,fans_num,area_id,district_id';
 			$shop	=	M('Shop')->field($field)->where(array('id'=>$item['shop_id']))->find();
-			$item['full_name']=strip_tags(htmlspecialchars_decode($item['full_name']));
+//			$item['full_name']=strip_tags(htmlspecialchars_decode($item['full_name']));
 			$member	=	M('Member')->where(array('id'=>$shop['member_id']))->find();
 			$shop['face']=$member['face'];
 			//echo M('Shop')->getlastsql().'<br>';
