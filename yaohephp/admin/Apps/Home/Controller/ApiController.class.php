@@ -1730,12 +1730,12 @@ class ApiController extends Controller {
 	*/
 	public function callComment()
 	{
-		$data['member_id']	=	intval(I('post.member_id'));
-		$data['shop_service_id']=intval(I('post.call_id'));
-		$data['content']	=	I('post.content');//评论内容
-		$data['is_anonymous']=	I('post.is_anonymous');//是否匿名
-		$data['type']		=	I('post.type');//0优惠券 1会员卡 2活动 3新品 4吆喝
-		$data['parentid']	=	intval(I('post.parentid'));//回复ID
+		$data['member_id']	=	intval(I('get.member_id'));
+		$data['shop_service_id']=intval(I('get.call_id'));
+		$data['content']	=	I('get.content');//评论内容
+		$data['is_anonymous']=	I('get.is_anonymous');//是否匿名
+		$data['type']		=	I('get.type');//0优惠券 1会员卡 2活动 3新品 4吆喝
+		$data['parentid']	=	intval(I('get.parentid'));//回复ID
 		if($data['type']>4)
 		{
 			$this->json_error('类型不正确');
@@ -1789,16 +1789,17 @@ class ApiController extends Controller {
 				}
 				$data['title']	=	$row['title'];
 				break;
-			case 2://新品
-				$row	=	M('NewProduct')->field('title')->where(array('id'=>$shop_service['service_id']))->find();
+			case 2://活动
+				$row	=	M('Activity')->field('title')->where(array('id'=>$shop_service['service_id']))->find();
 				if(!$row)
 				{
 					$this->json_error('内容不存在');
 				}
 				$data['title']	=	$row['title'];
+				$row	=	M('NewProduct')->find();
 				break;
-			case 3://活动
-				$row	=	M('Activity')->field('title')->where(array('id'=>$shop_service['service_id']))->find();
+			case 3://新品
+				$row	=	M('NewProduct')->field('title')->where(array('id'=>$shop_service['service_id']))->find();
 				if(!$row)
 				{
 					$this->json_error('内容不存在');
@@ -1818,6 +1819,7 @@ class ApiController extends Controller {
 		}
 		$data['addtime']	=	time();
 		M('ShopServiceComment')->add($data);
+		M('Call')->field('content')->select();
 		//M('Call')->where(array('id'=>$data['call_id']))->setInc('comment_num');
 		M('ShopService')->where(array('id'=>$data['shop_service_id']))->setInc('comment_num');
 		$this->json_ok(true);
