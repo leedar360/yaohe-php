@@ -2940,15 +2940,17 @@ class ApiController extends Controller {
 		$member_id	=	intval(I('post.member_id'));
 		//获取点赞总记录数
 		$map['member_id']=$member_id;
+		$map	=	array();
+		$map['is_read']	=	1;
 		$zannum	=	M('ShopServiceZan')->where($map)->count();
 		//获取我的吆喝评论数
 		$map	=	array();
-		$map['is_read']	=	0;
+		$map['is_read']	=	1;
 		$map['_string']	=	' member_id="'.$member_id.'" or to_member_id="'.$member_id.'"';
 		$callcommentnum=M('ShopServiceComment')->where($map)->count();
 		//获取店铺的评论数
 		$map	=	array();
-		$map['is_read']	=	0;
+		$map['is_read']	=	1;
 		$map['_string']	=	' member_id="'.$member_id.'" or to_member_id="'.$member_id.'"';
 		$shopcommentnum	=	M('ShopComment')->where($map)->count();
 		$data['zannum']	=	$zannum;
