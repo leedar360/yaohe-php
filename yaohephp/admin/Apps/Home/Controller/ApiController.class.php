@@ -3064,6 +3064,7 @@ class ApiController extends Controller {
 	public function getMyCallCommentList()
 	{
 		$member_id	=	intval(I('get.member_id'));
+		$is_del		= 	intval(I('get.is_del'));
 		$map['_string']='member_id="'.$member_id.'" or to_member_id="'.$member_id.'"';
 		$list	=M('ShopServiceComment')->where($map)->order('id desc')->select();
 		if(!$list)
@@ -3081,9 +3082,11 @@ class ApiController extends Controller {
 			if(!$person)$person['nickname']='吆喝'.$item['member_id'];
 			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'nickname'=>$person['nickname'],'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']));
 
-			//更新is_read为0
-			$data['is_read'] 	=	0 ;
-			M('ShopServiceComment')->where(array('id'=>$item['id']))->save($data);
+			if ($is_del == "Y") {
+				//更新is_read为0
+				$data['is_read'] = 0;
+				M('ShopServiceComment')->where(array('id' => $item['id']))->save($data);
+			}
 		}
 		if(count($arr)<1)
 		{
