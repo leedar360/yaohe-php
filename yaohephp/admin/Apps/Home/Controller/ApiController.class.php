@@ -1790,7 +1790,7 @@ class ApiController extends Controller {
 				$data['title']	=	$row['title'];
 				break;
 			case 2://活动
-				$row	=	M('Activity')->field('title')->where(array('id'=>$shop_service['service_id']))->find();
+				$row	=	kM('Activity')->field('title')->where(array('id'=>$shop_service['service_id']))->find();
 				if(!$row)
 				{
 					$this->json_error('内容不存在');
@@ -2942,15 +2942,16 @@ class ApiController extends Controller {
 		$member_id	=	intval(I('post.member_id'));
 		//获取点赞总记录数
 		$map['member_id']=$member_id;
+		$map['is_read']	=	1;
 		$zannum	=	M('ShopServiceZan')->where($map)->count();
 		//获取我的吆喝评论数
 		$map	=	array();
-		$map['is_read']	=	0;
+		$map['is_read']	=	1;
 		$map['_string']	=	' member_id="'.$member_id.'" or to_member_id="'.$member_id.'"';
 		$callcommentnum=M('ShopServiceComment')->where($map)->count();
 		//获取店铺的评论数
 		$map	=	array();
-		$map['is_read']	=	0;
+		$map['is_read']	=	1;
 		$map['_string']	=	' member_id="'.$member_id.'" or to_member_id="'.$member_id.'"';
 		$shopcommentnum	=	M('ShopComment')->where($map)->count();
 		$data['zannum']	=	$zannum;
@@ -3016,6 +3017,10 @@ class ApiController extends Controller {
 			$item['face']		=	$member['face'];
 			$item['nickname']	=	$person['nickname'];
 			$arr[]=$item;
+
+			//更新is_read为0
+			$data['is_read'] 	=	0 ;
+			M('ShopServiceZan')->where(array('id'=>$item['id']))->save($data);
 		}
 		$this->json_ok($arr);
 	}
@@ -3041,6 +3046,9 @@ class ApiController extends Controller {
 			$person=M('Person')->where(array('member_id'=>$item['member_id']))->find();
 			if(!$person)$person['nickname']='吆喝'.$item['member_id'];
 			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'nickname'=>$person['nickname'],'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']));
+			//更新is_read为0
+			$data['is_read'] 	=	0 ;
+			M('ShopComment')->where(array('id'=>$item['id']))->save($data);
 		}
 		if(count($arr)<1)
 		{
@@ -3072,8 +3080,8 @@ class ApiController extends Controller {
 			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'nickname'=>$person['nickname'],'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']));
 
 			//更新is_read为1
-			$data['is_read'] 	=	1 ;
-			M('ShopServiceComment')->where(array('id'=>$item['id']))->save($data);
+			//$data['is_read'] 	=	1 ;
+			//M('ShopServiceComment')->where(array('id'=>$item['id']))->save($data);
 		}
 		if(count($arr)<1)
 		{
