@@ -2873,6 +2873,7 @@ class ApiController extends Controller {
 			$this->json_error('优惠券不是您的');
 		}
 		M('Coupon')->where(array('id'=>$id))->delete();
+		M('MemberCoupon')->where(array('card_id'=>$id))->delete();
 		$this->json_ok(true);
 	}
 	/**
@@ -2892,6 +2893,7 @@ class ApiController extends Controller {
 			$this->json_error('会员卡不是您的');
 		}
 		M('Card')->where(array('id'=>$id))->delete();
+		M('MemberCard')->where(array('card_id'=>$id))->delete();
 		$this->json_ok(true);
 	}
 	/**
