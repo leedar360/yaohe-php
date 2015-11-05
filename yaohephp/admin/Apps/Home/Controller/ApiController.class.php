@@ -1730,12 +1730,12 @@ class ApiController extends Controller {
 	*/
 	public function callComment()
 	{
-		$data['member_id']	=	intval(I('post.member_id'));
-		$data['shop_service_id']=intval(I('post.call_id'));
-		$data['content']	=	I('post.content');//评论内容
-		$data['is_anonymous']=	I('post.is_anonymous');//是否匿名
-		$data['type']		=	I('post.type');//0优惠券 1会员卡 2活动 3新品 4吆喝
-		$data['parentid']	=	intval(I('post.parentid'));//回复ID
+		$data['member_id']	=	intval(I('get.member_id'));
+		$data['shop_service_id']=intval(I('get.call_id'));
+		$data['content']	=	I('get.content');//评论内容
+		$data['is_anonymous']=	I('get.is_anonymous');//是否匿名
+		$data['type']		=	I('get.type');//0优惠券 1会员卡 2活动 3新品 4吆喝
+		$data['parentid']	=	intval(I('get.parentid'));//回复ID
 		if($data['type']>4)
 		{
 			$this->json_error('类型不正确');
