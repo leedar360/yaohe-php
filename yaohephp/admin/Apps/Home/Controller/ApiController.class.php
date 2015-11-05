@@ -3014,6 +3014,10 @@ class ApiController extends Controller {
 			$item['face']		=	$member['face'];
 			$item['nickname']	=	$person['nickname'];
 			$arr[]=$item;
+
+			//更新is_read为0
+			$data['is_read'] 	=	0 ;
+			M('ShopServiceZan')->where(array('id'=>$item['id']))->save($data);
 		}
 		$this->json_ok($arr);
 	}
@@ -3039,6 +3043,10 @@ class ApiController extends Controller {
 			$person=M('Person')->where(array('member_id'=>$item['member_id']))->find();
 			if(!$person)$person['nickname']='吆喝'.$item['member_id'];
 			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'nickname'=>$person['nickname'],'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']));
+
+			//更新is_read为0
+			$data['is_read'] 	=	0 ;
+			M('ShopComment')->where(array('id'=>$item['id']))->save($data);
 		}
 		if(count($arr)<1)
 		{
@@ -3069,8 +3077,8 @@ class ApiController extends Controller {
 			if(!$person)$person['nickname']='吆喝'.$item['member_id'];
 			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'nickname'=>$person['nickname'],'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']));
 
-			//更新is_read为1
-			$data['is_read'] 	=	1 ;
+			//更新is_read为0
+			$data['is_read'] 	=	0 ;
 			M('ShopServiceComment')->where(array('id'=>$item['id']))->save($data);
 		}
 		if(count($arr)<1)
