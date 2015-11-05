@@ -317,7 +317,7 @@ class ApiController extends Controller {
 		$data['c_id']		=	I('post.c_id');//引用内容ID
 		$data['city_id']	=	intval(I('post.city_id'));
 		$data['addtime']	=	time();*/
-		$province	=	M('Province')->where(array('id'=>$data['city_id']))->find();
+		$province	=	M('Province')->where(array('id'=>intval(I('post.city_id'))))->find();
 		$member_id	=	intval(I('post.member_id'));//商家ID
 		$type		=	I('post.type');//0优惠券 1会员卡 2活动 3新品 4吆喝
 		$content	=	I('post.content');
@@ -387,6 +387,7 @@ class ApiController extends Controller {
 			//$data['city_id']	=	$city_id;
 			$data['member_id']	=	$member_id;
 			$data['content']	=	$content;
+			$data['title']		=	$content;
 			$data['c_id']		=	$c_id;
 			$data['province_id']=	$shop['province_id'];//省份
 			$data['city_id']	=	$shop['city_id'];//城市ID
@@ -416,6 +417,7 @@ class ApiController extends Controller {
 		$new_data['type']		=	$type;
 		$new_data['member_id']	=	$member_id;
 		$new_data['content']	=	$content;//I('post.title');
+		$data['title']			=	$content;
 		$new_data['addtime']	=	time();
 		$new_data['province_id']=	$shop['province_id'];//省份
 		$new_data['city_id']	=	$shop['city_id'];//城市ID
@@ -1203,7 +1205,12 @@ class ApiController extends Controller {
 		$row['img5']				=	$record['img5'];
 		$row['img6']				=	$record['img6'];*/
 		$row['shop_service_id']		=	$row['service_id'];
-		$row['content']				=	$record['content'];
+		if(!isset($record['content'])){
+			$row['content']				=	$record['title'];
+		}else{
+			$row['content']				=	$record['content'];
+		}
+		//$row['content']				=	$record['content'];
 		$row['addtime']				=	date('m-d H:i');
 		$row['shop_id']				=	$shop['id'];//店铺ID
 		$row['shop_name']			=	$shop['title'];//店铺名字
