@@ -1789,16 +1789,16 @@ class ApiController extends Controller {
 				}
 				$data['title']	=	$row['title'];
 				break;
-			case 2://新品
-				$row	=	M('NewProduct')->field('title')->where(array('id'=>$shop_service['service_id']))->find();
+			case 2://活动
+				$row	=	M('Activity')->field('title')->where(array('id'=>$shop_service['service_id']))->find();
 				if(!$row)
 				{
 					$this->json_error('内容不存在');
 				}
 				$data['title']	=	$row['title'];
 				break;
-			case 3://活动
-				$row	=	M('Activity')->field('title')->where(array('id'=>$shop_service['service_id']))->find();
+			case 3://新品
+				$row	=	M('NewProduct')->field('title')->where(array('id'=>$shop_service['service_id']))->find();
 				if(!$row)
 				{
 					$this->json_error('内容不存在');
