@@ -387,7 +387,8 @@ class ApiController extends Controller {
 			//$data['city_id']	=	$city_id;
 			$data['member_id']	=	$member_id;
 			$data['content']	=	$content;
-			$data['title']		=	$content;
+			//纯吆喝时候是不加title的
+			//$data['title']		=	$content;
 			$data['c_id']		=	$c_id;
 			$data['province_id']=	$shop['province_id'];//省份
 			$data['city_id']	=	$shop['city_id'];//城市ID
@@ -417,7 +418,8 @@ class ApiController extends Controller {
 		$new_data['type']		=	$type;
 		$new_data['member_id']	=	$member_id;
 		$new_data['content']	=	$content;//I('post.title');
-		$data['title']			=	$content;
+		//纯吆喝时候是不加title的
+		//$data['title']			=	$content;
 		$new_data['addtime']	=	time();
 		$new_data['province_id']=	$shop['province_id'];//省份
 		$new_data['city_id']	=	$shop['city_id'];//城市ID
