@@ -2939,8 +2939,8 @@ class ApiController extends Controller {
 	{
 		$member_id	=	intval(I('post.member_id'));
 		//获取点赞总记录数
-		$map['member_id']=$member_id;
 		$map	=	array();
+		$map['member_id']=$member_id;
 		$map['is_read']	=	1;
 		$zannum	=	M('ShopServiceZan')->where($map)->count();
 		//获取我的吆喝评论数
