@@ -1234,6 +1234,7 @@ class ApiController extends Controller {
 		//$field	=	'id,member_id,type,zan_num,comment_num,collection_num';
 		//$list	=	M('Call')->field($field)->where(array('city_id'=>$city_id))->order('id desc')->limit(($page-1)*20,20)->select();
 		$list	=	M('ShopService')->where(array('city_id'=>$city_id))->order('id desc')->limit(($page-1)*20,20)->select();
+		$count	=	M('ShopService')->where(array('city_id'=>$city_id))->count('*');
 		//echo M('ShopService')->getlastsql();exit;
 		if(!$list)$list=array();
 		$arr	=	array();
@@ -1258,24 +1259,23 @@ class ApiController extends Controller {
 				break;
 			}
 			//$item['content']	=	$service['content'];
-			if(!empty($service['img6']))$item['img']=	$service['img6'];
-			if(!empty($service['img5']))$item['img']=	$service['img5'];
-			if(!empty($service['img4']))$item['img']=	$service['img4'];
-			if(!empty($service['img3']))$item['img']=	$service['img3'];
-			if(!empty($service['img2']))$item['img']=	$service['img2'];
-			if(!empty($service['img1']))$item['img']=	$service['img1'];
+			if(!empty($service['img6']))$item['s_img']=	$service['img6'];
+			if(!empty($service['img5']))$item['s_img']=	$service['img5'];
+			if(!empty($service['img4']))$item['s_img']=	$service['img4'];
+			if(!empty($service['img3']))$item['s_img']=	$service['img3'];
+			if(!empty($service['img2']))$item['s_img']=	$service['img2'];
+			if(!empty($service['img1']))$item['s_img']=	$service['img1'];
 
-			if(!isset($item['img']))
-			{
-				if(!empty($item['img6']))$item['img']	=	$item['img6'];
-				if(!empty($item['img5']))$item['img']	=	$item['img5'];
-				if(!empty($item['img4']))$item['img']	=	$item['img4'];
-				if(!empty($item['img3']))$item['img']	=	$item['img3'];
-				if(!empty($item['img2']))$item['img']	=	$item['img2'];
-				if(!empty($item['img1']))$item['img']	=	$item['img1'];
-			}
+			if(!empty($item['img6']))$item['img']	=	$item['img6'];
+			if(!empty($item['img5']))$item['img']	=	$item['img5'];
+			if(!empty($item['img4']))$item['img']	=	$item['img4'];
+			if(!empty($item['img3']))$item['img']	=	$item['img3'];
+			if(!empty($item['img2']))$item['img']	=	$item['img2'];
+			if(!empty($item['img1']))$item['img']	=	$item['img1'];
+
+			if(!isset($item['s_img']))$item['s_img']='';
 			if(!isset($item['img']))$item['img']='';
-			if(empty($item['content']))$item['content']=$service['content'];
+			if(empty($item['s_content']))$item['s_content']=$service['content'];
 			//$list[$key]['img']		=	$service['img1'];
 			$row=	M('Shop')->field('id,title,star,fans_num')->where(array('member_id'=>$item['member_id']))->find();
 			$item['shop_id']		=	$row['id'];
@@ -1294,7 +1294,8 @@ class ApiController extends Controller {
 			$arr[]=$item;
 		}
 		if(count($arr)<1)$arr=array(array('id'=>''));
-		$this->json_ok($arr);
+		$this->json_ok_page($arr, $page, $count);
+		//$this->json_ok($arr);
 	}
 	/**
 	* 功能：获取某个分类下的吆喝
@@ -3172,6 +3173,7 @@ class ApiController extends Controller {
 		$arr['status']['message']='a';
 		$arr['page']=$page ;
 		$arr['totalNumber'] = $totalNumber ;
+		$arr['pageNumber'] = intval($totalNumber/20 + 1) ;
 		$arr['data']=$data;
 		echo json_encode($arr);
 		exit;
