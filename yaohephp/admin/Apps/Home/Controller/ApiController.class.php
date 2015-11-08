@@ -1282,6 +1282,12 @@ class ApiController extends Controller {
 			$item['shop_name']		=	$row['title'];
 			$item['shop_star']		=	$row['star'];
 			$item['shop_fans_num']	=	$row['fans_num'];
+
+			//如果是纯吆喝的时候，添加是不否有引用其他的服务
+			if($item['type'] == 4){
+				$item['c_id']	=	$service['c_id'];
+			}
+
 			$row	=	M('ShopFans')->where(array('shop_id'=>$row['id'],'member_id'=>$member_id))->find();
 			if($row)
 			{
@@ -1358,6 +1364,12 @@ class ApiController extends Controller {
 			if(!isset($item['s_img']))$item['s_img']='';
 			if(!isset($item['img']))$item['img']='';
 			if(empty($item['s_content']))$item['s_content']=$service['content'];
+
+			//如果是纯吆喝的时候，添加是不否有引用其他的服务
+			if($item['type'] == 4){
+				$item['c_id']	=	$service['c_id'];
+			}
+
 			//$item['img1']=$item['img'];
 			//$item['img1']=$service['img1'];
 			$item['content']=$service['content'];
@@ -1649,7 +1661,7 @@ class ApiController extends Controller {
 	}
 
 	/**
-	 * 功能：店铺点评
+	 * 功能：发送消息
 	 */
 	public function sms()
 	{
