@@ -1255,7 +1255,7 @@ class ApiController extends Controller {
 					$service	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
 				break;
 				case 4://纯吆喝
-					$service	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
+					$service	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content,c_id')->where(array('id'=>$item['service_id']))->find();
 				break;
 			}
 			//$item['content']	=	$service['content'];
@@ -1346,6 +1346,9 @@ class ApiController extends Controller {
 				case 0://优惠券
 					$service	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
 				break;
+				case 4://纯吆喝
+					$service	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content,c_id')->where(array('id'=>$item['service_id']))->find();
+					break;
 			}
 			if(!empty($service['img6']))$item['s_img']=	$service['img6'];
 			if(!empty($service['img5']))$item['s_img']=	$service['img5'];
