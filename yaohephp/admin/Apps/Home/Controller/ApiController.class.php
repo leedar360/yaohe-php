@@ -1287,6 +1287,8 @@ class ApiController extends Controller {
 			//如果是纯吆喝的时候，添加是不否有引用其他的服务
 			if($item['type'] == 4){
 				$item['c_id']	=	$service['c_id'];
+			}else{
+				$item['c_id']	=	'0';
 			}
 
 			$row	=	M('ShopFans')->where(array('shop_id'=>$row['id'],'member_id'=>$member_id))->find();
@@ -1372,7 +1374,10 @@ class ApiController extends Controller {
 			//如果是纯吆喝的时候，添加是不否有引用其他的服务
 			if($item['type'] == 4){
 				$item['c_id']	=	$service['c_id'];
+			}else{
+				$item['c_id']	=	'0';
 			}
+
 
 			//$item['img1']=$item['img'];
 			//$item['img1']=$service['img1'];
@@ -1427,18 +1432,23 @@ class ApiController extends Controller {
 			{
 				case 1://会员卡
 				$row	=	M('Card')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
+					$item['c_id']	=	'0';
 					break;
 				case 2://活动
 				$row	=	M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
+					$item['c_id']	=	'0';
 					break;
 				case 3://新品
 				$row	=	M('NewProduct')->field('img1,title as content')->where(array('id'=>$item['service_id']))->find();
+					$item['c_id']	=	'0';
 					break;
 				case 0://优惠券
 				$row	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
+					$item['c_id']	=	'0';
 					break;
 				case 4://吆喝
-				$row	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
+				$row	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content,c_id')->where(array('id'=>$item['service_id']))->find();
+					$item['c_id']	=	$row['c_id'];
 					break;
 				default:
 					$row['content']	=	'';
@@ -1448,12 +1458,12 @@ class ApiController extends Controller {
 			//$item['img1']	=	$row['img1'];
 
 			//$item['content']	=	$service['content'];
-			if(!empty($service['img6']))$item['s_img']=	$service['img6'];
-			if(!empty($service['img5']))$item['s_img']=	$service['img5'];
-			if(!empty($service['img4']))$item['s_img']=	$service['img4'];
-			if(!empty($service['img3']))$item['s_img']=	$service['img3'];
-			if(!empty($service['img2']))$item['s_img']=	$service['img2'];
-			if(!empty($service['img1']))$item['s_img']=	$service['img1'];
+			if(!empty($row['img6']))$item['s_img']=	$row['img6'];
+			if(!empty($row['img5']))$item['s_img']=	$row['img5'];
+			if(!empty($row['img4']))$item['s_img']=	$row['img4'];
+			if(!empty($row['img3']))$item['s_img']=	$row['img3'];
+			if(!empty($row['img2']))$item['s_img']=	$row['img2'];
+			if(!empty($row['img1']))$item['s_img']=	$row['img1'];
 
 			if(!empty($item['img6']))$item['img']	=	$item['img6'];
 			if(!empty($item['img5']))$item['img']	=	$item['img5'];
@@ -1464,10 +1474,10 @@ class ApiController extends Controller {
 
 			if(!isset($item['s_img']))$item['s_img']='';
 			if(!isset($item['img']))$item['img']='';
-			if(empty($item['s_content']))$item['s_content']=$service['content'];
+			if(empty($item['s_content']))$item['s_content']=$row['content'];
 
 
-			if(empty($row['s_title']))$row['s_title']=	$service['title'];
+			if(empty($row['s_title']))$row['s_title']=	$row['title'];
 
 
 			$item['img1']=$item['img'];
@@ -1478,10 +1488,6 @@ class ApiController extends Controller {
 			$item['shop_star']=$row['star'];
 			$item['shop_fans_num']=$row['fans_num'];
 
-			//如果是纯吆喝的时候，添加是不否有引用其他的服务
-			if($item['type'] == 4){
-				$item['c_id']	=	$service['c_id'];
-			}
 
 			$arr[]=$item;
 			/*$list[$key]['content']=	$row['content'];
@@ -1947,9 +1953,15 @@ class ApiController extends Controller {
 			$classify_arr[$item['id']]=$item['title'];
 		}
 		$member_id_get	=	intval(I('get.member_id')) ;
+		$page			=	intval(I('post.page')) ;
+		if(!$page){
+			$page		=	intval(I('get.page')) ;
+		}
+		if($page<1)$page=1;
+
 		//$city_id	=	intval(I('get.city_id')) ;
 		$where['member_id']=	intval(I('get.member_id'));
-		$list	=	 M()->table('ht_shop_fans sf, ht_shop sp ')->where('sf.shop_id = sp.id and sf.member_id='.$member_id_get)->field('sf.to_member_id')->order('sf.follow_time')->select();
+		$list	=	 M()->table('ht_shop_fans sf, ht_shop sp ')->where('sf.shop_id = sp.id and sf.member_id='.$member_id_get)->field('sp.*')->order('sf.follow_time')->select();
 		//$list = M()->table('ht_shop_service s, ht_shop_service_collection n')->where('s.id = n.shop_service_id and n.member_id='.$member_id)->field('n.id,s.service_id,s.member_id,s.type,n.addtime')->order('n.id desc' )->select();
 
 		if(!$list)
