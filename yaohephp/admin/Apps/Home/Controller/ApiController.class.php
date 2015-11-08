@@ -1596,7 +1596,8 @@ class ApiController extends Controller {
 		$data['addtime']	=	time();
 		$data['type']		=	intval(I('post.type'));//0评论 1回复
 		$data['parentid']	=	intval(I('post.parentid'));
-		$person	=	M('Person')->where(array('member_id'=>$data['member_id']))->find();
+		$person	=	M('Personal')->where(array('member_id'=>$data['member_id']))->find();
+		$member	=	M('Member')->where(array('id'=>$data['member_id']))->find();
 		if($data['type']>0)
 		{
 			$row	=	M('ShopComment')->where(array('id'=>$data['parentid']))->find();
@@ -1607,16 +1608,17 @@ class ApiController extends Controller {
 			$data['to_member_id']	=	$row['member_id'];
 			if(!$person)
 			{
-				$comment_title	=	'吆喝'.intval(I('post.member_id'));
+				$comment_title	=	'吆喝'.substr_replace($member['login_user'],'****',3,4);
 			}
 			else
 			{
 				$comment_title	=	$person['nickname'];
 			}
-			$person1	=	M('Person')->where(array('member_id'=>$row['member_id']))->find();
+			$person1	=	M('Personal')->where(array('member_id'=>$row['member_id']))->find();
+			$member1	=	M('Member')->where(array('id'=>$row['member_id']))->find();
 			if(!$person1)
 			{
-				$comment_title	.=	'回复吆喝'.$row['member_id'];
+				$comment_title	.=	'回复吆喝'.substr_replace($member1['login_user'],'****',3,4);
 			}
 			else
 			{
@@ -1627,7 +1629,7 @@ class ApiController extends Controller {
 		{
 			if(!$person)
 			{
-				$comment_title	=	'吆喝'.intval(I('post.member_id'));
+				$comment_title	=	'吆喝'.substr_replace($member['login_user'],'****',3,4);
 			}
 			else
 			{
@@ -2596,7 +2598,7 @@ class ApiController extends Controller {
 		{
 			$this->json_error('会员不存在');
 		}
-		$person	=	M('Person')->where(array('member_id'=>$member_id))->find();;
+		$person	=	M('Personal')->where(array('member_id'=>$member_id))->find();;
 		if(empty($person['nickname']))$person['nickname']=$member['login_user'];
 		$date	=	date("Y-m-d");
 		$map['_string']=" status=1 and start_date<='".$date."' and end_date>='".$date."'";
@@ -3014,8 +3016,8 @@ class ApiController extends Controller {
 			$item['addtime']	=	date('Y-m-d H:i',$item['addtime']);
 			$member		=	M('Member')->where(array('id'=>$item['member_id']))->find();
 			$to_member		=	M('Member')->where(array('id'=>$item['to_member_id']))->find();
-			$person		=	M('Person')->where(array('member_id'=>$item['member_id']))->find();
-			$to_person		=	M('Person')->where(array('member_id'=>$item['to_member_id']))->find();
+			$person		=	M('Personal')->where(array('member_id'=>$item['member_id']))->find();
+			$to_person		=	M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
 
 			$item['face']		=	$member['face'];
 			$item['nickname']	=	$person['nickname'];
@@ -3038,7 +3040,7 @@ class ApiController extends Controller {
 	{
 		$member_id	=	intval(I('post.member_id'));
 		$member		=	M('Member')->where(array('id'=>$member_id))->find();
-		$person		=	M('Person')->where(array('member_id'=>$member_id))->find();
+		$person		=	M('Personal')->where(array('member_id'=>$member_id))->find();
 		if(!$person)$person['nickname']='吆喝'.$member_id;
 		$map['_string']='member_id="'.$member_id.'"';
 		$list	=	M('ShopServiceZan')->where($map)->order('id desc')->select();
@@ -3117,7 +3119,7 @@ class ApiController extends Controller {
 			$row=M('Member')->where(array('id'=>$item['member_id']))->find();
 			$item['face']=$row['face'];
 			//获取会员昵称
-			$person=M('Person')->where(array('member_id'=>$item['member_id']))->find();
+			$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
 			if(!$person)$person['nickname']='吆喝'.$item['member_id'];
 			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'nickname'=>$person['nickname'],'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']));
 
