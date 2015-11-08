@@ -1469,16 +1469,16 @@ class ApiController extends Controller {
 		switch($rice)
 		{
 			case 500://500米
-				$rice=0.05;
+				$rice=0.5;
 			break;
 			case 1000://1000米
-				$rice=0.1;
+				$rice=1;
 			break;
 			case 3000://3000米
-				$rice=0.3;
+				$rice=3;
 			break;
 			case 5000://5000米
-				$rice=0.5;
+				$rice=5;
 			break;
 			default:
 				$rice=0;
@@ -1495,7 +1495,7 @@ class ApiController extends Controller {
 		//var_dump($list);exit;
 		foreach($list as $key=>$item)
 		{
-			$range	=	getDistance($long,$lat,$item['lng'],$item['lat']);//得到具体的距离
+			$range	=	getDistance($lat, $long ,$item['lat'], $item['lng']);//得到具体的距离
 			$shoprange[]=array('id'=>$item['id'],'range'=>$range);
 			$shoplist[]=$range;
 			//$keyid	=	$item['id'];
@@ -2564,7 +2564,7 @@ class ApiController extends Controller {
 	*/
 	public function getWinnig()
 	{
-		$member_id=	intval(I('post.member_id'));
+		$member_id=	intval(I('get.member_id'));
 		$member	=	M('Member')->where(array('id'=>$member_id))->find();
 		if(!$member)
 		{
@@ -2598,6 +2598,7 @@ class ApiController extends Controller {
 			$this->json_error('您没有中奖');
 		}
 		$count	=	M('PrizeList')->where(array('pid'=>$prizerow['id']))->count();
+
 		if($count+1>$prizerow['num'])
 		{
 			$this->json_error('您没有中奖');
@@ -2607,7 +2608,7 @@ class ApiController extends Controller {
 		$data['member_id']	=	$member_id;
 		$data['username']	=	$person['nickname'];
 		$data['pid']		=	$prizerow['id'];
-		$data['ptitle']		=	$prizerow['ptitle'];
+		$data['ptitle']		=	$prizerow['title'];
 		$data['card_number']=	$this->getWinCardNumber();
 		$data['addtime']	=	time();
 		$insert_id	=	M('PrizeList')->add($data);
@@ -2623,6 +2624,9 @@ class ApiController extends Controller {
 	public function getWinGoodsList()
 	{
 		$member_id=	intval(I('post.member_id'));
+		if(!$member_id){
+			$member_id = intval(I('get.member_id'));
+		}
 		$page	=	intval(I('post.page'));
 		if($page<1)$page=1;
 		$list	=	M('PrizeList')->where(array('member_id'=>$member_id))->order('id desc')->limit(($page-1)*20,20)->select();
@@ -3100,7 +3104,8 @@ class ApiController extends Controller {
 	private function getWinCardNumber()
 	{
 		$card_number	=	getRandomNum(12);
-		$map['card_number']	=	$data['card_number'];
+//		$map['card_number']	=	$data['card_number'];
+		$map['card_number']	=	$card_number ;
 		$row	=	M('PrizeList')->where($map)->find();
 		if($row)return $this->getWinCardNumber();
 		return $card_number;
