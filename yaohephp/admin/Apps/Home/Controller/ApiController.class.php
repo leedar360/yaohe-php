@@ -1341,24 +1341,24 @@ class ApiController extends Controller {
 					$service	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
 				break;
 			}
-			if(!empty($service['img6']))$item['img']=	$service['img6'];
-			if(!empty($service['img5']))$item['img']=	$service['img5'];
-			if(!empty($service['img4']))$item['img']=	$service['img4'];
-			if(!empty($service['img3']))$item['img']=	$service['img3'];
-			if(!empty($service['img2']))$item['img']=	$service['img2'];
-			if(!empty($service['img1']))$item['img']=	$service['img1'];
+			if(!empty($service['img6']))$item['s_img']=	$service['img6'];
+			if(!empty($service['img5']))$item['s_img']=	$service['img5'];
+			if(!empty($service['img4']))$item['s_img']=	$service['img4'];
+			if(!empty($service['img3']))$item['s_img']=	$service['img3'];
+			if(!empty($service['img2']))$item['s_img']=	$service['img2'];
+			if(!empty($service['img1']))$item['s_img']=	$service['img1'];
 
-			if(!isset($item['img']))
-			{
-				if(!empty($item['img6']))$item['img']	=	$item['img6'];
-				if(!empty($item['img5']))$item['img']	=	$item['img5'];
-				if(!empty($item['img4']))$item['img']	=	$item['img4'];
-				if(!empty($item['img3']))$item['img']	=	$item['img3'];
-				if(!empty($item['img2']))$item['img']	=	$item['img2'];
-				if(!empty($item['img1']))$item['img']	=	$item['img1'];
-			}
+			if(!empty($item['img6']))$item['img']	=	$item['img6'];
+			if(!empty($item['img5']))$item['img']	=	$item['img5'];
+			if(!empty($item['img4']))$item['img']	=	$item['img4'];
+			if(!empty($item['img3']))$item['img']	=	$item['img3'];
+			if(!empty($item['img2']))$item['img']	=	$item['img2'];
+			if(!empty($item['img1']))$item['img']	=	$item['img1'];
+
+			if(!isset($item['s_img']))$item['s_img']='';
 			if(!isset($item['img']))$item['img']='';
-			$item['img1']=$item['img'];
+			if(empty($item['s_content']))$item['s_content']=$service['content'];
+			//$item['img1']=$item['img'];
 			//$item['img1']=$service['img1'];
 			$item['content']=$service['content'];
 			$row=	M('Shop')->field('id,title,star,fans_num')->where(array('member_id'=>$item['member_id']))->find();
@@ -1607,7 +1607,7 @@ class ApiController extends Controller {
 			$data['to_member_id']	=	$row['member_id'];
 			if(!$person)
 			{
-				$comment_title	=	'吆喝'.$member_id;
+				$comment_title	=	'吆喝'.intval(I('post.member_id'));
 			}
 			else
 			{
@@ -1627,7 +1627,7 @@ class ApiController extends Controller {
 		{
 			if(!$person)
 			{
-				$comment_title	=	'吆喝'.$member_id;
+				$comment_title	=	'吆喝'.intval(I('post.member_id'));
 			}
 			else
 			{
@@ -1643,6 +1643,20 @@ class ApiController extends Controller {
 		$star	=	floor($star_total/$comment_total);
 		M('Shop')->where(array('id'=>$data['shop_id']))->setInc('comment_num');
 		M('Shop')->where(array('id'=>$data['shop_id']))->save(array('star'=>$star));
+		$this->json_ok(true);
+	}
+
+	/**
+	 * 功能：店铺点评
+	 */
+	public function sms()
+	{
+		$data['member_id']	=	intval(I('post.member_id'));
+		$data['to_member_id']	=	intval(I('post.to_member_id'));
+		$data['content']	=	I('post.content');//消息内容
+		$data['addtime']	=	time();
+		$data['parentid']	=	intval(I('post.parentid'));
+		M('Sms ')->add($data);
 		$this->json_ok(true);
 	}
 	/**
@@ -2967,13 +2981,59 @@ class ApiController extends Controller {
 		$map['is_read']	=	1;
 		$map['_string']	=	' member_id="'.$member_id.'" or to_member_id="'.$member_id.'"';
 		$shopcommentnum	=	M('ShopComment')->where($map)->count();
+
+		//我的消息
+		$map	=	array();
+		$map['is_read']	=	1;
+		$map['_string']	=	' to_member_id="'.$member_id ;
+		$smsnum	=	M('Sms')->where($map)->count();
+
 		$data['zannum']	=	$zannum;
-		$data['commentnum']=$callcommentnum+$shopcommentnum;
+		$data['commentnum']	=	$callcommentnum+$shopcommentnum;
+		$data['$smsnum']=	$smsnum ;
 		$this->json_ok($data);
 	}
 	/**
-	* 功能：我的点赞列表
+	* 功能：我的消息列表
 	*/
+	public function getMySms()
+	{
+		$member_id	=	intval(I('post.member_id'));
+
+		$map['_string']='to_member_id="'.$member_id.'"';
+		$list	=	M('Sms')->where($map)->order('id desc')->select();
+
+		if(!$list)
+		{
+			$this->json_ok(array(array('id'=>'')));
+		}
+		$arr	=	array();
+		foreach($list as $item)
+		{
+
+			$item['addtime']	=	date('Y-m-d H:i',$item['addtime']);
+			$member		=	M('Member')->where(array('id'=>$item['member_id']))->find();
+			$to_member		=	M('Member')->where(array('id'=>$item['to_member_id']))->find();
+			$person		=	M('Person')->where(array('member_id'=>$item['member_id']))->find();
+			$to_person		=	M('Person')->where(array('member_id'=>$item['to_member_id']))->find();
+
+			$item['face']		=	$member['face'];
+			$item['nickname']	=	$person['nickname'];
+
+			$item['to_face']		=	$to_member['face'];
+			$item['to_nickname']	=	$to_person['nickname'];
+			$arr[]=$item;
+
+			//更新is_read为0
+			$data['is_read'] 	=	0 ;
+			M('Sms')->where(array('id'=>$item['id']))->save($data);
+		}
+		$this->json_ok($arr);
+	}
+
+	/**
+	 * 功能：我的点赞列表
+	 */
 	public function getMyZanList()
 	{
 		$member_id	=	intval(I('post.member_id'));
@@ -2994,19 +3054,19 @@ class ApiController extends Controller {
 			{
 				case 1://会员卡
 					$service	=	M('Card')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$row['service_id']))->find();
-				break;
+					break;
 				case 2://活动
 					$service	=	M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$row['service_id']))->find();
-				break;
+					break;
 				case 3://新品
 					$service	=	M('NewProduct')->field('img1,img2,img3,img4,img5,img6,title as content')->where(array('id'=>$row['service_id']))->find();
-				break;
+					break;
 				case 0://优惠券
 					$service	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$row['service_id']))->find();
-				break;
+					break;
 				case 4://纯吆喝
 					$service	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$row['service_id']))->find();
-				break;
+					break;
 			}
 			//$item['content']	=	$service['content'];
 			if(!empty($item['img6']))$item['img']	=	$item['img6'];
@@ -3037,6 +3097,7 @@ class ApiController extends Controller {
 		}
 		$this->json_ok($arr);
 	}
+
 	/**
 	* 功能：获取我的店铺评论
 	*/
