@@ -1320,6 +1320,7 @@ class ApiController extends Controller {
 		//$field	=	'id,member_id,content,img1,type,fans_num,zan_num,comment_num';
 		//$field	=	'id,member_id,title,type,addtime,zan_num,comment_num,collection_num,img1,img2,img3,img4,img5,img6';
 		$list	=	M('ShopService')->where($map)->order('id desc')->limit(($page-1)*20,20)->select();
+		$count	=	M('ShopService')->where($map)->count('*');
 		//$list	=	M('Call')->field($field)->where($map)->order('id desc')->select();
 		if(!$list)$list=array();
 		$arr	=	array();
@@ -1368,7 +1369,8 @@ class ApiController extends Controller {
 			$arr[]=$item;
 		}
 		if(count($arr)<1)$arr=array(array('id'=>''));
-		$this->json_ok($arr);
+		$this->json_ok_page($arr, $page, $count);
+		//$this->json_ok($arr);
 	}
 	/**
 	* 功能：获取关注商家的吆喝列表
