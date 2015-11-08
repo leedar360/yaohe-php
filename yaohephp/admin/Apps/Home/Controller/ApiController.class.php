@@ -1961,7 +1961,7 @@ class ApiController extends Controller {
 
 		//$city_id	=	intval(I('get.city_id')) ;
 		$where['member_id']=	intval(I('get.member_id'));
-		$list	=	 M()->table('ht_shop_fans sf, ht_shop sp ')->where('sf.shop_id = sp.id and sf.member_id='.$member_id_get)->field('sp.*')->order('sf.follow_time')->select();
+		$list	=	 M()->table('ht_shop_fans sf, ht_shop sp ')->where('sf.shop_id = sp.id and sf.member_id='.$member_id_get)->field('sp.*')->order('sf.follow_time desc')->select();
 		//$list = M()->table('ht_shop_service s, ht_shop_service_collection n')->where('s.id = n.shop_service_id and n.member_id='.$member_id)->field('n.id,s.service_id,s.member_id,s.type,n.addtime')->order('n.id desc' )->select();
 
 		if(!$list)
@@ -1969,17 +1969,17 @@ class ApiController extends Controller {
 			$arr	=	array(array('id'=>''));
 			$this->json_ok($arr);
 		}
-		foreach($list as $item)
-		{
-			$member_id[]=$item['to_member_id'];
-		}
+		//foreach($list as $item)
+		//{
+			//$member_id[]=$item['to_member_id'];
+		//}
 
 		//TODO  由于前期推广，所以先把状态控制先取消
 		//$map['status']		=	1;
-		$map['member_id']	=	array('in',implode(',',$member_id));
-		$calllist			=	M('Shop')->field('id,member_id,one_id,industry_class_id,title,one_id')->where($map)->order('id desc')->select();
+		//$map['member_id']	=	array('in',implode(',',$member_id));
+		//$calllist			=	M('Shop')->field('id,member_id,one_id,industry_class_id,title,one_id')->where($map)->order('id desc')->select();
 		$arr	=	array();
-		foreach($calllist as $key=>$item)
+		foreach($list as $key=>$item)
 		{
 			$row	=	M('Member')->where(array('id'=>$item['member_id']))->find();
 			$item['class_title']=$classify_arr[$item['one_id']];
