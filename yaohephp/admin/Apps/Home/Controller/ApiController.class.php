@@ -1479,6 +1479,9 @@ class ApiController extends Controller {
 	public function getNearbyList()
 	{
 		$page	=	intval(I('post.page'));//当前页数
+		if(!$page){
+			$page = intval(I('get.page'));
+		}
 		if($page<1)$page=1;
 		$long	=	I('get._long');//经度
 		$lat	=	I('get.lat');//纬度
@@ -1516,6 +1519,7 @@ class ApiController extends Controller {
 			$map['_string']	=	"lat<>0 and lat>{$squares['right-bottom']['lat']} and lat<{$squares['left-top']['lat']} and lng>{$squares['left-top']['lng']} and lng<{$squares['right-bottom']['lng']}";
 		}
 		$list	=	M('Shop')->field('id,lng,lat')->where($map)->select();
+		$count	=	M('Shop')->where($map)->count('*');
 		//echo M('Shop')->getlastsql();
 		if(!$list)$list=array();
 		$shoplist	=	array();
@@ -1564,6 +1568,7 @@ class ApiController extends Controller {
 		}
 		//var_dump($arr);exit;
 		if(count($arr)<1)$arr=array(array('id'=>''));
+		//$this->json_ok_page($arr, $page, $count);
 		$this->json_ok($arr);
 	}
 	/**
@@ -1968,8 +1973,13 @@ class ApiController extends Controller {
 		{
 			$classify_arr[$item['id']]=$item['title'];
 		}
+
 		$member_id_get	=	intval(I('get.member_id')) ;
 		$city_id	=	intval(I('get.city_id')) ;
+		$page		=	intval(I('post.page')) ;
+		if(!$page){
+			$page	=	intval(I('get.page')) ;
+		}
 		$where['member_id']=	intval(I('get.member_id'));
 		$list	=	 M()->table('ht_shop_fans sf, ht_shop sp ')->where('sf.shop_id = sp.id and sf.member_id='.$member_id_get.' and sp.city_id='.$city_id)->field('sf.to_member_id')->order('sf.follow_time')->select();
 		//$list = M()->table('ht_shop_service s, ht_shop_service_collection n')->where('s.id = n.shop_service_id and n.member_id='.$member_id)->field('n.id,s.service_id,s.member_id,s.type,n.addtime')->order('n.id desc' )->select();
@@ -1987,7 +1997,8 @@ class ApiController extends Controller {
 		//TODO  由于前期推广，所以先把状态控制先取消
 		//$map['status']		=	1;
 		$map['member_id']	=	array('in',implode(',',$member_id));
-		$calllist			=	M('Shop')->field('id,member_id,one_id,industry_class_id,title,one_id')->where($map)->order('id desc')->select();
+		$calllist			=	M('Shop')->field('id,member_id,one_id,industry_class_id,title,one_id')->where($map)->limit(($page-1)*20,20)->order('id desc')->select();
+		$count	= M('Shop')->where($map)->count('*');
 		$arr	=	array();
 		foreach($calllist as $key=>$item)
 		{
@@ -2002,7 +2013,8 @@ class ApiController extends Controller {
 		{
 			$arr=array(array('id'=>''));
 		}
-		$this->json_ok($arr);
+		$this->json_ok_page($arr, $page, $count);
+		//$this->json_ok($arr);
 	}
 
 	/**
