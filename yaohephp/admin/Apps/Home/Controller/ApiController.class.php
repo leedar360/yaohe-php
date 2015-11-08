@@ -3005,6 +3005,9 @@ class ApiController extends Controller {
 	{
 		$member_id	=	intval(I('post.member_id'));
 
+		if(!$member_id){
+			$member_id	=	intval(I('get.member_id')) ;
+		}
 		$map['_string']='to_member_id="'.$member_id.'"';
 		$list	=	M('Sms')->where($map)->order('id desc')->select();
 
