@@ -872,10 +872,11 @@ class ApiController extends Controller {
 		{
 			$this->json_error('会员不存在');
 		}
-		if($member['type']>0)
-		{
-			$this->json_error('您是商家的角色，不允许关注');
-		}
+		//取消商家不能关注的限制
+		//if($member['type']>0)
+		//{
+			//$this->json_error('您是商家的角色，不允许关注');
+		//}
 		$map['shop_id']	=	$id;
 		$map['member_id']=	$member_id;
 		$fans	=	M('ShopFans')->where($map)->find();
@@ -1394,6 +1395,12 @@ class ApiController extends Controller {
 	{
 		$city_id	=	intval(I('get.city_id'));//城市
 		$member_id	=	intval(I('get.member_id'));//会员ID
+		$page		=	intval(I('post.page')) ;
+		if(!$page){
+			$page	=	intval(I('get.page')) ;
+		}
+		if($page<1)$page=1;
+
 		$list		=	M('ShopFans')->field('to_member_id')->where(array('member_id'=>$member_id))->select();
 		if(!$list)
 		{
@@ -1408,7 +1415,8 @@ class ApiController extends Controller {
 		$map['city_id']	=	$city_id ;
 		$field	=	'id,member_id,service_id,title,type,collection_num,zan_num,comment_num,addtime,img1,img2,img3,img4,img5,img6';
 		//$list	=	M('Call')->field($field)->where($map)->order('id desc')->select();
-		$list	=	M('ShopService')->field($field)->where($map)->order('id desc')->select();
+		$list	=	M('ShopService')->field($field)->where($map)->limit(($page-1)*20,20)->order('id desc')->select();
+		$count	=	M('ShopService')->where($map)->count('*');
 		//echo M('ShopService')->getlastsql();exit;
 		//var_dump($list);exit;
 		if(!$list)$list=array();
@@ -1439,22 +1447,29 @@ class ApiController extends Controller {
 			if(empty($item['content']))$item['content']=	$row['content'];
 			//$item['img1']	=	$row['img1'];
 
-			if(!empty($item['img6']))$item['img']	=	$row['img6'];
-			if(!empty($item['img5']))$item['img']	=	$row['img5'];
-			if(!empty($item['img4']))$item['img']	=	$row['img4'];
-			if(!empty($item['img3']))$item['img']	=	$row['img3'];
-			if(!empty($item['img2']))$item['img']	=	$row['img2'];
-			if(!empty($item['img1']))$item['img']	=	$row['img1'];
-			if(!isset($item['img']))
-			{
-				if(!empty($service['img6']))$item['img']=	$item['img6'];
-				if(!empty($service['img5']))$item['img']=	$item['img5'];
-				if(!empty($service['img4']))$item['img']=	$item['img4'];
-				if(!empty($service['img3']))$item['img']=	$item['img3'];
-				if(!empty($service['img2']))$item['img']=	$item['img2'];
-				if(!empty($service['img1']))$item['img']=	$item['img1'];
-			}
+			//$item['content']	=	$service['content'];
+			if(!empty($service['img6']))$item['s_img']=	$service['img6'];
+			if(!empty($service['img5']))$item['s_img']=	$service['img5'];
+			if(!empty($service['img4']))$item['s_img']=	$service['img4'];
+			if(!empty($service['img3']))$item['s_img']=	$service['img3'];
+			if(!empty($service['img2']))$item['s_img']=	$service['img2'];
+			if(!empty($service['img1']))$item['s_img']=	$service['img1'];
+
+			if(!empty($item['img6']))$item['img']	=	$item['img6'];
+			if(!empty($item['img5']))$item['img']	=	$item['img5'];
+			if(!empty($item['img4']))$item['img']	=	$item['img4'];
+			if(!empty($item['img3']))$item['img']	=	$item['img3'];
+			if(!empty($item['img2']))$item['img']	=	$item['img2'];
+			if(!empty($item['img1']))$item['img']	=	$item['img1'];
+
+			if(!isset($item['s_img']))$item['s_img']='';
 			if(!isset($item['img']))$item['img']='';
+			if(empty($item['s_content']))$item['s_content']=$service['content'];
+
+
+			if(empty($row['s_title']))$row['s_title']=	$service['title'];
+
+
 			$item['img1']=$item['img'];
 			$item['addtime']=	date("Y-m-d H:i:s",$item['addtime']);
 			$row=	M('Shop')->field('id,title,star,fans_num')->where(array('member_id'=>$item['member_id']))->find();
@@ -1462,6 +1477,12 @@ class ApiController extends Controller {
 			$item['shop_name']=$row['title'];
 			$item['shop_star']=$row['star'];
 			$item['shop_fans_num']=$row['fans_num'];
+
+			//如果是纯吆喝的时候，添加是不否有引用其他的服务
+			if($item['type'] == 4){
+				$item['c_id']	=	$service['c_id'];
+			}
+
 			$arr[]=$item;
 			/*$list[$key]['content']=	$row['content'];
 			$list[$key]['img1']	=	$row['img1'];
@@ -1471,7 +1492,8 @@ class ApiController extends Controller {
 		{
 			$arr	=	array(array('id'=>''));
 		}
-		$this->json_ok($arr);
+		$this->json_ok_page($arr, $page, $count);
+		//$this->json_ok($arr);
 	}
 	/**
 	* 功能：获取附近商家
@@ -1980,8 +2002,9 @@ class ApiController extends Controller {
 		if(!$page){
 			$page	=	intval(I('get.page')) ;
 		}
+		if($page<1)$page=1;
 		$where['member_id']=	intval(I('get.member_id'));
-		$list	=	 M()->table('ht_shop_fans sf, ht_shop sp ')->where('sf.shop_id = sp.id and sf.member_id='.$member_id_get.' and sp.city_id='.$city_id)->field('sf.to_member_id')->order('sf.follow_time')->select();
+		$list	=	 M()->table('ht_shop_fans sf, ht_shop sp ')->where('sf.shop_id = sp.id and sf.member_id='.$member_id_get.' and sp.city_id='.$city_id)->field('sp.to_member_id')->order('sf.follow_time')->select();
 		//$list = M()->table('ht_shop_service s, ht_shop_service_collection n')->where('s.id = n.shop_service_id and n.member_id='.$member_id)->field('n.id,s.service_id,s.member_id,s.type,n.addtime')->order('n.id desc' )->select();
 
 		if(!$list)
