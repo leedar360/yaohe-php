@@ -2968,6 +2968,9 @@ class ApiController extends Controller {
 	public function mySms()
 	{
 		$member_id	=	intval(I('post.member_id'));
+		if(!$member_id){
+			$member_id	=	intval(I('get.member_id'));
+		}
 		//获取点赞总记录数
 		$map	=	array();
 		$map['member_id']=$member_id;
@@ -2987,7 +2990,7 @@ class ApiController extends Controller {
 		//我的消息
 		$map	=	array();
 		$map['is_read']	=	1;
-		$map['_string']	=	' to_member_id="'.$member_id ;
+		$map['_string']	=	' to_member_id="'.$member_id.'"' ;
 		$smsnum	=	M('Sms')->where($map)->count();
 
 		$data['zannum']	=	$zannum;
