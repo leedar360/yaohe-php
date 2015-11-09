@@ -727,7 +727,7 @@ class ApiController extends Controller {
 	{
 		$id	=	intval(I('get.id'));
 		$member_id	=	intval(I('get.member_id'));//会员ID
-		$row=	M('Shop')->field('id,title as full_name,fans_num,star,content,address,subscribe_tel,business_time')->where(array('id'=>$id))->find();
+		$row=	M('Shop')->field('id,title as full_name,fans_num,star,content,address,subscribe_tel,business_time, member_id as shop_member_id')->where(array('id'=>$id))->find();
 		//echo M('Shop')->getlastsql();
 		if(!$row)
 		{
@@ -764,7 +764,7 @@ class ApiController extends Controller {
 		$row['cardnum']			=	$cardnum;
 		$row['activitynum']		=	$activitynum;
 		$row['newproductnum']	=	$newproductnum;
-		
+
 		$map	=	array();
 		$map['member_id']=$member_id;
 		//$map['_string']=" type<4";
@@ -824,15 +824,15 @@ class ApiController extends Controller {
 	{
 		$id			=	intval(I('get.id'));//店铺ID
 		$member_id	=	intval(I('get.member_id'));//会员ID
-		//TODO 
+		//TODO
 		/*
-		 * 1.use the memeber id to query the shop, if the shop id is no exist, and the member id is only 
+		 * 1.use the memeber id to query the shop, if the shop id is no exist, and the member id is only
 		 * the member, not the shop owner, so here  will show the message "您未关注过"
-		 * 
+		 *
 		 * 2. set the member_id= 4000000(member not exist),id=3(shop is exist), will show the message the 商家不存在
-		 * 
+		 *
 		 * 3. set the member_id=40(exist), id=200000000000000(shop not exist),show the message "您未关注过"
-		 * @var unknown 
+		 * @var unknown
 		 */
 		$row	=	$this->getShopById($id);
 		if(!$row)
@@ -947,7 +947,7 @@ class ApiController extends Controller {
 	{
 		$id	=	intval(I('post.id'));//优惠券ID
 		$member_id=intval(I('post.member_id'));//会员ID
-		
+
 		$coupon=	M('Coupon')->field('id,type,valid_start,valid_end,draw_num,num')->where(array('id'=>$id))->find();
 		if(!$coupon)
 		{
@@ -1035,9 +1035,9 @@ class ApiController extends Controller {
 	*/
 	public function giveCard()
 	{
-		$id	=	intval(I('get.id'));//会员卡ID 
+		$id	=	intval(I('get.id'));//会员卡ID
 		$member_id=intval(I('get.member_id'));//会员ID
-		
+
 		$card=	M('Card')->field('id,valid_start,valid_end,draw_num,num')->where(array('id'=>$id))->find();
 		if(!$card)
 		{
@@ -1527,16 +1527,16 @@ class ApiController extends Controller {
 		switch($rice)
 		{
 			case 500://500米
-				$rice=0.5;
+				$rice=0.05;
 			break;
 			case 1000://1000米
-				$rice=1;
+				$rice=0.1;
 			break;
 			case 3000://3000米
-				$rice=3;
+				$rice=0.3;
 			break;
 			case 5000://5000米
-				$rice=5;
+				$rice=0.5;
 			break;
 			default:
 				$rice=0;
@@ -1554,7 +1554,7 @@ class ApiController extends Controller {
 		//var_dump($list);exit;
 		foreach($list as $key=>$item)
 		{
-			$range	=	getDistance($lat, $long ,$item['lat'], $item['lng']);//得到具体的距离
+			$range	=	getDistance($long,$lat,$item['lng'],$item['lat']);//得到具体的距离
 			$shoprange[]=array('id'=>$item['id'],'range'=>$range);
 			$shoplist[]=$range;
 			//$keyid	=	$item['id'];
@@ -1575,7 +1575,7 @@ class ApiController extends Controller {
 					$new_shoplist[]	=	array('shop_id'=>$val['id'],'range'=>$item);
 					unset($shoprange[$key]);
 					break;
-				}				
+				}
 			}
 		}
 		//var_dump($new_shoplist);exit;
@@ -2232,8 +2232,8 @@ class ApiController extends Controller {
 		$member_coupon_id=intval(I('get.member_coupon_id'));//会员优惠券ID
 		$coupon	=	M('Coupon')->field('id,title,content,img1,valid_start,valid_end,member_id')->where(array('id'=>$coupon_id))->find();
 		$member_coupon	=	M('MemberCoupon')->field('id,card_number')->where(array('id'=>$member_coupon_id))->find();
-		$coupon['card_number']	=	$member_counon['card_number'];
-		
+		$coupon['card_number']	=	$member_coupon['card_number'];
+
 		$shop=$this->getShop($coupon['member_id']);
 		$coupon['shop_id']=$shop['id'];
 		$coupon['shopname']=$shop['title'];
@@ -2289,7 +2289,7 @@ class ApiController extends Controller {
 		$member_card_id=intval(I('get.member_card_id'));//会员的会员卡ID
 		$card	=	M('Coupon')->field('id,title,img1')->where(array('id'=>$card_id))->find();
 		$member_card=	M('MemberCard')->field('id,card_number')->where(array('id'=>$member_card_id))->find();
-		$coupon['card_number']	=	$member_counon['card_number'];
+		$coupon['card_number']	=	$member_card['card_number'];
 		//获取使用详情记录
 		$list	=	M('MemberCardDetail')->where(array('member_card_id'=>$member_card_id))->order('id desc')->select();
 		foreach($list as $key=>$item)
@@ -2624,6 +2624,9 @@ class ApiController extends Controller {
 	public function getMyFansList()
 	{
 		$member_id=	intval(I('post.member_id'));
+		if(!$member_id){
+			$member_id =	intval(I('get.member_id'));
+		}
 		$page	=	intval(I('post.page'));
 		if($page<1)$page=1;
 		$count	=	M()->table('ht_member m, ht_shop_fans f')->where('m.id = f.to_member_id and f.to_member_id='.$member_id)->field('f.member_id')->count('*');
@@ -2654,7 +2657,7 @@ class ApiController extends Controller {
 	*/
 	public function getWinnig()
 	{
-		$member_id=	intval(I('get.member_id'));
+		$member_id=	intval(I('post.member_id'));
 		$member	=	M('Member')->where(array('id'=>$member_id))->find();
 		if(!$member)
 		{
@@ -2688,7 +2691,6 @@ class ApiController extends Controller {
 			$this->json_error('您没有中奖');
 		}
 		$count	=	M('PrizeList')->where(array('pid'=>$prizerow['id']))->count();
-
 		if($count+1>$prizerow['num'])
 		{
 			$this->json_error('您没有中奖');
@@ -2698,7 +2700,7 @@ class ApiController extends Controller {
 		$data['member_id']	=	$member_id;
 		$data['username']	=	$person['nickname'];
 		$data['pid']		=	$prizerow['id'];
-		$data['ptitle']		=	$prizerow['title'];
+		$data['ptitle']		=	$prizerow['ptitle'];
 		$data['card_number']=	$this->getWinCardNumber();
 		$data['addtime']	=	time();
 		$insert_id	=	M('PrizeList')->add($data);
@@ -2714,9 +2716,6 @@ class ApiController extends Controller {
 	public function getWinGoodsList()
 	{
 		$member_id=	intval(I('post.member_id'));
-		if(!$member_id){
-			$member_id = intval(I('get.member_id'));
-		}
 		$page	=	intval(I('post.page'));
 		if($page<1)$page=1;
 		$list	=	M('PrizeList')->where(array('member_id'=>$member_id))->order('id desc')->limit(($page-1)*20,20)->select();
@@ -3029,7 +3028,7 @@ class ApiController extends Controller {
 		$this->json_ok(true);
 	}
 	/**
-	* 功能：我的消息总记录数 
+	* 功能：我的消息总记录数
 	*/
 	public function mySms()
 	{
@@ -3067,7 +3066,7 @@ class ApiController extends Controller {
 	/**
 	* 功能：我的消息列表
 	*/
-	public function getMySms()
+	public function getMySmsList()
 	{
 		$member_id	=	intval(I('post.member_id'));
 
@@ -3075,34 +3074,83 @@ class ApiController extends Controller {
 			$member_id	=	intval(I('get.member_id')) ;
 		}
 		$map['_string']='to_member_id="'.$member_id.'"';
-		$list	=	M('Sms')->where($map)->order('id desc')->select();
+		$list	=	M('Sms')->where($map)->order('addtime desc')->select();
 
 		if(!$list)
 		{
 			$this->json_ok(array(array('id'=>'')));
 		}
 		$arr	=	array();
-		foreach($list as $item)
+
+		$shop	= getShop(getShop) ;
+
+		$sql	=	'' ;
+		$res	=	''	;
+		if(! $shop){
+			$sql = 'select distinct t.member_id,case when per.nickname is null then me.login_user else per.nickname end as nicknume, me.face,max(t.addtime),(select count(*) from ht_sms t1 where t1.to_member_id = t.to_member_id and t1.is_read = 1) as noReadCount from ht_sms t left join ht_member me on t.member_id = me.id left join  ht_personal per on per.member_id = me.id where t.to_member_id ='. $member_id;
+			$waw = M();
+			$res = $waw->query($sql);
+		}else{
+			$sql = 'select distinct t.member_id,s.title,s.img , max(t.addtime),(select count(*) from ht_sms t1 where t1.to_member_id = t.to_member_id and t1.is_read = 1) as noReadCount from ht_sms t left join ht_member me on t.member_id = me.id  left join  ht_personal per on per.member_id = me.id left join ht_shop s on s.member_id = me.id  where t.to_member_id ='. $member_id;
+			$waw = M();
+			$res = $waw->query($sql);
+		}
+
+		if(!$res)$res	=	array();
+		$arr	=	array();
+
+		foreach($res as $item)
 		{
-
-			$item['addtime']	=	date('Y-m-d H:i',$item['addtime']);
-			$member		=	M('Member')->where(array('id'=>$item['member_id']))->find();
-			$to_member		=	M('Member')->where(array('id'=>$item['to_member_id']))->find();
-			$person		=	M('Personal')->where(array('member_id'=>$item['member_id']))->find();
-			$to_person		=	M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
-
-			$item['face']		=	$member['face'];
-			$item['nickname']	=	$person['nickname'];
-
-			$item['to_face']		=	$to_member['face'];
-			$item['to_nickname']	=	$to_person['nickname'];
-			$arr[]=$item;
-
-			//更新is_read为0
-			$data['is_read'] 	=	0 ;
-			M('Sms')->where(array('id'=>$item['id']))->save($data);
+			$arr[] = $item ;
+			$arr['addtime']=	date("Y-m-d",$item['addtime']);
 		}
 		$this->json_ok($arr);
+
+	}
+
+	/**
+	 * 功能：我的消息
+	 */
+	public function getMySmsDetail()
+	{
+		$member_id	=	intval(I('post.member_id'));
+
+		if(!$member_id){
+			$member_id	=	intval(I('get.member_id')) ;
+		}
+
+		$to_member_id	=	intval(I('post.to_member_id'));
+
+		if(!$to_member_id){
+			$to_member_id	=	intval(I('get.to_member_id')) ;
+		}
+
+		$arr	=	array();
+
+		$shop	= getShop(getShop) ;
+
+		$sql	=	'' ;
+		$res	=	''	;
+		if(! $shop){
+			$sql = 'select t.*,case when per.nickname is null then me.login_user else per.nickname end as nicknume,  me.facez from ht_sms t left join ht_member me on t.member_id = me.id left join  ht_personal per on per.member_id = me.id where t.to_member_id ='. $member_id;
+			$waw = M();
+			$res = $waw->query($sql);
+		}else{
+			$sql = 'select t.*,s.title,s.img from ht_sms t left join ht_member me on t.member_id = me.id  from ht_sms t left join ht_member me on t.member_id = me.id  left join  ht_personal per on per.member_id = me.id left join ht_shop s on s.member_id = me.id  where t.to_member_id ='. $member_id;
+			$waw = M();
+			$res = $waw->query($sql);
+		}
+
+		if(!$res)$res	=	array();
+		$arr	=	array();
+
+		foreach($res as $item)
+		{
+			$arr[] = $item ;
+			$arr['addtime']=	date("Y-m-d",$item['addtime']);
+		}
+		$this->json_ok($arr);
+
 	}
 
 	/**
@@ -3247,8 +3295,7 @@ class ApiController extends Controller {
 	private function getWinCardNumber()
 	{
 		$card_number	=	getRandomNum(12);
-//		$map['card_number']	=	$data['card_number'];
-		$map['card_number']	=	$card_number ;
+		$map['card_number']	=	$card_number;
 		$row	=	M('PrizeList')->where($map)->find();
 		if($row)return $this->getWinCardNumber();
 		return $card_number;
