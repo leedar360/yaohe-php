@@ -3068,7 +3068,7 @@ class ApiController extends Controller {
 	*/
 	public function getMySmsList()
 	{
-		$member_id	=	intval(I('post.member_id'));
+		$member_id	=	intval(I('get.member_id'));
 
 		if(!$member_id){
 			$member_id	=	intval(I('get.member_id')) ;
@@ -3082,7 +3082,7 @@ class ApiController extends Controller {
 		}
 		$arr	=	array();
 
-		$shop	= getShop(getShop) ;
+		$shop	= getShop($member_id) ;
 
 		$sql	=	'' ;
 		$res	=	''	;
@@ -3119,6 +3119,7 @@ class ApiController extends Controller {
 			$member_id	=	intval(I('get.member_id')) ;
 		}
 
+		echo($member_id) ;
 		$to_member_id	=	intval(I('post.to_member_id'));
 
 		if(!$to_member_id){
@@ -3127,7 +3128,7 @@ class ApiController extends Controller {
 
 		$arr	=	array();
 
-		$shop	= getShop(getShop) ;
+		$shop	= getShop($member_id) ;
 
 		$sql	=	'' ;
 		$res	=	''	;
