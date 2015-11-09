@@ -1477,7 +1477,7 @@ class ApiController extends Controller {
 			if(empty($item['s_content']))$item['s_content']=$row['content'];
 
 
-			if(empty($row['s_title']))$row['s_title']=	$row['title'];
+			if(empty($row['s_title']))$row['s_title']=	$row['content'];
 
 
 			$item['img1']=$item['img'];
