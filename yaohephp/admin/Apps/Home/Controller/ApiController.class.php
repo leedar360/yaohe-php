@@ -2657,7 +2657,7 @@ class ApiController extends Controller {
 	*/
 	public function getWinnig()
 	{
-		$member_id=	intval(I('post.member_id'));
+		$member_id=	intval(I('get.member_id'));
 		$member	=	M('Member')->where(array('id'=>$member_id))->find();
 		if(!$member)
 		{
@@ -3068,7 +3068,7 @@ class ApiController extends Controller {
 	*/
 	public function getMySmsList()
 	{
-		$member_id	=	intval(I('get.member_id'));
+		$member_id	=	intval(I('post.member_id'));
 
 		if(!$member_id){
 			$member_id	=	intval(I('get.member_id')) ;
@@ -3082,16 +3082,16 @@ class ApiController extends Controller {
 		}
 		$arr	=	array();
 
-		$shop	= getShop($member_id) ;
+		$shop	= $this->getShop($member_id) ;
 
 		$sql	=	'' ;
 		$res	=	''	;
-		if(! $shop){
-			$sql = 'select distinct t.member_id,case when per.nickname is null then me.login_user else per.nickname end as nicknume, me.face,max(t.addtime),(select count(*) from ht_sms t1 where t1.to_member_id = t.to_member_id and t1.is_read = 1) as noReadCount from ht_sms t left join ht_member me on t.member_id = me.id left join  ht_personal per on per.member_id = me.id where t.to_member_id ='. $member_id;
+		if( !$shop){
+			$sql = 'select distinct t.member_id,case when per.nickname is null then me.login_user else per.nickname end as nicknume, me.face,max(t.addtime) as lastSendtime,(select count(*) from ht_sms t1 where t1.to_member_id = t.to_member_id and t1.is_read = 1) as noReadCount from ht_sms t left join ht_member me on t.member_id = me.id left join  ht_personal per on per.member_id = me.id where t.to_member_id ='. $member_id;
 			$waw = M();
 			$res = $waw->query($sql);
 		}else{
-			$sql = 'select distinct t.member_id,s.title,s.img , max(t.addtime),(select count(*) from ht_sms t1 where t1.to_member_id = t.to_member_id and t1.is_read = 1) as noReadCount from ht_sms t left join ht_member me on t.member_id = me.id  left join  ht_personal per on per.member_id = me.id left join ht_shop s on s.member_id = me.id  where t.to_member_id ='. $member_id;
+			$sql = 'select distinct t.member_id,s.title as nickname,s.img as face , max(t.addtime) as lastSendtime,(select count(*) from ht_sms t1 where t1.to_member_id = t.to_member_id and t1.is_read = 1) as noReadCount from ht_sms t left join ht_member me on t.member_id = me.id  left join  ht_personal per on per.member_id = me.id left join ht_shop s on s.member_id = me.id  where t.to_member_id ='. $member_id;
 			$waw = M();
 			$res = $waw->query($sql);
 		}
@@ -3101,8 +3101,12 @@ class ApiController extends Controller {
 
 		foreach($res as $item)
 		{
-			$arr[] = $item ;
-			$arr['addtime']=	date("Y-m-d",$item['addtime']);
+			$arr1['member_id'] = $item['member_id'] ;
+			$arr1['nickname'] = $item['nickname'] ;
+			$arr1['face'] = $item['member_id'] ;
+			$arr1['lastSendtime'] = date("Y-m-d",$item['addtime']);
+			$arr1['noReadCount'] = $item['noReadCount'] ;
+			$arr[] = $arr1 ;
 		}
 		$this->json_ok($arr);
 
@@ -3119,7 +3123,6 @@ class ApiController extends Controller {
 			$member_id	=	intval(I('get.member_id')) ;
 		}
 
-		echo($member_id) ;
 		$to_member_id	=	intval(I('post.to_member_id'));
 
 		if(!$to_member_id){
@@ -3128,16 +3131,16 @@ class ApiController extends Controller {
 
 		$arr	=	array();
 
-		$shop	= getShop($member_id) ;
+		$shop	= $this->getShop($to_member_id) ;
 
 		$sql	=	'' ;
 		$res	=	''	;
-		if(! $shop){
-			$sql = 'select t.*,case when per.nickname is null then me.login_user else per.nickname end as nicknume,  me.facez from ht_sms t left join ht_member me on t.member_id = me.id left join  ht_personal per on per.member_id = me.id where t.to_member_id ='. $member_id;
+		if(!$shop){
+			$sql = 'select t.*,case when per.nickname is null then me.login_user else per.nickname end as nicknume,  me.face from ht_sms t left join ht_member me on t.member_id = me.id left join  ht_personal per on per.member_id = me.id where t.to_member_id ='. $to_member_id.' and t.member_id='.$member_id ;
 			$waw = M();
 			$res = $waw->query($sql);
 		}else{
-			$sql = 'select t.*,s.title,s.img from ht_sms t left join ht_member me on t.member_id = me.id  from ht_sms t left join ht_member me on t.member_id = me.id  left join  ht_personal per on per.member_id = me.id left join ht_shop s on s.member_id = me.id  where t.to_member_id ='. $member_id;
+			$sql = 'select t.*,s.title as nickname,s.img as face  from ht_sms t left join ht_member me on t.member_id = me.id  left join  ht_personal per on per.member_id = me.id left join ht_shop s on s.member_id = me.id  where t.to_member_id ='. $to_member_id .' and t.member_id='.$member_id ;
 			$waw = M();
 			$res = $waw->query($sql);
 		}
@@ -3147,8 +3150,12 @@ class ApiController extends Controller {
 
 		foreach($res as $item)
 		{
-			$arr[] = $item ;
-			$arr['addtime']=	date("Y-m-d",$item['addtime']);
+			$arr1['member_id'] = $item['member_id'] ;
+			$arr1['nickname'] = $item['nickname'] ;
+			$arr1['content'] = $item['content'] ;
+			$arr1['addtime']=	date("Y-m-d",$item['addtime']);
+			$arr1['face'] = $item['member_id'] ;
+			$arr[] = $arr1 ;
 		}
 		$this->json_ok($arr);
 
