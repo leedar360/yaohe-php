@@ -1498,10 +1498,10 @@ $info_sql = "select id,locateinfo,lat,lng from `lbs_info` where lat<>0 and lat>{
  */
 function returnSquarePoint($lng, $lat,$distance = 0.5){
  
-    $dlng =  2 * asin(sin($distance / (2 * 6371)) / cos(deg2rad($lat)));
+    $dlng =  2 * asin(sin($distance / (2 * 6378.138)) / cos(deg2rad($lat)));
     $dlng = rad2deg($dlng);
      
-    $dlat = $distance/6371;
+    $dlat = $distance/6378.138;
     $dlat = rad2deg($dlat);
      
     return array(
@@ -1518,8 +1518,10 @@ function returnSquarePoint($lng, $lat,$distance = 0.5){
 */
 function getDistance($lat1, $lng1, $lat2, $lng2) 
 { 
-	$earthRadius = 6367000; //approximate radius of earth in meters 
-	 
+	$earthRadius = 6378138; //approximate radius of earth in meters
+//    select round(6378.138*2*asin(sqrt(pow(sin( (39.918494*pi()/180-34.189381*pi()/180)/2),2)+cos(39.918494*pi()/180)*cos(34.189381*pi()/180)* pow(sin( (116.458991*pi()/180-116.939064*pi()/180)/2),2)))*1000)
+
+
 	/* 
 	Convert these degrees to radians 
 	to work with the formula 
