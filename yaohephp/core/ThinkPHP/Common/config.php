@@ -13,7 +13,7 @@ return array(
 	'DB_HOST'   => '127.0.0.1', // 服务器地址
 	'DB_NAME'   => 'yaohe', // 数据库名
 	'DB_USER'   => 'root', // 用户名
-	'DB_PWD'    => '123456', // 密码
+	'DB_PWD'    => 'root', // 密码
 	'DB_PORT'   => 3306, // 端口
 	'DB_PREFIX' => 'ht_', // 数据库表前缀 
 	'DB_CHARSET'=> 'utf8',
@@ -26,7 +26,7 @@ return array(
 	'MAXSIZE'	=> '10240000',//最大10兆
 	'LOG_RECORD'=>false,
 	'URL_MODEL' => 2,
-	'MEMCACHE_HOST'=>'172.16.100.31',
+	'MEMCACHE_HOST'=>'127.0.0.1',
 	'MEMCACHE_PORT'=>'11211',
 	/*'LOAD_EXT_CONFIG' => array(
 		'USER' => 'user', //用户配置
