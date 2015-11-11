@@ -2892,7 +2892,7 @@ class ApiController extends Controller {
 		//搜索吆喝列表
 		$calllist	=	array();
 		$arr		=	array();
-		$map['_string']=' title like "%'.$keywords.'%"';
+		$map['_string']=' title like "%'.$keywords.'%" or content like "%'.$keywords.'%"';
 		$list		=	M('ShopService')->where($map)->order('id desc')->select();
 		foreach($list as $item)
 		{
