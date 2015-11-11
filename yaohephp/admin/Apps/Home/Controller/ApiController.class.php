@@ -765,10 +765,10 @@ class ApiController extends Controller {
 		$row['activitynum']		=	$activitynum;
 		$row['newproductnum']	=	$newproductnum;
 
-		$map	=	array();
-		$map['member_id']=$member_id;
+		//$map	=	array();
+		//$map['member_id']=$member_id;
 		//$map['_string']=" type<4";
-		$calllist=	M('ShopService')->where(array('member_id'=>$member_id))->order('id desc')->limit(0,3)->select();
+		$calllist=	M('ShopService')->where(array('member_id'=>$row['shop_member_id']))->order('id desc')->limit(0,3)->select();
 		if(!$calllist)$calllist=array();
 		//$new_calllist[] = '';
 		foreach($calllist as $key=>$item)
@@ -2770,20 +2770,20 @@ class ApiController extends Controller {
 				break;
 			}
 			if(empty($item['content']))$item['content']=$service['content'];
-			if(!empty($item['img6']))$item['img']	=	$item['img6'];
-			if(!empty($item['img5']))$item['img']	=	$item['img5'];
-			if(!empty($item['img4']))$item['img']	=	$item['img4'];
-			if(!empty($item['img3']))$item['img']	=	$item['img3'];
-			if(!empty($item['img2']))$item['img']	=	$item['img2'];
-			if(!empty($item['img1']))$item['img']	=	$item['img1'];
+			if(!empty($item['img6']))$item['img']	=	$service['img6'];
+			if(!empty($item['img5']))$item['img']	=	$service['img5'];
+			if(!empty($item['img4']))$item['img']	=	$service['img4'];
+			if(!empty($item['img3']))$item['img']	=	$service['img3'];
+			if(!empty($item['img2']))$item['img']	=	$service['img2'];
+			if(!empty($item['img1']))$item['img']	=	$service['img1'];
 			if(!isset($item['img']))
 			{
-				if(!empty($service['img6']))$item['img']=	$service['img6'];
-				if(!empty($service['img5']))$item['img']=	$service['img5'];
-				if(!empty($service['img4']))$item['img']=	$service['img4'];
-				if(!empty($service['img3']))$item['img']=	$service['img3'];
-				if(!empty($service['img2']))$item['img']=	$service['img2'];
-				if(!empty($service['img1']))$item['img']=	$service['img1'];
+				if(!empty($item['img6']))$item['img']=	$service['img6'];
+				if(!empty($item['img5']))$item['img']=	$service['img5'];
+				if(!empty($item['img4']))$item['img']=	$service['img4'];
+				if(!empty($item['img3']))$item['img']=	$service['img3'];
+				if(!empty($item['img2']))$item['img']=	$service['img2'];
+				if(!empty($item['img1']))$item['img']=	$service['img1'];
 			}
 			if(!isset($item['img']))$item['img']='';
 			/*
@@ -2865,7 +2865,7 @@ class ApiController extends Controller {
 	*/
 	public function getSearchShopCallList()
 	{
-		$keywords	=	I('get.keywords');
+		$keywords	=	I('post.keywords');
 		$city_id	=	I('post.city_id');
 		$map['city_id']=$city_id;
 		if($city_id<1)
