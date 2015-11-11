@@ -1806,12 +1806,27 @@ class ApiController extends Controller {
 	*/
 	public function callComment()
 	{
-		$data['member_id']	=	intval(I('get.member_id'));
-		$data['shop_service_id']=intval(I('get.call_id'));
-		$data['content']	=	I('get.content');//评论内容
-		$data['is_anonymous']=	I('get.is_anonymous');//是否匿名
-		$data['type']		=	I('get.type');//0优惠券 1会员卡 2活动 3新品 4吆喝
-		$data['parentid']	=	intval(I('get.parentid'));//回复ID
+		$data['member_id']	=	intval(I('post.member_id'));
+		if(!$data['member_id']){
+			$data['member_id']	=	intval(I('get.member_id'));
+		}
+		$data['shop_service_id']=intval(I('post.call_id'));
+		if(!$data['shop_service_id']){
+			$data['shop_service_id']	=	intval(I('get.call_id'));
+		}
+		$data['content']	=	I('post.content');//评论内容
+		$data['is_anonymous']=	I('post.is_anonymous');//是否匿名
+		if(!$data['is_anonymous']){
+			$data['is_anonymous']	=	intval(I('get.is_anonymous'));
+		}
+		$data['type']		=	I('post.type');//0优惠券 1会员卡 2活动 3新品 4吆喝
+		if(!$data['type']){
+			$data['type']	=	intval(I('get.type'));
+		}
+		$data['parentid']	=	intval(I('post.parentid'));//回复ID
+		if(!$data['parentid']){
+			$data['parentid']	=	intval(I('get.parentid'));
+		}
 		if($data['type']>4)
 		{
 			$this->json_error('类型不正确');
