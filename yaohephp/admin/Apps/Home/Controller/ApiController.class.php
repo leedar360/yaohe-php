@@ -1157,21 +1157,21 @@ class ApiController extends Controller {
 		switch($row['type'])
 		{
 			case 4://纯吆喝
-				$record	=	M('Call')->field('id,content,img1,img2,img3,img4,img5,img6')->where(array('id'=>$row['service_id']))->find();
+				$record	=	M('Call')->field('id,content,img1,img2,img3,img4,img5,img6,title')->where(array('id'=>$row['service_id']))->find();
 				//echo M('Call')->getlastsql();
 			break;
 			case 3://新品
-				$record	=	M('NewProduct')->field('id,title,price,day,img1,img2,img3,img4,img5,img6,title')->where(array('id'=>$row['service_id']))->find();
+				$record	=	M('NewProduct')->field('id,title,"" as content,price,day,img1,img2,img3,img4,img5,img6')->where(array('id'=>$row['service_id']))->find();
 			break;
 			case 2://活动
-				$record	=	M('Activity')->field('id,title,content,img1,img2,img3,img4,img5,img6,title')->where(array('id'=>$row['service_id']))->find();
+				$record	=	M('Activity')->field('id,title,content,img1,img2,img3,img4,img5,img6')->where(array('id'=>$row['service_id']))->find();
 			break;
 			case 1://会员卡
-				$record	=	M('Card')->field('id,title,content,img1,img2,img3,img4,img5,img6,title')->where(array('id'=>$row['service_id']))->find();
+				$record	=	M('Card')->field('id,title,content,img1,img2,img3,img4,img5,img6')->where(array('id'=>$row['service_id']))->find();
 				//$coupon	=	M('Coupon')->field('id')->where(array('id'=>$row['c_id']))->find();
 			break;
 			default://优惠券
-				$record	=	M('Coupon')->field('id,title,content,img1,img2,img3,img4,img5,img6,title')->where(array('id'=>$row['service_id']))->find();
+				$record	=	M('Coupon')->field('id,title,content,img1,img2,img3,img4,img5,img6')->where(array('id'=>$row['service_id']))->find();
 		}
 		/*if(isset($card))$row['card_id']=$card['id'];
 		else $row['card_id']=0;
