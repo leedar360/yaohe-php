@@ -1697,6 +1697,41 @@ class ApiController extends Controller {
 	}
 
 	/**
+	 * 删除店铺评论
+	 */
+	public function delShopComment()
+	{
+		$shopCommentID	=	Intval(I('post.id')) ;
+		if(!$shopCommentID){
+			$shopCommentID	=	Intval(I('get.id')) ;
+		}
+		$shopComment	=	M('ShopComment')->where(array('id'=>$shopCommentID))->find() ;
+		if(!$shopComment)
+		{
+			$this->json_error('评论不存在');
+		}
+		M('ShopComment')->where(array('id'=>$shopCommentID))->delete();
+		$this->json_ok(true);
+	}
+
+	/**
+	 * 删 吆喝除评论
+	 */
+	public function delShopServiceComment()
+	{
+		$shopServiceCommentID	=	Intval(I('post.id')) ;
+		if(!$shopServiceCommentID){
+			$shopServiceCommentID	=	Intval(I('get.id')) ;
+		}
+		$shopServiceComment	=	M('ShopServiceComment')->where(array('id'=>$shopServiceCommentID))->find() ;
+		if(!$shopServiceComment)
+		{
+			$this->json_error('评论不存在');
+		}
+		M('ShopServiceComment')->where(array('id'=>$shopServiceCommentID))->delete();
+		$this->json_ok(true);
+	}
+	/**
 	 * 功能：发送消息
 	 */
 	public function sms()
@@ -1851,6 +1886,7 @@ class ApiController extends Controller {
 			$this->json_error('吆喝不存在');
 		}
 		$shop	=	$this->getShop($shop_service['member_id']);
+		$data['to_member_id']	=	$shop_service['member_id'];
 		if(!$shop)
 		{
 			$this->json_error('店铺不存在');
