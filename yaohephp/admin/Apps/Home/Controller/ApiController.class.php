@@ -3285,6 +3285,10 @@ class ApiController extends Controller {
 	public function getMyShopCommentList()
 	{
 		$member_id	=	intval(I('post.member_id'));
+		if(!$member_id)
+		{
+			$member_id	=	intval(I('get.member_id'));
+		}
 		$map['_string']='member_id="'.$member_id.'" or to_member_id="'.$member_id.'"';
 		$list	=M('ShopComment')->where($map)->order('id desc')->select();
 		if(!$list)
@@ -3297,10 +3301,22 @@ class ApiController extends Controller {
 			//获取会员信息
 			$row=M('Member')->where(array('id'=>$item['member_id']))->find();
 			$item['face']=$row['face'];
+
 			//获取会员昵称
 			$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
 			if(!$person)$person['nickname']='吆喝'.$item['member_id'];
-			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'nickname'=>$person['nickname'],'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']));
+			//如果是复评论的话，增加answername和parentid
+			$answerName = '' ;
+			if($item['parentid'] > 0)
+			{
+				$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
+				if(!$personReply){
+					$answerName	=	'吆喝'.$item['to_member_id'];
+				}else{
+					$answerName	=	$personReply['nickname'];
+				}
+			}
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'nickname'=>$person['nickname'],'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
 
 			//更新is_read为0
 			$data['is_read'] 	=	0 ;
@@ -3334,7 +3350,18 @@ class ApiController extends Controller {
 			//获取会员昵称
 			$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
 			if(!$person)$person['nickname']='吆喝'.$item['member_id'];
-			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'nickname'=>$person['nickname'],'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']));
+			//如果是复评论的话，增加answername和parentid
+			$answerName = '' ;
+			if($item['parentid'] > 0)
+			{
+				$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
+				if(!$personReply){
+					$answerName	=	'吆喝'.$item['to_member_id'];
+				}else{
+					$answerName	=	$personReply['nickname'];
+				}
+			}
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'nickname'=>$person['nickname'],'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
 
 			if ($is_del == "Y") {
 				//更新is_read为0
