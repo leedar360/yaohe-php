@@ -1527,16 +1527,16 @@ class ApiController extends Controller {
 		switch($rice)
 		{
 			case 500://500米
-				$rice=0.05;
+				$rice=0.5;
 			break;
 			case 1000://1000米
-				$rice=0.1;
+				$rice=1;
 			break;
 			case 3000://3000米
-				$rice=0.3;
+				$rice=3;
 			break;
 			case 5000://5000米
-				$rice=0.5;
+				$rice=5;
 			break;
 			default:
 				$rice=0;
@@ -1554,7 +1554,7 @@ class ApiController extends Controller {
 		//var_dump($list);exit;
 		foreach($list as $key=>$item)
 		{
-			$range	=	getDistance($long,$lat,$item['lng'],$item['lat']);//得到具体的距离
+			$range	=	getDistance($lat, $long ,$item['lat'], $item['lng']);//得到具体的距离
 			$shoprange[]=array('id'=>$item['id'],'range'=>$range);
 			$shoplist[]=$range;
 			//$keyid	=	$item['id'];
