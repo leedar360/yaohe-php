@@ -1832,7 +1832,19 @@ class ApiController extends Controller {
 				$shop=$this->getShop($member['id']);
 				$item['nickname']=$shop['title'];
 			}
-			$arr[]=$item;
+			$answerName = '' ;
+			if($item['parentid'] > 0)
+			{
+				$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
+				if(!$personReply){
+					$answerName	=	'吆喝'.$item['to_member_id'];
+				}else{
+					$answerName	=	$personReply['nickname'];
+				}
+			}
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'nickname'=>$item['nickname'],'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
+
+			//$arr[]=$item;
 		}
 		$this->json_ok($arr);
 	}
