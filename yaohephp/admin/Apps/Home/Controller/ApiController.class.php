@@ -1605,6 +1605,9 @@ class ApiController extends Controller {
 	public function getShopCommentList()
 	{
 		$where['shop_id']	=	intval(I('post.shop_id'));
+		if(!$where['shop_id']){
+			$where['shop_id']	=	intval(I('get.shop_id'));
+		}
 		$page	=	intval(I('post.page'));
 		if($page<1)$page=1;
 		$list	=	M('ShopComment')->where($where)->limit(($page-1)*20,20)->order('id desc')->select();
@@ -1615,6 +1618,7 @@ class ApiController extends Controller {
 		$arr	=	array();
 		foreach($list as $item)
 		{
+			/*
 			$row	=	M('Personal')->field('nickname')->where(array('member_id'=>$item['member_id']))->find();
 			if(!$row)
 			{
@@ -1626,6 +1630,27 @@ class ApiController extends Controller {
 				$item['nickname']=$row['nickname'];
 			}
 			$arr[]=$item;
+			*/
+			//获取会员信息
+			$row=M('Member')->where(array('id'=>$item['member_id']))->find();
+			$item['face']=$row['face'];
+
+			//获取会员昵称
+			$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
+			if(!$person)$person['nickname']='吆喝'.$item['member_id'];
+			//如果是复评论的话，增加answername和parentid
+			$answerName = '' ;
+			if($item['parentid'] > 0)
+			{
+				$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
+				if(!$personReply){
+					$answerName	=	'吆喝'.$item['to_member_id'];
+				}else{
+					$answerName	=	$personReply['nickname'];
+				}
+			}
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$person['nickname'],'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
+
 		}
 		$this->json_ok($arr);
 	}
@@ -1843,7 +1868,7 @@ class ApiController extends Controller {
 					$answerName	=	$personReply['nickname'];
 				}
 			}
-			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'nickname'=>$item['nickname'],'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$item['nickname'],'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
 
 			//$arr[]=$item;
 		}
@@ -3329,7 +3354,7 @@ class ApiController extends Controller {
 					$answerName	=	$personReply['nickname'];
 				}
 			}
-			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'nickname'=>$person['nickname'],'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$person['nickname'],'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
 
 			//更新is_read为0
 			$data['is_read'] 	=	0 ;
@@ -3374,7 +3399,7 @@ class ApiController extends Controller {
 					$answerName	=	$personReply['nickname'];
 				}
 			}
-			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'nickname'=>$person['nickname'],'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$person['nickname'],'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
 
 			if ($is_del == "Y") {
 				//更新is_read为0
