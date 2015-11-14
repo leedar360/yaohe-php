@@ -1805,7 +1805,8 @@ class ApiController extends Controller {
 	public function getCallCommentList()
 	{
 		$shop_service_id	=	intval(I('get.call_id'));
-		$list	=	M('ShopServiceComment')->field('id,member_id,content,is_anonymous,addtime')->where(array('shop_service_id'=>$shop_service_id))->order('id desc')->select();
+		//$list	=	M('ShopServiceComment')->field('id,member_id,content,is_anonymous,addtime,parentid')->where(array('shop_service_id'=>$shop_service_id))->order('id desc')->select();
+		$list	=	M('ShopServiceComment')->where(array('shop_service_id'=>$shop_service_id))->order('id desc')->select();
 		//echo M('ShopServiceComment')->getlastsql();
 		if(!$list)$this->json_ok(array(array('id'=>'')));
 		$arr	=	array();
