@@ -1642,7 +1642,12 @@ class ApiController extends Controller {
 			if(!$Shop){
 				//获取会员昵称
 				$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
-				if(!$person)$nickname='吆喝'.$item['member_id'];
+				if(!$person){
+					//$nickname='吆喝'.$item['member_id'];
+					$nickname	=	$this->getHidePhoneNumber($row['login_user']) ;
+				}else{
+					$nickname	=	$person['nickname'] ;
+				}
 			}else{
 				$nickname	=	$Shop['title'] ;
 			}
@@ -1655,7 +1660,8 @@ class ApiController extends Controller {
 				if(!$answer_Shop){
 					$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
 					if(!$personReply){
-						$answerName	=	'吆喝'.$item['to_member_id'];
+						$reply_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
+						$answerName	=	$this->getHidePhoneNumber($reply_row['login_user']) ;
 					}else{
 						$answerName	=	$personReply['nickname'];
 					}
@@ -1664,7 +1670,7 @@ class ApiController extends Controller {
 				}
 
 			}
-			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$nickname,'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'to_member_id'=>$item['to_member_id'],'nickname'=>$nickname,'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
 
 		}
 		$this->json_ok($arr);
@@ -1861,7 +1867,8 @@ class ApiController extends Controller {
 				$person=M('Personal')->where(array('member_id'=>$member['id']))->find();
 				if(!$person)
 				{
-					$item['nickname']='吆喝'.$member['id'];
+					//$item['nickname']='吆喝'.$member['id'];
+					$item['nickname']	=	$this->getHidePhoneNumber($member['login_user']) ;
 				}
 				else
 				{
@@ -1878,7 +1885,9 @@ class ApiController extends Controller {
 			{
 				$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
 				if(!$personReply){
-					$answerName	=	'吆喝'.$item['to_member_id'];
+					$to_member=M('Member')->field('id,face,type')->where(array('id'=>$item['to_member_id']))->find();
+					//$answerName	=	'吆喝'.$item['to_member_id'];
+					$answerName	=	$this->getHidePhoneNumber($to_member['login_user']) ;
 				}else{
 					$answerName	=	$personReply['nickname'];
 				}
@@ -3492,6 +3501,9 @@ class ApiController extends Controller {
 		return $row;
 	}
 
+	private function getHidePhoneNumber($phone){
+		return substr_replace($phone,'*****',3,5);
+	}
 	private function json_ok($data)
 	{
 		$arr['status']['code']=0;
