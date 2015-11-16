@@ -1730,6 +1730,7 @@ class ApiController extends Controller {
 			{
 				$comment_title	=	$person['nickname'];
 			}
+			$data['to_member_id']	=	$shop['member_id'];
 		}
 		$data['comment_title']	=	$comment_title;
 		M('ShopComment')->add($data);
