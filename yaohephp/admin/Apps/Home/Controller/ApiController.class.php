@@ -735,7 +735,8 @@ class ApiController extends Controller {
 		}
 		$row['content']	=	str_replace(array("\r","\n","\t"),array('','',''),strip_tags(htmlspecialchars_decode($row['content'])));
 		$map['shop_id']	=	$id;
-		$map['member_id']=	$member_id;
+		//$map['member_id']=	$member_id;
+		$map['member_id']=	$row['shop_member_id'];
 		$record	=	M('ShopFans')->where($map)->find();
 		if(!$record)
 		{
@@ -747,7 +748,7 @@ class ApiController extends Controller {
 		}
 		//获取商家服务
 		$map	=	array();
-		$map['member_id']=$member_id;
+		$map['member_id']	=	$row['shop_member_id'];;
 		//优惠券数量
 		$map['type']=	0;
 		$counponnum	=	M('ShopService')->where($map)->count();
