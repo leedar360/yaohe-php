@@ -1635,21 +1635,36 @@ class ApiController extends Controller {
 			$row=M('Member')->where(array('id'=>$item['member_id']))->find();
 			$item['face']=$row['face'];
 
-			//获取会员昵称
-			$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
-			if(!$person)$person['nickname']='吆喝'.$item['member_id'];
+			$nickname = '' ;
+			//如果member_id是商家的话，则显示商家的名称
+			$Shop =	$this->isShopByMemberId($item['member_id']) ;
+
+			if(!$Shop){
+				//获取会员昵称
+				$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
+				if(!$person)$nickname='吆喝'.$item['member_id'];
+			}else{
+				$nickname	=	$Shop['title'] ;
+			}
+
 			//如果是复评论的话，增加answername和parentid
 			$answerName = '' ;
 			if($item['parentid'] > 0)
 			{
-				$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
-				if(!$personReply){
-					$answerName	=	'吆喝'.$item['to_member_id'];
+				$answer_Shop =	$this->isShopByMemberId($item['to_member_id']) ;
+				if(!$answer_Shop){
+					$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
+					if(!$personReply){
+						$answerName	=	'吆喝'.$item['to_member_id'];
+					}else{
+						$answerName	=	$personReply['nickname'];
+					}
 				}else{
-					$answerName	=	$personReply['nickname'];
+					$answerName	=	$answer_Shop['title'];
 				}
+
 			}
-			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$person['nickname'],'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$nickname,'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
 
 		}
 		$this->json_ok($arr);
@@ -3470,6 +3485,11 @@ class ApiController extends Controller {
 			$this->json_error("商家不存在") ;
 		}
 		return $row ;
+	}
+
+	private function isShopByMemberId($member_id){
+		$row	=	M('Shop')->where(array('member_id'=>$member_id))->find();
+		return $row;
 	}
 
 	private function json_ok($data)
