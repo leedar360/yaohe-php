@@ -1634,7 +1634,9 @@ class ApiController extends Controller {
 			*/
 			//获取会员信息
 			$row=M('Member')->where(array('id'=>$item['member_id']))->find();
+			$to_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
 			$item['face']=$row['face'];
+			$answerFace 	=	$to_row['face'];
 
 			$nickname = '' ;
 			//如果member_id是商家的话，则显示商家的名称
@@ -1661,8 +1663,7 @@ class ApiController extends Controller {
 				if(!$answer_Shop){
 					$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
 					if(!$personReply){
-						$reply_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
-						$answerName	=	$this->getHidePhoneNumber($reply_row['login_user']) ;
+						$answerName	=	$this->getHidePhoneNumber($to_row['login_user']) ;
 					}else{
 						$answerName	=	$personReply['nickname'];
 					}
@@ -1671,7 +1672,7 @@ class ApiController extends Controller {
 				}
 
 			}
-			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'to_member_id'=>$item['to_member_id'],'nickname'=>$nickname,'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'to_member_id'=>$item['to_member_id'],'nickname'=>$nickname,'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace);
 
 		}
 		$this->json_ok($arr);
@@ -3368,22 +3369,32 @@ class ApiController extends Controller {
 			//获取会员信息
 			$row=M('Member')->where(array('id'=>$item['member_id']))->find();
 			$item['face']=$row['face'];
-
+			$to_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
+			$answerFace	=	$to_row['face'] ;
 			//获取会员昵称
+			$nickname = '' ;
 			$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
-			if(!$person)$person['nickname']='吆喝'.$item['member_id'];
+			if(!$person){
+				//$person['nickname']='吆喝'.$item['member_id'];
+				$nickname	=	$this->getHidePhoneNumber($row['login_user']) ;
+			}else{
+				$nickname	=	$person['nickname'] ;
+			}
+
 			//如果是复评论的话，增加answername和parentid
 			$answerName = '' ;
 			if($item['parentid'] > 0)
 			{
 				$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
+
 				if(!$personReply){
-					$answerName	=	'吆喝'.$item['to_member_id'];
+					//$answerName	=	'吆喝'.$item['to_member_id'];
+					$answerName	=	$this->getHidePhoneNumber($to_row['login_user']) ;
 				}else{
 					$answerName	=	$personReply['nickname'];
 				}
 			}
-			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$person['nickname'],'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$nickname,'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace);
 
 			//更新is_read为0
 			$data['is_read'] 	=	0 ;
@@ -3414,21 +3425,32 @@ class ApiController extends Controller {
 			//获取会员信息
 			$row=M('Member')->where(array('id'=>$item['member_id']))->find();
 			$item['face']=$row['face'];
+			$to_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
+			$answerFace	=	$to_row['face'] ;
+
 			//获取会员昵称
+			$nickname	=	'' ;
 			$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
-			if(!$person)$person['nickname']='吆喝'.$item['member_id'];
+			if(!$person){
+				//$person['nickname']='吆喝'.$item['member_id'];
+				$nickname	=	$this->getHidePhoneNumber($row['login_user']) ;
+			}else{
+				$nickname	=	$person['nickname'] ;
+			}
 			//如果是复评论的话，增加answername和parentid
 			$answerName = '' ;
+			$answerFace 	=	''	 ;
 			if($item['parentid'] > 0)
 			{
 				$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
 				if(!$personReply){
-					$answerName	=	'吆喝'.$item['to_member_id'];
+					//$answerName	=	'吆喝'.$item['to_member_id'];
+					$answerName	=	$this->getHidePhoneNumber($to_row['login_user']) ;
 				}else{
 					$answerName	=	$personReply['nickname'];
 				}
 			}
-			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$person['nickname'],'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$nickname,'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace);
 
 			if ($is_del == "Y") {
 				//更新is_read为0
