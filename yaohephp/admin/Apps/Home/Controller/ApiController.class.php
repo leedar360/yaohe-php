@@ -2604,9 +2604,9 @@ class ApiController extends Controller {
 		}
 		$where	=	'' ;
 		if($isFaYaohe	==	'Y'){
-			$where['_string']=" member_id<='".$member_id."' and type<> 4";
+			$where['_string']=" member_id='".$member_id."' and type<> 4";
 		}else{
-			$where['_string']=" member_id<='".$member_id."'";
+			$where['_string']=" member_id='".$member_id."'";
 		}
 		$list	=	M('ShopService')->field('id,title,img1,img2,img3,img4,img5,img6,type,service_id,zan_num,comment_num,collection_num')->where($where)->order('id desc')->limit(($page-1)*20,20)->select();
 		if(!$list)$list=array();
@@ -2857,10 +2857,23 @@ class ApiController extends Controller {
 	public function getMyServiceList()
 	{
 		$member_id=	intval(I('post.member_id'));
+		if(!$member_id){
+			$member_id=	intval(I('get.member_id'));
+		}
 		$page	=	intval(I('post.page'));
 		if($page<1)$page=1;
-		$count	=	M('ShopService')->where(array('member_id'=>$member_id))->order('id desc')->count('*');
-		$list	=	M('ShopService')->where(array('member_id'=>$member_id))->order('id desc')->limit(($page-1)*20,20)->select();
+		$isFaYaohe	=	I('post.isFaYaohe') ;
+		if(!$isFaYaohe){
+			$isFaYaohe	=	I('get.isFaYaohe') ;
+		}
+		$where	=	'' ;
+		if($isFaYaohe	==	'Y'){
+			$where['_string']=" member_id='".$member_id."' and type<> 4";
+		}else{
+			$where['_string']=" member_id='".$member_id."'";
+		}
+		$count	=	M('ShopService')->where($where)->order('id desc')->count('*');
+		$list	=	M('ShopService')->where($where)->order('id desc')->limit(($page-1)*20,20)->select();
 		if(!$list)$list=array();
 		$arr	=	array();
 		foreach($list as $key=>$item)
