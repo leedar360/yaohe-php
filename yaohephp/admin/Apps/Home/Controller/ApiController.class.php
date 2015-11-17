@@ -2593,9 +2593,22 @@ class ApiController extends Controller {
 	public function getMyCallList()
 	{
 		$member_id=	intval(I('post.member_id'));
+		if(!$member_id){
+			$member_id=	intval(I('get.member_id'));
+		}
 		$page	=	intval(I('post.page'));
 		if($page<1)$page=1;
-		$list	=	M('ShopService')->field('id,title,img1,img2,img3,img4,img5,img6,type,service_id,zan_num,comment_num,collection_num')->where(array('member_id'=>$member_id))->order('id desc')->limit(($page-1)*20,20)->select();
+		$isFaYaohe	=	I('post.isFaYaohe') ;
+		if(!$isFaYaohe){
+			$isFaYaohe	=	I('get.isFaYaohe') ;
+		}
+		$where	=	'' ;
+		if($isFaYaohe	==	'Y'){
+			$where['_string']=" member_id<='".$member_id."' and type<> 4";
+		}else{
+			$where['_string']=" member_id<='".$member_id."'";
+		}
+		$list	=	M('ShopService')->field('id,title,img1,img2,img3,img4,img5,img6,type,service_id,zan_num,comment_num,collection_num')->where($where)->order('id desc')->limit(($page-1)*20,20)->select();
 		if(!$list)$list=array();
 		foreach($list as $item)
 		{switch($item['type'])
