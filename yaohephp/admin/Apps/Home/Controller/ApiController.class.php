@@ -1277,6 +1277,12 @@ class ApiController extends Controller {
 
 			if(!isset($item['s_img']))$item['s_img']='';
 			if(!isset($item['img']))$item['img']='';
+
+			$item['content']=str_replace("&quot;","\"",$item['content']);
+			$item['content']=str_replace("&lt;","<",$item['content']);
+			$item['content']=str_replace("&gt;",">",$item['content']);
+			$item['content']=str_replace("&amp;","&",$item['content']);
+
 			if(empty($item['s_content']))$item['s_content']=$service['content'];
 			//$list[$key]['img']		=	$service['img1'];
 			$row=	M('Shop')->field('id,title,star,fans_num')->where(array('member_id'=>$item['member_id']))->find();
