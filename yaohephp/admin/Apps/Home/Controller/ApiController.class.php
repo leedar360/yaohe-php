@@ -1277,6 +1277,12 @@ class ApiController extends Controller {
 
 			if(!isset($item['s_img']))$item['s_img']='';
 			if(!isset($item['img']))$item['img']='';
+
+			$item['content']=str_replace("&quot;","\"",$item['content']);
+			$item['content']=str_replace("&lt;","<",$item['content']);
+			$item['content']=str_replace("&gt;",">",$item['content']);
+			$item['content']=str_replace("&amp;","&",$item['content']);
+
 			if(empty($item['s_content']))$item['s_content']=$service['content'];
 			//$list[$key]['img']		=	$service['img1'];
 			$row=	M('Shop')->field('id,title,star,fans_num')->where(array('member_id'=>$item['member_id']))->find();
@@ -3004,8 +3010,8 @@ class ApiController extends Controller {
 			$this->json_error('请输入关键字');
 		}
 		$map['_string']=' title like "%'.$keywords.'%"';
-		//TODO 为推广需呀，暂时先不加状态控制
-		//$map['status']	=	1 ;
+
+		$map['status']	=	1 ;//1表示已审核的
 		$shoplist	=	M('Shop')->field('id,member_id,title')->where($map)->order('id asc')->select();
 		$arr		=	array();
 		foreach($shoplist as $item)
