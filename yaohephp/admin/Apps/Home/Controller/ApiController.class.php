@@ -3004,8 +3004,8 @@ class ApiController extends Controller {
 			$this->json_error('请输入关键字');
 		}
 		$map['_string']=' title like "%'.$keywords.'%"';
-		//TODO 为推广需呀，暂时先不加状态控制
-		//$map['status']	=	1 ;
+
+		$map['status']	=	1 ;//1表示已审核的
 		$shoplist	=	M('Shop')->field('id,member_id,title')->where($map)->order('id asc')->select();
 		$arr		=	array();
 		foreach($shoplist as $item)
