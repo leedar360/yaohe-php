@@ -382,7 +382,7 @@ class ApiController extends Controller {
 		$shop=	$this->getShop($member_id);
 		//写入纯吆喝
 		if($type==4)
-		{		
+		{
 			//$data['province_id']=	$province['id'];
 			//$data['city_id']	=	$city_id;
 			$data['member_id']	=	$member_id;
@@ -3535,7 +3535,7 @@ class ApiController extends Controller {
 		}
 		return $row;
 	}
-	
+
 	private function getShopById($shop_id)
 	{
 		$row = M('Shop')->where(array('id'=>$shop_id))->find() ;
