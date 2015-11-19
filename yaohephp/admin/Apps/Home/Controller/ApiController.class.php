@@ -678,8 +678,14 @@ class ApiController extends Controller {
 	public function getShopServiceList()
 	{
 		$page	=	I('post.page');
+		if(!$page){
+			$page	=	I('get.page');
+		}
 		if($page<1)$page=1;
-		$shop_id=	I('get.shop_id');
+		$shop_id=	I('post.shop_id');
+		if(!$shop_id){
+			$shop_id=	I('get.shop_id');
+		}
 		$shop	=	M('Shop')->where(array('id'=>$shop_id))->find();
 		if(!$shop)
 		{
@@ -1215,7 +1221,8 @@ class ApiController extends Controller {
 			$row['content']				=	$record['content'];
 		}
 		//$row['content']				=	$record['content'];
-		$row['addtime']				=	date('m-d H:i');
+		//$row['addtime']				=	date('m-d H:i');
+		$row['addtime']				=	date('m-d H:i',$row['addtime']);
 		$row['shop_id']				=	$shop['id'];//店铺ID
 		$row['shop_name']			=	$shop['title'];//店铺名字
 		$row['shop_subscribe_tel']	=	$shop['subscribe_tel'];//店铺电话
@@ -2198,7 +2205,7 @@ class ApiController extends Controller {
 	public function myCollection()
 	{
 		$member_id=	intval(I('get.member_id'));
-		$list = M()->table('ht_shop_service s, ht_shop_service_collection n')->where('s.id = n.shop_service_id and n.member_id='.$member_id)->field('s.id,s.service_id,s.member_id,s.type,n.addtime')->order('n.id desc' )->select();
+		$list = M()->table('ht_shop_service s, ht_shop_service_collection n')->where('s.id = n.shop_service_id and n.member_id='.$member_id)->field('s.id,s.service_id,s.member_id,s.type,n.addtime,s.title, s.content as content')->order('n.id desc' )->select();
 		//echo M()->getlastsql();
 		if(!$list)
 		{
@@ -2211,50 +2218,45 @@ class ApiController extends Controller {
 			switch($item['type'])
 			{
 				case 0://券
-					$row	=	M('Coupon')->field('content,img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
+					$row	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
 					if(!$row)
 					{
 						continue;
 						$this->json_error('内容不存在1');
 					}
-					$item['content']	=	$row['content'];
 					break;
 				case 1://卡
-					$row	=	M('Card')->field('content,img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
+					$row	=	M('Card')->field('img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
 					if(!$row)
 					{
 						continue;
 						$this->json_error('内容不存在2');
 					}
-					$item['content']	=	$row['content'];
 					break;
 				case 2://活动
-					$row	=	M('Activity')->field('content,img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
+					$row	=	M('Activity')->field('img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
 					//echo M('Activity')->getlastsql().'<br />';
 					if(!$row)
 					{
 						continue;
 						$this->json_error('内容不存在4');
 					}
-					$item['content']	=	$row['content'];
 					break;
 				case 3://新品
-					$row	=	M('NewProduct')->field('content,img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
+					$row	=	M('NewProduct')->field('img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
 					if(!$row)
 					{
 						continue;
 						$this->json_error('内容不存在3');
 					}
-					$item['content']	=	$row['content'];
 					break;
 				case 4://吆喝
-					$row	=	M('Call')->field('content,img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
+					$row	=	M('Call')->field('img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
 					if(!$row)
 					{
 						continue;
 						$this->json_error('内容不存在5');
 					}
-					$item['content']	=	$row['content'];
 					break;
 			}
 			if(!empty($row['img6']))$item['img1']=$row['img6'];
@@ -2268,7 +2270,7 @@ class ApiController extends Controller {
 			$item['shop_name']=$shop['title'];
 			$item['addtime']=date("Y-m-d H:i:s",$item['addtime']);
 			if(empty( $item['title'])){
-				$item['title'] = $shop['title'] ;
+				//$item['title'] = $shop['title'] ;
 			}
 			$item['shop_id']	=	$shop['id'] ;
 			$arr[]	=	$item;
