@@ -799,6 +799,13 @@ class ApiController extends Controller {
 				break;
 			}
 			if(empty($item['content']))$item['content']=$service['content'];
+
+			$item['content']=str_replace("&quot;","\"",$item['content']);
+			$item['content']=str_replace("&lt;","<",$item['content']);
+			$item['content']=str_replace("&gt;",">",$item['content']);
+			$item['content']=str_replace("&amp;","&",$item['content']);
+
+
 			if(!empty($item['img6']))$item['img']	=	$item['img6'];
 			if(!empty($item['img5']))$item['img']	=	$item['img5'];
 			if(!empty($item['img4']))$item['img']	=	$item['img4'];
@@ -1220,6 +1227,12 @@ class ApiController extends Controller {
 		}else{
 			$row['content']				=	$record['content'];
 		}
+
+		$row['content']=str_replace("&quot;","\"",$row['content']);
+		$row['content']=str_replace("&lt;","<",$row['content']);
+		$row['content']=str_replace("&gt;",">",$row['content']);
+		$row['content']=str_replace("&amp;","&",$row['content']);
+
 		//$row['content']				=	$record['content'];
 		//$row['addtime']				=	date('m-d H:i');
 		$row['addtime']				=	date('m-d H:i',$row['addtime']);
