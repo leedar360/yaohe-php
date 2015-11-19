@@ -2270,6 +2270,7 @@ class ApiController extends Controller {
 			if(empty( $item['title'])){
 				$item['title'] = $row['title'] ;
 			}
+			$item['shop_id']	=	$shop['id'] ;
 			$arr[]	=	$item;
 		}
 		if(count($arr)<1)$arr=array(array('id'=>''));
