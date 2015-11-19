@@ -679,7 +679,7 @@ class ApiController extends Controller {
 	{
 		$page	=	I('post.page');
 		if($page<1)$page=1;
-		$shop_id=	I('post.shop_id');
+		$shop_id=	I('get.shop_id');
 		$shop	=	M('Shop')->where(array('id'=>$shop_id))->find();
 		if(!$shop)
 		{
@@ -1489,11 +1489,11 @@ class ApiController extends Controller {
 
 			$item['img1']=$item['img'];
 			$item['addtime']=	date("Y-m-d H:i:s",$item['addtime']);
-			$row=	M('Shop')->field('id,title,star,fans_num')->where(array('member_id'=>$item['member_id']))->find();
-			$item['shop_id']=$row['id'];
-			$item['shop_name']=$row['title'];
-			$item['shop_star']=$row['star'];
-			$item['shop_fans_num']=$row['fans_num'];
+			$r_shop=	M('Shop')->field('id,title,star,fans_num')->where(array('member_id'=>$item['member_id']))->find();
+			$item['shop_id']=$r_shop['id'];
+			$item['shop_name']=$r_shop['title'];
+			$item['shop_star']=$r_shop['star'];
+			$item['shop_fans_num']=$r_shop['fans_num'];
 
 
 			$arr[]=$item;
@@ -2268,7 +2268,7 @@ class ApiController extends Controller {
 			$item['shop_name']=$shop['title'];
 			$item['addtime']=date("Y-m-d H:i:s",$item['addtime']);
 			if(empty( $item['title'])){
-				$item['title'] = $row['title'] ;
+				$item['title'] = $shop['title'] ;
 			}
 			$item['shop_id']	=	$shop['id'] ;
 			$arr[]	=	$item;
@@ -3116,6 +3116,7 @@ class ApiController extends Controller {
 		}
 		M('Coupon')->where(array('id'=>$id))->delete();
 		M('MemberCoupon')->where(array('card_id'=>$id))->delete();
+		M('ShopService')->where(array('service_id'=>$id,'type'=>0))->delete();
 		$this->json_ok(true);
 	}
 	/**
@@ -3136,6 +3137,7 @@ class ApiController extends Controller {
 		}
 		M('Card')->where(array('id'=>$id))->delete();
 		M('MemberCard')->where(array('card_id'=>$id))->delete();
+		M('ShopService')->where(array('service_id'=>$id,'type'=>1))->delete();
 		$this->json_ok(true);
 	}
 	/**
@@ -3144,7 +3146,14 @@ class ApiController extends Controller {
 	public function delNewProduct()
 	{
 		$id	=	intval(I('post.id'));
+		if(!$id){
+			$id	=	intval(I('get.id'));
+		}
 		$member_id=intval(I('post.member_id'));
+		if(!$member_id){
+			$member_id=intval(I('get.member_id'));
+
+		}
 		$row=	M('NewProduct')->where(array('id'=>$id))->find();
 		if(!$row)
 		{
@@ -3155,6 +3164,7 @@ class ApiController extends Controller {
 			$this->json_error('新品不是您的');
 		}
 		M('NewProduct')->where(array('id'=>$id))->delete();
+		M('ShopService')->where(array('service_id'=>$id,'type'=>3))->delete();
 		$this->json_ok(true);
 	}
 	/**
@@ -3174,6 +3184,7 @@ class ApiController extends Controller {
 			$this->json_error('活动不是您的');
 		}
 		M('Activity')->where(array('id'=>$id))->delete();
+		M('ShopService')->where(array('service_id'=>$id,'type'=>2))->delete();
 		$this->json_ok(true);
 	}
 	/**
