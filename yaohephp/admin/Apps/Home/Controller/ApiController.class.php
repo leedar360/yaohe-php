@@ -733,7 +733,7 @@ class ApiController extends Controller {
 	{
 		$id	=	intval(I('get.id'));
 		$member_id	=	intval(I('get.member_id'));//会员ID
-		$row=	M('Shop')->field('id,title as full_name,fans_num,star,content,address,subscribe_tel,business_time, member_id as shop_member_id')->where(array('id'=>$id))->find();
+		$row=	M('Shop')->field('id,title as full_name,fans_num,star,content,address,subscribe_tel,business_time,one_id,head,member_id as shop_member_id')->where(array('id'=>$id))->find();
 		//echo M('Shop')->getlastsql();
 		if(!$row)
 		{
@@ -771,6 +771,9 @@ class ApiController extends Controller {
 		$row['cardnum']			=	$cardnum;
 		$row['activitynum']		=	$activitynum;
 		$row['newproductnum']	=	$newproductnum;
+
+		$class		=	M('Classify')->where(array('id'=>$row['one_id']))->find();
+		$row['head']	=	$class['title'];//暂时用head这个字段存放分类名称
 
 		//$map	=	array();
 		//$map['member_id']=$member_id;
