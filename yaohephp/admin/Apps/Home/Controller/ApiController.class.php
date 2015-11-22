@@ -755,6 +755,7 @@ class ApiController extends Controller {
 		//获取商家服务
 		$map	=	array();
 		$map['member_id']	=	$row['shop_member_id'];;
+		$map['status']	=	1;
 		//优惠券数量
 		$map['type']=	0;
 		$counponnum	=	M('ShopService')->where($map)->count();
@@ -778,7 +779,7 @@ class ApiController extends Controller {
 		//$map	=	array();
 		//$map['member_id']=$member_id;
 		//$map['_string']=" type<4";
-		$calllist=	M('ShopService')->where(array('member_id'=>$row['shop_member_id']))->order('id desc')->limit(0,3)->select();
+		$calllist=	M('ShopService')->where(array('member_id'=>$row['shop_member_id'],'status'=>1))->order('id desc')->limit(0,3)->select();
 		if(!$calllist)$calllist=array();
 		//$new_calllist[] = '';
 		foreach($calllist as $key=>$item)
@@ -1269,8 +1270,8 @@ class ApiController extends Controller {
 		//$field	=	'id,member_id,content,img1,type,fans_num,zan_num,comment_num';
 		//$field	=	'id,member_id,type,zan_num,comment_num,collection_num';
 		//$list	=	M('Call')->field($field)->where(array('city_id'=>$city_id))->order('id desc')->limit(($page-1)*20,20)->select();
-		$list	=	M('ShopService')->where(array('city_id'=>$city_id))->order('id desc')->limit(($page-1)*20,20)->select();
-		$count	=	M('ShopService')->where(array('city_id'=>$city_id))->count('*');
+		$list	=	M('ShopService')->where(array('city_id'=>$city_id,'status'=>1))->order('id desc')->limit(($page-1)*20,20)->select();
+		$count	=	M('ShopService')->where(array('city_id'=>$city_id ,'status'=>1))->count('*');
 		//echo M('ShopService')->getlastsql();exit;
 		if(!$list)$list=array();
 		$arr	=	array();
@@ -1366,6 +1367,7 @@ class ApiController extends Controller {
 		}
 
 		$map['city_id']	=	$city_id;
+		$map['status']	=	1;
 
 		//$field	=	'id,member_id,content,img1,type,fans_num,zan_num,comment_num';
 		//$field	=	'id,member_id,title,type,addtime,zan_num,comment_num,collection_num,img1,img2,img3,img4,img5,img6';
@@ -1459,6 +1461,7 @@ class ApiController extends Controller {
 		}
 		$map['member_id']=	array('in',implode(',',$shop_id_arr));
 		$map['city_id']	=	$city_id ;
+		$map['status']	=	1 ;
 		$field	=	'id,member_id,service_id,title,type,collection_num,zan_num,comment_num,addtime,img1,img2,img3,img4,img5,img6';
 		//$list	=	M('Call')->field($field)->where($map)->order('id desc')->select();
 		$list	=	M('ShopService')->field($field)->where($map)->limit(($page-1)*20,20)->order('id desc')->select();
@@ -2343,6 +2346,9 @@ class ApiController extends Controller {
 	{
 		$date	=	date("Y-m-d");
 		$member_id	=	intval(I('post.member_id'));
+		if(!$member_id){
+			$member_id	=	intval(I('get.member_id'));
+		}
 		$list = M()->table('ht_coupon c, ht_member_coupon m')->where('c.id = m.coupon_id and m.member_id='.$member_id." and m.valid_start<='".$date."' and m.valid_end>='".$date."'")->field('c.id,c.img1,c.title,c.content,c.member_id,c.type,m.id as member_coupon_id,m.valid_start,m.valid_end,m.use_number')->order('m.id desc' )->select();
 		//echo M()->getlastsql();exit;
 		if(!$list)$list=array();
@@ -2902,9 +2908,9 @@ class ApiController extends Controller {
 		}
 		$where	=	'' ;
 		if($isFaYaohe	==	'Y'){
-			$where['_string']=" member_id='".$member_id."' and type<> 4";
+			$where['_string']=" member_id='".$member_id."' and type<> 4 and status=1";
 		}else{
-			$where['_string']=" member_id='".$member_id."'";
+			$where['_string']=" member_id='".$member_id."' and status=1";
 		}
 		$count	=	M('ShopService')->where($where)->order('id desc')->count('*');
 		$list	=	M('ShopService')->where($where)->order('id desc')->limit(($page-1)*20,20)->select();
@@ -3053,7 +3059,7 @@ class ApiController extends Controller {
 		//搜索吆喝列表
 		$calllist	=	array();
 		$arr		=	array();
-		$map['_string']=' title like "%'.$keywords.'%" or content like "%'.$keywords.'%"';
+		$map['_string']=' title like "%'.$keywords.'%" or content like "%'.$keywords.'%" and status=1';
 		$list		=	M('ShopService')->where($map)->order('id desc')->select();
 		foreach($list as $item)
 		{
