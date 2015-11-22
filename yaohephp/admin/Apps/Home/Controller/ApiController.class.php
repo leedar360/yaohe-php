@@ -861,9 +861,7 @@ class ApiController extends Controller {
 		{
 			$this->json_error('会员不存在');
 		}
-		$map['shop_id']	=	$id;
-		$map['member_id']=	$member_id;
-		$fans	=	M('ShopFans')->where($map)->find();
+		$fans = $this->getFansByMemberIDAndShpID($id, $member_id);
 		if(!$fans)
 		{
 			$this->json_error('您未关注过');
@@ -894,9 +892,7 @@ class ApiController extends Controller {
 		//{
 			//$this->json_error('您是商家的角色，不允许关注');
 		//}
-		$map['shop_id']	=	$id;
-		$map['member_id']=	$member_id;
-		$fans	=	M('ShopFans')->where($map)->find();
+		$fans = $this->getFansByMemberIDAndShpID($id, $member_id);
 		if($fans)
 		{
 			$this->json_error('您已经关注过了');
@@ -1247,6 +1243,18 @@ class ApiController extends Controller {
 		$row['shop_subscribe_tel']	=	$shop['subscribe_tel'];//店铺电话
 		$row['shop_address']		=	$shop['address'];//店铺地址
 		$row['shop_fans_num']		=	$shop['fans_num'];//店铺粉丝数量
+		//根据传的会员ID，判断是否关注当前当前吆喝对应的商铺的
+		$member_id	=	intval(I('post.member_id'));
+		if(!$member_id){
+			$member_id	=	intval(I('get.member_id'));
+		}
+		$fans = $this->getFansByMemberIDAndShpID($shop['id'], $member_id);
+		if($fans)
+		{
+			$row['is_follow']		=	true ;
+		}else{
+			$row['is_follow']		=	false ;
+		}
 		$this->json_ok($row);
 	}
 	/**
@@ -2207,9 +2215,7 @@ class ApiController extends Controller {
 		$member_id=	intval(I('get.member_id'));
 		$id =	intval(I('get.id')) ;
 
-		$map['shop_id']	=	$id;
-		$map['member_id']=	$member_id;
-		$fans	=	M('ShopFans')->where($map)->find();
+		$fans = $this->getFansByMemberIDAndShpID($id, $member_id);
 
 		if($fans)
 		{
@@ -3641,6 +3647,20 @@ class ApiController extends Controller {
 			$list[$key]['savename']=$savenamearr[0].'_thumb'.'.'.$savenamearr[1];
 		}*/
 		return $filelist;
+	}
+
+	/**
+	 * 根据会员和shopID得到ShopFans
+	 * @param $id
+	 * @param $member_id
+	 * @return mixed
+	 */
+	private function getFansByMemberIDAndShpID($shop_id, $member_id)
+	{
+		$map['shop_id'] = $shop_id;
+		$map['member_id'] = $member_id;
+		$fans = M('ShopFans')->where($map)->find();
+		return $fans;
 	}
 }
 ?>
