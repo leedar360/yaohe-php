@@ -356,6 +356,11 @@ class ActivityController extends CommonController {
 		$data['status']=1;
 		M('Activity')->where($map)->save($data);
 		//echo M('Coupon')->getlastsql();exit;
+
+		//同时ht_shop_service也状态
+		$shop_service_map['service_id']	=	$id	;
+		$shop_service_map['type']	=	2 ;
+		M('ShopService')->where($shop_service_map)->save($data);
 		$this->success('上线成功','/?c=Activity');
 		//$return['msg']='上线成功';
 		//$this->ajaxReturn($return,'JSON');
@@ -377,6 +382,11 @@ class ActivityController extends CommonController {
 		$data['status']=2;
 		M('Activity')->where($map)->save($data);
 		//$return['msg']='下线成功';
+
+		//同时ht_shop_service也状态为
+		$shop_service_map['service_id']	=	$id	;
+		$shop_service_map['type']	=	2 ;
+		M('ShopService')->where($shop_service_map)->save($data);
 		$this->success('下线成功','/?c=Activity');
 	}
 }
