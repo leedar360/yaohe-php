@@ -1142,7 +1142,10 @@ class ApiController extends Controller {
 	public function getCall()
 	{
 		//,zan_num,comment_num,collection_num
-		$id	=	intval(I('get.id'));
+		$id	=	intval(I('post.id'));
+		if(!$id){
+			$id	=	intval(I('get.id'));
+		}
 		/*$row=	M('ShopService')->field('id,member_id,service_id,title,zan_num,comment_num,collection_num,addtime,type')->where(array('id'=>$id))->find();*/
 		$row=	M('ShopService')->where(array('id'=>$id))->find();
 		if(!$row)
