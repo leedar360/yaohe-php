@@ -365,6 +365,11 @@ class CardController extends CommonController {
 		}
 		$data['status']=1;
 		M('Card')->where($map)->save($data);
+
+		//同时ht_shop_service也状态
+		$shop_service_map['service_id']	=	$id	;
+		$shop_service_map['type']	=	1 ;
+		M('ShopService')->where($shop_service_map)->save($data);
 		$this->success('上线成功','/?c=Card');
 	}
 	/**
@@ -383,6 +388,11 @@ class CardController extends CommonController {
 		}
 		$data['status']=2;
 		M('Card')->where($map)->save($data);
+
+		//同时ht_shop_service也状态
+		$shop_service_map['service_id']	=	$id	;
+		$shop_service_map['type']	=	1 ;
+		M('ShopService')->where($shop_service_map)->save($data);
 		$this->success('下线成功','/?c=Card');
 	}
 }
