@@ -382,7 +382,7 @@ class ApiController extends Controller {
 		$shop=	$this->getShop($member_id);
 		//写入纯吆喝
 		if($type==4)
-		{		
+		{
 			//$data['province_id']=	$province['id'];
 			//$data['city_id']	=	$city_id;
 			$data['member_id']	=	$member_id;
@@ -678,8 +678,14 @@ class ApiController extends Controller {
 	public function getShopServiceList()
 	{
 		$page	=	I('post.page');
+		if(!$page){
+			$page	=	I('get.page');
+		}
 		if($page<1)$page=1;
 		$shop_id=	I('post.shop_id');
+		if(!$shop_id){
+			$shop_id=	I('get.shop_id');
+		}
 		$shop	=	M('Shop')->where(array('id'=>$shop_id))->find();
 		if(!$shop)
 		{
@@ -727,7 +733,7 @@ class ApiController extends Controller {
 	{
 		$id	=	intval(I('get.id'));
 		$member_id	=	intval(I('get.member_id'));//会员ID
-		$row=	M('Shop')->field('id,title as full_name,fans_num,star,content,address,subscribe_tel,business_time, member_id as shop_member_id')->where(array('id'=>$id))->find();
+		$row=	M('Shop')->field('id,title as full_name,fans_num,star,content,address,subscribe_tel,business_time,one_id,head,member_id as shop_member_id')->where(array('id'=>$id))->find();
 		//echo M('Shop')->getlastsql();
 		if(!$row)
 		{
@@ -735,7 +741,8 @@ class ApiController extends Controller {
 		}
 		$row['content']	=	str_replace(array("\r","\n","\t"),array('','',''),strip_tags(htmlspecialchars_decode($row['content'])));
 		$map['shop_id']	=	$id;
-		$map['member_id']=	$member_id;
+		//$map['member_id']=	$member_id;
+		$map['member_id']=	$row['shop_member_id'];
 		$record	=	M('ShopFans')->where($map)->find();
 		if(!$record)
 		{
@@ -747,7 +754,7 @@ class ApiController extends Controller {
 		}
 		//获取商家服务
 		$map	=	array();
-		$map['member_id']=$member_id;
+		$map['member_id']	=	$row['shop_member_id'];;
 		//优惠券数量
 		$map['type']=	0;
 		$counponnum	=	M('ShopService')->where($map)->count();
@@ -764,6 +771,9 @@ class ApiController extends Controller {
 		$row['cardnum']			=	$cardnum;
 		$row['activitynum']		=	$activitynum;
 		$row['newproductnum']	=	$newproductnum;
+
+		$class		=	M('Classify')->where(array('id'=>$row['one_id']))->find();
+		$row['head']	=	$class['title'];//暂时用head这个字段存放分类名称
 
 		//$map	=	array();
 		//$map['member_id']=$member_id;
@@ -792,6 +802,13 @@ class ApiController extends Controller {
 				break;
 			}
 			if(empty($item['content']))$item['content']=$service['content'];
+
+			$item['content']=str_replace("&quot;","\"",$item['content']);
+			$item['content']=str_replace("&lt;","<",$item['content']);
+			$item['content']=str_replace("&gt;",">",$item['content']);
+			$item['content']=str_replace("&amp;","&",$item['content']);
+
+
 			if(!empty($item['img6']))$item['img']	=	$item['img6'];
 			if(!empty($item['img5']))$item['img']	=	$item['img5'];
 			if(!empty($item['img4']))$item['img']	=	$item['img4'];
@@ -1160,7 +1177,7 @@ class ApiController extends Controller {
 		switch($row['type'])
 		{
 			case 4://纯吆喝
-				$record	=	M('Call')->field('id,content,img1,img2,img3,img4,img5,img6,title')->where(array('id'=>$row['service_id']))->find();
+				$record	=	M('Call')->field('id,content,img1,img2,img3,img4,img5,img6,"" as title')->where(array('id'=>$row['service_id']))->find();
 				//echo M('Call')->getlastsql();
 			break;
 			case 3://新品
@@ -1216,8 +1233,15 @@ class ApiController extends Controller {
 		}else{
 			$row['content']				=	$record['content'];
 		}
+
+		$row['content']=str_replace("&quot;","\"",$row['content']);
+		$row['content']=str_replace("&lt;","<",$row['content']);
+		$row['content']=str_replace("&gt;",">",$row['content']);
+		$row['content']=str_replace("&amp;","&",$row['content']);
+
 		//$row['content']				=	$record['content'];
-		$row['addtime']				=	date('m-d H:i');
+		//$row['addtime']				=	date('m-d H:i');
+		$row['addtime']				=	date('m-d H:i',$row['addtime']);
 		$row['shop_id']				=	$shop['id'];//店铺ID
 		$row['shop_name']			=	$shop['title'];//店铺名字
 		$row['shop_subscribe_tel']	=	$shop['subscribe_tel'];//店铺电话
@@ -1279,6 +1303,12 @@ class ApiController extends Controller {
 
 			if(!isset($item['s_img']))$item['s_img']='';
 			if(!isset($item['img']))$item['img']='';
+
+			$item['content']=str_replace("&quot;","\"",$item['content']);
+			$item['content']=str_replace("&lt;","<",$item['content']);
+			$item['content']=str_replace("&gt;",">",$item['content']);
+			$item['content']=str_replace("&amp;","&",$item['content']);
+
 			if(empty($item['s_content']))$item['s_content']=$service['content'];
 			//$list[$key]['img']		=	$service['img1'];
 			$row=	M('Shop')->field('id,title,star,fans_num')->where(array('member_id'=>$item['member_id']))->find();
@@ -1485,11 +1515,11 @@ class ApiController extends Controller {
 
 			$item['img1']=$item['img'];
 			$item['addtime']=	date("Y-m-d H:i:s",$item['addtime']);
-			$row=	M('Shop')->field('id,title,star,fans_num')->where(array('member_id'=>$item['member_id']))->find();
-			$item['shop_id']=$row['id'];
-			$item['shop_name']=$row['title'];
-			$item['shop_star']=$row['star'];
-			$item['shop_fans_num']=$row['fans_num'];
+			$r_shop=	M('Shop')->field('id,title,star,fans_num')->where(array('member_id'=>$item['member_id']))->find();
+			$item['shop_id']=$r_shop['id'];
+			$item['shop_name']=$r_shop['title'];
+			$item['shop_star']=$r_shop['star'];
+			$item['shop_fans_num']=$r_shop['fans_num'];
 
 
 			$arr[]=$item;
@@ -1636,23 +1666,45 @@ class ApiController extends Controller {
 			*/
 			//获取会员信息
 			$row=M('Member')->where(array('id'=>$item['member_id']))->find();
+			$to_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
 			$item['face']=$row['face'];
+			$answerFace 	=	$to_row['face'];
 
-			//获取会员昵称
-			$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
-			if(!$person)$person['nickname']='吆喝'.$item['member_id'];
+			$nickname = '' ;
+			//如果member_id是商家的话，则显示商家的名称
+			$Shop =	$this->isShopByMemberId($item['member_id']) ;
+
+			if(!$Shop){
+				//获取会员昵称
+				$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
+				if(!$person){
+					//$nickname='吆喝'.$item['member_id'];
+					$nickname	=	$this->getHidePhoneNumber($row['login_user']) ;
+				}else{
+					$nickname	=	$person['nickname'] ;
+				}
+			}else{
+				$nickname	=	$Shop['title'] ;
+			}
+
 			//如果是复评论的话，增加answername和parentid
 			$answerName = '' ;
 			if($item['parentid'] > 0)
 			{
-				$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
-				if(!$personReply){
-					$answerName	=	'吆喝'.$item['to_member_id'];
+				$answer_Shop =	$this->isShopByMemberId($item['to_member_id']) ;
+				if(!$answer_Shop){
+					$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
+					if(!$personReply){
+						$answerName	=	$this->getHidePhoneNumber($to_row['login_user']) ;
+					}else{
+						$answerName	=	$personReply['nickname'];
+					}
 				}else{
-					$answerName	=	$personReply['nickname'];
+					$answerName	=	$answer_Shop['title'];
 				}
+
 			}
-			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$person['nickname'],'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'to_member_id'=>$item['to_member_id'],'nickname'=>$nickname,'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace);
 
 		}
 		$this->json_ok($arr);
@@ -1711,6 +1763,7 @@ class ApiController extends Controller {
 			{
 				$comment_title	=	$person['nickname'];
 			}
+			$data['to_member_id']	=	$shop['member_id'];
 		}
 		$data['comment_title']	=	$comment_title;
 		M('ShopComment')->add($data);
@@ -1849,7 +1902,8 @@ class ApiController extends Controller {
 				$person=M('Personal')->where(array('member_id'=>$member['id']))->find();
 				if(!$person)
 				{
-					$item['nickname']='吆喝'.$member['id'];
+					//$item['nickname']='吆喝'.$member['id'];
+					$item['nickname']	=	$this->getHidePhoneNumber($member['login_user']) ;
 				}
 				else
 				{
@@ -1866,7 +1920,9 @@ class ApiController extends Controller {
 			{
 				$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
 				if(!$personReply){
-					$answerName	=	'吆喝'.$item['to_member_id'];
+					$to_member=M('Member')->field('id,face,type')->where(array('id'=>$item['to_member_id']))->find();
+					//$answerName	=	'吆喝'.$item['to_member_id'];
+					$answerName	=	$this->getHidePhoneNumber($to_member['login_user']) ;
 				}else{
 					$answerName	=	$personReply['nickname'];
 				}
@@ -2168,7 +2224,7 @@ class ApiController extends Controller {
 	public function myCollection()
 	{
 		$member_id=	intval(I('get.member_id'));
-		$list = M()->table('ht_shop_service s, ht_shop_service_collection n')->where('s.id = n.shop_service_id and n.member_id='.$member_id)->field('s.id,s.service_id,s.member_id,s.type,n.addtime')->order('n.id desc' )->select();
+		$list = M()->table('ht_shop_service s, ht_shop_service_collection n')->where('s.id = n.shop_service_id and n.member_id='.$member_id)->field('s.id,s.service_id,s.member_id,s.type,n.addtime,s.title, s.content as content')->order('n.id desc' )->select();
 		//echo M()->getlastsql();
 		if(!$list)
 		{
@@ -2181,50 +2237,45 @@ class ApiController extends Controller {
 			switch($item['type'])
 			{
 				case 0://券
-					$row	=	M('Coupon')->field('content,img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
+					$row	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
 					if(!$row)
 					{
 						continue;
 						$this->json_error('内容不存在1');
 					}
-					$item['content']	=	$row['content'];
 					break;
 				case 1://卡
-					$row	=	M('Card')->field('content,img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
+					$row	=	M('Card')->field('img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
 					if(!$row)
 					{
 						continue;
 						$this->json_error('内容不存在2');
 					}
-					$item['content']	=	$row['content'];
 					break;
 				case 2://活动
-					$row	=	M('Activity')->field('content,img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
+					$row	=	M('Activity')->field('img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
 					//echo M('Activity')->getlastsql().'<br />';
 					if(!$row)
 					{
 						continue;
 						$this->json_error('内容不存在4');
 					}
-					$item['content']	=	$row['content'];
 					break;
 				case 3://新品
-					$row	=	M('NewProduct')->field('content,img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
+					$row	=	M('NewProduct')->field('img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
 					if(!$row)
 					{
 						continue;
 						$this->json_error('内容不存在3');
 					}
-					$item['content']	=	$row['content'];
 					break;
 				case 4://吆喝
-					$row	=	M('Call')->field('content,img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
+					$row	=	M('Call')->field('img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
 					if(!$row)
 					{
 						continue;
 						$this->json_error('内容不存在5');
 					}
-					$item['content']	=	$row['content'];
 					break;
 			}
 			if(!empty($row['img6']))$item['img1']=$row['img6'];
@@ -2238,8 +2289,9 @@ class ApiController extends Controller {
 			$item['shop_name']=$shop['title'];
 			$item['addtime']=date("Y-m-d H:i:s",$item['addtime']);
 			if(empty( $item['title'])){
-				$item['title'] = $row['title'] ;
+				//$item['title'] = $shop['title'] ;
 			}
+			$item['shop_id']	=	$shop['id'] ;
 			$arr[]	=	$item;
 		}
 		if(count($arr)<1)$arr=array(array('id'=>''));
@@ -2569,9 +2621,22 @@ class ApiController extends Controller {
 	public function getMyCallList()
 	{
 		$member_id=	intval(I('post.member_id'));
+		if(!$member_id){
+			$member_id=	intval(I('get.member_id'));
+		}
 		$page	=	intval(I('post.page'));
 		if($page<1)$page=1;
-		$list	=	M('ShopService')->field('id,title,img1,img2,img3,img4,img5,img6,type,service_id,zan_num,comment_num,collection_num')->where(array('member_id'=>$member_id))->order('id desc')->limit(($page-1)*20,20)->select();
+		$isFaYaohe	=	I('post.isFaYaohe') ;
+		if(!$isFaYaohe){
+			$isFaYaohe	=	I('get.isFaYaohe') ;
+		}
+		$where	=	'' ;
+		if($isFaYaohe	==	'Y'){
+			$where['_string']=" member_id='".$member_id."' and type<> 4";
+		}else{
+			$where['_string']=" member_id='".$member_id."'";
+		}
+		$list	=	M('ShopService')->field('id,title,img1,img2,img3,img4,img5,img6,type,service_id,zan_num,comment_num,collection_num')->where($where)->order('id desc')->limit(($page-1)*20,20)->select();
 		if(!$list)$list=array();
 		foreach($list as $item)
 		{switch($item['type'])
@@ -2820,10 +2885,23 @@ class ApiController extends Controller {
 	public function getMyServiceList()
 	{
 		$member_id=	intval(I('post.member_id'));
+		if(!$member_id){
+			$member_id=	intval(I('get.member_id'));
+		}
 		$page	=	intval(I('post.page'));
 		if($page<1)$page=1;
-		$count	=	M('ShopService')->where(array('member_id'=>$member_id))->order('id desc')->count('*');
-		$list	=	M('ShopService')->where(array('member_id'=>$member_id))->order('id desc')->limit(($page-1)*20,20)->select();
+		$isFaYaohe	=	I('post.isFaYaohe') ;
+		if(!$isFaYaohe){
+			$isFaYaohe	=	I('get.isFaYaohe') ;
+		}
+		$where	=	'' ;
+		if($isFaYaohe	==	'Y'){
+			$where['_string']=" member_id='".$member_id."' and type<> 4";
+		}else{
+			$where['_string']=" member_id='".$member_id."'";
+		}
+		$count	=	M('ShopService')->where($where)->order('id desc')->count('*');
+		$list	=	M('ShopService')->where($where)->order('id desc')->limit(($page-1)*20,20)->select();
 		if(!$list)$list=array();
 		$arr	=	array();
 		foreach($list as $key=>$item)
@@ -2954,8 +3032,8 @@ class ApiController extends Controller {
 			$this->json_error('请输入关键字');
 		}
 		$map['_string']=' title like "%'.$keywords.'%"';
-		//TODO 为推广需呀，暂时先不加状态控制
-		//$map['status']	=	1 ;
+
+		$map['status']	=	1 ;//1表示已审核的
 		$shoplist	=	M('Shop')->field('id,member_id,title')->where($map)->order('id asc')->select();
 		$arr		=	array();
 		foreach($shoplist as $item)
@@ -3059,6 +3137,7 @@ class ApiController extends Controller {
 		}
 		M('Coupon')->where(array('id'=>$id))->delete();
 		M('MemberCoupon')->where(array('card_id'=>$id))->delete();
+		M('ShopService')->where(array('service_id'=>$id,'type'=>0))->delete();
 		$this->json_ok(true);
 	}
 	/**
@@ -3079,6 +3158,7 @@ class ApiController extends Controller {
 		}
 		M('Card')->where(array('id'=>$id))->delete();
 		M('MemberCard')->where(array('card_id'=>$id))->delete();
+		M('ShopService')->where(array('service_id'=>$id,'type'=>1))->delete();
 		$this->json_ok(true);
 	}
 	/**
@@ -3087,7 +3167,14 @@ class ApiController extends Controller {
 	public function delNewProduct()
 	{
 		$id	=	intval(I('post.id'));
+		if(!$id){
+			$id	=	intval(I('get.id'));
+		}
 		$member_id=intval(I('post.member_id'));
+		if(!$member_id){
+			$member_id=intval(I('get.member_id'));
+
+		}
 		$row=	M('NewProduct')->where(array('id'=>$id))->find();
 		if(!$row)
 		{
@@ -3098,6 +3185,7 @@ class ApiController extends Controller {
 			$this->json_error('新品不是您的');
 		}
 		M('NewProduct')->where(array('id'=>$id))->delete();
+		M('ShopService')->where(array('service_id'=>$id,'type'=>3))->delete();
 		$this->json_ok(true);
 	}
 	/**
@@ -3117,6 +3205,7 @@ class ApiController extends Controller {
 			$this->json_error('活动不是您的');
 		}
 		M('Activity')->where(array('id'=>$id))->delete();
+		M('ShopService')->where(array('service_id'=>$id,'type'=>2))->delete();
 		$this->json_ok(true);
 	}
 	/**
@@ -3174,16 +3263,17 @@ class ApiController extends Controller {
 		}
 		$arr	=	array();
 
-		$shop	= $this->getShop($member_id) ;
+		$shop	= M('Shop')->where(array('member_id'=>$member_id))->find();
+		//$shop	=	$this->getShop($member_id);
 
 		$sql	=	'' ;
 		$res	=	''	;
 		if( !$shop){
-			$sql = 'select distinct t.member_id,case when per.nickname is null then me.login_user else per.nickname end as nicknume, me.face,max(t.addtime) as lastSendtime,(select count(*) from ht_sms t1 where t1.to_member_id = t.to_member_id and t1.is_read = 1) as noReadCount from ht_sms t left join ht_member me on t.member_id = me.id left join  ht_personal per on per.member_id = me.id where t.to_member_id ='. $member_id;
+			$sql = 'select distinct t.member_id,case when per.nickname is null then me.login_user else per.nickname end as nicknume, me.face,max(t.addtime) as lastSendtime,(select count(*) from ht_sms t1 where t1.to_member_id = t.to_member_id and t1.is_read = 1) as noReadCount, t.parentid from ht_sms t left join ht_member me on t.member_id = me.id left join  ht_personal per on per.member_id = me.id where t.to_member_id ='. $member_id;
 			$waw = M();
 			$res = $waw->query($sql);
 		}else{
-			$sql = 'select distinct t.member_id,s.title as nickname,s.img as face , max(t.addtime) as lastSendtime,(select count(*) from ht_sms t1 where t1.to_member_id = t.to_member_id and t1.is_read = 1) as noReadCount from ht_sms t left join ht_member me on t.member_id = me.id  left join  ht_personal per on per.member_id = me.id left join ht_shop s on s.member_id = me.id  where t.to_member_id ='. $member_id;
+			$sql = 'select distinct t.member_id,s.title as nickname,me.face as face , max(t.addtime) as lastSendtime,(select count(*) from ht_sms t1 where t1.to_member_id = t.to_member_id and t1.is_read = 1) as noReadCount, t.parentid from ht_sms t left join ht_member me on t.member_id = me.id  left join  ht_personal per on per.member_id = me.id left join ht_shop s on s.member_id = me.id  where t.to_member_id ='. $member_id;
 			$waw = M();
 			$res = $waw->query($sql);
 		}
@@ -3195,9 +3285,10 @@ class ApiController extends Controller {
 		{
 			$arr1['member_id'] = $item['member_id'] ;
 			$arr1['nickname'] = $item['nickname'] ;
-			$arr1['face'] = $item['member_id'] ;
-			$arr1['lastSendtime'] = date("Y-m-d",$item['addtime']);
+			$arr1['face'] = $item['face'] ;
+			$arr1['lastSendtime'] = date("Y-m-d",$item['lastSendtime']);
 			$arr1['noReadCount'] = $item['noReadCount'] ;
+			$arr1['parentid'] = $item['parentid'] ;
 			$arr[] = $arr1 ;
 		}
 		$this->json_ok($arr);
@@ -3223,16 +3314,16 @@ class ApiController extends Controller {
 
 		$arr	=	array();
 
-		$shop	= $this->getShop($to_member_id) ;
+		$shop	= M('Shop')->where(array('member_id'=>$to_member_id))->find();
 
 		$sql	=	'' ;
 		$res	=	''	;
 		if(!$shop){
-			$sql = 'select t.*,case when per.nickname is null then me.login_user else per.nickname end as nicknume,  me.face from ht_sms t left join ht_member me on t.member_id = me.id left join  ht_personal per on per.member_id = me.id where t.to_member_id ='. $to_member_id.' and t.member_id='.$member_id ;
+			$sql = 'select t.*,case when per.nickname is null then me.login_user else per.nickname end as nickname,  me.face, t.parentid from ht_sms t left join ht_member me on t.member_id = me.id left join  ht_personal per on per.member_id = me.id where t.to_member_id ='. $to_member_id.' and t.member_id='.$member_id ;
 			$waw = M();
 			$res = $waw->query($sql);
 		}else{
-			$sql = 'select t.*,s.title as nickname,s.img as face  from ht_sms t left join ht_member me on t.member_id = me.id  left join  ht_personal per on per.member_id = me.id left join ht_shop s on s.member_id = me.id  where t.to_member_id ='. $to_member_id .' and t.member_id='.$member_id ;
+			$sql = 'select t.*,s.title as nickname,me.face as face, t.parentid  from ht_sms t left join ht_member me on t.member_id = me.id  left join  ht_personal per on per.member_id = me.id left join ht_shop s on s.member_id = me.id  where t.to_member_id ='. $to_member_id .' and t.member_id='.$member_id ;
 			$waw = M();
 			$res = $waw->query($sql);
 		}
@@ -3246,7 +3337,8 @@ class ApiController extends Controller {
 			$arr1['nickname'] = $item['nickname'] ;
 			$arr1['content'] = $item['content'] ;
 			$arr1['addtime']=	date("Y-m-d",$item['addtime']);
-			$arr1['face'] = $item['member_id'] ;
+			$arr1['face'] = $item['face'] ;
+			$arr1['parentid'] = $item['parentid'] ;
 			$arr[] = $arr1 ;
 		}
 		$this->json_ok($arr);
@@ -3342,22 +3434,32 @@ class ApiController extends Controller {
 			//获取会员信息
 			$row=M('Member')->where(array('id'=>$item['member_id']))->find();
 			$item['face']=$row['face'];
-
+			$to_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
+			$answerFace	=	$to_row['face'] ;
 			//获取会员昵称
+			$nickname = '' ;
 			$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
-			if(!$person)$person['nickname']='吆喝'.$item['member_id'];
+			if(!$person){
+				//$person['nickname']='吆喝'.$item['member_id'];
+				$nickname	=	$this->getHidePhoneNumber($row['login_user']) ;
+			}else{
+				$nickname	=	$person['nickname'] ;
+			}
+
 			//如果是复评论的话，增加answername和parentid
 			$answerName = '' ;
 			if($item['parentid'] > 0)
 			{
 				$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
+
 				if(!$personReply){
-					$answerName	=	'吆喝'.$item['to_member_id'];
+					//$answerName	=	'吆喝'.$item['to_member_id'];
+					$answerName	=	$this->getHidePhoneNumber($to_row['login_user']) ;
 				}else{
 					$answerName	=	$personReply['nickname'];
 				}
 			}
-			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$person['nickname'],'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$nickname,'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace);
 
 			//更新is_read为0
 			$data['is_read'] 	=	0 ;
@@ -3388,21 +3490,32 @@ class ApiController extends Controller {
 			//获取会员信息
 			$row=M('Member')->where(array('id'=>$item['member_id']))->find();
 			$item['face']=$row['face'];
+			$to_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
+			$answerFace	=	$to_row['face'] ;
+
 			//获取会员昵称
+			$nickname	=	'' ;
 			$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
-			if(!$person)$person['nickname']='吆喝'.$item['member_id'];
+			if(!$person){
+				//$person['nickname']='吆喝'.$item['member_id'];
+				$nickname	=	$this->getHidePhoneNumber($row['login_user']) ;
+			}else{
+				$nickname	=	$person['nickname'] ;
+			}
 			//如果是复评论的话，增加answername和parentid
 			$answerName = '' ;
+			$answerFace 	=	''	 ;
 			if($item['parentid'] > 0)
 			{
 				$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
 				if(!$personReply){
-					$answerName	=	'吆喝'.$item['to_member_id'];
+					//$answerName	=	'吆喝'.$item['to_member_id'];
+					$answerName	=	$this->getHidePhoneNumber($to_row['login_user']) ;
 				}else{
 					$answerName	=	$personReply['nickname'];
 				}
 			}
-			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$person['nickname'],'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$nickname,'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace);
 
 			if ($is_del == "Y") {
 				//更新is_read为0
@@ -3461,7 +3574,7 @@ class ApiController extends Controller {
 		}
 		return $row;
 	}
-	
+
 	private function getShopById($shop_id)
 	{
 		$row = M('Shop')->where(array('id'=>$shop_id))->find() ;
@@ -3472,6 +3585,14 @@ class ApiController extends Controller {
 		return $row ;
 	}
 
+	private function isShopByMemberId($member_id){
+		$row	=	M('Shop')->where(array('member_id'=>$member_id))->find();
+		return $row;
+	}
+
+	private function getHidePhoneNumber($phone){
+		return substr_replace($phone,'*****',3,5);
+	}
 	private function json_ok($data)
 	{
 		$arr['status']['code']=0;
