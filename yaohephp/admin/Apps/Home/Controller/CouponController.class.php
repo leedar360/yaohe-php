@@ -391,6 +391,11 @@ class CouponController extends CommonController {
 		//echo M('Coupon')->getlastsql();exit;
 		$this->success('上线成功','/?c=Coupon');
 		//$return['msg']='上线成功';
+
+		//同时ht_shop_service也状态
+		$shop_service_map['service_id']	=	$id	;
+		$shop_service_map['type']	=	0 ;
+		M('ShopService')->where($shop_service_map)->save($data);
 		//$this->ajaxReturn($return,'JSON');
 	}
 	/**
@@ -410,6 +415,11 @@ class CouponController extends CommonController {
 		$data['status']=2;
 		M('Coupon')->where($map)->save($data);
 		//$return['msg']='下线成功';
+
+		//同时ht_shop_service也状态
+		$shop_service_map['service_id']	=	$id	;
+		$shop_service_map['type']	=	0 ;
+		M('ShopService')->where($shop_service_map)->save($data);
 		$this->success('下线成功','/?c=Coupon');
 	}
 }
