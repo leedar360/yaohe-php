@@ -1860,13 +1860,27 @@ class ApiController extends Controller {
 	*/
 	public function callCollection()
 	{
-		$row	=	M('ShopServiceCollection')->where(array('shop_service_id'=>intval(I('post.call_id'))))->find();
+		$call_id 	=	intval(I('post.id')) ;
+		if(!$call_id){
+			$call_id 	=	intval(I('get.id')) ;
+		}
+		if(!$call_id){
+			$call_id 	=	intval(I('post.call_id')) ;
+		}
+		if(!$call_id){
+			$call_id 	=	intval(I('get.call_id')) ;
+		}
+		$member_id	=	intval(I('post.member_id')) ;
+		if(!$member_id){
+			$member_id	=	intval(I('get.member_id')) ;
+		}
+		$row	=	M('ShopServiceCollection')->where(array('shop_service_id'=>$call_id))->find();
 		if($row)
 		{
 			$this->json_error('您已经收藏过了');
 		}
-		$data['shop_service_id']=	intval(I('post.call_id'));//吆喝ID
-		$data['member_id']		=	intval(I('post.member_id'));//会员ID
+		$data['shop_service_id']=	$call_id;//吆喝ID
+		$data['member_id']		=	$member_id;//会员ID
 		$data['addtime']		=	time();
 		M('ShopServiceCollection')->add($data);
 		M('ShopService')->where(array('id'=>$data['shop_service_id']))->setInc('collection_num');
