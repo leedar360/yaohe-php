@@ -1877,7 +1877,7 @@ class ApiController extends Controller {
 			$member=M('Member')->field('id,face,type')->where(array('id'=>$item['member_id']))->find();
 			if(!$member)continue;
 			$item['face']=$member['face'];
-			$item['addtime']=date("Y-m-d H:i");
+			//$item['addtime']=date("Y-m-d H:i");
 			if($member['type']==0)
 			{
 				$person=M('Personal')->where(array('member_id'=>$member['id']))->find();
@@ -2972,6 +2972,9 @@ class ApiController extends Controller {
 	public function getShopBase()
 	{
 		$member_id	=	intval(I('post.member_id'));
+		if(!$member_id){
+			$member_id	=	intval(I('get.member_id'));
+		}
 		$map['id']	=	$member_id;
 		$row		=	M('Member')->where($map)->find();
 		if(!$row)
