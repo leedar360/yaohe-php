@@ -398,6 +398,7 @@ class ApiController extends Controller {
 			$data['addtime']	=	time();//添加时间
 			$data['industry_class_id']=$shop['industry_class_id'];//二级分类
 			$data['type']		=	$type;
+			$data['is_yinyong']	=	1 ; //1是引用，0是不引用
 			//$data['type']		=	$type;
 			//$data['member_id']	=	$member_id;
 			//$data['member_id']	=	$member_id;
@@ -428,6 +429,7 @@ class ApiController extends Controller {
 		$new_data['one_id']		=	$shop['one_id'];//一级分类
 		$new_data['addtime']	=	time();//添加时间
 		$new_data['industry_class_id']=$shop['industry_class_id'];//二级分类
+		$data['is_yinyong']	=	1 ; //1是引用，0是不引用
 		M('ShopService')->add($new_data);
 		$this->json_ok(true);
 	}
@@ -2417,9 +2419,9 @@ class ApiController extends Controller {
 		}
 		$where	=	'' ;
 		if($isFaYaohe	==	'Y'){
-			$where['_string']=" member_id='".$member_id."' and type<> 4";
+			$where['_string']=" member_id='".$member_id."' and type<> 4 and is_yinyong=0 and status=1";
 		}else{
-			$where['_string']=" member_id='".$member_id."'";
+			$where['_string']=" member_id='".$member_id."' and status=1";
 		}
 		$list	=	M('ShopService')->field('id,title,img1,img2,img3,img4,img5,img6,type,service_id,zan_num,comment_num,collection_num')->where($where)->order('id desc')->limit(($page-1)*20,20)->select();
 		if(!$list)$list=array();
@@ -2681,7 +2683,7 @@ class ApiController extends Controller {
 		}
 		$where	=	'' ;
 		if($isFaYaohe	==	'Y'){
-			$where['_string']=" member_id='".$member_id."' and type<> 4 and status=1";
+			$where['_string']=" member_id='".$member_id."' and type<> 4 and status=1 and is_yinyong=0";
 		}else{
 			$where['_string']=" member_id='".$member_id."' and status=1";
 		}
