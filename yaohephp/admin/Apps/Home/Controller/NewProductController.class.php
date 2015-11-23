@@ -344,6 +344,11 @@ class NewProductController extends CommonController {
 		M('NewProduct')->where($map)->save($data);
 		//echo M('Coupon')->getlastsql();exit;
 		$this->success('上线成功','/NewProduct');
+
+		//同时ht_shop_service也状态为1
+		$shop_service_map['service_id']	=	$id	;
+		$shop_service_map['type']	=	3 ;
+		M('ShopService')->where($shop_service_map)->save($data);
 		//$return['msg']='上线成功';
 		//$this->ajaxReturn($return,'JSON');
 	}
@@ -364,6 +369,10 @@ class NewProductController extends CommonController {
 		$data['status']=2;
 		M('NewProduct')->where($map)->save($data);
 		//$return['msg']='下线成功';
+		//同时ht_shop_service也状态为2
+		$shop_service_map['service_id']	=	$id	;
+		$shop_service_map['type']	=	3 ;
+		M('ShopService')->where($shop_service_map)->save($data);
 		$this->success('下线成功','/NewProduct');
 	}
 	public function _before_delete()

@@ -733,7 +733,7 @@ class ApiController extends Controller {
 	{
 		$id	=	intval(I('get.id'));
 		$member_id	=	intval(I('get.member_id'));//会员ID
-		$row=	M('Shop')->field('id,title as full_name,fans_num,star,content,address,subscribe_tel,business_time, member_id as shop_member_id')->where(array('id'=>$id))->find();
+		$row=	M('Shop')->field('id,title as full_name,fans_num,star,content,address,subscribe_tel,business_time,one_id,head,member_id as shop_member_id')->where(array('id'=>$id))->find();
 		//echo M('Shop')->getlastsql();
 		if(!$row)
 		{
@@ -755,6 +755,7 @@ class ApiController extends Controller {
 		//获取商家服务
 		$map	=	array();
 		$map['member_id']	=	$row['shop_member_id'];;
+		$map['status']	=	1;
 		//优惠券数量
 		$map['type']=	0;
 		$counponnum	=	M('ShopService')->where($map)->count();
@@ -772,10 +773,13 @@ class ApiController extends Controller {
 		$row['activitynum']		=	$activitynum;
 		$row['newproductnum']	=	$newproductnum;
 
+		$class		=	M('Classify')->where(array('id'=>$row['one_id']))->find();
+		$row['head']	=	$class['title'];//暂时用head这个字段存放分类名称
+
 		//$map	=	array();
 		//$map['member_id']=$member_id;
 		//$map['_string']=" type<4";
-		$calllist=	M('ShopService')->where(array('member_id'=>$row['shop_member_id']))->order('id desc')->limit(0,3)->select();
+		$calllist=	M('ShopService')->where(array('member_id'=>$row['shop_member_id'],'status'=>1))->order('id desc')->limit(0,3)->select();
 		if(!$calllist)$calllist=array();
 		//$new_calllist[] = '';
 		foreach($calllist as $key=>$item)
@@ -799,6 +803,13 @@ class ApiController extends Controller {
 				break;
 			}
 			if(empty($item['content']))$item['content']=$service['content'];
+
+			$item['content']=str_replace("&quot;","\"",$item['content']);
+			$item['content']=str_replace("&lt;","<",$item['content']);
+			$item['content']=str_replace("&gt;",">",$item['content']);
+			$item['content']=str_replace("&amp;","&",$item['content']);
+
+
 			if(!empty($item['img6']))$item['img']	=	$item['img6'];
 			if(!empty($item['img5']))$item['img']	=	$item['img5'];
 			if(!empty($item['img4']))$item['img']	=	$item['img4'];
@@ -851,9 +862,7 @@ class ApiController extends Controller {
 		{
 			$this->json_error('会员不存在');
 		}
-		$map['shop_id']	=	$id;
-		$map['member_id']=	$member_id;
-		$fans	=	M('ShopFans')->where($map)->find();
+		$fans = $this->getFansByMemberIDAndShpID($id, $member_id);
 		if(!$fans)
 		{
 			$this->json_error('您未关注过');
@@ -884,9 +893,7 @@ class ApiController extends Controller {
 		//{
 			//$this->json_error('您是商家的角色，不允许关注');
 		//}
-		$map['shop_id']	=	$id;
-		$map['member_id']=	$member_id;
-		$fans	=	M('ShopFans')->where($map)->find();
+		$fans = $this->getFansByMemberIDAndShpID($id, $member_id);
 		if($fans)
 		{
 			$this->json_error('您已经关注过了');
@@ -1149,7 +1156,10 @@ class ApiController extends Controller {
 	public function getCall()
 	{
 		//,zan_num,comment_num,collection_num
-		$id	=	intval(I('get.id'));
+		$id	=	intval(I('post.id'));
+		if(!$id){
+			$id	=	intval(I('get.id'));
+		}
 		/*$row=	M('ShopService')->field('id,member_id,service_id,title,zan_num,comment_num,collection_num,addtime,type')->where(array('id'=>$id))->find();*/
 		$row=	M('ShopService')->where(array('id'=>$id))->find();
 		if(!$row)
@@ -1220,6 +1230,12 @@ class ApiController extends Controller {
 		}else{
 			$row['content']				=	$record['content'];
 		}
+
+		$row['content']=str_replace("&quot;","\"",$row['content']);
+		$row['content']=str_replace("&lt;","<",$row['content']);
+		$row['content']=str_replace("&gt;",">",$row['content']);
+		$row['content']=str_replace("&amp;","&",$row['content']);
+
 		//$row['content']				=	$record['content'];
 		//$row['addtime']				=	date('m-d H:i');
 		$row['addtime']				=	date('m-d H:i',$row['addtime']);
@@ -1228,6 +1244,18 @@ class ApiController extends Controller {
 		$row['shop_subscribe_tel']	=	$shop['subscribe_tel'];//店铺电话
 		$row['shop_address']		=	$shop['address'];//店铺地址
 		$row['shop_fans_num']		=	$shop['fans_num'];//店铺粉丝数量
+		//根据传的会员ID，判断是否关注当前当前吆喝对应的商铺的
+		$member_id	=	intval(I('post.member_id'));
+		if(!$member_id){
+			$member_id	=	intval(I('get.member_id'));
+		}
+		$fans = $this->getFansByMemberIDAndShpID($shop['id'], $member_id);
+		if($fans)
+		{
+			$row['is_follow']		=	true ;
+		}else{
+			$row['is_follow']		=	false ;
+		}
 		$this->json_ok($row);
 	}
 	/**
@@ -1242,8 +1270,8 @@ class ApiController extends Controller {
 		//$field	=	'id,member_id,content,img1,type,fans_num,zan_num,comment_num';
 		//$field	=	'id,member_id,type,zan_num,comment_num,collection_num';
 		//$list	=	M('Call')->field($field)->where(array('city_id'=>$city_id))->order('id desc')->limit(($page-1)*20,20)->select();
-		$list	=	M('ShopService')->where(array('city_id'=>$city_id))->order('id desc')->limit(($page-1)*20,20)->select();
-		$count	=	M('ShopService')->where(array('city_id'=>$city_id))->count('*');
+		$list	=	M('ShopService')->where(array('city_id'=>$city_id,'status'=>1))->order('id desc')->limit(($page-1)*20,20)->select();
+		$count	=	M('ShopService')->where(array('city_id'=>$city_id ,'status'=>1))->count('*');
 		//echo M('ShopService')->getlastsql();exit;
 		if(!$list)$list=array();
 		$arr	=	array();
@@ -1339,6 +1367,7 @@ class ApiController extends Controller {
 		}
 
 		$map['city_id']	=	$city_id;
+		$map['status']	=	1;
 
 		//$field	=	'id,member_id,content,img1,type,fans_num,zan_num,comment_num';
 		//$field	=	'id,member_id,title,type,addtime,zan_num,comment_num,collection_num,img1,img2,img3,img4,img5,img6';
@@ -1432,6 +1461,7 @@ class ApiController extends Controller {
 		}
 		$map['member_id']=	array('in',implode(',',$shop_id_arr));
 		$map['city_id']	=	$city_id ;
+		$map['status']	=	1 ;
 		$field	=	'id,member_id,service_id,title,type,collection_num,zan_num,comment_num,addtime,img1,img2,img3,img4,img5,img6';
 		//$list	=	M('Call')->field($field)->where($map)->order('id desc')->select();
 		$list	=	M('ShopService')->field($field)->where($map)->limit(($page-1)*20,20)->order('id desc')->select();
@@ -2188,9 +2218,7 @@ class ApiController extends Controller {
 		$member_id=	intval(I('get.member_id'));
 		$id =	intval(I('get.id')) ;
 
-		$map['shop_id']	=	$id;
-		$map['member_id']=	$member_id;
-		$fans	=	M('ShopFans')->where($map)->find();
+		$fans = $this->getFansByMemberIDAndShpID($id, $member_id);
 
 		if($fans)
 		{
@@ -2318,6 +2346,9 @@ class ApiController extends Controller {
 	{
 		$date	=	date("Y-m-d");
 		$member_id	=	intval(I('post.member_id'));
+		if(!$member_id){
+			$member_id	=	intval(I('get.member_id'));
+		}
 		$list = M()->table('ht_coupon c, ht_member_coupon m')->where('c.id = m.coupon_id and m.member_id='.$member_id." and m.valid_start<='".$date."' and m.valid_end>='".$date."'")->field('c.id,c.img1,c.title,c.content,c.member_id,c.type,m.id as member_coupon_id,m.valid_start,m.valid_end,m.use_number')->order('m.id desc' )->select();
 		//echo M()->getlastsql();exit;
 		if(!$list)$list=array();
@@ -2877,9 +2908,9 @@ class ApiController extends Controller {
 		}
 		$where	=	'' ;
 		if($isFaYaohe	==	'Y'){
-			$where['_string']=" member_id='".$member_id."' and type<> 4";
+			$where['_string']=" member_id='".$member_id."' and type<> 4 and status=1";
 		}else{
-			$where['_string']=" member_id='".$member_id."'";
+			$where['_string']=" member_id='".$member_id."' and status=1";
 		}
 		$count	=	M('ShopService')->where($where)->order('id desc')->count('*');
 		$list	=	M('ShopService')->where($where)->order('id desc')->limit(($page-1)*20,20)->select();
@@ -3031,7 +3062,7 @@ class ApiController extends Controller {
 		//搜索吆喝列表
 		$calllist	=	array();
 		$arr		=	array();
-		$map['_string']=' title like "%'.$keywords.'%" or content like "%'.$keywords.'%"';
+		$map['_string']=' title like "%'.$keywords.'%" or content like "%'.$keywords.'%" and status=1';
 		$list		=	M('ShopService')->where($map)->order('id desc')->select();
 		foreach($list as $item)
 		{
@@ -3625,6 +3656,20 @@ class ApiController extends Controller {
 			$list[$key]['savename']=$savenamearr[0].'_thumb'.'.'.$savenamearr[1];
 		}*/
 		return $filelist;
+	}
+
+	/**
+	 * 根据会员和shopID得到ShopFans
+	 * @param $id
+	 * @param $member_id
+	 * @return mixed
+	 */
+	private function getFansByMemberIDAndShpID($shop_id, $member_id)
+	{
+		$map['shop_id'] = $shop_id;
+		$map['member_id'] = $member_id;
+		$fans = M('ShopFans')->where($map)->find();
+		return $fans;
 	}
 }
 ?>
