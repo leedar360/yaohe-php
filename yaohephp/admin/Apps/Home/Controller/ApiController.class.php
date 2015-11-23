@@ -1720,7 +1720,10 @@ class ApiController extends Controller {
 	*/
 	public function getCallCommentList()
 	{
-		$shop_service_id	=	intval(I('get.call_id'));
+		$shop_service_id	=	intval(I('post.call_id'));
+		if(!$shop_service_id){
+			$shop_service_id	=	intval(I('get.call_id'));
+		}
 		//$list	=	M('ShopServiceComment')->field('id,member_id,content,is_anonymous,addtime,parentid')->where(array('shop_service_id'=>$shop_service_id))->order('id desc')->select();
 		$list	=	M('ShopServiceComment')->where(array('shop_service_id'=>$shop_service_id))->order('id desc')->select();
 		//echo M('ShopServiceComment')->getlastsql();
@@ -1728,7 +1731,7 @@ class ApiController extends Controller {
 		$arr	=	array();
 		foreach($list as $item)
 		{
-			$member=M('Member')->field('id,face,type')->where(array('id'=>$item['member_id']))->find();
+			$member=M('Member')->field('id,face,type,login_user')->where(array('id'=>$item['member_id']))->find();
 			if(!$member)continue;
 			$item['face']=$member['face'];
 			//$item['addtime']=date("Y-m-d H:i");
@@ -1755,7 +1758,7 @@ class ApiController extends Controller {
 			{
 				$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
 				if(!$personReply){
-					$to_member=M('Member')->field('id,face,type')->where(array('id'=>$item['to_member_id']))->find();
+					$to_member=M('Member')->field('id,face,type,login_user')->where(array('id'=>$item['to_member_id']))->find();
 					//$answerName	=	'吆喝'.$item['to_member_id'];
 					$answerName	=	$this->getHidePhoneNumber($to_member['login_user']) ;
 				}else{
