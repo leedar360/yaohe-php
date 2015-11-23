@@ -752,6 +752,9 @@ class ApiController extends Controller {
 		{
 			$row['follow']=	1;
 		}
+
+		$member	=	M('Member')->where(array('id'=>$member_id))->find();
+		$row['shop_face']	=	$member['face'] ;
 		//获取商家服务
 		$map	=	array();
 		$map['member_id']	=	$row['shop_member_id'];;
