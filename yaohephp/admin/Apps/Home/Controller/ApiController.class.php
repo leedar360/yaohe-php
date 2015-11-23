@@ -1765,7 +1765,8 @@ class ApiController extends Controller {
 					$answerName	=	$personReply['nickname'];
 				}
 			}
-			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$item['nickname'],'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
+			$shop	=	$this->getShopById($item['shop_id']) ;
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$item['nickname'],'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'], 'shop_star'=>$shop['star']);
 
 			//$arr[]=$item;
 		}
@@ -3146,7 +3147,8 @@ class ApiController extends Controller {
 					$answerName	=	$personReply['nickname'];
 				}
 			}
-			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$nickname,'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace);
+			$shop	=	$this->getShopById($item['shop_id']) ;
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$nickname,'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace,'shop_star'=>$shop['star']);
 
 			//更新is_read为0
 			$data['is_read'] 	=	0 ;
