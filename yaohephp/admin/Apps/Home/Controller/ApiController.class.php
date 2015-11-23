@@ -2099,6 +2099,9 @@ class ApiController extends Controller {
 	public function myDiscount()
 	{
 		$member_id	=	intval(I('post.member_id'));
+		if(!$member_id){
+			$member_id	=	intval(I('get.member_id'));
+		}
 		$map['member_id']	=	$member_id;
 		$coupon_num	=	M('MemberCoupon')->where($map)->count();
 		$card_num	=	M('MemberCard')->where($map)->count();
