@@ -1278,75 +1278,7 @@ class ApiController extends Controller {
 		//echo M('ShopService')->getlastsql();exit;
 		if(!$list)$list=array();
 		$arr	=	array();
-		foreach($list as $key=>$item)
-		{
-			switch($item['type'])
-			{
-				case 1://会员卡
-					$service	=	M('Card')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
-				case 2://活动
-					$service	=	M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
-				case 3://新品
-					$service	=	M('NewProduct')->field('img1,img2,img3,img4,img5,img6,title as content')->where(array('id'=>$item['service_id']))->find();
-				break;
-				case 0://优惠券
-					$service	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
-				case 4://纯吆喝
-					$service	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content,c_id')->where(array('id'=>$item['service_id']))->find();
-				break;
-			}
-			//$item['content']	=	$service['content'];
-			if(!empty($service['img6']))$item['s_img']=	$service['img6'];
-			if(!empty($service['img5']))$item['s_img']=	$service['img5'];
-			if(!empty($service['img4']))$item['s_img']=	$service['img4'];
-			if(!empty($service['img3']))$item['s_img']=	$service['img3'];
-			if(!empty($service['img2']))$item['s_img']=	$service['img2'];
-			if(!empty($service['img1']))$item['s_img']=	$service['img1'];
-
-			if(!empty($item['img6']))$item['img']	=	$item['img6'];
-			if(!empty($item['img5']))$item['img']	=	$item['img5'];
-			if(!empty($item['img4']))$item['img']	=	$item['img4'];
-			if(!empty($item['img3']))$item['img']	=	$item['img3'];
-			if(!empty($item['img2']))$item['img']	=	$item['img2'];
-			if(!empty($item['img1']))$item['img']	=	$item['img1'];
-
-			if(!isset($item['s_img']))$item['s_img']='';
-			if(!isset($item['img']))$item['img']='';
-
-			$item['content']=str_replace("&quot;","\"",$item['content']);
-			$item['content']=str_replace("&lt;","<",$item['content']);
-			$item['content']=str_replace("&gt;",">",$item['content']);
-			$item['content']=str_replace("&amp;","&",$item['content']);
-
-			if(empty($item['s_content']))$item['s_content']=$service['content'];
-			//$list[$key]['img']		=	$service['img1'];
-			$row=	M('Shop')->field('id,title,star,fans_num')->where(array('member_id'=>$item['member_id']))->find();
-			$item['shop_id']		=	$row['id'];
-			$item['shop_name']		=	$row['title'];
-			$item['shop_star']		=	$row['star'];
-			$item['shop_fans_num']	=	$row['fans_num'];
-
-			//如果是纯吆喝的时候，添加是不否有引用其他的服务
-			if($item['type'] == 4){
-				$item['c_id']	=	$service['c_id'];
-			}else{
-				$item['c_id']	=	'0';
-			}
-
-			$row	=	M('ShopFans')->where(array('shop_id'=>$row['id'],'member_id'=>$member_id))->find();
-			if($row)
-			{
-				$item['guanzhu']=1;
-			}
-			else
-			{
-				$item['guanzhu']=0;
-			}
-			$arr[]=$item;
-		}
+		$arr = $this->iteratorShopServiceGetDetail($list, $member_id, $arr);
 		if(count($arr)<1)$arr=array(array('id'=>''));
 		$this->json_ok_page($arr, $page, $count);
 		//$this->json_ok($arr);
@@ -1379,62 +1311,7 @@ class ApiController extends Controller {
 		//$list	=	M('Call')->field($field)->where($map)->order('id desc')->select();
 		if(!$list)$list=array();
 		$arr	=	array();
-		foreach($list as $item)
-		{
-			switch($item['type'])
-			{
-				case 1://会员卡
-					$service	=	M('Card')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
-				case 2://活动
-					$service	=	M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
-				case 3://新品
-					$service	=	M('NewProduct')->field('img1,img2,img3,img4,img5,img6,title as content')->where(array('id'=>$item['service_id']))->find();
-				break;
-				case 0://优惠券
-					$service	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
-				case 4://纯吆喝
-					$service	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content,c_id')->where(array('id'=>$item['service_id']))->find();
-					break;
-			}
-			if(!empty($service['img6']))$item['s_img']=	$service['img6'];
-			if(!empty($service['img5']))$item['s_img']=	$service['img5'];
-			if(!empty($service['img4']))$item['s_img']=	$service['img4'];
-			if(!empty($service['img3']))$item['s_img']=	$service['img3'];
-			if(!empty($service['img2']))$item['s_img']=	$service['img2'];
-			if(!empty($service['img1']))$item['s_img']=	$service['img1'];
-
-			if(!empty($item['img6']))$item['img']	=	$item['img6'];
-			if(!empty($item['img5']))$item['img']	=	$item['img5'];
-			if(!empty($item['img4']))$item['img']	=	$item['img4'];
-			if(!empty($item['img3']))$item['img']	=	$item['img3'];
-			if(!empty($item['img2']))$item['img']	=	$item['img2'];
-			if(!empty($item['img1']))$item['img']	=	$item['img1'];
-
-			if(!isset($item['s_img']))$item['s_img']='';
-			if(!isset($item['img']))$item['img']='';
-			if(empty($item['s_content']))$item['s_content']=$service['content'];
-
-			//如果是纯吆喝的时候，添加是不否有引用其他的服务
-			if($item['type'] == 4){
-				$item['c_id']	=	$service['c_id'];
-			}else{
-				$item['c_id']	=	'0';
-			}
-
-
-			//$item['img1']=$item['img'];
-			//$item['img1']=$service['img1'];
-			$item['content']=$service['content'];
-			$row=	M('Shop')->field('id,title,star,fans_num')->where(array('member_id'=>$item['member_id']))->find();
-			$item['shop_id']=$row['id'];
-			$item['shop_name']=$row['title'];
-			$item['shop_star']=$row['star'];
-			$item['shop_fans_num']=$row['fans_num'];
-			$arr[]=$item;
-		}
+		$arr = $this->iteratorShopServiceGetDetail($list, 0, $arr);
 		if(count($arr)<1)$arr=array(array('id'=>''));
 		$this->json_ok_page($arr, $page, $count);
 		//$this->json_ok($arr);
@@ -1473,74 +1350,7 @@ class ApiController extends Controller {
 		//var_dump($list);exit;
 		if(!$list)$list=array();
 		$arr	=	array();
-		foreach($list as $item)
-		{
-			switch($item['type'])
-			{
-				case 1://会员卡
-				$row	=	M('Card')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-					$item['c_id']	=	'0';
-					break;
-				case 2://活动
-				$row	=	M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-					$item['c_id']	=	'0';
-					break;
-				case 3://新品
-				$row	=	M('NewProduct')->field('img1,title as content')->where(array('id'=>$item['service_id']))->find();
-					$item['c_id']	=	'0';
-					break;
-				case 0://优惠券
-				$row	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-					$item['c_id']	=	'0';
-					break;
-				case 4://吆喝
-				$row	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content,c_id')->where(array('id'=>$item['service_id']))->find();
-					$item['c_id']	=	$row['c_id'];
-					break;
-				default:
-					$row['content']	=	'';
-					$row['img1']	=	'';
-			}
-			if(empty($item['content']))$item['content']=	$row['content'];
-			//$item['img1']	=	$row['img1'];
-
-			//$item['content']	=	$service['content'];
-			if(!empty($row['img6']))$item['s_img']=	$row['img6'];
-			if(!empty($row['img5']))$item['s_img']=	$row['img5'];
-			if(!empty($row['img4']))$item['s_img']=	$row['img4'];
-			if(!empty($row['img3']))$item['s_img']=	$row['img3'];
-			if(!empty($row['img2']))$item['s_img']=	$row['img2'];
-			if(!empty($row['img1']))$item['s_img']=	$row['img1'];
-
-			if(!empty($item['img6']))$item['img']	=	$item['img6'];
-			if(!empty($item['img5']))$item['img']	=	$item['img5'];
-			if(!empty($item['img4']))$item['img']	=	$item['img4'];
-			if(!empty($item['img3']))$item['img']	=	$item['img3'];
-			if(!empty($item['img2']))$item['img']	=	$item['img2'];
-			if(!empty($item['img1']))$item['img']	=	$item['img1'];
-
-			if(!isset($item['s_img']))$item['s_img']='';
-			if(!isset($item['img']))$item['img']='';
-			if(empty($item['s_content']))$item['s_content']=$row['content'];
-
-
-			if(empty($row['s_title']))$row['s_title']=	$row['content'];
-
-
-			$item['img1']=$item['img'];
-			$item['addtime']=	date("Y-m-d H:i:s",$item['addtime']);
-			$r_shop=	M('Shop')->field('id,title,star,fans_num')->where(array('member_id'=>$item['member_id']))->find();
-			$item['shop_id']=$r_shop['id'];
-			$item['shop_name']=$r_shop['title'];
-			$item['shop_star']=$r_shop['star'];
-			$item['shop_fans_num']=$r_shop['fans_num'];
-
-
-			$arr[]=$item;
-			/*$list[$key]['content']=	$row['content'];
-			$list[$key]['img1']	=	$row['img1'];
-			$list[$key]['addtime']=	date("Y-m-d H:i:s",$item['addtime']);*/
-		}
+		$arr = $this->iteratorShopServiceGetDetail($list, $member_id, $arr);
 		if(count($arr)<1)
 		{
 			$arr	=	array(array('id'=>''));
@@ -1863,13 +1673,27 @@ class ApiController extends Controller {
 	*/
 	public function callCollection()
 	{
-		$row	=	M('ShopServiceCollection')->where(array('shop_service_id'=>intval(I('post.call_id'))))->find();
+		$call_id 	=	intval(I('post.id')) ;
+		if(!$call_id){
+			$call_id 	=	intval(I('get.id')) ;
+		}
+		if(!$call_id){
+			$call_id 	=	intval(I('post.call_id')) ;
+		}
+		if(!$call_id){
+			$call_id 	=	intval(I('get.call_id')) ;
+		}
+		$member_id	=	intval(I('post.member_id')) ;
+		if(!$member_id){
+			$member_id	=	intval(I('get.member_id')) ;
+		}
+		$row	=	M('ShopServiceCollection')->where(array('shop_service_id'=>$call_id))->find();
 		if($row)
 		{
 			$this->json_error('您已经收藏过了');
 		}
-		$data['shop_service_id']=	intval(I('post.call_id'));//吆喝ID
-		$data['member_id']		=	intval(I('post.member_id'));//会员ID
+		$data['shop_service_id']=	$call_id;//吆喝ID
+		$data['member_id']		=	$member_id;//会员ID
 		$data['addtime']		=	time();
 		M('ShopServiceCollection')->add($data);
 		M('ShopService')->where(array('id'=>$data['shop_service_id']))->setInc('collection_num');
@@ -1899,7 +1723,10 @@ class ApiController extends Controller {
 	*/
 	public function getCallCommentList()
 	{
-		$shop_service_id	=	intval(I('get.call_id'));
+		$shop_service_id	=	intval(I('post.call_id'));
+		if(!$shop_service_id){
+			$shop_service_id	=	intval(I('get.call_id'));
+		}
 		//$list	=	M('ShopServiceComment')->field('id,member_id,content,is_anonymous,addtime,parentid')->where(array('shop_service_id'=>$shop_service_id))->order('id desc')->select();
 		$list	=	M('ShopServiceComment')->where(array('shop_service_id'=>$shop_service_id))->order('id desc')->select();
 		//echo M('ShopServiceComment')->getlastsql();
@@ -1907,10 +1734,10 @@ class ApiController extends Controller {
 		$arr	=	array();
 		foreach($list as $item)
 		{
-			$member=M('Member')->field('id,face,type')->where(array('id'=>$item['member_id']))->find();
+			$member=M('Member')->field('id,face,type,login_user')->where(array('id'=>$item['member_id']))->find();
 			if(!$member)continue;
 			$item['face']=$member['face'];
-			$item['addtime']=date("Y-m-d H:i");
+			//$item['addtime']=date("Y-m-d H:i");
 			if($member['type']==0)
 			{
 				$person=M('Personal')->where(array('member_id'=>$member['id']))->find();
@@ -1934,14 +1761,15 @@ class ApiController extends Controller {
 			{
 				$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
 				if(!$personReply){
-					$to_member=M('Member')->field('id,face,type')->where(array('id'=>$item['to_member_id']))->find();
+					$to_member=M('Member')->field('id,face,type,login_user')->where(array('id'=>$item['to_member_id']))->find();
 					//$answerName	=	'吆喝'.$item['to_member_id'];
 					$answerName	=	$this->getHidePhoneNumber($to_member['login_user']) ;
 				}else{
 					$answerName	=	$personReply['nickname'];
 				}
 			}
-			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$item['nickname'],'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid']);
+			$shop	=	$this->getShopById($item['shop_id']) ;
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$item['nickname'],'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'], 'shop_star'=>$shop['star']);
 
 			//$arr[]=$item;
 		}
@@ -2244,68 +2072,7 @@ class ApiController extends Controller {
 			$this->json_ok($list);
 		}
 		$arr	=	array();
-		foreach($list as $key=>$item)
-		{
-			switch($item['type'])
-			{
-				case 0://券
-					$row	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
-					if(!$row)
-					{
-						continue;
-						$this->json_error('内容不存在1');
-					}
-					break;
-				case 1://卡
-					$row	=	M('Card')->field('img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
-					if(!$row)
-					{
-						continue;
-						$this->json_error('内容不存在2');
-					}
-					break;
-				case 2://活动
-					$row	=	M('Activity')->field('img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
-					//echo M('Activity')->getlastsql().'<br />';
-					if(!$row)
-					{
-						continue;
-						$this->json_error('内容不存在4');
-					}
-					break;
-				case 3://新品
-					$row	=	M('NewProduct')->field('img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
-					if(!$row)
-					{
-						continue;
-						$this->json_error('内容不存在3');
-					}
-					break;
-				case 4://吆喝
-					$row	=	M('Call')->field('img1,img2,img3,img4,img5,img6')->where(array('id'=>$item['service_id']))->find();
-					if(!$row)
-					{
-						continue;
-						$this->json_error('内容不存在5');
-					}
-					break;
-			}
-			if(!empty($row['img6']))$item['img1']=$row['img6'];
-			if(!empty($row['img5']))$item['img1']=$row['img5'];
-			if(!empty($row['img4']))$item['img1']=$row['img4'];
-			if(!empty($row['img3']))$item['img1']=$row['img3'];
-			if(!empty($row['img2']))$item['img1']=$row['img2'];
-			if(!empty($row['img1']))$item['img1']=$row['img1'];
-			if(!isset($item['img1']))$item['img1']='';
-			$shop	=	$this->getShop($item['member_id']);
-			$item['shop_name']=$shop['title'];
-			$item['addtime']=date("Y-m-d H:i:s",$item['addtime']);
-			if(empty( $item['title'])){
-				//$item['title'] = $shop['title'] ;
-			}
-			$item['shop_id']	=	$shop['id'] ;
-			$arr[]	=	$item;
-		}
+		$arr = $this->iteratorShopServiceGetDetail($list, $member_id, $arr);
 		if(count($arr)<1)$arr=array(array('id'=>''));
 		$this->json_ok($arr);
 	}
@@ -2335,6 +2102,9 @@ class ApiController extends Controller {
 	public function myDiscount()
 	{
 		$member_id	=	intval(I('post.member_id'));
+		if(!$member_id){
+			$member_id	=	intval(I('get.member_id'));
+		}
 		$map['member_id']	=	$member_id;
 		$coupon_num	=	M('MemberCoupon')->where($map)->count();
 		$card_num	=	M('MemberCard')->where($map)->count();
@@ -2919,57 +2689,7 @@ class ApiController extends Controller {
 		$list	=	M('ShopService')->where($where)->order('id desc')->limit(($page-1)*20,20)->select();
 		if(!$list)$list=array();
 		$arr	=	array();
-		foreach($list as $key=>$item)
-		{
-			switch($item['type'])
-			{
-				case 1://会员卡
-					$service	=	M('Card')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
-				case 2://活动
-					$service	=	M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
-				case 3://新品
-					$service	=	M('NewProduct')->field('img1,img2,img3,img4,img5,img6,title as content')->where(array('id'=>$item['service_id']))->find();
-				break;
-				case 0://优惠券
-					$service	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
-				case 4://纯吆喝
-					$service	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
-			}
-			if(empty($item['content']))$item['content']=$service['content'];
-			if(!empty($item['img6']))$item['img']	=	$service['img6'];
-			if(!empty($item['img5']))$item['img']	=	$service['img5'];
-			if(!empty($item['img4']))$item['img']	=	$service['img4'];
-			if(!empty($item['img3']))$item['img']	=	$service['img3'];
-			if(!empty($item['img2']))$item['img']	=	$service['img2'];
-			if(!empty($item['img1']))$item['img']	=	$service['img1'];
-			if(!isset($item['img']))
-			{
-				if(!empty($item['img6']))$item['img']=	$service['img6'];
-				if(!empty($item['img5']))$item['img']=	$service['img5'];
-				if(!empty($item['img4']))$item['img']=	$service['img4'];
-				if(!empty($item['img3']))$item['img']=	$service['img3'];
-				if(!empty($item['img2']))$item['img']=	$service['img2'];
-				if(!empty($item['img1']))$item['img']=	$service['img1'];
-			}
-			if(!isset($item['img']))$item['img']='';
-			/*
-			if(!empty($service['img6']))$item['img']		=	$service['img6'];
-			if(!empty($service['img5']))$item['img']		=	$service['img5'];
-			if(!empty($service['img4']))$item['img']		=	$service['img4'];
-			if(!empty($service['img3']))$item['img']		=	$service['img3'];
-			if(!empty($service['img2']))$item['img']		=	$service['img2'];
-			if(!empty($service['img1']))$item['img']		=	$service['img1'];
-			if(!isset($item['img']))$item['img']='';*/
-			$item['addtime']=date("Y-m-d H:i:s",$item['addtime']);
-			$arr[]=$item;
-			//$list[$key]['img1']=$row['img1'];
-			//$list[$key]['content']=$row['content'];
-			//$list[$key]['addtime']=date("Y-m-d H:i:s",$item['addtime']);
-		}
+		$arr = $this->iteratorShopServiceGetDetail($list, $member_id, $arr);
 		if(count($arr)<1)$arr=array(array('id'=>''));
 		$this->json_ok_page($arr, $page, $count);
 	}
@@ -3006,6 +2726,9 @@ class ApiController extends Controller {
 	public function getShopBase()
 	{
 		$member_id	=	intval(I('post.member_id'));
+		if(!$member_id){
+			$member_id	=	intval(I('get.member_id'));
+		}
 		$map['id']	=	$member_id;
 		$row		=	M('Member')->where($map)->find();
 		if(!$row)
@@ -3064,51 +2787,7 @@ class ApiController extends Controller {
 		$arr		=	array();
 		$map['_string']=' title like "%'.$keywords.'%" or content like "%'.$keywords.'%" and status=1';
 		$list		=	M('ShopService')->where($map)->order('id desc')->select();
-		foreach($list as $item)
-		{
-			$shop=$this->getShop($item['member_id']);
-			$item['shop_title']=$shop['title'];//店铺名称
-			$item['shop_id']=$shop['id'];//店铺ID
-			switch($item['type'])
-			{
-				case 1://会员卡
-					$service	=	M('Card')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
-				case 2://活动
-					$service	=	M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
-				case 3://新品
-					$service	=	M('NewProduct')->field('img1,img2,img3,img4,img5,img6,title as content')->where(array('id'=>$item['service_id']))->find();
-				break;
-				case 0://优惠券
-					$service	=	M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
-				case 4://纯吆喝
-					$service	=	M('Call')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id'=>$item['service_id']))->find();
-				break;
-			}
-			//$item['content']	=	$service['content'];
-
-			if(!empty($service['img6']))$item['img']=	$service['img6'];
-			if(!empty($service['img5']))$item['img']=	$service['img5'];
-			if(!empty($service['img4']))$item['img']=	$service['img4'];
-			if(!empty($service['img3']))$item['img']=	$service['img3'];
-			if(!empty($service['img2']))$item['img']=	$service['img2'];
-			if(!empty($service['img1']))$item['img']=	$service['img1'];
-
-			if(!isset($item['img']))
-			{
-				if(!empty($item['img6']))$item['img']	=	$item['img6'];
-				if(!empty($item['img5']))$item['img']	=	$item['img5'];
-				if(!empty($item['img4']))$item['img']	=	$item['img4'];
-				if(!empty($item['img3']))$item['img']	=	$item['img3'];
-				if(!empty($item['img2']))$item['img']	=	$item['img2'];
-				if(!empty($item['img1']))$item['img']	=	$item['img1'];
-			}
-			if(!isset($item['img']))$item['img']='';
-			if(empty($item['content']))$item['content']=$service['content'];
-			$arr[]=$item;
-		}
+		$arr = $this->iteratorShopServiceGetDetail($list, 0, $arr);
 		if(count($arr)<1)$arr=array(array('id'=>''));
 		$calllist	=	$arr;
 		$data['shoplist']=$shoplist;
@@ -3474,7 +3153,8 @@ class ApiController extends Controller {
 					$answerName	=	$personReply['nickname'];
 				}
 			}
-			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$nickname,'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace);
+			$shop	=	$this->getShopById($item['shop_id']) ;
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$nickname,'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace,'shop_star'=>$shop['star']);
 
 			//更新is_read为0
 			$data['is_read'] 	=	0 ;
@@ -3670,6 +3350,90 @@ class ApiController extends Controller {
 		$map['member_id'] = $member_id;
 		$fans = M('ShopFans')->where($map)->find();
 		return $fans;
+	}
+
+	/**
+	 * @param $list
+	 * @param $member_id
+	 * @param $arr
+	 * @return array
+	 */
+	public function iteratorShopServiceGetDetail($list, $member_id, $arr)
+	{
+		foreach ($list as $key => $item) {
+			switch ($item['type']) {
+				case 1://会员卡
+					$service = M('Card')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id' => $item['service_id']))->find();
+					break;
+				case 2://活动
+					$service = M('Activity')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id' => $item['service_id']))->find();
+					break;
+				case 3://新品
+					$service = M('NewProduct')->field('img1,img2,img3,img4,img5,img6,title as content')->where(array('id' => $item['service_id']))->find();
+					break;
+				case 0://优惠券
+					$service = M('Coupon')->field('img1,img2,img3,img4,img5,img6,content')->where(array('id' => $item['service_id']))->find();
+					break;
+				case 4://纯吆喝
+					$service = M('Call')->field('img1,img2,img3,img4,img5,img6,content,c_id')->where(array('id' => $item['service_id']))->find();
+					break;
+			}
+			//$item['content']	=	$service['content'];
+			if (!empty($service['img6'])) $item['s_img'] = $service['img6'];
+			if (!empty($service['img5'])) $item['s_img'] = $service['img5'];
+			if (!empty($service['img4'])) $item['s_img'] = $service['img4'];
+			if (!empty($service['img3'])) $item['s_img'] = $service['img3'];
+			if (!empty($service['img2'])) $item['s_img'] = $service['img2'];
+			if (!empty($service['img1'])) $item['s_img'] = $service['img1'];
+
+			if (!empty($item['img6'])) $item['img'] = $item['img6'];
+			if (!empty($item['img5'])) $item['img'] = $item['img5'];
+			if (!empty($item['img4'])) $item['img'] = $item['img4'];
+			if (!empty($item['img3'])) $item['img'] = $item['img3'];
+			if (!empty($item['img2'])) $item['img'] = $item['img2'];
+			if (!empty($item['img1'])) $item['img'] = $item['img1'];
+
+			if (!isset($item['s_img'])) $item['s_img'] = '';
+			if (!isset($item['img'])) $item['img'] = '';
+
+			$item['content'] = str_replace("&quot;", "\"", $item['content']);
+			$item['content'] = str_replace("&lt;", "<", $item['content']);
+			$item['content'] = str_replace("&gt;", ">", $item['content']);
+			$item['content'] = str_replace("&amp;", "&", $item['content']);
+
+			$content = $item['content'];
+			if (!$item['content']) {
+				$content = $item['title'];
+			}
+			$item['title'] = $content;
+
+			if (empty($item['s_content'])) $item['s_content'] = $service['content'];
+			//$list[$key]['img']		=	$service['img1'];
+			$row = M('Shop')->field('id,title,star,fans_num')->where(array('member_id' => $item['member_id']))->find();
+			$item['shop_id'] = $row['id'];
+			$item['shop_name'] = $row['title'];
+			$item['shop_star'] = $row['star'];
+			$item['shop_fans_num'] = $row['fans_num'];
+
+			//如果是纯吆喝的时候，添加是不否有引用其他的服务
+			if ($item['type'] == 4) {
+				$item['c_id'] = $service['c_id'];
+			} else {
+				$item['c_id'] = '0';
+			}
+
+			if($member_id > 0){
+				$row = M('ShopFans')->where(array('shop_id' => $row['id'], 'member_id' => $member_id))->find();
+				if ($row) {
+					$item['guanzhu'] = 1;
+				} else {
+					$item['guanzhu'] = 0;
+				}
+			}
+
+			$arr[] = $item;
+		}
+		return $arr;
 	}
 }
 ?>
