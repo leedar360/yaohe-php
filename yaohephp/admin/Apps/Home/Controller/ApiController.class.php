@@ -3323,7 +3323,11 @@ class ApiController extends Controller {
 		$arr['status']['message']='a';
 		$arr['page']=$page ;
 		$arr['totalNumber'] = $totalNumber ;
-		$arr['pageNumber'] = intval($totalNumber/20 + 1) ;
+		if($totalNumber%20 == 0){
+			$arr['pageNumber'] = intval($totalNumber/20) ;
+		}else{
+			$arr['pageNumber'] = intval($totalNumber/20 + 1) ;
+		}
 		$arr['data']=$data;
 		echo json_encode($arr);
 		exit;
@@ -3436,7 +3440,7 @@ class ApiController extends Controller {
 			$item['shop_name'] = $row['title'];
 			$item['shop_star'] = $row['star'];
 			$item['shop_fans_num'] = $row['fans_num'];
-
+			$item['addtime']=	date("Y-m-d",$item['addtime']);
 			//如果是纯吆喝的时候，添加是不否有引用其他的服务
 			if ($item['type'] == 4) {
 				$item['c_id'] = $service['c_id'];
