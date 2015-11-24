@@ -398,6 +398,7 @@ class ApiController extends Controller {
 			$data['addtime']	=	time();//添加时间
 			$data['industry_class_id']=$shop['industry_class_id'];//二级分类
 			$data['type']		=	$type;
+			$data['is_yinyong']	=	1 ; //1是引用，0是不引用
 			//$data['type']		=	$type;
 			//$data['member_id']	=	$member_id;
 			//$data['member_id']	=	$member_id;
@@ -428,6 +429,7 @@ class ApiController extends Controller {
 		$new_data['one_id']		=	$shop['one_id'];//一级分类
 		$new_data['addtime']	=	time();//添加时间
 		$new_data['industry_class_id']=$shop['industry_class_id'];//二级分类
+		$data['is_yinyong']	=	1 ; //1是引用，0是不引用
 		M('ShopService')->add($new_data);
 		$this->json_ok(true);
 	}
@@ -752,6 +754,9 @@ class ApiController extends Controller {
 		{
 			$row['follow']=	1;
 		}
+
+		$member	=	M('Member')->where(array('id'=>$member_id))->find();
+		$row['shop_face']	=	$member['face'] ;
 		//获取商家服务
 		$map	=	array();
 		$map['member_id']	=	$row['shop_member_id'];;
@@ -1468,8 +1473,12 @@ class ApiController extends Controller {
 			$where['shop_id']	=	intval(I('get.shop_id'));
 		}
 		$page	=	intval(I('post.page'));
+		if(!$page){
+			$page	=	intval(I('get.page'));
+		}
 		if($page<1)$page=1;
 		$list	=	M('ShopComment')->where($where)->limit(($page-1)*20,20)->order('id desc')->select();
+		$count	=	M('ShopComment')->where($where)->count();
 		if(!$list)
 		{
 			$this->json_ok(array(array('id'=>'')));
@@ -1533,7 +1542,8 @@ class ApiController extends Controller {
 			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'to_member_id'=>$item['to_member_id'],'nickname'=>$nickname,'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace);
 
 		}
-		$this->json_ok($arr);
+		//$this->json_ok($arr);
+		$this->json_ok_page($arr, $page, $count);
 	}
 	/**
 	* 功能：店铺点评
@@ -1729,8 +1739,14 @@ class ApiController extends Controller {
 		if(!$shop_service_id){
 			$shop_service_id	=	intval(I('get.call_id'));
 		}
+		$page	=	intval(I('post.page'));
+		if(!$page){
+			$page	=	intval(I('get.page'));
+		}
+		if($page<1)$page=1;
 		//$list	=	M('ShopServiceComment')->field('id,member_id,content,is_anonymous,addtime,parentid')->where(array('shop_service_id'=>$shop_service_id))->order('id desc')->select();
-		$list	=	M('ShopServiceComment')->where(array('shop_service_id'=>$shop_service_id))->order('id desc')->select();
+		$list	=	M('ShopServiceComment')->where(array('shop_service_id'=>$shop_service_id))->limit(($page-1)*20,20)->order('id desc')->select();
+		$count	=	M('ShopServiceComment')->where(array('shop_service_id'=>$shop_service_id))->count();
 		//echo M('ShopServiceComment')->getlastsql();
 		if(!$list)$this->json_ok(array(array('id'=>'')));
 		$arr	=	array();
@@ -1775,7 +1791,8 @@ class ApiController extends Controller {
 
 			//$arr[]=$item;
 		}
-		$this->json_ok($arr);
+		//$this->json_ok($arr);
+		$this->json_ok_page($arr, $page, $count);
 	}
 	/**
 	* 功能：吆喝点评
@@ -2419,9 +2436,9 @@ class ApiController extends Controller {
 		}
 		$where	=	'' ;
 		if($isFaYaohe	==	'Y'){
-			$where['_string']=" member_id='".$member_id."' and type<> 4";
+			$where['_string']=" member_id='".$member_id."' and type<> 4 and is_yinyong=0 and status=1";
 		}else{
-			$where['_string']=" member_id='".$member_id."'";
+			$where['_string']=" member_id='".$member_id."' and status=1";
 		}
 		$list	=	M('ShopService')->field('id,title,img1,img2,img3,img4,img5,img6,type,service_id,zan_num,comment_num,collection_num')->where($where)->order('id desc')->limit(($page-1)*20,20)->select();
 		$count	=	M('ShopService')->where($where)->count();
@@ -2686,7 +2703,7 @@ class ApiController extends Controller {
 		}
 		$where	=	'' ;
 		if($isFaYaohe	==	'Y'){
-			$where['_string']=" member_id='".$member_id."' and type<> 4 and status=1";
+			$where['_string']=" member_id='".$member_id."' and type<> 4 and status=1 and is_yinyong=0";
 		}else{
 			$where['_string']=" member_id='".$member_id."' and status=1";
 		}
