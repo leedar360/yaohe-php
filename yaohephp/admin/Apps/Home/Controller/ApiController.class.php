@@ -1290,6 +1290,11 @@ class ApiController extends Controller {
 		$city_id=	intval(I('get.city_id'));
 		$one_id	=	intval(I('get.one_id'));
 
+		$member_id	=	intval(I('post.page'));
+		if(!$member_id){
+			$member_id	=	intval(I('get.page'));
+		}
+
 		$classMap['id'] = $one_id ;
 		$typeList	=	M('Classify')->where($classMap)->find();
 		if($typeList['parentid'] == 0){
@@ -1308,7 +1313,7 @@ class ApiController extends Controller {
 		//$list	=	M('Call')->field($field)->where($map)->order('id desc')->select();
 		if(!$list)$list=array();
 		$arr	=	array();
-		$arr = $this->iteratorShopServiceGetDetail($list, 0, $arr);
+		$arr = $this->iteratorShopServiceGetDetail($list, $member_id, $arr);
 		if(count($arr)<1)$arr=array(array('id'=>''));
 		$this->json_ok_page($arr, $page, $count);
 		//$this->json_ok($arr);
@@ -2419,6 +2424,7 @@ class ApiController extends Controller {
 			$where['_string']=" member_id='".$member_id."'";
 		}
 		$list	=	M('ShopService')->field('id,title,img1,img2,img3,img4,img5,img6,type,service_id,zan_num,comment_num,collection_num')->where($where)->order('id desc')->limit(($page-1)*20,20)->select();
+		$count	=	M('ShopService')->where($where)->count();
 		if(!$list)$list=array();
 		foreach($list as $item)
 		{switch($item['type'])
@@ -2457,7 +2463,8 @@ class ApiController extends Controller {
 			}
 			if(!isset($item['img']))$item['img']='';
 		}
-		$this->json_ok($list);
+		//$this->json_ok($list);
+		$this->json_ok_page($list,$page,$count) ;
 	}
 	/**
 	* 功能：获取我发布的优惠券
@@ -2580,7 +2587,8 @@ class ApiController extends Controller {
 			$row	=	M('Personal')->where(array('member_id'=>$item['member_id']))->field('nickname')->find();
 			if(!$row)
 			{
-				$item['nickname']=$member['login_user'];
+				//$item['nickname']=$member['login_user'];
+				$item['nickname']	=	$this->getHidePhoneNumber($member['login_user']) ;
 			}
 			else
 			{
