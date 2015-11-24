@@ -695,19 +695,24 @@ class ApiController extends Controller {
 		}
 		$map['member_id']=	$shop['member_id'];
 		$type	=	I('post.type');
+		$count	=	0	;
 		switch($type)
 		{
 			case 1://会员卡
 				$list	=	M('Card')->where($map)->order('id desc')->limit(($page-1)*20,20)->select();
+				$count	=	M('Card')->where($map)->count();
 			break;
 			case 2://活动
 				$list	=	M('Activity')->where($map)->order('id desc')->limit(($page-1)*20,20)->select();
+				$count	=	M('Activity')->where($map)->count();
 			break;
 			case 3://新品
 				$list	=	M('NewProduct')->where($map)->order('id desc')->limit(($page-1)*20,20)->select();
+				$count	=	M('NewProduct')->where($map)->count();
 			break;
 			default://优惠券
 				$list	=	M('Coupon')->where($map)->order('id desc')->limit(($page-1)*20,20)->select();
+				$count	=	M('Coupon')->where($map)->count();
 		}
 		if(!$list)$list=array();
 		$arr	=	array();
@@ -726,7 +731,8 @@ class ApiController extends Controller {
 			$arr[]=$arr1;
 		}
 		if(count($arr)<1)$arr=array(array('id'=>''));
-		$this->json_ok($arr);
+		//$this->json_ok($arr);
+		$this->json_ok_page($arr, $page, $count) ;
 	}
 	/**
 	* 功能：获取商家详情页
@@ -1268,7 +1274,10 @@ class ApiController extends Controller {
 	*/
 	public function getHomeCallList()
 	{
-		$page	=	intval(I('get.page'));
+		$page	=	intval(I('post.page'));
+		if(!$page){
+			$page	=	intval(I('get.page'));
+		}
 		if($page<1)$page=1;
 		$city_id=	intval(I('get.city_id'));
 		$member_id=	intval(I('get.member_id'));
@@ -1290,7 +1299,10 @@ class ApiController extends Controller {
 	*/
 	public function getTypeCallList()
 	{
-		$page	=	intval(I('get.page'));
+		$page	=	intval(I('post.page'));
+		if(!$page){
+			$page	=	intval(I('get.page'));
+		}
 		if($page<1)$page=1;
 		$city_id=	intval(I('get.city_id'));
 		$one_id	=	intval(I('get.one_id'));
@@ -2434,6 +2446,9 @@ class ApiController extends Controller {
 			$member_id=	intval(I('get.member_id'));
 		}
 		$page	=	intval(I('post.page'));
+		if(!$page){
+			$page	=	intval(I('get.page'));
+		}
 		if($page<1)$page=1;
 		$isFaYaohe	=	I('post.isFaYaohe') ;
 		if(!$isFaYaohe){
@@ -2495,10 +2510,15 @@ class ApiController extends Controller {
 	{
 		$member_id=	intval(I('post.member_id'));
 		$page	=	intval(I('post.page'));
+		if(!$page){
+			$page	=	intval(I('get.page'));
+		}
 		if($page<1)$page=1;
 		$list	=	M('Coupon')->field('id,type,title,content,img1')->where(array('member_id'=>$member_id))->order('id desc')->limit(($page-1)*20,20)->select();
+		$count	=	M('Coupon')->where(array('member_id'=>$member_id))->count();
 		if(!$list)$list=array(array('id'=>''));
-		$this->json_ok($list);
+		//$this->json_ok($list);
+		$this->json_ok_page($list, $page, $count) ;
 	}
 	/**
 	* 功能：获取我发布的会员卡
@@ -2507,10 +2527,14 @@ class ApiController extends Controller {
 	{
 		$member_id=	intval(I('post.member_id'));
 		$page	=	intval(I('post.page'));
+		if(!$page){
+			$page	=	intval(I('get.page'));
+		}
 		if($page<1)$page=1;
 		$list	=	M('Card')->field('id,type,title,discount,content,img1')->where(array('member_id'=>$member_id))->order('id desc')->limit(($page-1)*20,20)->select();
+		$count	=	M('Card')->where(array('member_id'=>$member_id))->count();
 		if(!$list)$list=array(array('id'=>''));
-		$this->json_ok($list);
+		$this->json_ok_page($list, $page,$count);
 	}
 	/**
 	* 功能：获取我发布的新品列表
@@ -2519,10 +2543,14 @@ class ApiController extends Controller {
 	{
 		$member_id=	intval(I('post.member_id'));
 		$page	=	intval(I('post.page'));
+		if(!$page){
+			$page	=	intval(I('get.page'));
+		}
 		if($page<1)$page=1;
 		$list	=	M('Card')->field('id,title,price,day,img1')->where(array('member_id'=>$member_id))->order('id desc')->limit(($page-1)*20,20)->select();
+		$count	=	M('Card')->where(array('member_id'=>$member_id))->count();
 		if(!$list)$list=array(array('id'=>''));
-		$this->json_ok($list);
+		$this->json_ok_page($list, $page, $count);
 	}
 	/**
 	* 功能：获取我发布的活动列表
@@ -2531,10 +2559,14 @@ class ApiController extends Controller {
 	{
 		$member_id=	intval(I('post.member_id'));
 		$page	=	intval(I('post.page'));
+		if(!$page){
+			$page	=	intval(I('get.page'));
+		}
 		if($page<1)$page=1;
 		$list	=	M('Activity')->field('id,title,content,img1')->where(array('member_id'=>$member_id))->order('id desc')->limit(($page-1)*20,20)->select();
+		$count	=	M('Activity')->where(array('member_id'=>$member_id))->count();
 		if(!$list)$list=array(array('id'=>''));
-		$this->json_ok($list);
+		$this->json_ok_page($list, $page, $count);
 	}
 	/**
 	* 功能：修改用户昵称
@@ -2596,6 +2628,9 @@ class ApiController extends Controller {
 			$member_id =	intval(I('get.member_id'));
 		}
 		$page	=	intval(I('post.page'));
+		if(!$page){
+			$page	=	intval(I('get.page'));
+		}
 		if($page<1)$page=1;
 		$count	=	M()->table('ht_member m, ht_shop_fans f')->where('m.id = f.to_member_id and f.to_member_id='.$member_id)->field('f.member_id')->count('*');
 		$list = M()->table('ht_member m, ht_shop_fans f')->where('m.id = f.to_member_id and f.to_member_id='.$member_id)->field('f.member_id')->order('f.id desc' )->select();
@@ -2686,10 +2721,14 @@ class ApiController extends Controller {
 	{
 		$member_id=	intval(I('post.member_id'));
 		$page	=	intval(I('post.page'));
+		if(!$page){
+			$page	=	intval(I('get.page'));
+		}
 		if($page<1)$page=1;
 		$list	=	M('PrizeList')->where(array('member_id'=>$member_id))->order('id desc')->limit(($page-1)*20,20)->select();
+		$count	=	M('PrizeList')->where(array('member_id'=>$member_id))->count();
 		if(!$list)$list=array(array('id'=>''));
-		$this->json_ok($list);
+		$this->json_ok_page($list, $page, $count);
 	}
 	/**
 	* 功能：获取我的服务列表
@@ -2701,7 +2740,11 @@ class ApiController extends Controller {
 			$member_id=	intval(I('get.member_id'));
 		}
 		$page	=	intval(I('post.page'));
+		if(!$page){
+			$page	=	intval(I('get.page'));
+		}
 		if($page<1)$page=1;
+
 		$isFaYaohe	=	I('post.isFaYaohe') ;
 		if(!$isFaYaohe){
 			$isFaYaohe	=	I('get.isFaYaohe') ;
