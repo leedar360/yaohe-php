@@ -1630,14 +1630,10 @@ class ApiController extends Controller {
 			$data['to_member_id']	=	$shop['member_id'];
 		}
 		$data['comment_title']	=	$comment_title;
-		M('ShopComment')->add($data);
-		//获取评价总星数
-		$star_total	=	M('ShopComment')->where(array('shop_id'=>$data['shop_id']))->sum('star');
-		//获取评价总次数
-		$comment_total=	M('ShopComment')->where(array('shop_id'=>$data['shop_id']))->count();
-		$star	=	floor($star_total/$comment_total);
 		M('Shop')->where(array('id'=>$data['shop_id']))->setInc('comment_num');
-		M('Shop')->where(array('id'=>$data['shop_id']))->save(array('star'=>$star));
+
+		$this->updateShopStar($data['shop_id']);
+
 		$this->json_ok(true);
 	}
 
@@ -1656,6 +1652,9 @@ class ApiController extends Controller {
 			$this->json_error('评论不存在');
 		}
 		M('ShopComment')->where(array('id'=>$shopCommentID))->delete();
+
+		//更新商铺的星星
+		$this->updateShopStar($shopComment['shop_id']);
 		$this->json_ok(true);
 	}
 
@@ -3579,6 +3578,20 @@ class ApiController extends Controller {
 			$arr[] = $item;
 		}
 		return $arr;
+	}
+
+	/**
+	 * @param $shop_id
+	 */
+	private function updateShopStar($shop_id)
+	{
+		M('ShopComment')->add($shop_id);
+		//获取评价总星数
+		$star_total = M('ShopComment')->where(array('shop_id' => $shop_id))->sum('star');
+		//获取评价总次数
+		$comment_total = M('ShopComment')->where(array('shop_id' => $shop_id))->count();
+		$star = floor($star_total / $comment_total);
+		M('Shop')->where(array('id' => $shop_id['shop_id']))->save(array('star' => $star));
 	}
 }
 ?>
