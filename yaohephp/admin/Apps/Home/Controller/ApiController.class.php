@@ -2801,22 +2801,21 @@ class ApiController extends Controller {
 					break;
 			}
 			if(empty($item['content']))$item['content']=$service['content'];
-			if(!empty($item['img6']))$item['img']	=	$service['img6'];
-			if(!empty($item['img5']))$item['img']	=	$service['img5'];
-			if(!empty($item['img4']))$item['img']	=	$service['img4'];
-			if(!empty($item['img3']))$item['img']	=	$service['img3'];
-			if(!empty($item['img2']))$item['img']	=	$service['img2'];
-			if(!empty($item['img1']))$item['img']	=	$service['img1'];
-			if(!isset($item['img']))
-			{
-				if(!empty($item['img6']))$item['img']=	$service['img6'];
-				if(!empty($item['img5']))$item['img']=	$service['img5'];
-				if(!empty($item['img4']))$item['img']=	$service['img4'];
-				if(!empty($item['img3']))$item['img']=	$service['img3'];
-				if(!empty($item['img2']))$item['img']=	$service['img2'];
-				if(!empty($item['img1']))$item['img']=	$service['img1'];
-			}
-			if(!isset($item['img']))$item['img']='';
+
+			if(empty($item['img6']))$item['img']	=	$item['img6'];
+			if(empty($item['img5']))$item['img']	=	$item['img5'];
+			if(empty($item['img4']))$item['img']	=	$item['img4'];
+			if(empty($item['img3']))$item['img']	=	$item['img3'];
+			if(empty($item['img2']))$item['img']	=	$item['img2'];
+			if(empty($item['img1']))$item['img']	=	$item['img1'];
+
+			if(empty($item['img6']))$item['img']=	$service['img6'];
+			if(empty($item['img5']))$item['img']=	$service['img5'];
+			if(empty($item['img4']))$item['img']=	$service['img4'];
+			if(empty($item['img3']))$item['img']=	$service['img3'];
+			if(empty($item['img2']))$item['img']=	$service['img2'];
+			if(empty($item['img1']))$item['img']=	$service['img1'];
+			//if(!isset($item['img']))$item['img']='';
 			/*
 			if(!empty($service['img6']))$item['img']		=	$service['img6'];
 			if(!empty($service['img5']))$item['img']		=	$service['img5'];
