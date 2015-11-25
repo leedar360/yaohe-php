@@ -1851,6 +1851,13 @@ class ApiController extends Controller {
 		{
 			$this->json_error('类型不正确');
 		}
+
+		$shop_service=M('ShopService')->where(array('id'=>$data['shop_service_id']))->find();
+		if(!$shop_service)
+		{
+			$this->json_error('吆喝不存在');
+		}
+
 		if($data['parentid']>0)
 		{
 			$data['h_type']	=	1;//回复
@@ -1864,14 +1871,11 @@ class ApiController extends Controller {
 		else
 		{
 			$data['h_type']	=	0;//评论
+			$data['to_member_id']	=	$shop_service['member_id'];
 		}
-		$shop_service=M('ShopService')->where(array('id'=>$data['shop_service_id']))->find();
-		if(!$shop_service)
-		{
-			$this->json_error('吆喝不存在');
-		}
+
 		$shop	=	$this->getShop($shop_service['member_id']);
-		$data['to_member_id']	=	$shop_service['member_id'];
+
 		if(!$shop)
 		{
 			$this->json_error('店铺不存在');
