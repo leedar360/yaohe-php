@@ -1673,6 +1673,7 @@ class ApiController extends Controller {
 			$this->json_error('评论不存在');
 		}
 		M('ShopServiceComment')->where(array('id'=>$shopServiceCommentID))->delete();
+		M('ShopService')->where(array('id'=>$shopServiceComment['shop_service_id']))->setDec('comment_num');
 		$this->json_ok(true);
 	}
 	/**
