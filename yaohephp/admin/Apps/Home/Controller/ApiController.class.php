@@ -2250,8 +2250,14 @@ class ApiController extends Controller {
 	*/
 	public function getMyMemberCardDetail()
 	{
-		$card_id	=	intval(I('get.card_id'));//会员卡ID
-		$member_card_id=intval(I('get.member_card_id'));//会员的会员卡ID
+		$card_id	=	intval(I('post.card_id'));//会员卡ID
+		if(!$card_id){
+			$card_id	=	intval(I('get.card_id'));
+		}
+		$member_card_id=intval(I('post.member_card_id'));//会员的会员卡ID
+		if(!$member_card_id){
+			$member_card_id=intval(I('get.member_card_id'));
+		}
 		$card	=	M('Coupon')->field('id,title,img1')->where(array('id'=>$card_id))->find();
 		$member_card=	M('MemberCard')->field('id,card_number')->where(array('id'=>$member_card_id))->find();
 		$coupon['card_number']	=	$member_card['card_number'];
