@@ -429,7 +429,7 @@ class ApiController extends Controller {
 		$new_data['one_id']		=	$shop['one_id'];//一级分类
 		$new_data['addtime']	=	time();//添加时间
 		$new_data['industry_class_id']=$shop['industry_class_id'];//二级分类
-		$data['is_yinyong']	=	1 ; //1是引用，0是不引用
+		$new_data['is_yinyong']	=	1 ; //1是引用，0是不引用
 		M('ShopService')->add($new_data);
 		$this->json_ok(true);
 	}
@@ -767,6 +767,7 @@ class ApiController extends Controller {
 		$map	=	array();
 		$map['member_id']	=	$row['shop_member_id'];;
 		$map['status']	=	1;
+		$map['is_yinyong']	=	0;
 		//优惠券数量
 		$map['type']=	0;
 		$counponnum	=	M('ShopService')->where($map)->count();
@@ -2771,7 +2772,7 @@ class ApiController extends Controller {
 		}
 		$where	=	'' ;
 		if($isFaYaohe	==	'Y'){
-			$where['_string']=" member_id='".$member_id."' and type<> 4 and status=1";
+			$where['_string']=" member_id='".$member_id."' and type<> 4 and status=1 and is_yinyong = 1";
 		}else{
 			$where['_string']=" member_id='".$member_id."' and status=1";
 		}
