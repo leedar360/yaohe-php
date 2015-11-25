@@ -904,6 +904,9 @@ class ApiController extends Controller {
 		//{
 			//$this->json_error('您是商家的角色，不允许关注');
 		//}
+		if($row['member_id'] == $member){
+			$this->json_error('您不能关注自己');
+		}
 		$fans = $this->getFansByMemberIDAndShpID($id, $member_id);
 		if($fans)
 		{
