@@ -1503,7 +1503,8 @@ class ApiController extends Controller {
 			$page	=	intval(I('get.page'));
 		}
 		if($page<1)$page=1;
-		$list	=	M('ShopComment')->where($where)->limit(($page-1)*20,20)->order('id desc')->select();
+		//$list	=	M('ShopComment')->where($where)->limit(($page-1)*20,20)->order('id desc')->select();
+		$list	=	M('ShopComment')->where($where)->order('id desc')->select();
 		$count	=	M('ShopComment')->where($where)->count();
 		if(!$list)
 		{
@@ -1568,8 +1569,8 @@ class ApiController extends Controller {
 			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'to_member_id'=>$item['to_member_id'],'nickname'=>$nickname,'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace);
 
 		}
-		//$this->json_ok($arr);
-		$this->json_ok_page($arr, $page, $count);
+		$this->json_ok($arr);
+		//$this->json_ok($arr, $page, $count);
 	}
 	/**
 	* 功能：店铺点评
