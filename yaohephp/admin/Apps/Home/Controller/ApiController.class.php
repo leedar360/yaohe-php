@@ -888,7 +888,13 @@ class ApiController extends Controller {
 	public function shopFollow()
 	{
 		$id			=	intval(I('post.id'));//店铺ID
+		if(!$id){
+			$id			=	intval(I('get.id'));
+		}
 		$member_id	=	intval(I('post.member_id'));//会员ID
+		if(!$member_id){
+			$member_id	=	intval(I('get.member_id'));
+		}
 		$row=	M('Shop')->where(array('id'=>$id))->find();
 		if(!$row)
 		{
@@ -904,8 +910,8 @@ class ApiController extends Controller {
 		//{
 			//$this->json_error('您是商家的角色，不允许关注');
 		//}
-		if($row['member_id'] == $member){
-			$this->json_error('您不能关注自己');
+		if($row['member_id'] == $member_id){
+			$this->json_error('您是商家，不能关注自己');
 		}
 		$fans = $this->getFansByMemberIDAndShpID($id, $member_id);
 		if($fans)
