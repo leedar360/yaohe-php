@@ -429,7 +429,7 @@ class ApiController extends Controller {
 		$new_data['one_id']		=	$shop['one_id'];//一级分类
 		$new_data['addtime']	=	time();//添加时间
 		$new_data['industry_class_id']=$shop['industry_class_id'];//二级分类
-		$data['is_yinyong']	=	1 ; //1是引用，0是不引用
+		$new_data['is_yinyong']	=	1 ; //1是引用，0是不引用
 		M('ShopService')->add($new_data);
 		$this->json_ok(true);
 	}
@@ -767,6 +767,7 @@ class ApiController extends Controller {
 		$map	=	array();
 		$map['member_id']	=	$row['shop_member_id'];;
 		$map['status']	=	1;
+		$map['is_yinyong']	=	0;
 		//优惠券数量
 		$map['type']=	0;
 		$counponnum	=	M('ShopService')->where($map)->count();
@@ -888,7 +889,13 @@ class ApiController extends Controller {
 	public function shopFollow()
 	{
 		$id			=	intval(I('post.id'));//店铺ID
+		if(!$id){
+			$id			=	intval(I('get.id'));
+		}
 		$member_id	=	intval(I('post.member_id'));//会员ID
+		if(!$member_id){
+			$member_id	=	intval(I('get.member_id'));
+		}
 		$row=	M('Shop')->where(array('id'=>$id))->find();
 		if(!$row)
 		{
@@ -904,6 +911,9 @@ class ApiController extends Controller {
 		//{
 			//$this->json_error('您是商家的角色，不允许关注');
 		//}
+		if($row['member_id'] == $member_id){
+			$this->json_error('您是商家，不能关注自己');
+		}
 		$fans = $this->getFansByMemberIDAndShpID($id, $member_id);
 		if($fans)
 		{
@@ -1494,7 +1504,8 @@ class ApiController extends Controller {
 			$page	=	intval(I('get.page'));
 		}
 		if($page<1)$page=1;
-		$list	=	M('ShopComment')->where($where)->limit(($page-1)*20,20)->order('id desc')->select();
+		//$list	=	M('ShopComment')->where($where)->limit(($page-1)*20,20)->order('id desc')->select();
+		$list	=	M('ShopComment')->where($where)->order('id desc')->select();
 		$count	=	M('ShopComment')->where($where)->count();
 		if(!$list)
 		{
@@ -1559,8 +1570,8 @@ class ApiController extends Controller {
 			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'to_member_id'=>$item['to_member_id'],'nickname'=>$nickname,'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace);
 
 		}
-		//$this->json_ok($arr);
-		$this->json_ok_page($arr, $page, $count);
+		$this->json_ok($arr);
+		//$this->json_ok($arr, $page, $count);
 	}
 	/**
 	* 功能：店铺点评
@@ -1619,14 +1630,10 @@ class ApiController extends Controller {
 			$data['to_member_id']	=	$shop['member_id'];
 		}
 		$data['comment_title']	=	$comment_title;
-		M('ShopComment')->add($data);
-		//获取评价总星数
-		$star_total	=	M('ShopComment')->where(array('shop_id'=>$data['shop_id']))->sum('star');
-		//获取评价总次数
-		$comment_total=	M('ShopComment')->where(array('shop_id'=>$data['shop_id']))->count();
-		$star	=	floor($star_total/$comment_total);
 		M('Shop')->where(array('id'=>$data['shop_id']))->setInc('comment_num');
-		M('Shop')->where(array('id'=>$data['shop_id']))->save(array('star'=>$star));
+
+		$this->updateShopStar($data['shop_id']);
+
 		$this->json_ok(true);
 	}
 
@@ -1645,6 +1652,9 @@ class ApiController extends Controller {
 			$this->json_error('评论不存在');
 		}
 		M('ShopComment')->where(array('id'=>$shopCommentID))->delete();
+
+		//更新商铺的星星
+		$this->updateShopStar($shopComment['shop_id']);
 		$this->json_ok(true);
 	}
 
@@ -1663,6 +1673,7 @@ class ApiController extends Controller {
 			$this->json_error('评论不存在');
 		}
 		M('ShopServiceComment')->where(array('id'=>$shopServiceCommentID))->delete();
+		M('ShopService')->where(array('id'=>$shopServiceComment['shop_service_id']))->setDec('comment_num');
 		$this->json_ok(true);
 	}
 	/**
@@ -1841,6 +1852,13 @@ class ApiController extends Controller {
 		{
 			$this->json_error('类型不正确');
 		}
+
+		$shop_service=M('ShopService')->where(array('id'=>$data['shop_service_id']))->find();
+		if(!$shop_service)
+		{
+			$this->json_error('吆喝不存在');
+		}
+
 		if($data['parentid']>0)
 		{
 			$data['h_type']	=	1;//回复
@@ -1854,14 +1872,11 @@ class ApiController extends Controller {
 		else
 		{
 			$data['h_type']	=	0;//评论
+			$data['to_member_id']	=	$shop_service['member_id'];
 		}
-		$shop_service=M('ShopService')->where(array('id'=>$data['shop_service_id']))->find();
-		if(!$shop_service)
-		{
-			$this->json_error('吆喝不存在');
-		}
+
 		$shop	=	$this->getShop($shop_service['member_id']);
-		$data['to_member_id']	=	$shop_service['member_id'];
+
 		if(!$shop)
 		{
 			$this->json_error('店铺不存在');
@@ -2759,7 +2774,7 @@ class ApiController extends Controller {
 		}
 		$where	=	'' ;
 		if($isFaYaohe	==	'Y'){
-			$where['_string']=" member_id='".$member_id."' and type<> 4 and status=1";
+			$where['_string']=" member_id='".$member_id."' and type<> 4 and status=1 and is_yinyong = 1";
 		}else{
 			$where['_string']=" member_id='".$member_id."' and status=1";
 		}
@@ -2788,22 +2803,21 @@ class ApiController extends Controller {
 					break;
 			}
 			if(empty($item['content']))$item['content']=$service['content'];
-			if(!empty($item['img6']))$item['img']	=	$service['img6'];
-			if(!empty($item['img5']))$item['img']	=	$service['img5'];
-			if(!empty($item['img4']))$item['img']	=	$service['img4'];
-			if(!empty($item['img3']))$item['img']	=	$service['img3'];
-			if(!empty($item['img2']))$item['img']	=	$service['img2'];
-			if(!empty($item['img1']))$item['img']	=	$service['img1'];
-			if(!isset($item['img']))
-			{
-				if(!empty($item['img6']))$item['img']=	$service['img6'];
-				if(!empty($item['img5']))$item['img']=	$service['img5'];
-				if(!empty($item['img4']))$item['img']=	$service['img4'];
-				if(!empty($item['img3']))$item['img']=	$service['img3'];
-				if(!empty($item['img2']))$item['img']=	$service['img2'];
-				if(!empty($item['img1']))$item['img']=	$service['img1'];
-			}
-			if(!isset($item['img']))$item['img']='';
+
+			if(empty($item['img6']))$item['img']	=	$item['img6'];
+			if(empty($item['img5']))$item['img']	=	$item['img5'];
+			if(empty($item['img4']))$item['img']	=	$item['img4'];
+			if(empty($item['img3']))$item['img']	=	$item['img3'];
+			if(empty($item['img2']))$item['img']	=	$item['img2'];
+			if(empty($item['img1']))$item['img']	=	$item['img1'];
+
+			if(empty($item['img6']))$item['img']=	$service['img6'];
+			if(empty($item['img5']))$item['img']=	$service['img5'];
+			if(empty($item['img4']))$item['img']=	$service['img4'];
+			if(empty($item['img3']))$item['img']=	$service['img3'];
+			if(empty($item['img2']))$item['img']=	$service['img2'];
+			if(empty($item['img1']))$item['img']=	$service['img1'];
+			//if(!isset($item['img']))$item['img']='';
 			/*
 			if(!empty($service['img6']))$item['img']		=	$service['img6'];
 			if(!empty($service['img5']))$item['img']		=	$service['img5'];
@@ -3511,6 +3525,7 @@ class ApiController extends Controller {
 					break;
 			}
 			//$item['content']	=	$service['content'];
+			/*
 			if (!empty($service['img6'])) $item['s_img'] = $service['img6'];
 			if (!empty($service['img5'])) $item['s_img'] = $service['img5'];
 			if (!empty($service['img4'])) $item['s_img'] = $service['img4'];
@@ -3524,6 +3539,21 @@ class ApiController extends Controller {
 			if (!empty($item['img3'])) $item['img'] = $item['img3'];
 			if (!empty($item['img2'])) $item['img'] = $item['img2'];
 			if (!empty($item['img1'])) $item['img'] = $item['img1'];
+			*/
+
+			if (!empty($service['img6'])) $item['img'] = $service['img6'];
+			if (!empty($service['img5'])) $item['img'] = $service['img5'];
+			if (!empty($service['img4'])) $item['img'] = $service['img4'];
+			if (!empty($service['img3'])) $item['img'] = $service['img3'];
+			if (!empty($service['img2'])) $item['img'] = $service['img2'];
+			if (!empty($service['img1'])) $item['img'] = $service['img1'];
+
+			if (!empty($item['img6'])) $item['s_img'] = $item['img6'];
+			if (!empty($item['img5'])) $item['s_img'] = $item['img5'];
+			if (!empty($item['img4'])) $item['s_img'] = $item['img4'];
+			if (!empty($item['img3'])) $item['s_img'] = $item['img3'];
+			if (!empty($item['img2'])) $item['s_img'] = $item['img2'];
+			if (!empty($item['img1'])) $item['s_img'] = $item['img1'];
 
 			if (!isset($item['s_img'])) $item['s_img'] = '';
 			if (!isset($item['img'])) $item['img'] = '';
@@ -3566,6 +3596,20 @@ class ApiController extends Controller {
 			$arr[] = $item;
 		}
 		return $arr;
+	}
+
+	/**
+	 * @param $shop_id
+	 */
+	private function updateShopStar($shop_id)
+	{
+		M('ShopComment')->add($shop_id);
+		//获取评价总星数
+		$star_total = M('ShopComment')->where(array('shop_id' => $shop_id))->sum('star');
+		//获取评价总次数
+		$comment_total = M('ShopComment')->where(array('shop_id' => $shop_id))->count();
+		$star = floor($star_total / $comment_total);
+		M('Shop')->where(array('id' => $shop_id['shop_id']))->save(array('star' => $star));
 	}
 }
 ?>
