@@ -2774,7 +2774,7 @@ class ApiController extends Controller {
 		}
 		$where	=	'' ;
 		if($isFaYaohe	==	'Y'){
-			$where['_string']=" member_id='".$member_id."' and type<> 4 and status=1 and is_yinyong = 1";
+			$where['_string']=" member_id='".$member_id."' and type<> 4 and status=1 and is_yinyong = 0";
 		}else{
 			$where['_string']=" member_id='".$member_id."' and status=1";
 		}
