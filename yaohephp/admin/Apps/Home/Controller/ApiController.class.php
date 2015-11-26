@@ -2263,9 +2263,11 @@ class ApiController extends Controller {
 		$coupon['card_number']	=	$member_card['card_number'];
 		//获取使用详情记录
 		$list	=	M('MemberCardDetail')->where(array('member_card_id'=>$member_card_id))->order('id desc')->select();
-		foreach($list as $key=>$item)
+		if(!$list)$list=array();
+		foreach($list as $item)
 		{
-			$list[$key]['ply_time']=date("Y-m-d",$item['ply_time']);
+			//$list[$key]['ply_time']=date("Y-m-d",$item['ply_time']);
+			$list['ply_time']  =date("Y-m-d",$item['ply_time']);
 		}
 		$this->json_ok(array('card'=>$card,'list'=>$list));
 	}
