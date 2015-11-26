@@ -1504,6 +1504,8 @@ class ApiController extends Controller {
 			$page	=	intval(I('get.page'));
 		}
 		if($page<1)$page=1;
+		$shop	= M('Shop')->where(array('id'=>$where['shop_id']))->find() ;
+
 		//$list	=	M('ShopComment')->where($where)->limit(($page-1)*20,20)->order('id desc')->select();
 		$list	=	M('ShopComment')->where($where)->order('id desc')->select();
 		$count	=	M('ShopComment')->where($where)->count();
@@ -1570,6 +1572,7 @@ class ApiController extends Controller {
 			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'to_member_id'=>$item['to_member_id'],'nickname'=>$nickname,'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace);
 
 		}
+		//$this->json_ok(array('shop_star'=>$shop['star'], 'arr'=>$arr));
 		$this->json_ok($arr);
 		//$this->json_ok($arr, $page, $count);
 	}
@@ -3609,7 +3612,7 @@ class ApiController extends Controller {
 		//获取评价总次数
 		$comment_total = M('ShopComment')->where(array('shop_id' => $shop_id))->count();
 		$star = floor($star_total / $comment_total);
-		M('Shop')->where(array('id' => $shop_id['shop_id']))->save(array('star' => $star));
+		M('Shop')->where(array('id' => $shop_id))->save(array('star' => $star));
 	}
 }
 ?>
