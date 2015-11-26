@@ -1631,7 +1631,7 @@ class ApiController extends Controller {
 		}
 		$data['comment_title']	=	$comment_title;
 		M('Shop')->where(array('id'=>$data['shop_id']))->setInc('comment_num');
-
+		M('ShopComment')->add($data);
 		$this->updateShopStar($data['shop_id']);
 
 		$this->json_ok(true);
@@ -3525,7 +3525,7 @@ class ApiController extends Controller {
 					break;
 			}
 			//$item['content']	=	$service['content'];
-			/*
+
 			if (!empty($service['img6'])) $item['s_img'] = $service['img6'];
 			if (!empty($service['img5'])) $item['s_img'] = $service['img5'];
 			if (!empty($service['img4'])) $item['s_img'] = $service['img4'];
@@ -3539,8 +3539,8 @@ class ApiController extends Controller {
 			if (!empty($item['img3'])) $item['img'] = $item['img3'];
 			if (!empty($item['img2'])) $item['img'] = $item['img2'];
 			if (!empty($item['img1'])) $item['img'] = $item['img1'];
-			*/
 
+			/**
 			if (!empty($service['img6'])) $item['img'] = $service['img6'];
 			if (!empty($service['img5'])) $item['img'] = $service['img5'];
 			if (!empty($service['img4'])) $item['img'] = $service['img4'];
@@ -3554,6 +3554,7 @@ class ApiController extends Controller {
 			if (!empty($item['img3'])) $item['s_img'] = $item['img3'];
 			if (!empty($item['img2'])) $item['s_img'] = $item['img2'];
 			if (!empty($item['img1'])) $item['s_img'] = $item['img1'];
+			*/
 
 			if (!isset($item['s_img'])) $item['s_img'] = '';
 			if (!isset($item['img'])) $item['img'] = '';
@@ -3603,7 +3604,6 @@ class ApiController extends Controller {
 	 */
 	private function updateShopStar($shop_id)
 	{
-		M('ShopComment')->add($shop_id);
 		//获取评价总星数
 		$star_total = M('ShopComment')->where(array('shop_id' => $shop_id))->sum('star');
 		//获取评价总次数
