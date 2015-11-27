@@ -1290,7 +1290,10 @@ class ApiController extends Controller {
 		}
 		if($page<1)$page=1;
 		$city_id=	intval(I('get.city_id'));
-		$member_id=	intval(I('get.member_id'));
+		$member_id=	intval(I('post.member_id'));
+		if(!$member_id){
+			$member_id=	intval(I('get.member_id'));
+		}
 		//$field	=	'id,member_id,content,img1,type,fans_num,zan_num,comment_num';
 		//$field	=	'id,member_id,type,zan_num,comment_num,collection_num';
 		//$list	=	M('Call')->field($field)->where(array('city_id'=>$city_id))->order('id desc')->limit(($page-1)*20,20)->select();
@@ -1317,9 +1320,9 @@ class ApiController extends Controller {
 		$city_id=	intval(I('get.city_id'));
 		$one_id	=	intval(I('get.one_id'));
 
-		$member_id	=	intval(I('post.page'));
+		$member_id	=	intval(I('post.$member_id'));
 		if(!$member_id){
-			$member_id	=	intval(I('get.page'));
+			$member_id	=	intval(I('get.$member_id'));
 		}
 
 		$classMap['id'] = $one_id ;
@@ -1730,7 +1733,7 @@ class ApiController extends Controller {
 		if(!$member_id){
 			$member_id	=	intval(I('get.member_id')) ;
 		}
-		$row	=	M('ShopServiceCollection')->where(array('shop_service_id'=>$call_id))->find();
+		$row	=	M('ShopServiceCollection')->where(array('shop_service_id'=>$call_id,'member_id'=>$member_id))->find();
 		if($row)
 		{
 			$this->json_error('您已经收藏过了');
