@@ -3587,11 +3587,12 @@ class ApiController extends Controller {
 			$item['shop_fans_num'] = $row['fans_num'];
 			$item['addtime']=	date("Y-m-d",$item['addtime']);
 			//如果是纯吆喝的时候，添加是不否有引用其他的服务
-			if ($item['type'] == 4) {
+			/*if ($item['type'] == 4) {
 				$item['c_id'] = $service['c_id'];
 			} else {
 				$item['c_id'] = '0';
-			}
+			}*/
+			$item['c_id'] = $item['is_yinyong'] ;
 
 			if($member_id > 0){
 				$row = M('ShopFans')->where(array('shop_id' => $row['id'], 'member_id' => $member_id))->find();
