@@ -6,6 +6,7 @@
 */
 namespace Home\Controller;
 use Think\Controller;
+
 header("Content-type: text/html; charset=utf-8");
 class ApiController extends Controller {
 	public function setshopservice()
@@ -464,6 +465,9 @@ class ApiController extends Controller {
 		{
 			$this->json_error('参数错误');
 		}
+		if($data['num'] < 1){
+			$this->json_error('请输入正确的发行量');
+		}
 		$filelist	=	$this->uploads();
 		foreach($filelist as $item)
 		{
@@ -517,6 +521,9 @@ class ApiController extends Controller {
 		$data['industry_class_id']	=	$shop['industry_class_id'];//二级分类
 		$data['valid_start']=	I('post.valid_start');//有效开始时间
 		$data['valid_end']	=	I('post.valid_end');//有效截止时间
+		if($data['num'] < 1){
+			$this->json_error('请输入正确的发行量');
+		}
 		$filelist	=	$this->uploads();
 		foreach($filelist as $item)
 		{
@@ -571,6 +578,11 @@ class ApiController extends Controller {
 		$data['district_id']=	$shop['district_id'];//商圈ID
 		$data['one_id']		=	$shop['one_id'];//一级分类
 		$data['industry_class_id']	=	$shop['industry_class_id'];//二级分类
+
+		/*if($data['num'] < 1){
+			$this->json_error('请输入正确的发行量');
+		}*/
+
 		$filelist	=	$this->uploads();
 		foreach($filelist as $item)
 		{
@@ -622,6 +634,11 @@ class ApiController extends Controller {
 		$data['district_id']=	$shop['district_id'];//商圈ID
 		$data['one_id']		=	$shop['one_id'];//一级分类
 		$data['industry_class_id']	=	$shop['industry_class_id'];//二级分类
+
+		if($data['price'] < 1){
+			$this->json_error('请输入正确的价格');
+		}
+
 		$filelist	=	$this->uploads();
 		foreach($filelist as $item)
 		{
