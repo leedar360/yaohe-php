@@ -793,7 +793,7 @@ class ApiController extends Controller {
 		//$map['_string']=" type<4";
 		$calllist=	M('ShopService')->where(array('member_id'=>$row['shop_member_id'],'status'=>1))->order('id desc')->limit(0,3)->select();
 		if(!$calllist)$calllist=array();
-		//$new_calllist[] = '';
+		$new_calllist[] = '';
 		foreach($calllist as $key=>$item)
 		{
 			switch($item['type'])
@@ -1789,36 +1789,21 @@ class ApiController extends Controller {
 			$member=M('Member')->field('id,face,type,login_user')->where(array('id'=>$item['member_id']))->find();
 			if(!$member)continue;
 			$item['face']=$member['face'];
-			//$item['addtime']=date("Y-m-d H:i");
-			if($member['type']==0)
-			{
-				$person=M('Personal')->where(array('member_id'=>$member['id']))->find();
-				if(!$person)
-				{
-					//$item['nickname']='吆喝'.$member['id'];
-					$item['nickname']	=	$this->getHidePhoneNumber($member['login_user']) ;
-				}
-				else
-				{
-					$item['nickname']=$person['nickname'];
-				}
-			}
-			else
-			{
-				$shop=$this->getShop($member['id']);
-				$item['nickname']=$shop['title'];
-			}
+			$item['nickname'] = $this->getNickName($member);
+
 			$answerName = '' ;
 			if($item['parentid'] > 0)
 			{
-				$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
+				$to_member=M('Member')->field('id,face,type,login_user')->where(array('id'=>$item['to_member_id']))->find();
+				$answerName = $this->getNickName($to_member);
+				/*$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
 				if(!$personReply){
 					$to_member=M('Member')->field('id,face,type,login_user')->where(array('id'=>$item['to_member_id']))->find();
 					//$answerName	=	'吆喝'.$item['to_member_id'];
 					$answerName	=	$this->getHidePhoneNumber($to_member['login_user']) ;
 				}else{
 					$answerName	=	$personReply['nickname'];
-				}
+				}*/
 			}
 			$shop	=	$this->getShopById($item['shop_id']) ;
 			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$item['nickname'],'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'], 'shop_star'=>$shop['star']);
@@ -3616,6 +3601,27 @@ class ApiController extends Controller {
 		$comment_total = M('ShopComment')->where(array('shop_id' => $shop_id))->count();
 		$star = floor($star_total / $comment_total);
 		M('Shop')->where(array('id' => $shop_id))->save(array('star' => $star));
+	}
+
+	/**
+	 * @param $member
+	 * @param $item
+	 * @return array
+	 */
+	private function getNickName($member)
+	{
+		if ($member['type'] == 0) {
+			$person = M('Personal')->where(array('member_id' => $member['id']))->find();
+			if (!$person) {
+				//$item['nickname']='吆喝'.$member['id'];
+				return $this->getHidePhoneNumber($member['login_user']);
+			} else {
+				return $person['nickname'];
+			}
+		} else {
+			$shop = $this->getShop($member['id']);
+			return $shop['title'];
+		}
 	}
 }
 ?>
