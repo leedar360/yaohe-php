@@ -1371,7 +1371,7 @@ class ApiController extends Controller {
 		$map['member_id']=	array('in',implode(',',$shop_id_arr));
 		$map['city_id']	=	$city_id ;
 		$map['status']	=	1 ;
-		$field	=	'id,member_id,service_id,title,type,collection_num,zan_num,comment_num,addtime,img1,img2,img3,img4,img5,img6';
+		$field	=	'id,member_id,service_id,title,type,collection_num,zan_num,comment_num,addtime,img1,img2,img3,img4,img5,img6,content';
 		//$list	=	M('Call')->field($field)->where($map)->order('id desc')->select();
 		$list	=	M('ShopService')->field($field)->where($map)->limit(($page-1)*20,20)->order('id desc')->select();
 		$count	=	M('ShopService')->where($map)->count('*');
