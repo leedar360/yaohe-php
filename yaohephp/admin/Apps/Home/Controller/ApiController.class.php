@@ -1254,6 +1254,7 @@ class ApiController extends Controller {
 			if(!empty($row['img1']))$row['s_img']=$row['img1'];
 		}
 		if(!isset($row['s_img']))$row['s_img']='';
+
 		$row['s_title']				=	$row['title'];
 		if(empty($row['s_title']))$row['s_title']=	$record['title'];
 		/*$row['img1']				=	$record['img1'];
@@ -1263,10 +1264,17 @@ class ApiController extends Controller {
 		$row['img5']				=	$record['img5'];
 		$row['img6']				=	$record['img6'];*/
 		$row['shop_service_id']		=	$row['service_id'];
-		if(!isset($record['content'])){
+		/*if(!isset($record['content'])){
 			$row['content']				=	$record['title'];
 		}else{
 			$row['content']				=	$record['content'];
+		}*/
+
+		if($row['is_yinyong'] == 1){
+			//引用
+			$row['content']				=	$row['content'];
+		}else{
+			$row['content']				=	$record['title'];
 		}
 
 		$row['content']=str_replace("&quot;","\"",$row['content']);
