@@ -3126,7 +3126,7 @@ class ApiController extends Controller {
 		$sql	=	'' ;
 		$res	=	''	;
 		if( !$shop){
-			$sql = 'select distinct t.member_id,case when per.nickname is null then me.login_user else per.nickname end as nicknume, me.face,max(t.addtime) as lastSendtime,(select count(*) from ht_sms t1 where t1.to_member_id = t.to_member_id and t1.is_read = 1) as noReadCount, t.parentid from ht_sms t left join ht_member me on t.member_id = me.id left join  ht_personal per on per.member_id = me.id where t.to_member_id ='. $member_id;
+			$sql = 'select distinct t.member_id,case when per.nickname is null then CONCAT(left(me.login_user,3),\'****\',right(me.login_user,4)) else per.nickname end as nicknume, me.face,max(t.addtime) as lastSendtime,(select count(*) from ht_sms t1 where t1.to_member_id = t.to_member_id and t1.is_read = 1) as noReadCount, t.parentid from ht_sms t left join ht_member me on t.member_id = me.id left join  ht_personal per on per.member_id = me.id where t.to_member_id ='. $member_id;
 			$waw = M();
 			$res = $waw->query($sql);
 		}else{
@@ -3280,7 +3280,9 @@ class ApiController extends Controller {
 			$member_id	=	intval(I('get.member_id'));
 		}
 		$map['_string']='member_id="'.$member_id.'" or to_member_id="'.$member_id.'"';
-		$list	=M('ShopComment')->where($map)->order('id desc')->select();
+		$shop	=	$this->getShop($member_id) ;
+		//$list	=M('ShopComment')->where($map)->order('id desc')->select();
+		$list	=M('ShopComment')->where(array('shop_id'=>$shop['id']))->order('id desc')->select();
 		if(!$list)
 		{
 			$this->json_ok(array(array('id'=>'')));
@@ -3294,27 +3296,29 @@ class ApiController extends Controller {
 			$to_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
 			$answerFace	=	$to_row['face'] ;
 			//获取会员昵称
-			$nickname = '' ;
-			$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
+			$nickname =  $this->getNickName($row);
+			//$item['nickname'] = $this->getNickName($member);
+			/*$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
 			if(!$person){
 				//$person['nickname']='吆喝'.$item['member_id'];
 				$nickname	=	$this->getHidePhoneNumber($row['login_user']) ;
 			}else{
 				$nickname	=	$person['nickname'] ;
-			}
+			}*/
 
 			//如果是复评论的话，增加answername和parentid
 			$answerName = '' ;
 			if($item['parentid'] > 0)
 			{
-				$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
-
-				if(!$personReply){
+				//$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
+				$reply_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
+				$answerName	= $this->getNickName($reply_row);
+				/*if(!$personReply){
 					//$answerName	=	'吆喝'.$item['to_member_id'];
 					$answerName	=	$this->getHidePhoneNumber($to_row['login_user']) ;
 				}else{
 					$answerName	=	$personReply['nickname'];
-				}
+				}*/
 			}
 			$shop	=	$this->getShopById($item['shop_id']) ;
 			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$nickname,'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace,'shop_star'=>$shop['star']);
@@ -3352,26 +3356,29 @@ class ApiController extends Controller {
 			$answerFace	=	$to_row['face'] ;
 
 			//获取会员昵称
-			$nickname	=	'' ;
-			$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
+			$nickname	=	 $this->getNickName($row);
+			/*$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
 			if(!$person){
 				//$person['nickname']='吆喝'.$item['member_id'];
 				$nickname	=	$this->getHidePhoneNumber($row['login_user']) ;
 			}else{
 				$nickname	=	$person['nickname'] ;
-			}
+			}*/
 			//如果是复评论的话，增加answername和parentid
 			$answerName = '' ;
 			$answerFace 	=	''	 ;
 			if($item['parentid'] > 0)
 			{
-				$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
+				$reply_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
+				$answerName	= $this->getNickName($reply_row);
+
+				/*$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
 				if(!$personReply){
 					//$answerName	=	'吆喝'.$item['to_member_id'];
 					$answerName	=	$this->getHidePhoneNumber($to_row['login_user']) ;
 				}else{
 					$answerName	=	$personReply['nickname'];
-				}
+				}*/
 			}
 			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$nickname,'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace);
 
@@ -3554,6 +3561,8 @@ class ApiController extends Controller {
 				if(!empty($item['img3']))$item['img']	=	$item['img3'];
 				if(!empty($item['img2']))$item['img']	=	$item['img2'];
 				if(!empty($item['img1']))$item['img']	=	$item['img1'];
+
+				$item['s_img']	=	$item['img'];
 			}else{
 				if(!empty($service['img6']))$item['s_img']=	$service['img6'];
 				if(!empty($service['img5']))$item['s_img']=	$service['img5'];
@@ -3561,6 +3570,8 @@ class ApiController extends Controller {
 				if(!empty($service['img3']))$item['s_img']=	$service['img3'];
 				if(!empty($service['img2']))$item['s_img']=	$service['img2'];
 				if(!empty($service['img1']))$item['s_img']=	$service['img1'];
+
+				$item['img']	=	$item['s_img'];
 			}
 
 			/*if (!empty($service['img6'])) $item['s_img'] = $service['img6'];
