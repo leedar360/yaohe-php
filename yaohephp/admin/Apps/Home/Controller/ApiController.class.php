@@ -3176,7 +3176,7 @@ class ApiController extends Controller {
 		$sql	=	'' ;
 		$res	=	''	;
 		if(!$shop){
-			$sql = 'select t.*,case when per.nickname is null then me.login_user else per.nickname end as nickname,  me.face, t.parentid from ht_sms t left join ht_member me on t.member_id = me.id left join  ht_personal per on per.member_id = me.id where t.to_member_id ='. $to_member_id.' and t.member_id='.$member_id ;
+			$sql = 'select t.*,case when per.nickname is null then CONCAT(left(me.login_user,3),\'****\',right(me.login_user,4)) else per.nickname end as nickname,  me.face, t.parentid from ht_sms t left join ht_member me on t.member_id = me.id left join  ht_personal per on per.member_id = me.id where t.to_member_id ='. $to_member_id.' and t.member_id='.$member_id ;
 			$waw = M();
 			$res = $waw->query($sql);
 		}else{
