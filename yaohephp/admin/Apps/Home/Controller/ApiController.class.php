@@ -3296,7 +3296,11 @@ class ApiController extends Controller {
 		{
 			//获取会员信息
 			$row=M('Member')->where(array('id'=>$item['member_id']))->find();
-			$item['face']=$row['face'];
+			if($item[''] == 0){
+				$item['face']=$row['face'];
+			}else{
+				$item['face']='';
+			}
 			$to_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
 			$answerFace	=	$to_row['face'] ;
 			//获取会员昵称
@@ -3323,6 +3327,10 @@ class ApiController extends Controller {
 				}else{
 					$answerName	=	$personReply['nickname'];
 				}*/
+				$parentComment	=M('ShopComment')->where(array('id'=>$item['parentid']))->find();
+				if($parentComment[''] == 1){
+					$answerFace	=	'' ;
+				}
 			}
 			$shop	=	$this->getShopById($item['shop_id']) ;
 			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$nickname,'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace,'shop_star'=>$shop['star']);
@@ -3355,7 +3363,11 @@ class ApiController extends Controller {
 		{
 			//获取会员信息
 			$row=M('Member')->where(array('id'=>$item['member_id']))->find();
-			$item['face']=$row['face'];
+			if($item['is_anonymous'] == 0 ){
+				$item['face']=$row['face'];
+			}else{
+				$item['face']='';
+			}
 			$to_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
 			$answerFace	=	$to_row['face'] ;
 
@@ -3370,7 +3382,7 @@ class ApiController extends Controller {
 			}*/
 			//如果是复评论的话，增加answername和parentid
 			$answerName = '' ;
-			$answerFace 	=	''	 ;
+			//$answerFace 	=	''	 ;
 			if($item['parentid'] > 0)
 			{
 				$reply_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
@@ -3383,6 +3395,10 @@ class ApiController extends Controller {
 				}else{
 					$answerName	=	$personReply['nickname'];
 				}*/
+				$parentComment	=M('ShopComment')->where(array('id'=>$item['parentid']))->find();
+				if($parentComment[''] == 1){
+					$answerFace	=	'' ;
+				}
 			}
 			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$nickname,'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace);
 
