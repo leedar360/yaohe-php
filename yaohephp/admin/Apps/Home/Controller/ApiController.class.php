@@ -1813,7 +1813,11 @@ class ApiController extends Controller {
 		{
 			$member=M('Member')->field('id,face,type,login_user')->where(array('id'=>$item['member_id']))->find();
 			if(!$member)continue;
-			$item['face']=$member['face'];
+			if($item['is_anonymous'] == 0){
+				$item['face']=$member['face'];
+			}else{
+				$item['face']='';
+			}
 			$item['nickname'] = $this->getNickName($member);
 
 			$answerName = '' ;
