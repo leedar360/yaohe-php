@@ -1815,16 +1815,23 @@ class ApiController extends Controller {
 			if(!$member)continue;
 			if($item['is_anonymous'] == 0){
 				$item['face']=$member['face'];
+				$item['nickname'] = $this->getNickName($member);
 			}else{
+				$item['nickname'] = '匿名用户'.mt_rand(100,999);
 				$item['face']='';
 			}
-			$item['nickname'] = $this->getNickName($member);
 
 			$answerName = '' ;
 			if($item['parentid'] > 0)
 			{
-				$to_member=M('Member')->field('id,face,type,login_user')->where(array('id'=>$item['to_member_id']))->find();
-				$answerName = $this->getNickName($to_member);
+				$parent_comment	=	M('ShopServiceComment')->where(array('id'=>$item['parentid']))->find();
+				if($parent_comment['is_anonymous'] == 0){
+					$to_member=M('Member')->field('id,face,type,login_user')->where(array('id'=>$item['to_member_id']))->find();
+					$answerName = $this->getNickName($to_member);
+				}else{
+					$answerName  = '匿名用户'.mt_rand(100,999);
+				}
+
 				/*$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
 				if(!$personReply){
 					$to_member=M('Member')->field('id,face,type,login_user')->where(array('id'=>$item['to_member_id']))->find();
@@ -3304,31 +3311,21 @@ class ApiController extends Controller {
 			$to_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
 			$answerFace	=	$to_row['face'] ;
 			//获取会员昵称
-			$nickname =  $this->getNickName($row);
-			//$item['nickname'] = $this->getNickName($member);
-			/*$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
-			if(!$person){
-				//$person['nickname']='吆喝'.$item['member_id'];
-				$nickname	=	$this->getHidePhoneNumber($row['login_user']) ;
+			if($item['is_anonymous'] == 0){
+				$nickname =  $this->getNickName($row);
 			}else{
-				$nickname	=	$person['nickname'] ;
-			}*/
-
+				$item['nickname'] = '匿名用户'.mt_rand(100,999);
+			}
 			//如果是复评论的话，增加answername和parentid
 			$answerName = '' ;
 			if($item['parentid'] > 0)
 			{
 				//$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
-				$reply_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
-				$answerName	= $this->getNickName($reply_row);
-				/*if(!$personReply){
-					//$answerName	=	'吆喝'.$item['to_member_id'];
-					$answerName	=	$this->getHidePhoneNumber($to_row['login_user']) ;
+				$parent_comment	=M('ShopComment')->where(array('id'=>$item['parentid']))->find();
+				if($parent_comment['is_anonymous'] == 0){
+					$answerName	= $this->getNickName($to_row);
 				}else{
-					$answerName	=	$personReply['nickname'];
-				}*/
-				$parentComment	=M('ShopComment')->where(array('id'=>$item['parentid']))->find();
-				if($parentComment[''] == 1){
+					$answerName = '匿名用户'.mt_rand(100,999);
 					$answerFace	=	'' ;
 				}
 			}
@@ -3365,14 +3362,16 @@ class ApiController extends Controller {
 			$row=M('Member')->where(array('id'=>$item['member_id']))->find();
 			if($item['is_anonymous'] == 0 ){
 				$item['face']=$row['face'];
+				$nickname	=	 $this->getNickName($row);
 			}else{
 				$item['face']='';
+				$nickname	=	'匿名用户'.mt_rand(100,999);
 			}
 			$to_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
 			$answerFace	=	$to_row['face'] ;
 
 			//获取会员昵称
-			$nickname	=	 $this->getNickName($row);
+
 			/*$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
 			if(!$person){
 				//$person['nickname']='吆喝'.$item['member_id'];
@@ -3385,20 +3384,15 @@ class ApiController extends Controller {
 			//$answerFace 	=	''	 ;
 			if($item['parentid'] > 0)
 			{
-				$reply_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
-				$answerName	= $this->getNickName($reply_row);
-
-				/*$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
-				if(!$personReply){
-					//$answerName	=	'吆喝'.$item['to_member_id'];
-					$answerName	=	$this->getHidePhoneNumber($to_row['login_user']) ;
-				}else{
-					$answerName	=	$personReply['nickname'];
-				}*/
 				$parentComment	=M('ShopComment')->where(array('id'=>$item['parentid']))->find();
-				if($parentComment[''] == 1){
+				if($parentComment['is_anonymous'] == 0){
+					$answerName	= $this->getNickName($to_row);
+				}else{
+					$answerName	= '匿名用户'.mt_rand(100,999);
 					$answerFace	=	'' ;
 				}
+
+
 			}
 			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'nickname'=>$nickname,'is_anonymous'=>$item['is_anonymous'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace);
 
@@ -3677,7 +3671,12 @@ class ApiController extends Controller {
 		$star_total = M('ShopComment')->where(array('shop_id' => $shop_id))->sum('star');
 		//获取评价总次数
 		$comment_total = M('ShopComment')->where(array('shop_id' => $shop_id))->count();
-		$star = floor($star_total / $comment_total);
+		$star = 0 ;
+		if($star_total == 0 || $comment_total == 0){
+			$star = 0 ;
+		}else{
+			$star = floor($star_total / $comment_total);
+		}
 		M('Shop')->where(array('id' => $shop_id))->save(array('star' => $star));
 	}
 
