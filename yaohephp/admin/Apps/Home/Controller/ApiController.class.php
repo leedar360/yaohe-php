@@ -3561,7 +3561,6 @@ class ApiController extends Controller {
 				if(!empty($item['img3']))$item['img']	=	$item['img3'];
 				if(!empty($item['img2']))$item['img']	=	$item['img2'];
 				if(!empty($item['img1']))$item['img']	=	$item['img1'];
-
 				$item['s_img']	=	$item['img'];
 			}else{
 				if(!empty($service['img6']))$item['s_img']=	$service['img6'];
@@ -3570,7 +3569,6 @@ class ApiController extends Controller {
 				if(!empty($service['img3']))$item['s_img']=	$service['img3'];
 				if(!empty($service['img2']))$item['s_img']=	$service['img2'];
 				if(!empty($service['img1']))$item['s_img']=	$service['img1'];
-
 				$item['img']	=	$item['s_img'];
 			}
 
