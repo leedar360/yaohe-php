@@ -1290,6 +1290,9 @@ class ApiController extends Controller {
 		$row['shop_subscribe_tel']	=	$shop['subscribe_tel'];//店铺电话
 		$row['shop_address']		=	$shop['address'];//店铺地址
 		$row['shop_fans_num']		=	$shop['fans_num'];//店铺粉丝数量
+		//得到商家的头像
+		$shop_member	=	M('Member')->where(array('id'=>$row['member_id']))->find();
+		$row['shop_face']			=	$shop_member['face'] ;
 		//根据传的会员ID，判断是否关注当前当前吆喝对应的商铺的
 		$member_id	=	intval(I('post.member_id'));
 		if(!$member_id){
@@ -1345,9 +1348,9 @@ class ApiController extends Controller {
 		$city_id=	intval(I('get.city_id'));
 		$one_id	=	intval(I('get.one_id'));
 
-		$member_id	=	intval(I('post.$member_id'));
+		$member_id	=	intval(I('post.member_id'));
 		if(!$member_id){
-			$member_id	=	intval(I('get.$member_id'));
+			$member_id	=	intval(I('get.member_id'));
 		}
 
 		$classMap['id'] = $one_id ;
@@ -1544,60 +1547,35 @@ class ApiController extends Controller {
 		$arr	=	array();
 		foreach($list as $item)
 		{
-			/*
-			$row	=	M('Personal')->field('nickname')->where(array('member_id'=>$item['member_id']))->find();
-			if(!$row)
-			{
-				$member	=	M("Member")->where(array('id'=>$item['member_id']))->find();
-				$item['nickname']=$member['login_user'];
-			}
-			else
-			{
-				$item['nickname']=$row['nickname'];
-			}
-			$arr[]=$item;
-			*/
+
 			//获取会员信息
 			$row=M('Member')->where(array('id'=>$item['member_id']))->find();
 			$to_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
-			$item['face']=$row['face'];
-			$answerFace 	=	$to_row['face'];
 
-			$nickname = '' ;
-			//如果member_id是商家的话，则显示商家的名称
-			$Shop =	$this->isShopByMemberId($item['member_id']) ;
-
-			if(!$Shop){
-				//获取会员昵称
-				$person=M('Personal')->where(array('member_id'=>$item['member_id']))->find();
-				if(!$person){
-					//$nickname='吆喝'.$item['member_id'];
-					$nickname	=	$this->getHidePhoneNumber($row['login_user']) ;
-				}else{
-					$nickname	=	$person['nickname'] ;
-				}
+			if($item['is_anonymous'] == 0){
+				$item['face']=$row['face'];
+				$item['nickname'] = $this->getNickName($row);
 			}else{
-				$nickname	=	$Shop['title'] ;
+				$item['nickname'] = '匿名用户'.mt_rand(100,999);
+				$item['face']='';
 			}
+			$answerFace 	=	$to_row['face'];
 
 			//如果是复评论的话，增加answername和parentid
 			$answerName = '' ;
 			if($item['parentid'] > 0)
 			{
-				$answer_Shop =	$this->isShopByMemberId($item['to_member_id']) ;
-				if(!$answer_Shop){
-					$personReply=M('Personal')->where(array('member_id'=>$item['to_member_id']))->find();
-					if(!$personReply){
-						$answerName	=	$this->getHidePhoneNumber($to_row['login_user']) ;
-					}else{
-						$answerName	=	$personReply['nickname'];
-					}
+				$parent_comment	=	M('ShopServiceComment')->where(array('id'=>$item['parentid']))->find();
+				if($parent_comment['is_anonymous'] == 0){
+					$to_member=M('Member')->field('id,face,type,login_user')->where(array('id'=>$item['to_member_id']))->find();
+					$answerName = $this->getNickName($to_member);
 				}else{
-					$answerName	=	$answer_Shop['title'];
+					$answerName  = '匿名用户'.mt_rand(100,999);
+					$answerFace 	=	'';
 				}
 
 			}
-			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'to_member_id'=>$item['to_member_id'],'nickname'=>$nickname,'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace);
+			$arr[]=array('id'=>$item['id'],'face'=>$item['face'],'member_id'=>$item['member_id'],'to_member_id'=>$item['to_member_id'],'nickname'=>$item['nickname'],'star'=>$item['star'],'content'=>$item['content'],'addtime'=>date('Y-m-d H:i',$item['addtime']),'answerName'=>$answerName,'parentid'=>$item['parentid'],'answerFace'=>$answerFace);
 
 		}
 		//$this->json_ok(array('shop_star'=>$shop['star'], 'arr'=>$arr));
@@ -2934,6 +2912,10 @@ class ApiController extends Controller {
 	{
 		$keywords	=	I('post.keywords');
 		$city_id	=	I('post.city_id');
+		$member_id	=	I('post.member_id');
+		if(!$member_id){
+			$member_id	=	I('get.member_id');
+		}
 		$map['city_id']=$city_id;
 		if($city_id<1)
 		{
@@ -2961,7 +2943,7 @@ class ApiController extends Controller {
 		$arr		=	array();
 		$map['_string']=' title like "%'.$keywords.'%" or content like "%'.$keywords.'%" and status=1';
 		$list		=	M('ShopService')->where($map)->order('id desc')->select();
-		$arr = $this->iteratorShopServiceGetDetail($list, 0, $arr);
+		$arr = $this->iteratorShopServiceGetDetail($list, $member_id, $arr);
 		if(count($arr)<1)$arr=array(array('id'=>''));
 		$calllist	=	$arr;
 		$data['shoplist']=$shoplist;
@@ -3308,18 +3290,16 @@ class ApiController extends Controller {
 		{
 			//获取会员信息
 			$row=M('Member')->where(array('id'=>$item['member_id']))->find();
-			if($item[''] == 0){
-				$item['face']=$row['face'];
-			}else{
-				$item['face']='';
-			}
+
 			$to_row=M('Member')->where(array('id'=>$item['to_member_id']))->find();
 			$answerFace	=	$to_row['face'] ;
 			//获取会员昵称
 			if($item['is_anonymous'] == 0){
 				$nickname =  $this->getNickName($row);
+				$item['face']=$row['face'];
 			}else{
 				$item['nickname'] = '匿名用户'.mt_rand(100,999);
+				$item['face']='';
 			}
 			//如果是复评论的话，增加answername和parentid
 			$answerName = '' ;
@@ -3572,8 +3552,9 @@ class ApiController extends Controller {
 					break;
 			}
 			//$item['content']	=	$service['content'];
-
-			if($item['is_yinyong'] == 1){
+			$item['s_img'] = '' ;
+			$item['img'] = '' ;
+			if($item['is_yinyong'] == 1){ //1是引用
 				if(!empty($item['img6']))$item['img']	=	$item['img6'];
 				if(!empty($item['img5']))$item['img']	=	$item['img5'];
 				if(!empty($item['img4']))$item['img']	=	$item['img4'];
