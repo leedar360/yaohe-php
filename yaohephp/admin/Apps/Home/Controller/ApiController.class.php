@@ -3203,7 +3203,12 @@ class ApiController extends Controller {
 		{
 			$arr1['member_id'] = $item['member_id'] ;
 			$arr1['nickname'] = $item['nickname'] ;
-			$arr1['content'] = $item['content'] ;
+
+			$arr1['content'] = str_replace("&quot;", "\"", $item['content']);
+			$arr1['content'] = str_replace("&lt;", "<", $item['content']);
+			$arr1['content'] = str_replace("&gt;", ">", $item['content']);
+			$arr1['content'] = str_replace("&amp;", "&", $item['content']);
+
 			$arr1['addtime']=	date("Y-m-d",$item['addtime']);
 			$arr1['face'] = $item['face'] ;
 			$arr1['parentid'] = $item['parentid'] ;
@@ -3668,9 +3673,9 @@ class ApiController extends Controller {
 	private function updateShopStar($shop_id)
 	{
 		//获取评价总星数
-		$star_total = M('ShopComment')->where(array('shop_id' => $shop_id))->sum('star');
+		$star_total = M('ShopComment')->where(array('shop_id' => $shop_id,'is_anonymous'=>0))->sum('star');
 		//获取评价总次数
-		$comment_total = M('ShopComment')->where(array('shop_id' => $shop_id))->count();
+		$comment_total = M('ShopComment')->where(array('shop_id' => $shop_id,'is_anonymous'=>0))->count();
 		$star = 0 ;
 		if($star_total == 0 || $comment_total == 0){
 			$star = 0 ;
