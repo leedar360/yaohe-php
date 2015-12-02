@@ -3625,7 +3625,7 @@ class ApiController extends Controller {
 			$item['shop_name'] = $row['title'];
 			$item['shop_star'] = $row['star'];
 			$item['shop_fans_num'] = $row['fans_num'];
-			$item['addtime']=	date("Y-m-d",$item['addtime']);
+			$item['addtime']=	date("Y-m-d H:i",$item['addtime']);
 			//如果是纯吆喝的时候，添加是不否有引用其他的服务
 			/*if ($item['type'] == 4) {
 				$item['c_id'] = $service['c_id'];
