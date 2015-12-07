@@ -778,7 +778,7 @@ class ApiController extends Controller {
 			$row['follow']=	1;
 		}
 
-		$member	=	M('Member')->where(array('id'=>$member_id))->find();
+		$member	=	M('Member')->where(array('id'=>$row['shop_member_id']))->find();
 		$row['shop_face']	=	$member['face'] ;
 		//获取商家服务
 		$map	=	array();
@@ -1518,8 +1518,8 @@ class ApiController extends Controller {
 		}
 		//var_dump($arr);exit;
 		if(count($arr)<1)$arr=array(array('id'=>''));
-		//$this->json_ok_page($arr, $page, $count);
-		$this->json_ok($arr);
+		$this->json_ok_page($arr, $page, $count);
+		//$this->json_ok($arr);
 	}
 	/**
 	* 功能：获取店铺的点评列表
@@ -3606,6 +3606,22 @@ class ApiController extends Controller {
 		return $arr;
 	}
 
+	public function getShopStar(){
+		$shop_id = 	intval(I('post.shop_id'));
+		if(!$shop_id ){
+			$shop_id 	=	intval(I('get.shop_id'));
+		}
+
+		$shop	=	M('Shop')->where(array('id'=>$shop_id))->find() ;
+		$star	=	$shop['star'] ;
+		if(!$star){
+			$star = 0 ;
+		}
+		$data	=	array() ;
+		$data['shop_id'] = $shop_id ;
+		$data['star'] = intval($shop['star']) ;
+		$this->json_ok($data);
+	}
 	/**
 	 * @param $shop_id
 	 */
