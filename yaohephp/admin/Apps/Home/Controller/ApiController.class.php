@@ -382,6 +382,10 @@ class ApiController extends Controller {
 		}
 		$shop=	$this->getShop($member_id);
 		//写入纯吆喝
+		$is_yinyong = 0 ;
+		if($c_id > 0){
+			$is_yinyong = 1 ;
+		}
 		if($type==4)
 		{
 			//$data['province_id']=	$province['id'];
@@ -399,7 +403,8 @@ class ApiController extends Controller {
 			$data['addtime']	=	time();//添加时间
 			$data['industry_class_id']=$shop['industry_class_id'];//二级分类
 			$data['type']		=	$type;
-			$data['is_yinyong']	=	0 ; //1是引用，0是不引用
+			$is_yinyong = 0 ;
+			$data['is_yinyong']	=	$is_yinyong ; //1是引用，0是不引用
 			//$data['type']		=	$type;
 			//$data['member_id']	=	$member_id;
 			//$data['member_id']	=	$member_id;
@@ -430,7 +435,7 @@ class ApiController extends Controller {
 		$new_data['one_id']		=	$shop['one_id'];//一级分类
 		$new_data['addtime']	=	time();//添加时间
 		$new_data['industry_class_id']=$shop['industry_class_id'];//二级分类
-		$new_data['is_yinyong']	=	1 ; //1是引用，0是不引用
+		$new_data['is_yinyong']	=	$is_yinyong ; //1是引用，0是不引用
 		M('ShopService')->add($new_data);
 		$this->json_ok(true);
 	}
@@ -869,8 +874,14 @@ class ApiController extends Controller {
 	*/
 	public function cancelFollow()
 	{
-		$id			=	intval(I('get.id'));//店铺ID
-		$member_id	=	intval(I('get.member_id'));//会员ID
+		$id			=	intval(I('post.id'));//店铺ID
+		if(!$id){
+			$id			=	intval(I('get.id'));
+		}
+		$member_id	=	intval(I('post.member_id'));//会员ID
+		if(!$member_id){
+			$member_id	=	intval(I('get.member_id')) ;
+		}
 		//TODO
 		/*
 		 * 1.use the memeber id to query the shop, if the shop id is no exist, and the member id is only
