@@ -1448,6 +1448,9 @@ class ApiController extends Controller {
 		$lat	=	I('get.lat');//纬度
 
 		$city_id=	intval(I('post.city_id'));//城市ID
+		if(!$city_id){
+			$city_id=	intval(I('get.city_id'));
+		}
 		$one_id	=	intval(I('post.one_id'));//第一级分类
 		$industry_class_id=intval(I('post.industry_class_id'));//第二级分类
 		$district_id=intval(I('post.district_id'));//商圈ID
@@ -3239,8 +3242,8 @@ class ApiController extends Controller {
 	}
 
 	/**
-	* 功能：获取我的店铺评论
-	*/
+ * 功能：获取我的店铺评论
+ */
 	public function getMyShopCommentList()
 	{
 		$member_id	=	intval(I('post.member_id'));
@@ -3249,9 +3252,9 @@ class ApiController extends Controller {
 			$member_id	=	intval(I('get.member_id'));
 		}
 		$map['_string']='member_id="'.$member_id.'" or to_member_id="'.$member_id.'"';
-		$shop	=	$this->getShop($member_id) ;
-		//$list	=M('ShopComment')->where($map)->order('id desc')->select();
-		$list	=M('ShopComment')->where(array('shop_id'=>$shop['id']))->order('id desc')->select();
+		//$shop	=	$this->getShop($member_id) ;
+		$list	=M('ShopComment')->where($map)->order('id desc')->select();
+		//$list	=M('ShopComment')->where(array('shop_id'=>$shop['id']))->order('id desc')->select();
 		if(!$list)
 		{
 			$this->json_ok(array(array('id'=>'')));
@@ -3287,6 +3290,8 @@ class ApiController extends Controller {
 		}
 		$this->json_ok($arr);
 	}
+
+
 	/**
 	* 功能：获取我的吆喝评论
 	*/
